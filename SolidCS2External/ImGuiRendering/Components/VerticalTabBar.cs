@@ -5,10 +5,8 @@ namespace SolidCS2External.ImGuiRendering.Components;
 
 public static class VerticalTabBar
 {
-    public static int Render(string[] tabNames)
+    public static void Render(string[] tabNames,ref int selectedTab)
     {
-        var selectedTab = 0;
-
         ImGui.PushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
         ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 0.0f);
 
@@ -17,6 +15,5 @@ public static class VerticalTabBar
                 selectedTab = i;
 
         ImGui.PopStyleVar(2);
-        return selectedTab;
     }
 }
