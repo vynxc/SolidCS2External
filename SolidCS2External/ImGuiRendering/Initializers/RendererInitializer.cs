@@ -2,7 +2,7 @@
 using ClickableTransparentOverlay;
 using WinApi.User32;
 
-namespace SolidCS2External.ImGuiRendering;
+namespace SolidCS2External.ImGuiRendering.Initializers;
 
 public class RendererInitializer(Overlay overlay)
 {

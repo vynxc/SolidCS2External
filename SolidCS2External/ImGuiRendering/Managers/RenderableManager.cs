@@ -1,4 +1,6 @@
-﻿namespace SolidCS2External.ImGuiRendering;
+﻿using SolidCS2External.Interfaces;
+
+namespace SolidCS2External.ImGuiRendering.Managers;
 
 public class RenderableManager<TRenderable> where TRenderable : IRenderable
 {
@@ -32,11 +34,9 @@ public class RenderableManager<TRenderable> where TRenderable : IRenderable
     public void Remove(string renderableName)
     {
         var renderable = _renderables.FirstOrDefault(w => w.Name == renderableName);
-        if (renderable != null)
-        {
-            _renderables.Remove(renderable);
-            _currentRenderable = _renderables.FirstOrDefault();
-        }
+        if (renderable == null) return;
+        _renderables.Remove(renderable);
+        _currentRenderable = _renderables.FirstOrDefault();
     }
 
     public void RenderCurrent()

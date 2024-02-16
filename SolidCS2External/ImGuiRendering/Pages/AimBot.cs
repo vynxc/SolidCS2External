@@ -1,4 +1,5 @@
 ﻿using ImGuiNET;
+using SolidCS2External.Interfaces;
 
 namespace SolidCS2External.ImGuiRendering.Pages;
 

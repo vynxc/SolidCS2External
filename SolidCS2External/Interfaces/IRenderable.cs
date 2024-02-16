@@ -1,4 +1,4 @@
-﻿namespace SolidCS2External.ImGuiRendering;
+﻿namespace SolidCS2External.Interfaces;
 
 public interface IRenderable
 {

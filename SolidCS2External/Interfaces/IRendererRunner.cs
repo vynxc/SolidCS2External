@@ -1,4 +1,4 @@
-﻿namespace SolidCS2External;
+﻿namespace SolidCS2External.Interfaces;
 
 public interface IRendererRunner
 {

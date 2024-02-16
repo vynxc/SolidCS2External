@@ -1,7 +1,9 @@
 ﻿using System.Numerics;
 using ImGuiNET;
 using SolidCS2External.ImGuiRendering.Components;
-using SolidCS2External.ImGuiRendering.Pages;
+using SolidCS2External.ImGuiRendering.Managers;
+using SolidCS2External.Interfaces;
+using SolidCS2External.Utils;
 
 namespace SolidCS2External.ImGuiRendering.Windows;
 

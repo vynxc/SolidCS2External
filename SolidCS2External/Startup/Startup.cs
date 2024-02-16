@@ -2,6 +2,7 @@
 using SolidCS2External.ImGuiRendering;
 using SolidCS2External.ImGuiRendering.Pages;
 using SolidCS2External.ImGuiRendering.Windows;
+using SolidCS2External.Interfaces;
 using SolidCS2External.Runners;
 
 namespace SolidCS2External.Startup;
@@ -17,9 +18,8 @@ public class Startup(IRendererRunner rendererRunner)
     {
         services.AddSingleton<Startup>();
         services.AddSingleton<ApplicationRenderer>();
-        services.AddSingleton<IPage,AimBot>();
-        services.AddSingleton<RendererInitializer>();
-        services.AddSingleton<NavigationWindow>();
+        services.AddSingleton<IPage, AimBot>();
+        services.AddSingleton<IWindow, NavigationWindow>();
         services.AddSingleton<IRendererRunner, RendererRunner>();
         Console.WriteLine("Configured Services!");
     }

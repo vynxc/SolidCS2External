@@ -1,4 +1,5 @@
 ﻿using SolidCS2External.ImGuiRendering;
+using SolidCS2External.Interfaces;
 
 namespace SolidCS2External.Runners;
 

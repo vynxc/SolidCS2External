@@ -1,3 +1,3 @@
-﻿namespace SolidCS2External.ImGuiRendering.Pages;
+﻿namespace SolidCS2External.Interfaces;
 
 public interface IPage : IRenderable;
