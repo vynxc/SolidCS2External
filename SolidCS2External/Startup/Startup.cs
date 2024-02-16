@@ -21,6 +21,7 @@ public class Startup(IRendererRunner rendererRunner)
         services.AddSingleton<IPage, AimBot>();
         services.AddSingleton<IWindow, NavigationWindow>();
         services.AddSingleton<IRendererRunner, RendererRunner>();
+        services.AddSingleton<RenderablesGetter>(x => new RenderablesGetter(x));
         Console.WriteLine("Configured Services!");
     }
 }
