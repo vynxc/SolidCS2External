@@ -2,12 +2,12 @@
 
 namespace SolidCS2External.ImGuiRendering.Pages;
 
-public class Aimbot : IPage
+public class AimBot : IPage
 {
     public string Name => "Aim";
 
     public void Render()
     {
-        ImGui.TextUnformatted("Aimbot Options:");
+        ImGui.TextUnformatted("AimBot Options:");
     }
 }

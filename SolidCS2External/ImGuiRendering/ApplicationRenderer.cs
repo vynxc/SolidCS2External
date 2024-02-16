@@ -8,11 +8,12 @@ public class ApplicationRenderer : Overlay
     private readonly RendererInitializer _initializer;
     private readonly RenderableManager<IWindow> _renderableManager;
 
-    public ApplicationRenderer()
+    public ApplicationRenderer(NavigationWindow navigationWindow)
     {
+        Console.WriteLine("ApplicationRenderer");
         _initializer = new RendererInitializer(this);
         _renderableManager = new RenderableManager<IWindow>();
-        _renderableManager.Add(new NavigationWindow());
+        _renderableManager.Add(navigationWindow);
     }
 
     protected override void Render()

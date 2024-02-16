@@ -7,8 +7,15 @@ namespace SolidCS2External.ImGuiRendering.Windows;
 
 public class NavigationWindow : IWindow
 {
-    private readonly RenderableManager<IPage> _renderableManager = new([new Aimbot()]);
-  
+    private readonly RenderableManager<IPage> _renderableManager = new();
+
+    public NavigationWindow(RenderablesGetter renderablesGetter)
+    {
+        var pages = renderablesGetter.GetAll<IPage>();
+        Console.WriteLine($"Adding {pages.Count} pages to the renderable manager.");
+        _renderableManager.AddRange(pages);
+    }
+
     public string Name => "vynxcs cs2 demo";
 
     public void Render()
