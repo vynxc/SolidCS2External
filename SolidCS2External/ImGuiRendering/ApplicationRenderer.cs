@@ -16,7 +16,6 @@ public class ApplicationRenderer : Overlay
         var navigationWindow = renderablesGetter.GetAll<IWindow>();
         _initializer = new RendererInitializer(this);
         _renderableManager = new RenderableManager<IWindow>(navigationWindow);
-        Console.WriteLine("trash");
     }
 
     protected override void Render()
