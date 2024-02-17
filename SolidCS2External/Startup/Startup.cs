@@ -17,7 +17,6 @@ public class Startup(ApplicationRenderer rendererRunner)
         //use di for hack configuration  
         services.AddSingleton<Startup>();
         services.AddSingleton<ApplicationRenderer>();
-        services.AddSingleton<OverlayWindow>();
         services.AddSingleton<RenderablesGetter>();
 
         Console.WriteLine("Configured Services!");
