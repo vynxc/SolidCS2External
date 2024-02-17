@@ -1,5 +1,3 @@
-﻿using SolidCS2External.Interfaces;
-
-namespace SolidCS2External.ImGuiRendering.Windows;
+﻿namespace SolidCS2External.Interfaces;
 
 public interface IWindow : IRenderable;
