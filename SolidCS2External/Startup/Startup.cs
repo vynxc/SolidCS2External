@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SolidCS2External.ImGuiRendering;
-using SolidCS2External.ImGuiRendering.Windows;
 using SolidCS2External.Utils;
 
 namespace SolidCS2External.Startup;
