@@ -1,26 +1,30 @@
-﻿using ClickableTransparentOverlay;
-using SolidCS2External.ImGuiRendering.Initializers;
+﻿using System.Drawing;
+using ClickableTransparentOverlay;
 using SolidCS2External.ImGuiRendering.Managers;
-using SolidCS2External.ImGuiRendering.Windows;
+using SolidCS2External.Interfaces;
 using SolidCS2External.Utils;
+using WinApi.User32;
 
 namespace SolidCS2External.ImGuiRendering;
 
-public class ApplicationRenderer : Overlay
+public class ApplicationRenderer(RenderablesGetter renderablesGetter) : Overlay
 {
-    private readonly RendererInitializer _initializer;
-    private readonly RenderableManager<IWindow> _renderableManager;
+    private readonly OnceFlag _callFlag = new();
 
-    public ApplicationRenderer(RenderablesGetter renderablesGetter)
-    {
-        var navigationWindow = renderablesGetter.GetAll<IWindow>();
-        _initializer = new RendererInitializer(this);
-        _renderableManager = new RenderableManager<IWindow>(navigationWindow);
-    }
+    private RenderableManager<IWindow> _renderableManager = null!;
 
     protected override void Render()
     {
-        _initializer.Init();
-        _renderableManager.RenderCurrent();
+        Call.Once(_callFlag, () =>
+        {
+            var navigationWindow = renderablesGetter.GetFromInterface<IWindow>();
+            var width = User32Methods.GetSystemMetrics(SystemMetrics.SM_CXSCREEN);
+            var height = User32Methods.GetSystemMetrics(SystemMetrics.SM_CYSCREEN);
+            Size = new Size(width, height);
+            _renderableManager = new RenderableManager<IWindow>(navigationWindow);
+            Console.WriteLine($"Size: {Size}");
+        });
+
+        _renderableManager.Render();
     }
 }

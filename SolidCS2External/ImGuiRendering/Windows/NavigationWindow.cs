@@ -13,12 +13,14 @@ public class NavigationWindow : IWindow
 
     public NavigationWindow(RenderablesGetter renderablesGetter)
     {
-        var pages = renderablesGetter.GetAll<IPage>();
-        Console.WriteLine($"Adding {pages.Count} pages to the renderable manager.");
+        var pages = renderablesGetter.GetFromInterface<IPage>();
         _renderableManager.AddRange(pages);
     }
 
-    public string Name => "vynxcs cs2 demo";
+    public string Name => "Navigation";
+
+    public bool AlwaysRender => false;
+
 
     public void Render()
     {
@@ -37,7 +39,7 @@ public class NavigationWindow : IWindow
             ImGui.SameLine();
             ImGui.BeginChild("MainContent", new Vector2(0, -1), ImGuiChildFlags.Border);
             {
-                _renderableManager.RenderCurrent();
+                _renderableManager.Render();
             }
         }
         ImGui.End();

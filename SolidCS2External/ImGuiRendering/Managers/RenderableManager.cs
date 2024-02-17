@@ -39,8 +39,12 @@ public class RenderableManager<TRenderable> where TRenderable : IRenderable
         _currentRenderable = _renderables.FirstOrDefault();
     }
 
-    public void RenderCurrent()
+    public void Render()
     {
+        foreach (var renderable in _renderables)
+            if (renderable is IWindow { AlwaysRender: true } window)
+                window.Render();
+
         _currentRenderable?.Render();
     }
 

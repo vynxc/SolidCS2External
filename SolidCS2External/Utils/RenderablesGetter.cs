@@ -1,12 +1,16 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using SolidCS2External.Interfaces;
 
 namespace SolidCS2External.Utils;
 
 public class RenderablesGetter(IServiceProvider serviceProvider)
 {
-    public List<T> GetAll<T>() where T : IRenderable
+    public List<T> GetFromInterface<T>() where T : IRenderable
     {
-        return serviceProvider.GetServices<T>().ToList();
+        return Assembly.GetExecutingAssembly().GetTypes()
+            .Where(t => typeof(T).IsAssignableFrom(t) && t is { IsInterface: false, IsAbstract: false })
+            .Select(t => (T)ActivatorUtilities.CreateInstance(serviceProvider, t))
+            .ToList();
     }
 }

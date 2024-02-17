@@ -1,28 +1,25 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SolidCS2External.ImGuiRendering;
-using SolidCS2External.ImGuiRendering.Pages;
 using SolidCS2External.ImGuiRendering.Windows;
-using SolidCS2External.Interfaces;
-using SolidCS2External.Runners;
 using SolidCS2External.Utils;
 
 namespace SolidCS2External.Startup;
 
-public class Startup(IRendererRunner rendererRunner)
+public class Startup(ApplicationRenderer rendererRunner)
 {
     public async Task ConfigureAsync()
     {
-        await rendererRunner.RunAsync();
+        await rendererRunner.Run();
     }
 
     public static void ConfigureService(IServiceCollection services)
     {
+        //use di for hack configuration  
         services.AddSingleton<Startup>();
         services.AddSingleton<ApplicationRenderer>();
-        services.AddSingleton<IPage, AimBot>();
-        services.AddSingleton<IWindow, NavigationWindow>();
-        services.AddSingleton<IRendererRunner, RendererRunner>();
-        services.AddSingleton<RenderablesGetter>(x => new RenderablesGetter(x));
+        services.AddSingleton<OverlayWindow>();
+        services.AddSingleton<RenderablesGetter>();
+
         Console.WriteLine("Configured Services!");
     }
 }
