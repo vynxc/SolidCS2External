@@ -34,8 +34,7 @@ public static class OffsetsReader
         if (!Cache.TryGetValue(filePath, out var jsonFile))
         {
             jsonFile = ReadJsonFile(filePath);
-            if (jsonFile is null) throw new Exception("Failed to read json file");
-            Cache[filePath] = jsonFile;
+            Cache[filePath] = jsonFile ?? throw new Exception("Failed to read json file");
         }
 
 
