@@ -3,6 +3,7 @@ using SolidCS2External.Utils;
 
 namespace SolidCS2External.Game.Offsets;
 
+[Obsolete("Replaced by OffsetSourceFileUpdater")]
 public static class OffsetsUpdater
 {
     private static readonly string[] Files = { "client.dll.json", "offsets.json" };
