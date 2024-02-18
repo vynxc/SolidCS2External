@@ -1,6 +1,9 @@
-﻿namespace SolidCS2External.Game.Entity;
+﻿using System.Runtime.InteropServices;
 
-public class EntityPawn
+namespace SolidCS2External.Game.Entity;
+
+[StructLayout(LayoutKind.Explicit)]
+public struct EntityPawn
 {
-    public int Health;
+    [FieldOffset(0x334)] public int Health;
 }
