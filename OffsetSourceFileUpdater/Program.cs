@@ -12,7 +12,7 @@ internal static class Program
     private static void Main()
     {
         using var httpClient = new HttpClient();
-        var slnDir = GetSolutionDirPath("SolidCS2External", 6);
+        var slnDir = GetSolutionDirPath("SolidCS2External");
         var dstDir = $"{slnDir}/SolidCS2External/Game/Offsets/";
         
         foreach (var f in Files)
@@ -26,7 +26,7 @@ internal static class Program
         }
     }
 
-    private static string GetSolutionDirPath(string slnName, int maxUpwardsDepth = 5)
+    private static string GetSolutionDirPath(string slnName, int maxUpwardsDepth = 6)
     {
         if (!slnName.EndsWith(".sln"))
             slnName += ".sln";

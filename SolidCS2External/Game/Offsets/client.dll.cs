@@ -1,4289 +1,4287 @@
-﻿/*
+/*
  * Created using https://github.com/a2x/cs2-dumper
  * Sat, 17 Feb 2024 01:42:29 +0000
  */
 
-using SolidCS2External.Game.Offsets.Attributes;
-
-[OffsetsWithFilePath("client.dll.json")] public static class ActiveModelConfig_t {
-    public static nint m_Handle; // ModelConfigHandle_t
-    public static nint m_Name; // CUtlSymbolLarge
-    public static nint m_AssociatedEntities; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
-    public static nint m_AssociatedEntityNames; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CAnimGraphNetworkedVariables {
-    public static nint m_PredNetBoolVariables; // C_NetworkUtlVectorBase<uint32_t>
-    public static nint m_PredNetByteVariables; // C_NetworkUtlVectorBase<uint8_t>
-    public static nint m_PredNetUInt16Variables; // C_NetworkUtlVectorBase<uint16_t>
-    public static nint m_PredNetIntVariables; // C_NetworkUtlVectorBase<int32_t>
-    public static nint m_PredNetUInt32Variables; // C_NetworkUtlVectorBase<uint32_t>
-    public static nint m_PredNetUInt64Variables; // C_NetworkUtlVectorBase<uint64_t>
-    public static nint m_PredNetFloatVariables; // C_NetworkUtlVectorBase<float>
-    public static nint m_PredNetVectorVariables; // C_NetworkUtlVectorBase<Vector>
-    public static nint m_PredNetQuaternionVariables; // C_NetworkUtlVectorBase<Quaternion>
-    public static nint m_PredNetGlobalSymbolVariables; // C_NetworkUtlVectorBase<CGlobalSymbol>
-    public static nint m_OwnerOnlyPredNetBoolVariables; // C_NetworkUtlVectorBase<uint32_t>
-    public static nint m_OwnerOnlyPredNetByteVariables; // C_NetworkUtlVectorBase<uint8_t>
-    public static nint m_OwnerOnlyPredNetUInt16Variables; // C_NetworkUtlVectorBase<uint16_t>
-    public static nint m_OwnerOnlyPredNetIntVariables; // C_NetworkUtlVectorBase<int32_t>
-    public static nint m_OwnerOnlyPredNetUInt32Variables; // C_NetworkUtlVectorBase<uint32_t>
-    public static nint m_OwnerOnlyPredNetUInt64Variables; // C_NetworkUtlVectorBase<uint64_t>
-    public static nint m_OwnerOnlyPredNetFloatVariables; // C_NetworkUtlVectorBase<float>
-    public static nint m_OwnerOnlyPredNetVectorVariables; // C_NetworkUtlVectorBase<Vector>
-    public static nint m_OwnerOnlyPredNetQuaternionVariables; // C_NetworkUtlVectorBase<Quaternion>
-    public static nint m_OwnerOnlyPredNetGlobalSymbolVariables; // C_NetworkUtlVectorBase<CGlobalSymbol>
-    public static nint m_nBoolVariablesCount; // int32_t
-    public static nint m_nOwnerOnlyBoolVariablesCount; // int32_t
-    public static nint m_nRandomSeedOffset; // int32_t
-    public static nint m_flLastTeleportTime; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CAttributeList {
-    public static nint m_Attributes; // C_UtlVectorEmbeddedNetworkVar<CEconItemAttribute>
-    public static nint m_pManager; // CAttributeManager*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CAttributeManager {
-    public static nint m_Providers; // CUtlVector<CHandle<C_BaseEntity>>
-    public static nint m_iReapplyProvisionParity; // int32_t
-    public static nint m_hOuter; // CHandle<C_BaseEntity>
-    public static nint m_bPreventLoopback; // bool
-    public static nint m_ProviderType; // attributeprovidertypes_t
-    public static nint m_CachedResults; // CUtlVector<CAttributeManager::cached_attribute_float_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CAttributeManager_cached_attribute_float_t {
-    public static nint flIn; // float
-    public static nint iAttribHook; // CUtlSymbolLarge
-    public static nint flOut; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CBaseAnimGraph { // C_BaseModelEntity
-    public static nint m_bInitiallyPopulateInterpHistory; // bool
-    public static nint m_bSuppressAnimEventSounds; // bool
-    public static nint m_bAnimGraphUpdateEnabled; // bool
-    public static nint m_flMaxSlopeDistance; // float
-    public static nint m_vLastSlopeCheckPos; // Vector
-    public static nint m_bAnimationUpdateScheduled; // bool
-    public static nint m_vecForce; // Vector
-    public static nint m_nForceBone; // int32_t
-    public static nint m_pClientsideRagdoll; // CBaseAnimGraph*
-    public static nint m_bBuiltRagdoll; // bool
-    public static nint m_pRagdollPose; // PhysicsRagdollPose_t*
-    public static nint m_bClientRagdoll; // bool
-    public static nint m_bHasAnimatedMaterialAttributes; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CBaseAnimGraphController { // CSkeletonAnimationController
-    public static nint m_animGraphNetworkedVars; // CAnimGraphNetworkedVariables
-    public static nint m_bSequenceFinished; // bool
-    public static nint m_flSoundSyncTime; // float
-    public static nint m_hSequence; // HSequence
-    public static nint m_flSeqStartTime; // GameTime_t
-    public static nint m_flSeqFixedCycle; // float
-    public static nint m_nAnimLoopMode; // AnimLoopMode_t
-    public static nint m_flPlaybackRate; // CNetworkedQuantizedFloat
-    public static nint m_nNotifyState; // SequenceFinishNotifyState_t
-    public static nint m_bNetworkedAnimationInputsChanged; // bool
-    public static nint m_bNetworkedSequenceChanged; // bool
-    public static nint m_bLastUpdateSkipped; // bool
-    public static nint m_flPrevAnimUpdateTime; // GameTime_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CBasePlayerController { // C_BaseEntity
-    public static nint m_nFinalPredictedTick; // int32_t
-    public static nint m_CommandContext; // C_CommandContext
-    public static nint m_nInButtonsWhichAreToggles; // uint64_t
-    public static nint m_nTickBase; // uint32_t
-    public static nint m_hPawn; // CHandle<C_BasePlayerPawn>
-    public static nint m_hPredictedPawn; // CHandle<C_BasePlayerPawn>
-    public static nint m_nSplitScreenSlot; // CSplitScreenSlot
-    public static nint m_hSplitOwner; // CHandle<CBasePlayerController>
-    public static nint m_hSplitScreenPlayers; // CUtlVector<CHandle<CBasePlayerController>>
-    public static nint m_bIsHLTV; // bool
-    public static nint m_iConnected; // PlayerConnectedState
-    public static nint m_iszPlayerName; // char[128]
-    public static nint m_steamID; // uint64_t
-    public static nint m_bIsLocalPlayerController; // bool
-    public static nint m_iDesiredFOV; // uint32_t
+public static class ActiveModelConfig_t {
+    public const nint m_Handle = 0x28; // ModelConfigHandle_t
+    public const nint m_Name = 0x30; // CUtlSymbolLarge
+    public const nint m_AssociatedEntities = 0x38; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
+    public const nint m_AssociatedEntityNames = 0x50; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
+}
+
+public static class CAnimGraphNetworkedVariables {
+    public const nint m_PredNetBoolVariables = 0x8; // C_NetworkUtlVectorBase<uint32_t>
+    public const nint m_PredNetByteVariables = 0x20; // C_NetworkUtlVectorBase<uint8_t>
+    public const nint m_PredNetUInt16Variables = 0x38; // C_NetworkUtlVectorBase<uint16_t>
+    public const nint m_PredNetIntVariables = 0x50; // C_NetworkUtlVectorBase<int32_t>
+    public const nint m_PredNetUInt32Variables = 0x68; // C_NetworkUtlVectorBase<uint32_t>
+    public const nint m_PredNetUInt64Variables = 0x80; // C_NetworkUtlVectorBase<uint64_t>
+    public const nint m_PredNetFloatVariables = 0x98; // C_NetworkUtlVectorBase<float>
+    public const nint m_PredNetVectorVariables = 0xB0; // C_NetworkUtlVectorBase<Vector>
+    public const nint m_PredNetQuaternionVariables = 0xC8; // C_NetworkUtlVectorBase<Quaternion>
+    public const nint m_PredNetGlobalSymbolVariables = 0xE0; // C_NetworkUtlVectorBase<CGlobalSymbol>
+    public const nint m_OwnerOnlyPredNetBoolVariables = 0xF8; // C_NetworkUtlVectorBase<uint32_t>
+    public const nint m_OwnerOnlyPredNetByteVariables = 0x110; // C_NetworkUtlVectorBase<uint8_t>
+    public const nint m_OwnerOnlyPredNetUInt16Variables = 0x128; // C_NetworkUtlVectorBase<uint16_t>
+    public const nint m_OwnerOnlyPredNetIntVariables = 0x140; // C_NetworkUtlVectorBase<int32_t>
+    public const nint m_OwnerOnlyPredNetUInt32Variables = 0x158; // C_NetworkUtlVectorBase<uint32_t>
+    public const nint m_OwnerOnlyPredNetUInt64Variables = 0x170; // C_NetworkUtlVectorBase<uint64_t>
+    public const nint m_OwnerOnlyPredNetFloatVariables = 0x188; // C_NetworkUtlVectorBase<float>
+    public const nint m_OwnerOnlyPredNetVectorVariables = 0x1A0; // C_NetworkUtlVectorBase<Vector>
+    public const nint m_OwnerOnlyPredNetQuaternionVariables = 0x1B8; // C_NetworkUtlVectorBase<Quaternion>
+    public const nint m_OwnerOnlyPredNetGlobalSymbolVariables = 0x1D0; // C_NetworkUtlVectorBase<CGlobalSymbol>
+    public const nint m_nBoolVariablesCount = 0x1E8; // int32_t
+    public const nint m_nOwnerOnlyBoolVariablesCount = 0x1EC; // int32_t
+    public const nint m_nRandomSeedOffset = 0x1F0; // int32_t
+    public const nint m_flLastTeleportTime = 0x1F4; // float
+}
+
+public static class CAttributeList {
+    public const nint m_Attributes = 0x8; // C_UtlVectorEmbeddedNetworkVar<CEconItemAttribute>
+    public const nint m_pManager = 0x58; // CAttributeManager*
+}
+
+public static class CAttributeManager {
+    public const nint m_Providers = 0x8; // CUtlVector<CHandle<C_BaseEntity>>
+    public const nint m_iReapplyProvisionParity = 0x20; // int32_t
+    public const nint m_hOuter = 0x24; // CHandle<C_BaseEntity>
+    public const nint m_bPreventLoopback = 0x28; // bool
+    public const nint m_ProviderType = 0x2C; // attributeprovidertypes_t
+    public const nint m_CachedResults = 0x30; // CUtlVector<CAttributeManager::cached_attribute_float_t>
+}
+
+public static class CAttributeManager_cached_attribute_float_t {
+    public const nint flIn = 0x0; // float
+    public const nint iAttribHook = 0x8; // CUtlSymbolLarge
+    public const nint flOut = 0x10; // float
+}
+
+public static class CBaseAnimGraph { // C_BaseModelEntity
+    public const nint m_bInitiallyPopulateInterpHistory = 0xD48; // bool
+    public const nint m_bSuppressAnimEventSounds = 0xD4A; // bool
+    public const nint m_bAnimGraphUpdateEnabled = 0xD58; // bool
+    public const nint m_flMaxSlopeDistance = 0xD5C; // float
+    public const nint m_vLastSlopeCheckPos = 0xD60; // Vector
+    public const nint m_bAnimationUpdateScheduled = 0xD6C; // bool
+    public const nint m_vecForce = 0xD70; // Vector
+    public const nint m_nForceBone = 0xD7C; // int32_t
+    public const nint m_pClientsideRagdoll = 0xD80; // CBaseAnimGraph*
+    public const nint m_bBuiltRagdoll = 0xD88; // bool
+    public const nint m_pRagdollPose = 0xDA0; // PhysicsRagdollPose_t*
+    public const nint m_bClientRagdoll = 0xDA8; // bool
+    public const nint m_bHasAnimatedMaterialAttributes = 0xDB8; // bool
+}
+
+public static class CBaseAnimGraphController { // CSkeletonAnimationController
+    public const nint m_animGraphNetworkedVars = 0x18; // CAnimGraphNetworkedVariables
+    public const nint m_bSequenceFinished = 0x14A8; // bool
+    public const nint m_flSoundSyncTime = 0x14AC; // float
+    public const nint m_hSequence = 0x14B0; // HSequence
+    public const nint m_flSeqStartTime = 0x14B4; // GameTime_t
+    public const nint m_flSeqFixedCycle = 0x14B8; // float
+    public const nint m_nAnimLoopMode = 0x14BC; // AnimLoopMode_t
+    public const nint m_flPlaybackRate = 0x14C0; // CNetworkedQuantizedFloat
+    public const nint m_nNotifyState = 0x14CC; // SequenceFinishNotifyState_t
+    public const nint m_bNetworkedAnimationInputsChanged = 0x14CE; // bool
+    public const nint m_bNetworkedSequenceChanged = 0x14CF; // bool
+    public const nint m_bLastUpdateSkipped = 0x14D0; // bool
+    public const nint m_flPrevAnimUpdateTime = 0x14D4; // GameTime_t
+}
+
+public static class CBasePlayerController { // C_BaseEntity
+    public const nint m_nFinalPredictedTick = 0x558; // int32_t
+    public const nint m_CommandContext = 0x560; // C_CommandContext
+    public const nint m_nInButtonsWhichAreToggles = 0x5F8; // uint64_t
+    public const nint m_nTickBase = 0x600; // uint32_t
+    public const nint m_hPawn = 0x604; // CHandle<C_BasePlayerPawn>
+    public const nint m_hPredictedPawn = 0x608; // CHandle<C_BasePlayerPawn>
+    public const nint m_nSplitScreenSlot = 0x60C; // CSplitScreenSlot
+    public const nint m_hSplitOwner = 0x610; // CHandle<CBasePlayerController>
+    public const nint m_hSplitScreenPlayers = 0x618; // CUtlVector<CHandle<CBasePlayerController>>
+    public const nint m_bIsHLTV = 0x630; // bool
+    public const nint m_iConnected = 0x634; // PlayerConnectedState
+    public const nint m_iszPlayerName = 0x638; // char[128]
+    public const nint m_steamID = 0x6C0; // uint64_t
+    public const nint m_bIsLocalPlayerController = 0x6C8; // bool
+    public const nint m_iDesiredFOV = 0x6CC; // uint32_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBasePlayerControllerAPI {
+public static class CBasePlayerControllerAPI {
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBasePlayerVData { // CEntitySubclassVDataBase
-    public static nint m_sModelName; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
-    public static nint m_flHeadDamageMultiplier; // CSkillFloat
-    public static nint m_flChestDamageMultiplier; // CSkillFloat
-    public static nint m_flStomachDamageMultiplier; // CSkillFloat
-    public static nint m_flArmDamageMultiplier; // CSkillFloat
-    public static nint m_flLegDamageMultiplier; // CSkillFloat
-    public static nint m_flHoldBreathTime; // float
-    public static nint m_flDrowningDamageInterval; // float
-    public static nint m_nDrowningDamageInitial; // int32_t
-    public static nint m_nDrowningDamageMax; // int32_t
-    public static nint m_nWaterSpeed; // int32_t
-    public static nint m_flUseRange; // float
-    public static nint m_flUseAngleTolerance; // float
-    public static nint m_flCrouchTime; // float
+public static class CBasePlayerVData { // CEntitySubclassVDataBase
+    public const nint m_sModelName = 0x28; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
+    public const nint m_flHeadDamageMultiplier = 0x108; // CSkillFloat
+    public const nint m_flChestDamageMultiplier = 0x118; // CSkillFloat
+    public const nint m_flStomachDamageMultiplier = 0x128; // CSkillFloat
+    public const nint m_flArmDamageMultiplier = 0x138; // CSkillFloat
+    public const nint m_flLegDamageMultiplier = 0x148; // CSkillFloat
+    public const nint m_flHoldBreathTime = 0x158; // float
+    public const nint m_flDrowningDamageInterval = 0x15C; // float
+    public const nint m_nDrowningDamageInitial = 0x160; // int32_t
+    public const nint m_nDrowningDamageMax = 0x164; // int32_t
+    public const nint m_nWaterSpeed = 0x168; // int32_t
+    public const nint m_flUseRange = 0x16C; // float
+    public const nint m_flUseAngleTolerance = 0x170; // float
+    public const nint m_flCrouchTime = 0x174; // float
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBasePlayerWeaponVData { // CEntitySubclassVDataBase
-    public static nint m_szWorldModel; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
-    public static nint m_bBuiltRightHanded; // bool
-    public static nint m_bAllowFlipping; // bool
-    public static nint m_sMuzzleAttachment; // CUtlString
-    public static nint m_szMuzzleFlashParticle; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_iFlags; // ItemFlagTypes_t
-    public static nint m_nPrimaryAmmoType; // AmmoIndex_t
-    public static nint m_nSecondaryAmmoType; // AmmoIndex_t
-    public static nint m_iMaxClip1; // int32_t
-    public static nint m_iMaxClip2; // int32_t
-    public static nint m_iDefaultClip1; // int32_t
-    public static nint m_iDefaultClip2; // int32_t
-    public static nint m_iWeight; // int32_t
-    public static nint m_bAutoSwitchTo; // bool
-    public static nint m_bAutoSwitchFrom; // bool
-    public static nint m_iRumbleEffect; // RumbleEffect_t
-    public static nint m_bLinkedCooldowns; // bool
-    public static nint m_aShootSounds; // CUtlMap<WeaponSound_t,CSoundEventName>
-    public static nint m_iSlot; // int32_t
-    public static nint m_iPosition; // int32_t
+public static class CBasePlayerWeaponVData { // CEntitySubclassVDataBase
+    public const nint m_szWorldModel = 0x28; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
+    public const nint m_bBuiltRightHanded = 0x108; // bool
+    public const nint m_bAllowFlipping = 0x109; // bool
+    public const nint m_sMuzzleAttachment = 0x110; // CUtlString
+    public const nint m_szMuzzleFlashParticle = 0x118; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_iFlags = 0x1F8; // ItemFlagTypes_t
+    public const nint m_nPrimaryAmmoType = 0x1F9; // AmmoIndex_t
+    public const nint m_nSecondaryAmmoType = 0x1FA; // AmmoIndex_t
+    public const nint m_iMaxClip1 = 0x1FC; // int32_t
+    public const nint m_iMaxClip2 = 0x200; // int32_t
+    public const nint m_iDefaultClip1 = 0x204; // int32_t
+    public const nint m_iDefaultClip2 = 0x208; // int32_t
+    public const nint m_iWeight = 0x20C; // int32_t
+    public const nint m_bAutoSwitchTo = 0x210; // bool
+    public const nint m_bAutoSwitchFrom = 0x211; // bool
+    public const nint m_iRumbleEffect = 0x214; // RumbleEffect_t
+    public const nint m_bLinkedCooldowns = 0x218; // bool
+    public const nint m_aShootSounds = 0x220; // CUtlMap<WeaponSound_t,CSoundEventName>
+    public const nint m_iSlot = 0x240; // int32_t
+    public const nint m_iPosition = 0x244; // int32_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBaseProp { // CBaseAnimGraph
-    public static nint m_bModelOverrodeBlockLOS; // bool
-    public static nint m_iShapeType; // int32_t
-    public static nint m_bConformToCollisionBounds; // bool
-    public static nint m_mPreferredCatchTransform; // matrix3x4_t
+public static class CBaseProp { // CBaseAnimGraph
+    public const nint m_bModelOverrodeBlockLOS = 0xED8; // bool
+    public const nint m_iShapeType = 0xEDC; // int32_t
+    public const nint m_bConformToCollisionBounds = 0xEE0; // bool
+    public const nint m_mPreferredCatchTransform = 0xEE4; // matrix3x4_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBodyComponent { // CEntityComponent
-    public static nint m_pSceneNode; // CGameSceneNode*
-    public static nint __m_pChainEntity; // CNetworkVarChainer
+public static class CBodyComponent { // CEntityComponent
+    public const nint m_pSceneNode = 0x8; // CGameSceneNode*
+    public const nint __m_pChainEntity = 0x20; // CNetworkVarChainer
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBodyComponentBaseAnimGraph { // CBodyComponentSkeletonInstance
-    public static nint m_animationController; // CBaseAnimGraphController
-    public static nint __m_pChainEntity; // CNetworkVarChainer
+public static class CBodyComponentBaseAnimGraph { // CBodyComponentSkeletonInstance
+    public const nint m_animationController = 0x460; // CBaseAnimGraphController
+    public const nint __m_pChainEntity = 0x1C28; // CNetworkVarChainer
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBodyComponentBaseModelEntity { // CBodyComponentSkeletonInstance
-    public static nint __m_pChainEntity; // CNetworkVarChainer
+public static class CBodyComponentBaseModelEntity { // CBodyComponentSkeletonInstance
+    public const nint __m_pChainEntity = 0x460; // CNetworkVarChainer
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBodyComponentPoint { // CBodyComponent
-    public static nint m_sceneNode; // CGameSceneNode
-    public static nint __m_pChainEntity; // CNetworkVarChainer
+public static class CBodyComponentPoint { // CBodyComponent
+    public const nint m_sceneNode = 0x50; // CGameSceneNode
+    public const nint __m_pChainEntity = 0x1A0; // CNetworkVarChainer
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBodyComponentSkeletonInstance { // CBodyComponent
-    public static nint m_skeletonInstance; // CSkeletonInstance
-    public static nint __m_pChainEntity; // CNetworkVarChainer
+public static class CBodyComponentSkeletonInstance { // CBodyComponent
+    public const nint m_skeletonInstance = 0x50; // CSkeletonInstance
+    public const nint __m_pChainEntity = 0x430; // CNetworkVarChainer
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBombTarget { // C_BaseTrigger
-    public static nint m_bBombPlantedHere; // bool
+public static class CBombTarget { // C_BaseTrigger
+    public const nint m_bBombPlantedHere = 0xCD8; // bool
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBreachCharge { // C_CSWeaponBase
+public static class CBreachCharge { // C_CSWeaponBase
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBreachChargeProjectile { // C_BaseGrenade
+public static class CBreachChargeProjectile { // C_BaseGrenade
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBumpMine { // C_CSWeaponBase
+public static class CBumpMine { // C_CSWeaponBase
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBumpMineProjectile { // C_BaseGrenade
+public static class CBumpMineProjectile { // C_BaseGrenade
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CBuoyancyHelper {
-    public static nint m_flFluidDensity; // float
+public static class CBuoyancyHelper {
+    public const nint m_flFluidDensity = 0x18; // float
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSArmsRaceScript { // CCSGameModeScript
-    public static nint m_pOuter; // CCSGameModeRules_ArmsRace*
+public static class CCSArmsRaceScript { // CCSGameModeScript
+    public const nint m_pOuter = 0xD8; // CCSGameModeRules_ArmsRace*
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSDeathmatchScript { // CCSGameModeScript
-    public static nint m_pOuter; // CCSGameModeRules_Deathmatch*
+public static class CCSDeathmatchScript { // CCSGameModeScript
+    public const nint m_pOuter = 0xD8; // CCSGameModeRules_Deathmatch*
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGO_WingmanIntroCharacterPosition { // C_CSGO_TeamIntroCharacterPosition
+public static class CCSGO_WingmanIntroCharacterPosition { // C_CSGO_TeamIntroCharacterPosition
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGO_WingmanIntroCounterTerroristPosition { // CCSGO_WingmanIntroCharacterPosition
+public static class CCSGO_WingmanIntroCounterTerroristPosition { // CCSGO_WingmanIntroCharacterPosition
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGO_WingmanIntroTerroristPosition { // CCSGO_WingmanIntroCharacterPosition
+public static class CCSGO_WingmanIntroTerroristPosition { // CCSGO_WingmanIntroCharacterPosition
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGameModeRules {
-    public static nint __m_pChainEntity; // CNetworkVarChainer
+public static class CCSGameModeRules {
+    public const nint __m_pChainEntity = 0x8; // CNetworkVarChainer
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGameModeRules_ArmsRace { // CCSGameModeRules
-    public static nint m_WeaponSequence; // C_NetworkUtlVectorBase<CUtlString>
+public static class CCSGameModeRules_ArmsRace { // CCSGameModeRules
+    public const nint m_WeaponSequence = 0x38; // C_NetworkUtlVectorBase<CUtlString>
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGameModeRules_Deathmatch { // CCSGameModeRules
-    public static nint m_flDMBonusStartTime; // GameTime_t
-    public static nint m_flDMBonusTimeLength; // float
-    public static nint m_nDMBonusWeaponLoadoutSlot; // int16_t
+public static class CCSGameModeRules_Deathmatch { // CCSGameModeRules
+    public const nint m_flDMBonusStartTime = 0x38; // GameTime_t
+    public const nint m_flDMBonusTimeLength = 0x3C; // float
+    public const nint m_nDMBonusWeaponLoadoutSlot = 0x40; // int16_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGameModeRules_Noop { // CCSGameModeRules
+public static class CCSGameModeRules_Noop { // CCSGameModeRules
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSGameModeScript { // CBasePulseGraphInstance
+public static class CCSGameModeScript { // CBasePulseGraphInstance
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSObserver_CameraServices { // CCSPlayerBase_CameraServices
+public static class CCSObserver_CameraServices { // CCSPlayerBase_CameraServices
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSObserver_MovementServices { // CPlayer_MovementServices
+public static class CCSObserver_MovementServices { // CPlayer_MovementServices
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSObserver_ObserverServices { // CPlayer_ObserverServices
-    public static nint m_hLastObserverTarget; // CEntityHandle
-    public static nint m_vecObserverInterpolateOffset; // Vector
-    public static nint m_vecObserverInterpStartPos; // Vector
-    public static nint m_flObsInterp_PathLength; // float
-    public static nint m_qObsInterp_OrientationStart; // Quaternion
-    public static nint m_qObsInterp_OrientationTravelDir; // Quaternion
-    public static nint m_obsInterpState; // ObserverInterpState_t
-    public static nint m_bObserverInterpolationNeedsDeferredSetup; // bool
+public static class CCSObserver_ObserverServices { // CPlayer_ObserverServices
+    public const nint m_hLastObserverTarget = 0x58; // CEntityHandle
+    public const nint m_vecObserverInterpolateOffset = 0x5C; // Vector
+    public const nint m_vecObserverInterpStartPos = 0x68; // Vector
+    public const nint m_flObsInterp_PathLength = 0x74; // float
+    public const nint m_qObsInterp_OrientationStart = 0x80; // Quaternion
+    public const nint m_qObsInterp_OrientationTravelDir = 0x90; // Quaternion
+    public const nint m_obsInterpState = 0xA0; // ObserverInterpState_t
+    public const nint m_bObserverInterpolationNeedsDeferredSetup = 0xA4; // bool
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSObserver_UseServices { // CPlayer_UseServices
+public static class CCSObserver_UseServices { // CPlayer_UseServices
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSObserver_ViewModelServices { // CPlayer_ViewModelServices
+public static class CCSObserver_ViewModelServices { // CPlayer_ViewModelServices
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayerBase_CameraServices { // CPlayer_CameraServices
-    public static nint m_iFOV; // uint32_t
-    public static nint m_iFOVStart; // uint32_t
-    public static nint m_flFOVTime; // GameTime_t
-    public static nint m_flFOVRate; // float
-    public static nint m_hZoomOwner; // CHandle<C_BaseEntity>
-    public static nint m_flLastShotFOV; // float
+public static class CCSPlayerBase_CameraServices { // CPlayer_CameraServices
+    public const nint m_iFOV = 0x210; // uint32_t
+    public const nint m_iFOVStart = 0x214; // uint32_t
+    public const nint m_flFOVTime = 0x218; // GameTime_t
+    public const nint m_flFOVRate = 0x21C; // float
+    public const nint m_hZoomOwner = 0x220; // CHandle<C_BaseEntity>
+    public const nint m_flLastShotFOV = 0x224; // float
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayerController { // CBasePlayerController
-    public static nint m_pInGameMoneyServices; // CCSPlayerController_InGameMoneyServices*
-    public static nint m_pInventoryServices; // CCSPlayerController_InventoryServices*
-    public static nint m_pActionTrackingServices; // CCSPlayerController_ActionTrackingServices*
-    public static nint m_pDamageServices; // CCSPlayerController_DamageServices*
-    public static nint m_iPing; // uint32_t
-    public static nint m_bHasCommunicationAbuseMute; // bool
-    public static nint m_szCrosshairCodes; // CUtlSymbolLarge
-    public static nint m_iPendingTeamNum; // uint8_t
-    public static nint m_flForceTeamTime; // GameTime_t
-    public static nint m_iCompTeammateColor; // int32_t
-    public static nint m_bEverPlayedOnTeam; // bool
-    public static nint m_flPreviousForceJoinTeamTime; // GameTime_t
-    public static nint m_szClan; // CUtlSymbolLarge
-    public static nint m_sSanitizedPlayerName; // CUtlString
-    public static nint m_iCoachingTeam; // int32_t
-    public static nint m_nPlayerDominated; // uint64_t
-    public static nint m_nPlayerDominatingMe; // uint64_t
-    public static nint m_iCompetitiveRanking; // int32_t
-    public static nint m_iCompetitiveWins; // int32_t
-    public static nint m_iCompetitiveRankType; // int8_t
-    public static nint m_iCompetitiveRankingPredicted_Win; // int32_t
-    public static nint m_iCompetitiveRankingPredicted_Loss; // int32_t
-    public static nint m_iCompetitiveRankingPredicted_Tie; // int32_t
-    public static nint m_nEndMatchNextMapVote; // int32_t
-    public static nint m_unActiveQuestId; // uint16_t
-    public static nint m_nQuestProgressReason; // QuestProgress::Reason
-    public static nint m_unPlayerTvControlFlags; // uint32_t
-    public static nint m_iDraftIndex; // int32_t
-    public static nint m_msQueuedModeDisconnectionTimestamp; // uint32_t
-    public static nint m_uiAbandonRecordedReason; // uint32_t
-    public static nint m_bCannotBeKicked; // bool
-    public static nint m_bEverFullyConnected; // bool
-    public static nint m_bAbandonAllowsSurrender; // bool
-    public static nint m_bAbandonOffersInstantSurrender; // bool
-    public static nint m_bDisconnection1MinWarningPrinted; // bool
-    public static nint m_bScoreReported; // bool
-    public static nint m_nDisconnectionTick; // int32_t
-    public static nint m_bControllingBot; // bool
-    public static nint m_bHasControlledBotThisRound; // bool
-    public static nint m_bHasBeenControlledByPlayerThisRound; // bool
-    public static nint m_nBotsControlledThisRound; // int32_t
-    public static nint m_bCanControlObservedBot; // bool
-    public static nint m_hPlayerPawn; // CHandle<C_CSPlayerPawn>
-    public static nint m_hObserverPawn; // CHandle<C_CSObserverPawn>
-    public static nint m_bPawnIsAlive; // bool
-    public static nint m_iPawnHealth; // uint32_t
-    public static nint m_iPawnArmor; // int32_t
-    public static nint m_bPawnHasDefuser; // bool
-    public static nint m_bPawnHasHelmet; // bool
-    public static nint m_nPawnCharacterDefIndex; // uint16_t
-    public static nint m_iPawnLifetimeStart; // int32_t
-    public static nint m_iPawnLifetimeEnd; // int32_t
-    public static nint m_iPawnBotDifficulty; // int32_t
-    public static nint m_hOriginalControllerOfCurrentPawn; // CHandle<CCSPlayerController>
-    public static nint m_iScore; // int32_t
-    public static nint m_vecKills; // C_NetworkUtlVectorBase<EKillTypes_t>
-    public static nint m_iMVPs; // int32_t
-    public static nint m_bIsPlayerNameDirty; // bool
+public static class CCSPlayerController { // CBasePlayerController
+    public const nint m_pInGameMoneyServices = 0x6F8; // CCSPlayerController_InGameMoneyServices*
+    public const nint m_pInventoryServices = 0x700; // CCSPlayerController_InventoryServices*
+    public const nint m_pActionTrackingServices = 0x708; // CCSPlayerController_ActionTrackingServices*
+    public const nint m_pDamageServices = 0x710; // CCSPlayerController_DamageServices*
+    public const nint m_iPing = 0x718; // uint32_t
+    public const nint m_bHasCommunicationAbuseMute = 0x71C; // bool
+    public const nint m_szCrosshairCodes = 0x720; // CUtlSymbolLarge
+    public const nint m_iPendingTeamNum = 0x728; // uint8_t
+    public const nint m_flForceTeamTime = 0x72C; // GameTime_t
+    public const nint m_iCompTeammateColor = 0x730; // int32_t
+    public const nint m_bEverPlayedOnTeam = 0x734; // bool
+    public const nint m_flPreviousForceJoinTeamTime = 0x738; // GameTime_t
+    public const nint m_szClan = 0x740; // CUtlSymbolLarge
+    public const nint m_sSanitizedPlayerName = 0x748; // CUtlString
+    public const nint m_iCoachingTeam = 0x750; // int32_t
+    public const nint m_nPlayerDominated = 0x758; // uint64_t
+    public const nint m_nPlayerDominatingMe = 0x760; // uint64_t
+    public const nint m_iCompetitiveRanking = 0x768; // int32_t
+    public const nint m_iCompetitiveWins = 0x76C; // int32_t
+    public const nint m_iCompetitiveRankType = 0x770; // int8_t
+    public const nint m_iCompetitiveRankingPredicted_Win = 0x774; // int32_t
+    public const nint m_iCompetitiveRankingPredicted_Loss = 0x778; // int32_t
+    public const nint m_iCompetitiveRankingPredicted_Tie = 0x77C; // int32_t
+    public const nint m_nEndMatchNextMapVote = 0x780; // int32_t
+    public const nint m_unActiveQuestId = 0x784; // uint16_t
+    public const nint m_nQuestProgressReason = 0x788; // QuestProgress::Reason
+    public const nint m_unPlayerTvControlFlags = 0x78C; // uint32_t
+    public const nint m_iDraftIndex = 0x7B8; // int32_t
+    public const nint m_msQueuedModeDisconnectionTimestamp = 0x7BC; // uint32_t
+    public const nint m_uiAbandonRecordedReason = 0x7C0; // uint32_t
+    public const nint m_bCannotBeKicked = 0x7C4; // bool
+    public const nint m_bEverFullyConnected = 0x7C5; // bool
+    public const nint m_bAbandonAllowsSurrender = 0x7C6; // bool
+    public const nint m_bAbandonOffersInstantSurrender = 0x7C7; // bool
+    public const nint m_bDisconnection1MinWarningPrinted = 0x7C8; // bool
+    public const nint m_bScoreReported = 0x7C9; // bool
+    public const nint m_nDisconnectionTick = 0x7CC; // int32_t
+    public const nint m_bControllingBot = 0x7D8; // bool
+    public const nint m_bHasControlledBotThisRound = 0x7D9; // bool
+    public const nint m_bHasBeenControlledByPlayerThisRound = 0x7DA; // bool
+    public const nint m_nBotsControlledThisRound = 0x7DC; // int32_t
+    public const nint m_bCanControlObservedBot = 0x7E0; // bool
+    public const nint m_hPlayerPawn = 0x7E4; // CHandle<C_CSPlayerPawn>
+    public const nint m_hObserverPawn = 0x7E8; // CHandle<C_CSObserverPawn>
+    public const nint m_bPawnIsAlive = 0x7EC; // bool
+    public const nint m_iPawnHealth = 0x7F0; // uint32_t
+    public const nint m_iPawnArmor = 0x7F4; // int32_t
+    public const nint m_bPawnHasDefuser = 0x7F8; // bool
+    public const nint m_bPawnHasHelmet = 0x7F9; // bool
+    public const nint m_nPawnCharacterDefIndex = 0x7FA; // uint16_t
+    public const nint m_iPawnLifetimeStart = 0x7FC; // int32_t
+    public const nint m_iPawnLifetimeEnd = 0x800; // int32_t
+    public const nint m_iPawnBotDifficulty = 0x804; // int32_t
+    public const nint m_hOriginalControllerOfCurrentPawn = 0x808; // CHandle<CCSPlayerController>
+    public const nint m_iScore = 0x80C; // int32_t
+    public const nint m_vecKills = 0x810; // C_NetworkUtlVectorBase<EKillTypes_t>
+    public const nint m_iMVPs = 0x828; // int32_t
+    public const nint m_bIsPlayerNameDirty = 0x82C; // bool
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayerControllerAPI {
+public static class CCSPlayerControllerAPI {
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayerController_ActionTrackingServices { // CPlayerControllerComponent
-    public static nint m_perRoundStats; // C_UtlVectorEmbeddedNetworkVar<CSPerRoundStats_t>
-    public static nint m_matchStats; // CSMatchStats_t
-    public static nint m_iNumRoundKills; // int32_t
-    public static nint m_iNumRoundKillsHeadshots; // int32_t
-    public static nint m_unTotalRoundDamageDealt; // uint32_t
+public static class CCSPlayerController_ActionTrackingServices { // CPlayerControllerComponent
+    public const nint m_perRoundStats = 0x40; // C_UtlVectorEmbeddedNetworkVar<CSPerRoundStats_t>
+    public const nint m_matchStats = 0x90; // CSMatchStats_t
+    public const nint m_iNumRoundKills = 0x110; // int32_t
+    public const nint m_iNumRoundKillsHeadshots = 0x114; // int32_t
+    public const nint m_unTotalRoundDamageDealt = 0x118; // uint32_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayerController_DamageServices { // CPlayerControllerComponent
-    public static nint m_nSendUpdate; // int32_t
-    public static nint m_DamageList; // C_UtlVectorEmbeddedNetworkVar<CDamageRecord>
+public static class CCSPlayerController_DamageServices { // CPlayerControllerComponent
+    public const nint m_nSendUpdate = 0x40; // int32_t
+    public const nint m_DamageList = 0x48; // C_UtlVectorEmbeddedNetworkVar<CDamageRecord>
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayerController_InGameMoneyServices { // CPlayerControllerComponent
-    public static nint m_iAccount; // int32_t
-    public static nint m_iStartAccount; // int32_t
-    public static nint m_iTotalCashSpent; // int32_t
-    public static nint m_iCashSpentThisRound; // int32_t
-    public static nint m_nPreviousAccount; // int32_t
+public static class CCSPlayerController_InGameMoneyServices { // CPlayerControllerComponent
+    public const nint m_iAccount = 0x40; // int32_t
+    public const nint m_iStartAccount = 0x44; // int32_t
+    public const nint m_iTotalCashSpent = 0x48; // int32_t
+    public const nint m_iCashSpentThisRound = 0x4C; // int32_t
+    public const nint m_nPreviousAccount = 0x50; // int32_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayerController_InventoryServices { // CPlayerControllerComponent
-    public static nint m_unMusicID; // uint16_t
-    public static nint m_rank; // MedalRank_t[6]
-    public static nint m_nPersonaDataPublicLevel; // int32_t
-    public static nint m_nPersonaDataPublicCommendsLeader; // int32_t
-    public static nint m_nPersonaDataPublicCommendsTeacher; // int32_t
-    public static nint m_nPersonaDataPublicCommendsFriendly; // int32_t
-    public static nint m_nPersonaDataXpTrailLevel; // int32_t
-    public static nint m_vecServerAuthoritativeWeaponSlots; // C_UtlVectorEmbeddedNetworkVar<ServerAuthoritativeWeaponSlot_t>
+public static class CCSPlayerController_InventoryServices { // CPlayerControllerComponent
+    public const nint m_unMusicID = 0x40; // uint16_t
+    public const nint m_rank = 0x44; // MedalRank_t[6]
+    public const nint m_nPersonaDataPublicLevel = 0x5C; // int32_t
+    public const nint m_nPersonaDataPublicCommendsLeader = 0x60; // int32_t
+    public const nint m_nPersonaDataPublicCommendsTeacher = 0x64; // int32_t
+    public const nint m_nPersonaDataPublicCommendsFriendly = 0x68; // int32_t
+    public const nint m_nPersonaDataXpTrailLevel = 0x6C; // int32_t
+    public const nint m_vecServerAuthoritativeWeaponSlots = 0x70; // C_UtlVectorEmbeddedNetworkVar<ServerAuthoritativeWeaponSlot_t>
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_ActionTrackingServices { // CPlayerPawnComponent
-    public static nint m_hLastWeaponBeforeC4AutoSwitch; // CHandle<C_BasePlayerWeapon>
-    public static nint m_bIsRescuing; // bool
-    public static nint m_weaponPurchasesThisMatch; // WeaponPurchaseTracker_t
-    public static nint m_weaponPurchasesThisRound; // WeaponPurchaseTracker_t
+public static class CCSPlayer_ActionTrackingServices { // CPlayerPawnComponent
+    public const nint m_hLastWeaponBeforeC4AutoSwitch = 0x40; // CHandle<C_BasePlayerWeapon>
+    public const nint m_bIsRescuing = 0x44; // bool
+    public const nint m_weaponPurchasesThisMatch = 0x48; // WeaponPurchaseTracker_t
+    public const nint m_weaponPurchasesThisRound = 0xA0; // WeaponPurchaseTracker_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_BulletServices { // CPlayerPawnComponent
-    public static nint m_totalHitsOnServer; // int32_t
+public static class CCSPlayer_BulletServices { // CPlayerPawnComponent
+    public const nint m_totalHitsOnServer = 0x40; // int32_t
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_BuyServices { // CPlayerPawnComponent
-    public static nint m_vecSellbackPurchaseEntries; // C_UtlVectorEmbeddedNetworkVar<SellbackPurchaseEntry_t>
+public static class CCSPlayer_BuyServices { // CPlayerPawnComponent
+    public const nint m_vecSellbackPurchaseEntries = 0x40; // C_UtlVectorEmbeddedNetworkVar<SellbackPurchaseEntry_t>
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_CameraServices { // CCSPlayerBase_CameraServices
-    public static nint m_flDeathCamTilt; // float
+public static class CCSPlayer_CameraServices { // CCSPlayerBase_CameraServices
+    public const nint m_flDeathCamTilt = 0x228; // float
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_GlowServices { // CPlayerPawnComponent
+public static class CCSPlayer_GlowServices { // CPlayerPawnComponent
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_HostageServices { // CPlayerPawnComponent
-    public static nint m_hCarriedHostage; // CHandle<C_BaseEntity>
-    public static nint m_hCarriedHostageProp; // CHandle<C_BaseEntity>
+public static class CCSPlayer_HostageServices { // CPlayerPawnComponent
+    public const nint m_hCarriedHostage = 0x40; // CHandle<C_BaseEntity>
+    public const nint m_hCarriedHostageProp = 0x44; // CHandle<C_BaseEntity>
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_ItemServices { // CPlayer_ItemServices
-    public static nint m_bHasDefuser; // bool
-    public static nint m_bHasHelmet; // bool
-    public static nint m_bHasHeavyArmor; // bool
+public static class CCSPlayer_ItemServices { // CPlayer_ItemServices
+    public const nint m_bHasDefuser = 0x40; // bool
+    public const nint m_bHasHelmet = 0x41; // bool
+    public const nint m_bHasHeavyArmor = 0x42; // bool
 }
 
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_MovementServices { // CPlayer_MovementServices_Humanoid
-    public static nint m_flMaxFallVelocity; // float
-    public static nint m_vecLadderNormal; // Vector
-    public static nint m_nLadderSurfacePropIndex; // int32_t
-    public static nint m_flDuckAmount; // float
-    public static nint m_flDuckSpeed; // float
-    public static nint m_bDuckOverride; // bool
-    public static nint m_bDesiresDuck; // bool
-    public static nint m_flDuckOffset; // float
-    public static nint m_nDuckTimeMsecs; // uint32_t
-    public static nint m_nDuckJumpTimeMsecs; // uint32_t
-    public static nint m_nJumpTimeMsecs; // uint32_t
-    public static nint m_flLastDuckTime; // float
-    public static nint m_vecLastPositionAtFullCrouchSpeed; // Vector2D
-    public static nint m_duckUntilOnGround; // bool
-    public static nint m_bHasWalkMovedSinceLastJump; // bool
-    public static nint m_bInStuckTest; // bool
-    public static nint m_flStuckCheckTime; // float[64][2]
-    public static nint m_nTraceCount; // int32_t
-    public static nint m_StuckLast; // int32_t
-    public static nint m_bSpeedCropped; // bool
-    public static nint m_nOldWaterLevel; // int32_t
-    public static nint m_flWaterEntryTime; // float
-    public static nint m_vecForward; // Vector
-    public static nint m_vecLeft; // Vector
-    public static nint m_vecUp; // Vector
-    public static nint m_nGameCodeHasMovedPlayerAfterCommand; // int32_t
-    public static nint m_bOldJumpPressed; // bool
-    public static nint m_flJumpPressedTime; // float
-    public static nint m_flJumpUntil; // float
-    public static nint m_flJumpVel; // float
-    public static nint m_fStashGrenadeParameterWhen; // GameTime_t
-    public static nint m_nButtonDownMaskPrev; // uint64_t
-    public static nint m_flOffsetTickCompleteTime; // float
-    public static nint m_flOffsetTickStashedSpeed; // float
-    public static nint m_flStamina; // float
-    public static nint m_flHeightAtJumpStart; // float
-    public static nint m_flMaxJumpHeightThisJump; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_PingServices { // CPlayerPawnComponent
-    public static nint m_hPlayerPing; // CHandle<C_BaseEntity>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_UseServices { // CPlayer_UseServices
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_ViewModelServices { // CPlayer_ViewModelServices
-    public static nint m_hViewModel; // CHandle<C_BaseViewModel>[3]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_WaterServices { // CPlayer_WaterServices
-    public static nint m_flWaterJumpTime; // float
-    public static nint m_vecWaterJumpVel; // Vector
-    public static nint m_flSwimSoundTime; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSPlayer_WeaponServices { // CPlayer_WeaponServices
-    public static nint m_flNextAttack; // GameTime_t
-    public static nint m_bIsLookingAtWeapon; // bool
-    public static nint m_bIsHoldingLookAtWeapon; // bool
-    public static nint m_nOldShootPositionHistoryCount; // uint32_t
-    public static nint m_nOldInputHistoryCount; // uint32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSTakeDamageInfoAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSWeaponBaseAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSWeaponBaseVData { // CBasePlayerWeaponVData
-    public static nint m_WeaponType; // CSWeaponType
-    public static nint m_WeaponCategory; // CSWeaponCategory
-    public static nint m_szViewModel; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
-    public static nint m_szPlayerModel; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
-    public static nint m_szWorldDroppedModel; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
-    public static nint m_szAimsightLensMaskModel; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
-    public static nint m_szMagazineModel; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
-    public static nint m_szHeatEffect; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_szEjectBrassEffect; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_szMuzzleFlashParticleAlt; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_szMuzzleFlashThirdPersonParticle; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_szMuzzleFlashThirdPersonParticleAlt; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_szTracerParticle; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_GearSlot; // gear_slot_t
-    public static nint m_GearSlotPosition; // int32_t
-    public static nint m_DefaultLoadoutSlot; // loadout_slot_t
-    public static nint m_sWrongTeamMsg; // CUtlString
-    public static nint m_nPrice; // int32_t
-    public static nint m_nKillAward; // int32_t
-    public static nint m_nPrimaryReserveAmmoMax; // int32_t
-    public static nint m_nSecondaryReserveAmmoMax; // int32_t
-    public static nint m_bMeleeWeapon; // bool
-    public static nint m_bHasBurstMode; // bool
-    public static nint m_bIsRevolver; // bool
-    public static nint m_bCannotShootUnderwater; // bool
-    public static nint m_szName; // CGlobalSymbol
-    public static nint m_szAnimExtension; // CUtlString
-    public static nint m_eSilencerType; // CSWeaponSilencerType
-    public static nint m_nCrosshairMinDistance; // int32_t
-    public static nint m_nCrosshairDeltaDistance; // int32_t
-    public static nint m_bIsFullAuto; // bool
-    public static nint m_nNumBullets; // int32_t
-    public static nint m_flCycleTime; // CFiringModeFloat
-    public static nint m_flMaxSpeed; // CFiringModeFloat
-    public static nint m_flSpread; // CFiringModeFloat
-    public static nint m_flInaccuracyCrouch; // CFiringModeFloat
-    public static nint m_flInaccuracyStand; // CFiringModeFloat
-    public static nint m_flInaccuracyJump; // CFiringModeFloat
-    public static nint m_flInaccuracyLand; // CFiringModeFloat
-    public static nint m_flInaccuracyLadder; // CFiringModeFloat
-    public static nint m_flInaccuracyFire; // CFiringModeFloat
-    public static nint m_flInaccuracyMove; // CFiringModeFloat
-    public static nint m_flRecoilAngle; // CFiringModeFloat
-    public static nint m_flRecoilAngleVariance; // CFiringModeFloat
-    public static nint m_flRecoilMagnitude; // CFiringModeFloat
-    public static nint m_flRecoilMagnitudeVariance; // CFiringModeFloat
-    public static nint m_nTracerFrequency; // CFiringModeInt
-    public static nint m_flInaccuracyJumpInitial; // float
-    public static nint m_flInaccuracyJumpApex; // float
-    public static nint m_flInaccuracyReload; // float
-    public static nint m_nRecoilSeed; // int32_t
-    public static nint m_nSpreadSeed; // int32_t
-    public static nint m_flTimeToIdleAfterFire; // float
-    public static nint m_flIdleInterval; // float
-    public static nint m_flAttackMovespeedFactor; // float
-    public static nint m_flHeatPerShot; // float
-    public static nint m_flInaccuracyPitchShift; // float
-    public static nint m_flInaccuracyAltSoundThreshold; // float
-    public static nint m_flBotAudibleRange; // float
-    public static nint m_szUseRadioSubtitle; // CUtlString
-    public static nint m_bUnzoomsAfterShot; // bool
-    public static nint m_bHideViewModelWhenZoomed; // bool
-    public static nint m_nZoomLevels; // int32_t
-    public static nint m_nZoomFOV1; // int32_t
-    public static nint m_nZoomFOV2; // int32_t
-    public static nint m_flZoomTime0; // float
-    public static nint m_flZoomTime1; // float
-    public static nint m_flZoomTime2; // float
-    public static nint m_flIronSightPullUpSpeed; // float
-    public static nint m_flIronSightPutDownSpeed; // float
-    public static nint m_flIronSightFOV; // float
-    public static nint m_flIronSightPivotForward; // float
-    public static nint m_flIronSightLooseness; // float
-    public static nint m_angPivotAngle; // QAngle
-    public static nint m_vecIronSightEyePos; // Vector
-    public static nint m_nDamage; // int32_t
-    public static nint m_flHeadshotMultiplier; // float
-    public static nint m_flArmorRatio; // float
-    public static nint m_flPenetration; // float
-    public static nint m_flRange; // float
-    public static nint m_flRangeModifier; // float
-    public static nint m_flFlinchVelocityModifierLarge; // float
-    public static nint m_flFlinchVelocityModifierSmall; // float
-    public static nint m_flRecoveryTimeCrouch; // float
-    public static nint m_flRecoveryTimeStand; // float
-    public static nint m_flRecoveryTimeCrouchFinal; // float
-    public static nint m_flRecoveryTimeStandFinal; // float
-    public static nint m_nRecoveryTransitionStartBullet; // int32_t
-    public static nint m_nRecoveryTransitionEndBullet; // int32_t
-    public static nint m_flThrowVelocity; // float
-    public static nint m_vSmokeColor; // Vector
-    public static nint m_szAnimClass; // CGlobalSymbol
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCSWeaponBaseVDataAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CClientAlphaProperty { // IClientAlphaProperty
-    public static nint m_nRenderFX; // uint8_t
-    public static nint m_nRenderMode; // uint8_t
-    public static nint m_bAlphaOverride; // bitfield:1
-    public static nint m_bShadowAlphaOverride; // bitfield:1
-    public static nint m_nReserved; // bitfield:6
-    public static nint m_nAlpha; // uint8_t
-    public static nint m_nDesyncOffset; // uint16_t
-    public static nint m_nReserved2; // uint16_t
-    public static nint m_nDistFadeStart; // uint16_t
-    public static nint m_nDistFadeEnd; // uint16_t
-    public static nint m_flFadeScale; // float
-    public static nint m_flRenderFxStartTime; // GameTime_t
-    public static nint m_flRenderFxDuration; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CClientPointEntityAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CClientScriptEntity { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCollisionProperty {
-    public static nint m_collisionAttribute; // VPhysicsCollisionAttribute_t
-    public static nint m_vecMins; // Vector
-    public static nint m_vecMaxs; // Vector
-    public static nint m_usSolidFlags; // uint8_t
-    public static nint m_nSolidType; // SolidType_t
-    public static nint m_triggerBloat; // uint8_t
-    public static nint m_nSurroundType; // SurroundingBoundsType_t
-    public static nint m_CollisionGroup; // uint8_t
-    public static nint m_nEnablePhysics; // uint8_t
-    public static nint m_flBoundingRadius; // float
-    public static nint m_vecSpecifiedSurroundingMins; // Vector
-    public static nint m_vecSpecifiedSurroundingMaxs; // Vector
-    public static nint m_vecSurroundingMaxs; // Vector
-    public static nint m_vecSurroundingMins; // Vector
-    public static nint m_vCapsuleCenter1; // Vector
-    public static nint m_vCapsuleCenter2; // Vector
-    public static nint m_flCapsuleRadius; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CCompositeMaterialEditorDoc {
-    public static nint m_nVersion; // int32_t
-    public static nint m_Points; // CUtlVector<CompositeMaterialEditorPoint_t>
-    public static nint m_KVthumbnail; // KeyValues3
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CDamageRecord {
-    public static nint m_PlayerDamager; // CHandle<C_CSPlayerPawnBase>
-    public static nint m_PlayerRecipient; // CHandle<C_CSPlayerPawnBase>
-    public static nint m_hPlayerControllerDamager; // CHandle<CCSPlayerController>
-    public static nint m_hPlayerControllerRecipient; // CHandle<CCSPlayerController>
-    public static nint m_szPlayerDamagerName; // CUtlString
-    public static nint m_szPlayerRecipientName; // CUtlString
-    public static nint m_DamagerXuid; // uint64_t
-    public static nint m_RecipientXuid; // uint64_t
-    public static nint m_iDamage; // int32_t
-    public static nint m_iActualHealthRemoved; // int32_t
-    public static nint m_iNumHits; // int32_t
-    public static nint m_iLastBulletUpdate; // int32_t
-    public static nint m_bIsOtherEnemy; // bool
-    public static nint m_killType; // EKillTypes_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CDecalInfo {
-    public static nint m_flAnimationScale; // float
-    public static nint m_flAnimationLifeSpan; // float
-    public static nint m_flPlaceTime; // float
-    public static nint m_flFadeStartTime; // float
-    public static nint m_flFadeDuration; // float
-    public static nint m_nVBSlot; // int32_t
-    public static nint m_nBoneIndex; // int32_t
-    public static nint m_vPosition; // Vector
-    public static nint m_flBoundingRadiusSqr; // float
-    public static nint m_pNext; // CDecalInfo*
-    public static nint m_pPrev; // CDecalInfo*
-    public static nint m_nDecalMaterialIndex; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CDynamicPropAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CEconItemAttribute {
-    public static nint m_iAttributeDefinitionIndex; // uint16_t
-    public static nint m_flValue; // float
-    public static nint m_flInitialValue; // float
-    public static nint m_nRefundableCurrency; // int32_t
-    public static nint m_bSetBonus; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CEffectData {
-    public static nint m_vOrigin; // Vector
-    public static nint m_vStart; // Vector
-    public static nint m_vNormal; // Vector
-    public static nint m_vAngles; // QAngle
-    public static nint m_hEntity; // CEntityHandle
-    public static nint m_hOtherEntity; // CEntityHandle
-    public static nint m_flScale; // float
-    public static nint m_flMagnitude; // float
-    public static nint m_flRadius; // float
-    public static nint m_nSurfaceProp; // CUtlStringToken
-    public static nint m_nEffectIndex; // CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>
-    public static nint m_nDamageType; // uint32_t
-    public static nint m_nPenetrate; // uint8_t
-    public static nint m_nMaterial; // uint16_t
-    public static nint m_nHitBox; // uint16_t
-    public static nint m_nColor; // uint8_t
-    public static nint m_fFlags; // uint8_t
-    public static nint m_nAttachmentIndex; // AttachmentHandle_t
-    public static nint m_nAttachmentName; // CUtlStringToken
-    public static nint m_iEffectName; // uint16_t
-    public static nint m_nExplosionType; // uint8_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CEntityComponent {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CEntityIdentity {
-    public static nint m_nameStringableIndex; // int32_t
-    public static nint m_name; // CUtlSymbolLarge
-    public static nint m_designerName; // CUtlSymbolLarge
-    public static nint m_flags; // uint32_t
-    public static nint m_worldGroupId; // WorldGroupId_t
-    public static nint m_fDataObjectTypes; // uint32_t
-    public static nint m_PathIndex; // ChangeAccessorFieldPathIndex_t
-    public static nint m_pPrev; // CEntityIdentity*
-    public static nint m_pNext; // CEntityIdentity*
-    public static nint m_pPrevByClass; // CEntityIdentity*
-    public static nint m_pNextByClass; // CEntityIdentity*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CEntityInstance {
-    public static nint m_iszPrivateVScripts; // CUtlSymbolLarge
-    public static nint m_pEntity; // CEntityIdentity*
-    public static nint m_CScriptComponent; // CScriptComponent*
-    public static nint m_bVisibleinPVS; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CFireOverlay { // CGlowOverlay
-    public static nint m_pOwner; // C_FireSmoke*
-    public static nint m_vBaseColors; // Vector[4]
-    public static nint m_flScale; // float
-    public static nint m_nGUID; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CFlashlightEffect {
-    public static nint m_bIsOn; // bool
-    public static nint m_bMuzzleFlashEnabled; // bool
-    public static nint m_flMuzzleFlashBrightness; // float
-    public static nint m_quatMuzzleFlashOrientation; // Quaternion
-    public static nint m_vecMuzzleFlashOrigin; // Vector
-    public static nint m_flFov; // float
-    public static nint m_flFarZ; // float
-    public static nint m_flLinearAtten; // float
-    public static nint m_bCastsShadows; // bool
-    public static nint m_flCurrentPullBackDist; // float
-    public static nint m_FlashlightTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_MuzzleFlashTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_textureName; // char[64]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CFuncWater { // C_BaseModelEntity
-    public static nint m_BuoyancyHelper; // CBuoyancyHelper
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CGameSceneNode {
-    public static nint m_nodeToWorld; // CTransform
-    public static nint m_pOwner; // CEntityInstance*
-    public static nint m_pParent; // CGameSceneNode*
-    public static nint m_pChild; // CGameSceneNode*
-    public static nint m_pNextSibling; // CGameSceneNode*
-    public static nint m_hParent; // CGameSceneNodeHandle
-    public static nint m_vecOrigin; // CNetworkOriginCellCoordQuantizedVector
-    public static nint m_angRotation; // QAngle
-    public static nint m_flScale; // float
-    public static nint m_vecAbsOrigin; // Vector
-    public static nint m_angAbsRotation; // QAngle
-    public static nint m_flAbsScale; // float
-    public static nint m_nParentAttachmentOrBone; // int16_t
-    public static nint m_bDebugAbsOriginChanges; // bool
-    public static nint m_bDormant; // bool
-    public static nint m_bForceParentToBeNetworked; // bool
-    public static nint m_bDirtyHierarchy; // bitfield:1
-    public static nint m_bDirtyBoneMergeInfo; // bitfield:1
-    public static nint m_bNetworkedPositionChanged; // bitfield:1
-    public static nint m_bNetworkedAnglesChanged; // bitfield:1
-    public static nint m_bNetworkedScaleChanged; // bitfield:1
-    public static nint m_bWillBeCallingPostDataUpdate; // bitfield:1
-    public static nint m_bBoneMergeFlex; // bitfield:1
-    public static nint m_nLatchAbsOrigin; // bitfield:2
-    public static nint m_bDirtyBoneMergeBoneToRoot; // bitfield:1
-    public static nint m_nHierarchicalDepth; // uint8_t
-    public static nint m_nHierarchyType; // uint8_t
-    public static nint m_nDoNotSetAnimTimeInInvalidatePhysicsCount; // uint8_t
-    public static nint m_name; // CUtlStringToken
-    public static nint m_hierarchyAttachName; // CUtlStringToken
-    public static nint m_flZOffset; // float
-    public static nint m_vRenderOrigin; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CGameSceneNodeHandle {
-    public static nint m_hOwner; // CEntityHandle
-    public static nint m_name; // CUtlStringToken
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CGlobalLightBase {
-    public static nint m_bSpotLight; // bool
-    public static nint m_SpotLightOrigin; // Vector
-    public static nint m_SpotLightAngles; // QAngle
-    public static nint m_ShadowDirection; // Vector
-    public static nint m_AmbientDirection; // Vector
-    public static nint m_SpecularDirection; // Vector
-    public static nint m_InspectorSpecularDirection; // Vector
-    public static nint m_flSpecularPower; // float
-    public static nint m_flSpecularIndependence; // float
-    public static nint m_SpecularColor; // Color
-    public static nint m_bStartDisabled; // bool
-    public static nint m_bEnabled; // bool
-    public static nint m_LightColor; // Color
-    public static nint m_AmbientColor1; // Color
-    public static nint m_AmbientColor2; // Color
-    public static nint m_AmbientColor3; // Color
-    public static nint m_flSunDistance; // float
-    public static nint m_flFOV; // float
-    public static nint m_flNearZ; // float
-    public static nint m_flFarZ; // float
-    public static nint m_bEnableShadows; // bool
-    public static nint m_bOldEnableShadows; // bool
-    public static nint m_bBackgroundClearNotRequired; // bool
-    public static nint m_flCloudScale; // float
-    public static nint m_flCloud1Speed; // float
-    public static nint m_flCloud1Direction; // float
-    public static nint m_flCloud2Speed; // float
-    public static nint m_flCloud2Direction; // float
-    public static nint m_flAmbientScale1; // float
-    public static nint m_flAmbientScale2; // float
-    public static nint m_flGroundScale; // float
-    public static nint m_flLightScale; // float
-    public static nint m_flFoWDarkness; // float
-    public static nint m_bEnableSeparateSkyboxFog; // bool
-    public static nint m_vFowColor; // Vector
-    public static nint m_ViewOrigin; // Vector
-    public static nint m_ViewAngles; // QAngle
-    public static nint m_flViewFoV; // float
-    public static nint m_WorldPoints; // Vector[8]
-    public static nint m_vFogOffsetLayer0; // Vector2D
-    public static nint m_vFogOffsetLayer1; // Vector2D
-    public static nint m_hEnvWind; // CHandle<C_BaseEntity>
-    public static nint m_hEnvSky; // CHandle<C_BaseEntity>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CGlowOverlay {
-    public static nint m_vPos; // Vector
-    public static nint m_bDirectional; // bool
-    public static nint m_vDirection; // Vector
-    public static nint m_bInSky; // bool
-    public static nint m_skyObstructionScale; // float
-    public static nint m_Sprites; // CGlowSprite[4]
-    public static nint m_nSprites; // int32_t
-    public static nint m_flProxyRadius; // float
-    public static nint m_flHDRColorScale; // float
-    public static nint m_flGlowObstructionScale; // float
-    public static nint m_bCacheGlowObstruction; // bool
-    public static nint m_bCacheSkyObstruction; // bool
-    public static nint m_bActivated; // int16_t
-    public static nint m_ListIndex; // uint16_t
-    public static nint m_queryHandle; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CGlowProperty {
-    public static nint m_fGlowColor; // Vector
-    public static nint m_iGlowType; // int32_t
-    public static nint m_iGlowTeam; // int32_t
-    public static nint m_nGlowRange; // int32_t
-    public static nint m_nGlowRangeMin; // int32_t
-    public static nint m_glowColorOverride; // Color
-    public static nint m_bFlashing; // bool
-    public static nint m_flGlowTime; // float
-    public static nint m_flGlowStartTime; // float
-    public static nint m_bEligibleForScreenHighlight; // bool
-    public static nint m_bGlowing; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CGlowSprite {
-    public static nint m_vColor; // Vector
-    public static nint m_flHorzSize; // float
-    public static nint m_flVertSize; // float
-    public static nint m_hMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CGrenadeTracer { // C_BaseModelEntity
-    public static nint m_flTracerDuration; // float
-    public static nint m_nType; // GrenadeType_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CHitboxComponent { // CEntityComponent
-    public static nint m_bvDisabledHitGroups; // uint32_t[1]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CHostageRescueZone { // CHostageRescueZoneShim
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CHostageRescueZoneShim { // C_BaseTrigger
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CInfoDynamicShadowHint { // C_PointEntity
-    public static nint m_bDisabled; // bool
-    public static nint m_flRange; // float
-    public static nint m_nImportance; // int32_t
-    public static nint m_nLightChoice; // int32_t
-    public static nint m_hLight; // CHandle<C_BaseEntity>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CInfoDynamicShadowHintBox { // CInfoDynamicShadowHint
-    public static nint m_vBoxMins; // Vector
-    public static nint m_vBoxMaxs; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CInfoOffscreenPanoramaTexture { // C_PointEntity
-    public static nint m_bDisabled; // bool
-    public static nint m_nResolutionX; // int32_t
-    public static nint m_nResolutionY; // int32_t
-    public static nint m_szLayoutFileName; // CUtlSymbolLarge
-    public static nint m_RenderAttrName; // CUtlSymbolLarge
-    public static nint m_TargetEntities; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
-    public static nint m_nTargetChangeCount; // int32_t
-    public static nint m_vecCSSClasses; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
-    public static nint m_bCheckCSSClasses; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CInfoParticleTarget { // C_PointEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CInfoTarget { // C_PointEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CInfoWorldLayer { // C_BaseEntity
-    public static nint m_pOutputOnEntitiesSpawned; // CEntityIOOutput
-    public static nint m_worldName; // CUtlSymbolLarge
-    public static nint m_layerName; // CUtlSymbolLarge
-    public static nint m_bWorldLayerVisible; // bool
-    public static nint m_bEntitiesSpawned; // bool
-    public static nint m_bCreateAsChildSpawnGroup; // bool
-    public static nint m_hLayerSpawnGroup; // uint32_t
-    public static nint m_bWorldLayerActuallyVisible; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CInterpolatedValue {
-    public static nint m_flStartTime; // float
-    public static nint m_flEndTime; // float
-    public static nint m_flStartValue; // float
-    public static nint m_flEndValue; // float
-    public static nint m_nInterpType; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CLightComponent { // CEntityComponent
-    public static nint __m_pChainEntity; // CNetworkVarChainer
-    public static nint m_Color; // Color
-    public static nint m_SecondaryColor; // Color
-    public static nint m_flBrightness; // float
-    public static nint m_flBrightnessScale; // float
-    public static nint m_flBrightnessMult; // float
-    public static nint m_flRange; // float
-    public static nint m_flFalloff; // float
-    public static nint m_flAttenuation0; // float
-    public static nint m_flAttenuation1; // float
-    public static nint m_flAttenuation2; // float
-    public static nint m_flTheta; // float
-    public static nint m_flPhi; // float
-    public static nint m_hLightCookie; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_nCascades; // int32_t
-    public static nint m_nCastShadows; // int32_t
-    public static nint m_nShadowWidth; // int32_t
-    public static nint m_nShadowHeight; // int32_t
-    public static nint m_bRenderDiffuse; // bool
-    public static nint m_nRenderSpecular; // int32_t
-    public static nint m_bRenderTransmissive; // bool
-    public static nint m_flOrthoLightWidth; // float
-    public static nint m_flOrthoLightHeight; // float
-    public static nint m_nStyle; // int32_t
-    public static nint m_Pattern; // CUtlString
-    public static nint m_nCascadeRenderStaticObjects; // int32_t
-    public static nint m_flShadowCascadeCrossFade; // float
-    public static nint m_flShadowCascadeDistanceFade; // float
-    public static nint m_flShadowCascadeDistance0; // float
-    public static nint m_flShadowCascadeDistance1; // float
-    public static nint m_flShadowCascadeDistance2; // float
-    public static nint m_flShadowCascadeDistance3; // float
-    public static nint m_nShadowCascadeResolution0; // int32_t
-    public static nint m_nShadowCascadeResolution1; // int32_t
-    public static nint m_nShadowCascadeResolution2; // int32_t
-    public static nint m_nShadowCascadeResolution3; // int32_t
-    public static nint m_bUsesBakedShadowing; // bool
-    public static nint m_nShadowPriority; // int32_t
-    public static nint m_nBakedShadowIndex; // int32_t
-    public static nint m_bRenderToCubemaps; // bool
-    public static nint m_nDirectLight; // int32_t
-    public static nint m_nIndirectLight; // int32_t
-    public static nint m_flFadeMinDist; // float
-    public static nint m_flFadeMaxDist; // float
-    public static nint m_flShadowFadeMinDist; // float
-    public static nint m_flShadowFadeMaxDist; // float
-    public static nint m_bEnabled; // bool
-    public static nint m_bFlicker; // bool
-    public static nint m_bPrecomputedFieldsValid; // bool
-    public static nint m_vPrecomputedBoundsMins; // Vector
-    public static nint m_vPrecomputedBoundsMaxs; // Vector
-    public static nint m_vPrecomputedOBBOrigin; // Vector
-    public static nint m_vPrecomputedOBBAngles; // QAngle
-    public static nint m_vPrecomputedOBBExtent; // Vector
-    public static nint m_flPrecomputedMaxRange; // float
-    public static nint m_nFogLightingMode; // int32_t
-    public static nint m_flFogContributionStength; // float
-    public static nint m_flNearClipPlane; // float
-    public static nint m_SkyColor; // Color
-    public static nint m_flSkyIntensity; // float
-    public static nint m_SkyAmbientBounce; // Color
-    public static nint m_bUseSecondaryColor; // bool
-    public static nint m_bMixedShadows; // bool
-    public static nint m_flLightStyleStartTime; // GameTime_t
-    public static nint m_flCapsuleLength; // float
-    public static nint m_flMinRoughness; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CLogicRelay { // CLogicalEntity
-    public static nint m_OnTrigger; // CEntityIOOutput
-    public static nint m_OnSpawn; // CEntityIOOutput
-    public static nint m_bDisabled; // bool
-    public static nint m_bWaitForRefire; // bool
-    public static nint m_bTriggerOnce; // bool
-    public static nint m_bFastRetrigger; // bool
-    public static nint m_bPassthoughCaller; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CLogicalEntity { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CModelState {
-    public static nint m_hModel; // CStrongHandle<InfoForResourceTypeCModel>
-    public static nint m_ModelName; // CUtlSymbolLarge
-    public static nint m_bClientClothCreationSuppressed; // bool
-    public static nint m_MeshGroupMask; // uint64_t
-    public static nint m_nIdealMotionType; // int8_t
-    public static nint m_nForceLOD; // int8_t
-    public static nint m_nClothUpdateFlags; // int8_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CNetworkedSequenceOperation {
-    public static nint m_hSequence; // HSequence
-    public static nint m_flPrevCycle; // float
-    public static nint m_flCycle; // float
-    public static nint m_flWeight; // CNetworkedQuantizedFloat
-    public static nint m_bSequenceChangeNetworked; // bool
-    public static nint m_bDiscontinuity; // bool
-    public static nint m_flPrevCycleFromDiscontinuity; // float
-    public static nint m_flPrevCycleForAnimEventDetection; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayerSprayDecalRenderHelper {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_AutoaimServices { // CPlayerPawnComponent
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_CameraServices { // CPlayerPawnComponent
-    public static nint m_vecCsViewPunchAngle; // QAngle
-    public static nint m_nCsViewPunchAngleTick; // GameTick_t
-    public static nint m_flCsViewPunchAngleTickRatio; // float
-    public static nint m_PlayerFog; // C_fogplayerparams_t
-    public static nint m_hColorCorrectionCtrl; // CHandle<C_ColorCorrection>
-    public static nint m_hViewEntity; // CHandle<C_BaseEntity>
-    public static nint m_hTonemapController; // CHandle<C_TonemapController2>
-    public static nint m_audio; // audioparams_t
-    public static nint m_PostProcessingVolumes; // C_NetworkUtlVectorBase<CHandle<C_PostProcessingVolume>>
-    public static nint m_flOldPlayerZ; // float
-    public static nint m_flOldPlayerViewOffsetZ; // float
-    public static nint m_CurrentFog; // fogparams_t
-    public static nint m_hOldFogController; // CHandle<C_FogController>
-    public static nint m_bOverrideFogColor; // bool[5]
-    public static nint m_OverrideFogColor; // Color[5]
-    public static nint m_bOverrideFogStartEnd; // bool[5]
-    public static nint m_fOverrideFogStart; // float[5]
-    public static nint m_fOverrideFogEnd; // float[5]
-    public static nint m_hActivePostProcessingVolume; // CHandle<C_PostProcessingVolume>
-    public static nint m_angDemoViewAngles; // QAngle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_FlashlightServices { // CPlayerPawnComponent
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_ItemServices { // CPlayerPawnComponent
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_MovementServices { // CPlayerPawnComponent
-    public static nint m_nImpulse; // int32_t
-    public static nint m_nButtons; // CInButtonState
-    public static nint m_nQueuedButtonDownMask; // uint64_t
-    public static nint m_nQueuedButtonChangeMask; // uint64_t
-    public static nint m_nButtonDoublePressed; // uint64_t
-    public static nint m_pButtonPressedCmdNumber; // uint32_t[64]
-    public static nint m_nLastCommandNumberProcessed; // uint32_t
-    public static nint m_nToggleButtonDownMask; // uint64_t
-    public static nint m_flMaxspeed; // float
-    public static nint m_arrForceSubtickMoveWhen; // float[4]
-    public static nint m_flForwardMove; // float
-    public static nint m_flLeftMove; // float
-    public static nint m_flUpMove; // float
-    public static nint m_vecLastMovementImpulses; // Vector
-    public static nint m_vecOldViewAngles; // QAngle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_MovementServices_Humanoid { // CPlayer_MovementServices
-    public static nint m_flStepSoundTime; // float
-    public static nint m_flFallVelocity; // float
-    public static nint m_bInCrouch; // bool
-    public static nint m_nCrouchState; // uint32_t
-    public static nint m_flCrouchTransitionStartTime; // GameTime_t
-    public static nint m_bDucked; // bool
-    public static nint m_bDucking; // bool
-    public static nint m_bInDuckJump; // bool
-    public static nint m_groundNormal; // Vector
-    public static nint m_flSurfaceFriction; // float
-    public static nint m_surfaceProps; // CUtlStringToken
-    public static nint m_nStepside; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_ObserverServices { // CPlayerPawnComponent
-    public static nint m_iObserverMode; // uint8_t
-    public static nint m_hObserverTarget; // CHandle<C_BaseEntity>
-    public static nint m_iObserverLastMode; // ObserverMode_t
-    public static nint m_bForcedObserverMode; // bool
-    public static nint m_flObserverChaseDistance; // float
-    public static nint m_flObserverChaseDistanceCalcTime; // GameTime_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_UseServices { // CPlayerPawnComponent
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_ViewModelServices { // CPlayerPawnComponent
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_WaterServices { // CPlayerPawnComponent
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPlayer_WeaponServices { // CPlayerPawnComponent
-    public static nint m_hMyWeapons; // C_NetworkUtlVectorBase<CHandle<C_BasePlayerWeapon>>
-    public static nint m_hActiveWeapon; // CHandle<C_BasePlayerWeapon>
-    public static nint m_hLastWeapon; // CHandle<C_BasePlayerWeapon>
-    public static nint m_iAmmo; // uint16_t[32]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPointOffScreenIndicatorUi { // C_PointClientUIWorldPanel
-    public static nint m_bBeenEnabled; // bool
-    public static nint m_bHide; // bool
-    public static nint m_flSeenTargetTime; // float
-    public static nint m_pTargetPanel; // C_PointClientUIWorldPanel*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPointTemplate { // CLogicalEntity
-    public static nint m_iszWorldName; // CUtlSymbolLarge
-    public static nint m_iszSource2EntityLumpName; // CUtlSymbolLarge
-    public static nint m_iszEntityFilterName; // CUtlSymbolLarge
-    public static nint m_flTimeoutInterval; // float
-    public static nint m_bAsynchronouslySpawnEntities; // bool
-    public static nint m_pOutputOnSpawned; // CEntityIOOutput
-    public static nint m_clientOnlyEntityBehavior; // PointTemplateClientOnlyEntityBehavior_t
-    public static nint m_ownerSpawnGroupType; // PointTemplateOwnerSpawnGroupType_t
-    public static nint m_createdSpawnGroupHandles; // CUtlVector<uint32_t>
-    public static nint m_SpawnedEntityHandles; // CUtlVector<CEntityHandle>
-    public static nint m_ScriptSpawnCallback; // HSCRIPT
-    public static nint m_ScriptCallbackScope; // HSCRIPT
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPrecipitationVData { // CEntitySubclassVDataBase
-    public static nint m_szParticlePrecipitationEffect; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
-    public static nint m_flInnerDistance; // float
-    public static nint m_nAttachType; // ParticleAttachment_t
-    public static nint m_bBatchSameVolumeType; // bool
-    public static nint m_nRTEnvCP; // int32_t
-    public static nint m_nRTEnvCPComponent; // int32_t
-    public static nint m_szModifier; // CUtlString
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CProjectedTextureBase {
-    public static nint m_hTargetEntity; // CHandle<C_BaseEntity>
-    public static nint m_bState; // bool
-    public static nint m_bAlwaysUpdate; // bool
-    public static nint m_flLightFOV; // float
-    public static nint m_bEnableShadows; // bool
-    public static nint m_bSimpleProjection; // bool
-    public static nint m_bLightOnlyTarget; // bool
-    public static nint m_bLightWorld; // bool
-    public static nint m_bCameraSpace; // bool
-    public static nint m_flBrightnessScale; // float
-    public static nint m_LightColor; // Color
-    public static nint m_flIntensity; // float
-    public static nint m_flLinearAttenuation; // float
-    public static nint m_flQuadraticAttenuation; // float
-    public static nint m_bVolumetric; // bool
-    public static nint m_flVolumetricIntensity; // float
-    public static nint m_flNoiseStrength; // float
-    public static nint m_flFlashlightTime; // float
-    public static nint m_nNumPlanes; // uint32_t
-    public static nint m_flPlaneOffset; // float
-    public static nint m_flColorTransitionTime; // float
-    public static nint m_flAmbient; // float
-    public static nint m_SpotlightTextureName; // char[512]
-    public static nint m_nSpotlightTextureFrame; // int32_t
-    public static nint m_nShadowQuality; // uint32_t
-    public static nint m_flNearZ; // float
-    public static nint m_flFarZ; // float
-    public static nint m_flProjectionSize; // float
-    public static nint m_flRotation; // float
-    public static nint m_bFlipHorizontal; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CPulseGraphInstance_ClientEntity { // CBasePulseGraphInstance
-    public static nint m_pParent; // CClientScriptEntity*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CRenderComponent { // CEntityComponent
-    public static nint __m_pChainEntity; // CNetworkVarChainer
-    public static nint m_bIsRenderingWithViewModels; // bool
-    public static nint m_nSplitscreenFlags; // uint32_t
-    public static nint m_bEnableRendering; // bool
-    public static nint m_bInterpolationReadyToDraw; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CSMatchStats_t { // CSPerRoundStats_t
-    public static nint m_iEnemy5Ks; // int32_t
-    public static nint m_iEnemy4Ks; // int32_t
-    public static nint m_iEnemy3Ks; // int32_t
-    public static nint m_iEnemyKnifeKills; // int32_t
-    public static nint m_iEnemyTaserKills; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CSPerRoundStats_t {
-    public static nint m_iKills; // int32_t
-    public static nint m_iDeaths; // int32_t
-    public static nint m_iAssists; // int32_t
-    public static nint m_iDamage; // int32_t
-    public static nint m_iEquipmentValue; // int32_t
-    public static nint m_iMoneySaved; // int32_t
-    public static nint m_iKillReward; // int32_t
-    public static nint m_iLiveTime; // int32_t
-    public static nint m_iHeadShotKills; // int32_t
-    public static nint m_iObjective; // int32_t
-    public static nint m_iCashEarned; // int32_t
-    public static nint m_iUtilityDamage; // int32_t
-    public static nint m_iEnemiesFlashed; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CScriptComponent { // CEntityComponent
-    public static nint m_scriptClassName; // CUtlSymbolLarge
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CServerOnlyModelEntity { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CSkeletonInstance { // CGameSceneNode
-    public static nint m_modelState; // CModelState
-    public static nint m_bIsAnimationEnabled; // bool
-    public static nint m_bUseParentRenderBounds; // bool
-    public static nint m_bDisableSolidCollisionsForHierarchy; // bool
-    public static nint m_bDirtyMotionType; // bitfield:1
-    public static nint m_bIsGeneratingLatchedParentSpaceState; // bitfield:1
-    public static nint m_materialGroup; // CUtlStringToken
-    public static nint m_nHitboxSet; // uint8_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CSkyboxReference { // C_BaseEntity
-    public static nint m_worldGroupId; // WorldGroupId_t
-    public static nint m_hSkyCamera; // CHandle<C_SkyCamera>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CTablet { // C_CSWeaponBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CTakeDamageInfoAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CTimeline { // IntervalTimer
-    public static nint m_flValues; // float[64]
-    public static nint m_nValueCounts; // int32_t[64]
-    public static nint m_nBucketCount; // int32_t
-    public static nint m_flInterval; // float
-    public static nint m_flFinalValue; // float
-    public static nint m_nCompressionType; // TimelineCompression_t
-    public static nint m_bStopped; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CTripWireFire { // C_BaseCSGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CTripWireFireProjectile { // C_BaseGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CWaterSplasher { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CWeaponZoneRepulsor { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_AK47 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_AttributeContainer { // CAttributeManager
-    public static nint m_Item; // C_EconItemView
-    public static nint m_iExternalItemProviderRegisteredToken; // int32_t
-    public static nint m_ullRegisteredAsItemID; // uint64_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BarnLight { // C_BaseModelEntity
-    public static nint m_bEnabled; // bool
-    public static nint m_nColorMode; // int32_t
-    public static nint m_Color; // Color
-    public static nint m_flColorTemperature; // float
-    public static nint m_flBrightness; // float
-    public static nint m_flBrightnessScale; // float
-    public static nint m_nDirectLight; // int32_t
-    public static nint m_nBakedShadowIndex; // int32_t
-    public static nint m_nLuminaireShape; // int32_t
-    public static nint m_flLuminaireSize; // float
-    public static nint m_flLuminaireAnisotropy; // float
-    public static nint m_LightStyleString; // CUtlString
-    public static nint m_flLightStyleStartTime; // GameTime_t
-    public static nint m_QueuedLightStyleStrings; // C_NetworkUtlVectorBase<CUtlString>
-    public static nint m_LightStyleEvents; // C_NetworkUtlVectorBase<CUtlString>
-    public static nint m_LightStyleTargets; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
-    public static nint m_StyleEvent; // CEntityIOOutput[4]
-    public static nint m_hLightCookie; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_flShape; // float
-    public static nint m_flSoftX; // float
-    public static nint m_flSoftY; // float
-    public static nint m_flSkirt; // float
-    public static nint m_flSkirtNear; // float
-    public static nint m_vSizeParams; // Vector
-    public static nint m_flRange; // float
-    public static nint m_vShear; // Vector
-    public static nint m_nBakeSpecularToCubemaps; // int32_t
-    public static nint m_vBakeSpecularToCubemapsSize; // Vector
-    public static nint m_nCastShadows; // int32_t
-    public static nint m_nShadowMapSize; // int32_t
-    public static nint m_nShadowPriority; // int32_t
-    public static nint m_bContactShadow; // bool
-    public static nint m_nBounceLight; // int32_t
-    public static nint m_flBounceScale; // float
-    public static nint m_flMinRoughness; // float
-    public static nint m_vAlternateColor; // Vector
-    public static nint m_fAlternateColorBrightness; // float
-    public static nint m_nFog; // int32_t
-    public static nint m_flFogStrength; // float
-    public static nint m_nFogShadows; // int32_t
-    public static nint m_flFogScale; // float
-    public static nint m_flFadeSizeStart; // float
-    public static nint m_flFadeSizeEnd; // float
-    public static nint m_flShadowFadeSizeStart; // float
-    public static nint m_flShadowFadeSizeEnd; // float
-    public static nint m_bPrecomputedFieldsValid; // bool
-    public static nint m_vPrecomputedBoundsMins; // Vector
-    public static nint m_vPrecomputedBoundsMaxs; // Vector
-    public static nint m_vPrecomputedOBBOrigin; // Vector
-    public static nint m_vPrecomputedOBBAngles; // QAngle
-    public static nint m_vPrecomputedOBBExtent; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseButton { // C_BaseToggle
-    public static nint m_glowEntity; // CHandle<C_BaseModelEntity>
-    public static nint m_usable; // bool
-    public static nint m_szDisplayText; // CUtlSymbolLarge
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseCSGrenade { // C_CSWeaponBase
-    public static nint m_bClientPredictDelete; // bool
-    public static nint m_bRedraw; // bool
-    public static nint m_bIsHeldByPlayer; // bool
-    public static nint m_bPinPulled; // bool
-    public static nint m_bJumpThrow; // bool
-    public static nint m_bThrowAnimating; // bool
-    public static nint m_fThrowTime; // GameTime_t
-    public static nint m_flThrowStrength; // float
-    public static nint m_flThrowStrengthApproach; // float
-    public static nint m_fDropTime; // GameTime_t
-    public static nint m_bJustPulledPin; // bool
-    public static nint m_nNextHoldTick; // GameTick_t
-    public static nint m_flNextHoldFrac; // float
-    public static nint m_hSwitchToWeaponAfterThrow; // CHandle<C_CSWeaponBase>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseCSGrenadeProjectile { // C_BaseGrenade
-    public static nint m_vInitialPosition; // Vector
-    public static nint m_vInitialVelocity; // Vector
-    public static nint m_nBounces; // int32_t
-    public static nint m_nExplodeEffectIndex; // CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>
-    public static nint m_nExplodeEffectTickBegin; // int32_t
-    public static nint m_vecExplodeEffectOrigin; // Vector
-    public static nint m_flSpawnTime; // GameTime_t
-    public static nint vecLastTrailLinePos; // Vector
-    public static nint flNextTrailLineTime; // GameTime_t
-    public static nint m_bExplodeEffectBegan; // bool
-    public static nint m_bCanCreateGrenadeTrail; // bool
-    public static nint m_nSnapshotTrajectoryEffectIndex; // ParticleIndex_t
-    public static nint m_hSnapshotTrajectoryParticleSnapshot; // CStrongHandle<InfoForResourceTypeIParticleSnapshot>
-    public static nint m_arrTrajectoryTrailPoints; // CUtlVector<Vector>
-    public static nint m_arrTrajectoryTrailPointCreationTimes; // CUtlVector<float>
-    public static nint m_flTrajectoryTrailEffectCreationTime; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseClientUIEntity { // C_BaseModelEntity
-    public static nint m_bEnabled; // bool
-    public static nint m_DialogXMLName; // CUtlSymbolLarge
-    public static nint m_PanelClassName; // CUtlSymbolLarge
-    public static nint m_PanelID; // CUtlSymbolLarge
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseCombatCharacter { // C_BaseFlex
-    public static nint m_hMyWearables; // C_NetworkUtlVectorBase<CHandle<C_EconWearable>>
-    public static nint m_bloodColor; // int32_t
-    public static nint m_leftFootAttachment; // AttachmentHandle_t
-    public static nint m_rightFootAttachment; // AttachmentHandle_t
-    public static nint m_nWaterWakeMode; // C_BaseCombatCharacter::WaterWakeMode_t
-    public static nint m_flWaterWorldZ; // float
-    public static nint m_flWaterNextTraceTime; // float
-    public static nint m_flFieldOfView; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseDoor { // C_BaseToggle
-    public static nint m_bIsUsable; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseEntity { // CEntityInstance
-    public static nint m_CBodyComponent; // CBodyComponent*
-    public static nint m_NetworkTransmitComponent; // CNetworkTransmitComponent
-    public static nint m_nLastThinkTick; // GameTick_t
-    public static nint m_pGameSceneNode; // CGameSceneNode*
-    public static nint m_pRenderComponent; // CRenderComponent*
-    public static nint m_pCollision; // CCollisionProperty*
-    public static nint m_iMaxHealth; // int32_t
-    public static nint m_iHealth; // int32_t
-    public static nint m_lifeState; // uint8_t
-    public static nint m_bTakesDamage; // bool
-    public static nint m_nTakeDamageFlags; // TakeDamageFlags_t
-    public static nint m_bIsPlatform; // bool
-    public static nint m_ubInterpolationFrame; // uint8_t
-    public static nint m_hSceneObjectController; // CHandle<C_BaseEntity>
-    public static nint m_nNoInterpolationTick; // int32_t
-    public static nint m_nVisibilityNoInterpolationTick; // int32_t
-    public static nint m_flProxyRandomValue; // float
-    public static nint m_iEFlags; // int32_t
-    public static nint m_nWaterType; // uint8_t
-    public static nint m_bInterpolateEvenWithNoModel; // bool
-    public static nint m_bPredictionEligible; // bool
-    public static nint m_bApplyLayerMatchIDToModel; // bool
-    public static nint m_tokLayerMatchID; // CUtlStringToken
-    public static nint m_nSubclassID; // CUtlStringToken
-    public static nint m_nSimulationTick; // int32_t
-    public static nint m_iCurrentThinkContext; // int32_t
-    public static nint m_aThinkFunctions; // CUtlVector<thinkfunc_t>
-    public static nint m_nDisableContextThinkStartTick; // GameTick_t
-    public static nint m_flAnimTime; // float
-    public static nint m_flSimulationTime; // float
-    public static nint m_nSceneObjectOverrideFlags; // uint8_t
-    public static nint m_bHasSuccessfullyInterpolated; // bool
-    public static nint m_bHasAddedVarsToInterpolation; // bool
-    public static nint m_bRenderEvenWhenNotSuccessfullyInterpolated; // bool
-    public static nint m_nInterpolationLatchDirtyFlags; // int32_t[2]
-    public static nint m_ListEntry; // uint16_t[11]
-    public static nint m_flCreateTime; // GameTime_t
-    public static nint m_flSpeed; // float
-    public static nint m_EntClientFlags; // uint16_t
-    public static nint m_bClientSideRagdoll; // bool
-    public static nint m_iTeamNum; // uint8_t
-    public static nint m_spawnflags; // uint32_t
-    public static nint m_nNextThinkTick; // GameTick_t
-    public static nint m_fFlags; // uint32_t
-    public static nint m_vecAbsVelocity; // Vector
-    public static nint m_vecVelocity; // CNetworkVelocityVector
-    public static nint m_vecBaseVelocity; // Vector
-    public static nint m_hEffectEntity; // CHandle<C_BaseEntity>
-    public static nint m_hOwnerEntity; // CHandle<C_BaseEntity>
-    public static nint m_MoveCollide; // MoveCollide_t
-    public static nint m_MoveType; // MoveType_t
-    public static nint m_nActualMoveType; // MoveType_t
-    public static nint m_flWaterLevel; // float
-    public static nint m_fEffects; // uint32_t
-    public static nint m_hGroundEntity; // CHandle<C_BaseEntity>
-    public static nint m_flFriction; // float
-    public static nint m_flElasticity; // float
-    public static nint m_flGravityScale; // float
-    public static nint m_flTimeScale; // float
-    public static nint m_bAnimatedEveryTick; // bool
-    public static nint m_flNavIgnoreUntilTime; // GameTime_t
-    public static nint m_hThink; // uint16_t
-    public static nint m_fBBoxVisFlags; // uint8_t
-    public static nint m_bPredictable; // bool
-    public static nint m_bRenderWithViewModels; // bool
-    public static nint m_nSplitUserPlayerPredictionSlot; // CSplitScreenSlot
-    public static nint m_nFirstPredictableCommand; // int32_t
-    public static nint m_nLastPredictableCommand; // int32_t
-    public static nint m_hOldMoveParent; // CHandle<C_BaseEntity>
-    public static nint m_Particles; // CParticleProperty
-    public static nint m_vecPredictedScriptFloats; // CUtlVector<float>
-    public static nint m_vecPredictedScriptFloatIDs; // CUtlVector<int32_t>
-    public static nint m_nNextScriptVarRecordID; // int32_t
-    public static nint m_vecAngVelocity; // QAngle
-    public static nint m_DataChangeEventRef; // int32_t
-    public static nint m_dependencies; // CUtlVector<CEntityHandle>
-    public static nint m_nCreationTick; // int32_t
-    public static nint m_bAnimTimeChanged; // bool
-    public static nint m_bSimulationTimeChanged; // bool
-    public static nint m_sUniqueHammerID; // CUtlString
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseEntityAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseFire { // C_BaseEntity
-    public static nint m_flScale; // float
-    public static nint m_flStartScale; // float
-    public static nint m_flScaleTime; // float
-    public static nint m_nFlags; // uint32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseFlex { // CBaseAnimGraph
-    public static nint m_flexWeight; // C_NetworkUtlVectorBase<float>
-    public static nint m_vLookTargetPosition; // Vector
-    public static nint m_blinktoggle; // bool
-    public static nint m_nLastFlexUpdateFrameCount; // int32_t
-    public static nint m_CachedViewTarget; // Vector
-    public static nint m_nNextSceneEventId; // uint32_t
-    public static nint m_iBlink; // int32_t
-    public static nint m_blinktime; // float
-    public static nint m_prevblinktoggle; // bool
-    public static nint m_iJawOpen; // int32_t
-    public static nint m_flJawOpenAmount; // float
-    public static nint m_flBlinkAmount; // float
-    public static nint m_iMouthAttachment; // AttachmentHandle_t
-    public static nint m_iEyeAttachment; // AttachmentHandle_t
-    public static nint m_bResetFlexWeightsOnModelChange; // bool
-    public static nint m_nEyeOcclusionRendererBone; // int32_t
-    public static nint m_mEyeOcclusionRendererCameraToBoneTransform; // matrix3x4_t
-    public static nint m_vEyeOcclusionRendererHalfExtent; // Vector
-    public static nint m_PhonemeClasses; // C_BaseFlex::Emphasized_Phoneme[3]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseFlex_Emphasized_Phoneme {
-    public static nint m_sClassName; // CUtlString
-    public static nint m_flAmount; // float
-    public static nint m_bRequired; // bool
-    public static nint m_bBasechecked; // bool
-    public static nint m_bValid; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseGrenade { // C_BaseFlex
-    public static nint m_bHasWarnedAI; // bool
-    public static nint m_bIsSmokeGrenade; // bool
-    public static nint m_bIsLive; // bool
-    public static nint m_DmgRadius; // float
-    public static nint m_flDetonateTime; // GameTime_t
-    public static nint m_flWarnAITime; // float
-    public static nint m_flDamage; // float
-    public static nint m_iszBounceSound; // CUtlSymbolLarge
-    public static nint m_ExplosionSound; // CUtlString
-    public static nint m_hThrower; // CHandle<C_CSPlayerPawn>
-    public static nint m_flNextAttack; // GameTime_t
-    public static nint m_hOriginalThrower; // CHandle<C_CSPlayerPawn>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseModelEntity { // C_BaseEntity
-    public static nint m_CRenderComponent; // CRenderComponent*
-    public static nint m_CHitboxComponent; // CHitboxComponent
-    public static nint m_bInitModelEffects; // bool
-    public static nint m_bIsStaticProp; // bool
-    public static nint m_nLastAddDecal; // int32_t
-    public static nint m_nDecalsAdded; // int32_t
-    public static nint m_iOldHealth; // int32_t
-    public static nint m_nRenderMode; // RenderMode_t
-    public static nint m_nRenderFX; // RenderFx_t
-    public static nint m_bAllowFadeInView; // bool
-    public static nint m_clrRender; // Color
-    public static nint m_vecRenderAttributes; // C_UtlVectorEmbeddedNetworkVar<EntityRenderAttribute_t>
-    public static nint m_bRenderToCubemaps; // bool
-    public static nint m_Collision; // CCollisionProperty
-    public static nint m_Glow; // CGlowProperty
-    public static nint m_flGlowBackfaceMult; // float
-    public static nint m_fadeMinDist; // float
-    public static nint m_fadeMaxDist; // float
-    public static nint m_flFadeScale; // float
-    public static nint m_flShadowStrength; // float
-    public static nint m_nObjectCulling; // uint8_t
-    public static nint m_nAddDecal; // int32_t
-    public static nint m_vDecalPosition; // Vector
-    public static nint m_vDecalForwardAxis; // Vector
-    public static nint m_flDecalHealBloodRate; // float
-    public static nint m_flDecalHealHeightRate; // float
-    public static nint m_ConfigEntitiesToPropagateMaterialDecalsTo; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
-    public static nint m_vecViewOffset; // CNetworkViewOffsetVector
-    public static nint m_pClientAlphaProperty; // CClientAlphaProperty*
-    public static nint m_ClientOverrideTint; // Color
-    public static nint m_bUseClientOverrideTint; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BasePlayerPawn { // C_BaseCombatCharacter
-    public static nint m_pWeaponServices; // CPlayer_WeaponServices*
-    public static nint m_pItemServices; // CPlayer_ItemServices*
-    public static nint m_pAutoaimServices; // CPlayer_AutoaimServices*
-    public static nint m_pObserverServices; // CPlayer_ObserverServices*
-    public static nint m_pWaterServices; // CPlayer_WaterServices*
-    public static nint m_pUseServices; // CPlayer_UseServices*
-    public static nint m_pFlashlightServices; // CPlayer_FlashlightServices*
-    public static nint m_pCameraServices; // CPlayer_CameraServices*
-    public static nint m_pMovementServices; // CPlayer_MovementServices*
-    public static nint m_ServerViewAngleChanges; // C_UtlVectorEmbeddedNetworkVar<ViewAngleServerChange_t>
-    public static nint m_nHighestConsumedServerViewAngleChangeIndex; // uint32_t
-    public static nint v_angle; // QAngle
-    public static nint v_anglePrevious; // QAngle
-    public static nint m_iHideHUD; // uint32_t
-    public static nint m_skybox3d; // sky3dparams_t
-    public static nint m_flDeathTime; // GameTime_t
-    public static nint m_vecPredictionError; // Vector
-    public static nint m_flPredictionErrorTime; // GameTime_t
-    public static nint m_vecLastCameraSetupLocalOrigin; // Vector
-    public static nint m_flLastCameraSetupTime; // GameTime_t
-    public static nint m_flFOVSensitivityAdjust; // float
-    public static nint m_flMouseSensitivity; // float
-    public static nint m_vOldOrigin; // Vector
-    public static nint m_flOldSimulationTime; // float
-    public static nint m_nLastExecutedCommandNumber; // int32_t
-    public static nint m_nLastExecutedCommandTick; // int32_t
-    public static nint m_hController; // CHandle<CBasePlayerController>
-    public static nint m_bIsSwappingToPredictableController; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BasePlayerWeapon { // C_EconEntity
-    public static nint m_nNextPrimaryAttackTick; // GameTick_t
-    public static nint m_flNextPrimaryAttackTickRatio; // float
-    public static nint m_nNextSecondaryAttackTick; // GameTick_t
-    public static nint m_flNextSecondaryAttackTickRatio; // float
-    public static nint m_iClip1; // int32_t
-    public static nint m_iClip2; // int32_t
-    public static nint m_pReserveAmmo; // int32_t[2]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BasePropDoor { // C_DynamicProp
-    public static nint m_eDoorState; // DoorState_t
-    public static nint m_modelChanged; // bool
-    public static nint m_bLocked; // bool
-    public static nint m_closedPosition; // Vector
-    public static nint m_closedAngles; // QAngle
-    public static nint m_hMaster; // CHandle<C_BasePropDoor>
-    public static nint m_vWhereToSetLightingOrigin; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseToggle { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseTrigger { // C_BaseToggle
-    public static nint m_bDisabled; // bool
-    public static nint m_bClientSidePredicted; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BaseViewModel { // CBaseAnimGraph
-    public static nint m_vecLastFacing; // Vector
-    public static nint m_nViewModelIndex; // uint32_t
-    public static nint m_nAnimationParity; // uint32_t
-    public static nint m_flAnimationStartTime; // float
-    public static nint m_hWeapon; // CHandle<C_BasePlayerWeapon>
-    public static nint m_sVMName; // CUtlSymbolLarge
-    public static nint m_sAnimationPrefix; // CUtlSymbolLarge
-    public static nint m_hWeaponModel; // CHandle<C_ViewmodelWeapon>
-    public static nint m_iCameraAttachment; // AttachmentHandle_t
-    public static nint m_vecLastCameraAngles; // QAngle
-    public static nint m_previousElapsedDuration; // float
-    public static nint m_previousCycle; // float
-    public static nint m_nOldAnimationParity; // int32_t
-    public static nint m_hOldLayerSequence; // HSequence
-    public static nint m_oldLayer; // int32_t
-    public static nint m_oldLayerStartTime; // float
-    public static nint m_hControlPanel; // CHandle<C_BaseEntity>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Beam { // C_BaseModelEntity
-    public static nint m_flFrameRate; // float
-    public static nint m_flHDRColorScale; // float
-    public static nint m_flFireTime; // GameTime_t
-    public static nint m_flDamage; // float
-    public static nint m_nNumBeamEnts; // uint8_t
-    public static nint m_queryHandleHalo; // int32_t
-    public static nint m_hBaseMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_nHaloIndex; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_nBeamType; // BeamType_t
-    public static nint m_nBeamFlags; // uint32_t
-    public static nint m_hAttachEntity; // CHandle<C_BaseEntity>[10]
-    public static nint m_nAttachIndex; // AttachmentHandle_t[10]
-    public static nint m_fWidth; // float
-    public static nint m_fEndWidth; // float
-    public static nint m_fFadeLength; // float
-    public static nint m_fHaloScale; // float
-    public static nint m_fAmplitude; // float
-    public static nint m_fStartFrame; // float
-    public static nint m_fSpeed; // float
-    public static nint m_flFrame; // float
-    public static nint m_nClipStyle; // BeamClipStyle_t
-    public static nint m_bTurnedOff; // bool
-    public static nint m_vecEndPos; // Vector
-    public static nint m_hEndEntity; // CHandle<C_BaseEntity>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Breakable { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BreakableProp { // CBaseProp
-    public static nint m_OnBreak; // CEntityIOOutput
-    public static nint m_OnHealthChanged; // CEntityOutputTemplate<float>
-    public static nint m_OnTakeDamage; // CEntityIOOutput
-    public static nint m_impactEnergyScale; // float
-    public static nint m_iMinHealthDmg; // int32_t
-    public static nint m_flPressureDelay; // float
-    public static nint m_hBreaker; // CHandle<C_BaseEntity>
-    public static nint m_PerformanceMode; // PerformanceMode_t
-    public static nint m_flDmgModBullet; // float
-    public static nint m_flDmgModClub; // float
-    public static nint m_flDmgModExplosive; // float
-    public static nint m_flDmgModFire; // float
-    public static nint m_iszPhysicsDamageTableName; // CUtlSymbolLarge
-    public static nint m_iszBasePropData; // CUtlSymbolLarge
-    public static nint m_iInteractions; // int32_t
-    public static nint m_flPreventDamageBeforeTime; // GameTime_t
-    public static nint m_bHasBreakPiecesOrCommands; // bool
-    public static nint m_explodeDamage; // float
-    public static nint m_explodeRadius; // float
-    public static nint m_explosionDelay; // float
-    public static nint m_explosionBuildupSound; // CUtlSymbolLarge
-    public static nint m_explosionCustomEffect; // CUtlSymbolLarge
-    public static nint m_explosionCustomSound; // CUtlSymbolLarge
-    public static nint m_explosionModifier; // CUtlSymbolLarge
-    public static nint m_hPhysicsAttacker; // CHandle<C_BasePlayerPawn>
-    public static nint m_flLastPhysicsInfluenceTime; // GameTime_t
-    public static nint m_flDefaultFadeScale; // float
-    public static nint m_hLastAttacker; // CHandle<C_BaseEntity>
-    public static nint m_hFlareEnt; // CHandle<C_BaseEntity>
-    public static nint m_noGhostCollision; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_BulletHitModel { // CBaseAnimGraph
-    public static nint m_matLocal; // matrix3x4_t
-    public static nint m_iBoneIndex; // int32_t
-    public static nint m_hPlayerParent; // CHandle<C_BaseEntity>
-    public static nint m_bIsHit; // bool
-    public static nint m_flTimeCreated; // float
-    public static nint m_vecStartPos; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_C4 { // C_CSWeaponBase
-    public static nint m_szScreenText; // char[32]
-    public static nint m_activeLightParticleIndex; // ParticleIndex_t
-    public static nint m_eActiveLightEffect; // C4LightEffect_t
-    public static nint m_bStartedArming; // bool
-    public static nint m_fArmedTime; // GameTime_t
-    public static nint m_bBombPlacedAnimation; // bool
-    public static nint m_bIsPlantingViaUse; // bool
-    public static nint m_entitySpottedState; // EntitySpottedState_t
-    public static nint m_nSpotRules; // int32_t
-    public static nint m_bPlayedArmingBeeps; // bool[7]
-    public static nint m_bBombPlanted; // bool
-    public static nint m_bDroppedFromDeath; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGOViewModel { // C_PredictedViewModel
-    public static nint m_bShouldIgnoreOffsetAndAccuracy; // bool
-    public static nint m_nWeaponParity; // uint32_t
-    public static nint m_nOldWeaponParity; // uint32_t
-    public static nint m_nLastKnownAssociatedWeaponEntIndex; // CEntityIndex
-    public static nint m_bNeedToQueueHighResComposite; // bool
-    public static nint m_vLoweredWeaponOffset; // QAngle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_CounterTerroristTeamIntroCamera { // C_CSGO_TeamPreviewCamera
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_CounterTerroristWingmanIntroCamera { // C_CSGO_TeamPreviewCamera
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_EndOfMatchCamera { // C_CSGO_TeamPreviewCamera
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_EndOfMatchCharacterPosition { // C_CSGO_TeamPreviewCharacterPosition
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_EndOfMatchLineupEnd { // C_CSGO_EndOfMatchLineupEndpoint
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_EndOfMatchLineupEndpoint { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_EndOfMatchLineupStart { // C_CSGO_EndOfMatchLineupEndpoint
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_MapPreviewCameraPath { // C_BaseEntity
-    public static nint m_flZFar; // float
-    public static nint m_flZNear; // float
-    public static nint m_bLoop; // bool
-    public static nint m_bVerticalFOV; // bool
-    public static nint m_bConstantSpeed; // bool
-    public static nint m_flDuration; // float
-    public static nint m_flPathLength; // float
-    public static nint m_flPathDuration; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_MapPreviewCameraPathNode { // C_BaseEntity
-    public static nint m_szParentPathUniqueID; // CUtlSymbolLarge
-    public static nint m_nPathIndex; // int32_t
-    public static nint m_vInTangentLocal; // Vector
-    public static nint m_vOutTangentLocal; // Vector
-    public static nint m_flFOV; // float
-    public static nint m_flSpeed; // float
-    public static nint m_flEaseIn; // float
-    public static nint m_flEaseOut; // float
-    public static nint m_vInTangentWorld; // Vector
-    public static nint m_vOutTangentWorld; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_PreviewModel { // C_BaseFlex
-    public static nint m_animgraph; // CUtlString
-    public static nint m_animgraphCharacterModeString; // CGlobalSymbol
-    public static nint m_defaultAnim; // CUtlString
-    public static nint m_nDefaultAnimLoopMode; // AnimLoopMode_t
-    public static nint m_flInitialModelScale; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_PreviewModelAlias_csgo_item_previewmodel { // C_CSGO_PreviewModel
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_PreviewModel_GraphController { // CAnimGraphControllerBase
-    public static nint m_pszCharacterMode; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_pszWeaponState; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_pszWeaponType; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_pszEndOfMatchCelebration; // CAnimGraphParamOptionalRef<char*>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_PreviewPlayer { // C_CSPlayerPawn
-    public static nint m_animgraph; // CUtlString
-    public static nint m_animgraphCharacterModeString; // CGlobalSymbol
-    public static nint m_flInitialModelScale; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_PreviewPlayerAlias_csgo_player_previewmodel { // C_CSGO_PreviewPlayer
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_PreviewPlayer_GraphController { // CAnimGraphControllerBase
-    public static nint m_pszCharacterMode; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_pszTeamPreviewVariant; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_pszTeamPreviewPosition; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_pszEndOfMatchCelebration; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_nTeamPreviewRandom; // CAnimGraphParamOptionalRef<int32_t>
-    public static nint m_pszWeaponState; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_pszWeaponType; // CAnimGraphParamOptionalRef<char*>
-    public static nint m_bCT; // CAnimGraphParamOptionalRef<bool>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamIntroCharacterPosition { // C_CSGO_TeamPreviewCharacterPosition
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamIntroCounterTerroristPosition { // C_CSGO_TeamIntroCharacterPosition
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamIntroTerroristPosition { // C_CSGO_TeamIntroCharacterPosition
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamPreviewCamera { // C_CSGO_MapPreviewCameraPath
-    public static nint m_nVariant; // int32_t
-    public static nint m_bDofEnabled; // bool
-    public static nint m_flDofNearBlurry; // float
-    public static nint m_flDofNearCrisp; // float
-    public static nint m_flDofFarCrisp; // float
-    public static nint m_flDofFarBlurry; // float
-    public static nint m_flDofTiltToGround; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamPreviewCharacterPosition { // C_BaseEntity
-    public static nint m_nVariant; // int32_t
-    public static nint m_nRandom; // int32_t
-    public static nint m_nOrdinal; // int32_t
-    public static nint m_sWeaponName; // CUtlString
-    public static nint m_xuid; // uint64_t
-    public static nint m_agentItem; // C_EconItemView
-    public static nint m_glovesItem; // C_EconItemView
-    public static nint m_weaponItem; // C_EconItemView
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamPreviewModel { // C_CSGO_PreviewPlayer
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamSelectCamera { // C_CSGO_TeamPreviewCamera
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamSelectCharacterPosition { // C_CSGO_TeamPreviewCharacterPosition
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamSelectCounterTerroristPosition { // C_CSGO_TeamSelectCharacterPosition
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TeamSelectTerroristPosition { // C_CSGO_TeamSelectCharacterPosition
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TerroristTeamIntroCamera { // C_CSGO_TeamPreviewCamera
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGO_TerroristWingmanIntroCamera { // C_CSGO_TeamPreviewCamera
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGameRules { // C_TeamplayRules
-    public static nint __m_pChainEntity; // CNetworkVarChainer
-    public static nint m_bFreezePeriod; // bool
-    public static nint m_bWarmupPeriod; // bool
-    public static nint m_fWarmupPeriodEnd; // GameTime_t
-    public static nint m_fWarmupPeriodStart; // GameTime_t
-    public static nint m_nTotalPausedTicks; // int32_t
-    public static nint m_nPauseStartTick; // int32_t
-    public static nint m_bServerPaused; // bool
-    public static nint m_bGamePaused; // bool
-    public static nint m_bTerroristTimeOutActive; // bool
-    public static nint m_bCTTimeOutActive; // bool
-    public static nint m_flTerroristTimeOutRemaining; // float
-    public static nint m_flCTTimeOutRemaining; // float
-    public static nint m_nTerroristTimeOuts; // int32_t
-    public static nint m_nCTTimeOuts; // int32_t
-    public static nint m_bTechnicalTimeOut; // bool
-    public static nint m_bMatchWaitingForResume; // bool
-    public static nint m_iRoundTime; // int32_t
-    public static nint m_fMatchStartTime; // float
-    public static nint m_fRoundStartTime; // GameTime_t
-    public static nint m_flRestartRoundTime; // GameTime_t
-    public static nint m_bGameRestart; // bool
-    public static nint m_flGameStartTime; // float
-    public static nint m_timeUntilNextPhaseStarts; // float
-    public static nint m_gamePhase; // int32_t
-    public static nint m_totalRoundsPlayed; // int32_t
-    public static nint m_nRoundsPlayedThisPhase; // int32_t
-    public static nint m_nOvertimePlaying; // int32_t
-    public static nint m_iHostagesRemaining; // int32_t
-    public static nint m_bAnyHostageReached; // bool
-    public static nint m_bMapHasBombTarget; // bool
-    public static nint m_bMapHasRescueZone; // bool
-    public static nint m_bMapHasBuyZone; // bool
-    public static nint m_bIsQueuedMatchmaking; // bool
-    public static nint m_nQueuedMatchmakingMode; // int32_t
-    public static nint m_bIsValveDS; // bool
-    public static nint m_bLogoMap; // bool
-    public static nint m_bPlayAllStepSoundsOnServer; // bool
-    public static nint m_iSpectatorSlotCount; // int32_t
-    public static nint m_MatchDevice; // int32_t
-    public static nint m_bHasMatchStarted; // bool
-    public static nint m_nNextMapInMapgroup; // int32_t
-    public static nint m_szTournamentEventName; // char[512]
-    public static nint m_szTournamentEventStage; // char[512]
-    public static nint m_szMatchStatTxt; // char[512]
-    public static nint m_szTournamentPredictionsTxt; // char[512]
-    public static nint m_nTournamentPredictionsPct; // int32_t
-    public static nint m_flCMMItemDropRevealStartTime; // GameTime_t
-    public static nint m_flCMMItemDropRevealEndTime; // GameTime_t
-    public static nint m_bIsDroppingItems; // bool
-    public static nint m_bIsQuestEligible; // bool
-    public static nint m_bIsHltvActive; // bool
-    public static nint m_nGuardianModeWaveNumber; // int32_t
-    public static nint m_nGuardianModeSpecialKillsRemaining; // int32_t
-    public static nint m_nGuardianModeSpecialWeaponNeeded; // int32_t
-    public static nint m_nGuardianGrenadesToGiveBots; // int32_t
-    public static nint m_nNumHeaviesToSpawn; // int32_t
-    public static nint m_numGlobalGiftsGiven; // uint32_t
-    public static nint m_numGlobalGifters; // uint32_t
-    public static nint m_numGlobalGiftsPeriodSeconds; // uint32_t
-    public static nint m_arrFeaturedGiftersAccounts; // uint32_t[4]
-    public static nint m_arrFeaturedGiftersGifts; // uint32_t[4]
-    public static nint m_arrProhibitedItemIndices; // uint16_t[100]
-    public static nint m_arrTournamentActiveCasterAccounts; // uint32_t[4]
-    public static nint m_numBestOfMaps; // int32_t
-    public static nint m_nHalloweenMaskListSeed; // int32_t
-    public static nint m_bBombDropped; // bool
-    public static nint m_bBombPlanted; // bool
-    public static nint m_iRoundWinStatus; // int32_t
-    public static nint m_eRoundWinReason; // int32_t
-    public static nint m_bTCantBuy; // bool
-    public static nint m_bCTCantBuy; // bool
-    public static nint m_flGuardianBuyUntilTime; // GameTime_t
-    public static nint m_iMatchStats_RoundResults; // int32_t[30]
-    public static nint m_iMatchStats_PlayersAlive_CT; // int32_t[30]
-    public static nint m_iMatchStats_PlayersAlive_T; // int32_t[30]
-    public static nint m_TeamRespawnWaveTimes; // float[32]
-    public static nint m_flNextRespawnWave; // GameTime_t[32]
-    public static nint m_nServerQuestID; // int32_t
-    public static nint m_vMinimapMins; // Vector
-    public static nint m_vMinimapMaxs; // Vector
-    public static nint m_MinimapVerticalSectionHeights; // float[8]
-    public static nint m_bDontIncrementCoopWave; // bool
-    public static nint m_bSpawnedTerrorHuntHeavy; // bool
-    public static nint m_nEndMatchMapGroupVoteTypes; // int32_t[10]
-    public static nint m_nEndMatchMapGroupVoteOptions; // int32_t[10]
-    public static nint m_nEndMatchMapVoteWinner; // int32_t
-    public static nint m_iNumConsecutiveCTLoses; // int32_t
-    public static nint m_iNumConsecutiveTerroristLoses; // int32_t
-    public static nint m_bMarkClientStopRecordAtRoundEnd; // bool
-    public static nint m_nMatchAbortedEarlyReason; // int32_t
-    public static nint m_bHasTriggeredRoundStartMusic; // bool
-    public static nint m_bHasTriggeredCoopSpawnReset; // bool
-    public static nint m_bSwitchingTeamsAtRoundReset; // bool
-    public static nint m_pGameModeRules; // CCSGameModeRules*
-    public static nint m_RetakeRules; // C_RetakeGameRules
-    public static nint m_nMatchEndCount; // uint8_t
-    public static nint m_nTTeamIntroVariant; // int32_t
-    public static nint m_nCTTeamIntroVariant; // int32_t
-    public static nint m_bTeamIntroPeriod; // bool
-    public static nint m_iRoundEndWinnerTeam; // int32_t
-    public static nint m_eRoundEndReason; // int32_t
-    public static nint m_bRoundEndShowTimerDefend; // bool
-    public static nint m_iRoundEndTimerTime; // int32_t
-    public static nint m_sRoundEndFunFactToken; // CUtlString
-    public static nint m_iRoundEndFunFactPlayerSlot; // CPlayerSlot
-    public static nint m_iRoundEndFunFactData1; // int32_t
-    public static nint m_iRoundEndFunFactData2; // int32_t
-    public static nint m_iRoundEndFunFactData3; // int32_t
-    public static nint m_sRoundEndMessage; // CUtlString
-    public static nint m_iRoundEndPlayerCount; // int32_t
-    public static nint m_bRoundEndNoMusic; // bool
-    public static nint m_iRoundEndLegacy; // int32_t
-    public static nint m_nRoundEndCount; // uint8_t
-    public static nint m_iRoundStartRoundNumber; // int32_t
-    public static nint m_nRoundStartCount; // uint8_t
-    public static nint m_flLastPerfSampleTime; // double
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSGameRulesProxy { // C_GameRulesProxy
-    public static nint m_pGameRules; // C_CSGameRules*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSMinimapBoundary { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSObserverPawn { // C_CSPlayerPawnBase
-    public static nint m_hDetectParentChange; // CEntityHandle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSObserverPawnAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSPlayerPawn { // C_CSPlayerPawnBase
-    public static nint m_pBulletServices; // CCSPlayer_BulletServices*
-    public static nint m_pHostageServices; // CCSPlayer_HostageServices*
-    public static nint m_pBuyServices; // CCSPlayer_BuyServices*
-    public static nint m_pGlowServices; // CCSPlayer_GlowServices*
-    public static nint m_pActionTrackingServices; // CCSPlayer_ActionTrackingServices*
-    public static nint m_flHealthShotBoostExpirationTime; // GameTime_t
-    public static nint m_flLastFiredWeaponTime; // GameTime_t
-    public static nint m_bHasFemaleVoice; // bool
-    public static nint m_flLandseconds; // float
-    public static nint m_flOldFallVelocity; // float
-    public static nint m_szLastPlaceName; // char[18]
-    public static nint m_bPrevDefuser; // bool
-    public static nint m_bPrevHelmet; // bool
-    public static nint m_nPrevArmorVal; // int32_t
-    public static nint m_nPrevGrenadeAmmoCount; // int32_t
-    public static nint m_unPreviousWeaponHash; // uint32_t
-    public static nint m_unWeaponHash; // uint32_t
-    public static nint m_bInBuyZone; // bool
-    public static nint m_bPreviouslyInBuyZone; // bool
-    public static nint m_aimPunchAngle; // QAngle
-    public static nint m_aimPunchAngleVel; // QAngle
-    public static nint m_aimPunchTickBase; // int32_t
-    public static nint m_aimPunchTickFraction; // float
-    public static nint m_aimPunchCache; // CUtlVector<QAngle>
-    public static nint m_bInLanding; // bool
-    public static nint m_flLandingTime; // float
-    public static nint m_bInHostageRescueZone; // bool
-    public static nint m_bInBombZone; // bool
-    public static nint m_bIsBuyMenuOpen; // bool
-    public static nint m_flTimeOfLastInjury; // GameTime_t
-    public static nint m_flNextSprayDecalTime; // GameTime_t
-    public static nint m_iRetakesOffering; // int32_t
-    public static nint m_iRetakesOfferingCard; // int32_t
-    public static nint m_bRetakesHasDefuseKit; // bool
-    public static nint m_bRetakesMVPLastRound; // bool
-    public static nint m_iRetakesMVPBoostItem; // int32_t
-    public static nint m_RetakesMVPBoostExtraUtility; // loadout_slot_t
-    public static nint m_bNeedToReApplyGloves; // bool
-    public static nint m_EconGloves; // C_EconItemView
-    public static nint m_nEconGlovesChanged; // uint8_t
-    public static nint m_bMustSyncRagdollState; // bool
-    public static nint m_nRagdollDamageBone; // int32_t
-    public static nint m_vRagdollDamageForce; // Vector
-    public static nint m_vRagdollDamagePosition; // Vector
-    public static nint m_szRagdollDamageWeaponName; // char[64]
-    public static nint m_bRagdollDamageHeadshot; // bool
-    public static nint m_vRagdollServerOrigin; // Vector
-    public static nint m_bLastHeadBoneTransformIsValid; // bool
-    public static nint m_lastLandTime; // GameTime_t
-    public static nint m_bOnGroundLastTick; // bool
-    public static nint m_qDeathEyeAngles; // QAngle
-    public static nint m_bSkipOneHeadConstraintUpdate; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSPlayerPawnAPI {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSPlayerPawnBase { // C_BasePlayerPawn
-    public static nint m_pPingServices; // CCSPlayer_PingServices*
-    public static nint m_pViewModelServices; // CPlayer_ViewModelServices*
-    public static nint m_fRenderingClipPlane; // float[4]
-    public static nint m_nLastClipPlaneSetupFrame; // int32_t
-    public static nint m_vecLastClipCameraPos; // Vector
-    public static nint m_vecLastClipCameraForward; // Vector
-    public static nint m_bClipHitStaticWorld; // bool
-    public static nint m_bCachedPlaneIsValid; // bool
-    public static nint m_pClippingWeapon; // C_CSWeaponBase*
-    public static nint m_previousPlayerState; // CSPlayerState
-    public static nint m_flLastCollisionCeiling; // float
-    public static nint m_flLastCollisionCeilingChangeTime; // float
-    public static nint m_grenadeParameterStashTime; // GameTime_t
-    public static nint m_bGrenadeParametersStashed; // bool
-    public static nint m_angStashedShootAngles; // QAngle
-    public static nint m_vecStashedGrenadeThrowPosition; // Vector
-    public static nint m_vecStashedVelocity; // Vector
-    public static nint m_angShootAngleHistory; // QAngle[2]
-    public static nint m_vecThrowPositionHistory; // Vector[2]
-    public static nint m_vecVelocityHistory; // Vector[2]
-    public static nint m_thirdPersonHeading; // QAngle
-    public static nint m_flSlopeDropOffset; // float
-    public static nint m_flSlopeDropHeight; // float
-    public static nint m_vHeadConstraintOffset; // Vector
-    public static nint m_bIsScoped; // bool
-    public static nint m_bIsWalking; // bool
-    public static nint m_bResumeZoom; // bool
-    public static nint m_iPlayerState; // CSPlayerState
-    public static nint m_bIsDefusing; // bool
-    public static nint m_bIsGrabbingHostage; // bool
-    public static nint m_iBlockingUseActionInProgress; // CSPlayerBlockingUseAction_t
-    public static nint m_bIsRescuing; // bool
-    public static nint m_fImmuneToGunGameDamageTime; // GameTime_t
-    public static nint m_fImmuneToGunGameDamageTimeLast; // GameTime_t
-    public static nint m_bGunGameImmunity; // bool
-    public static nint m_GunGameImmunityColor; // Color
-    public static nint m_bHasMovedSinceSpawn; // bool
-    public static nint m_fMolotovUseTime; // float
-    public static nint m_fMolotovDamageTime; // float
-    public static nint m_nWhichBombZone; // int32_t
-    public static nint m_bInNoDefuseArea; // bool
-    public static nint m_iThrowGrenadeCounter; // int32_t
-    public static nint m_bWaitForNoAttack; // bool
-    public static nint m_flGuardianTooFarDistFrac; // float
-    public static nint m_flDetectedByEnemySensorTime; // GameTime_t
-    public static nint m_flNextGuardianTooFarWarning; // float
-    public static nint m_bSuppressGuardianTooFarWarningAudio; // bool
-    public static nint m_bKilledByTaser; // bool
-    public static nint m_iMoveState; // int32_t
-    public static nint m_bCanMoveDuringFreezePeriod; // bool
-    public static nint m_flLowerBodyYawTarget; // float
-    public static nint m_bStrafing; // bool
-    public static nint m_flLastSpawnTimeIndex; // GameTime_t
-    public static nint m_flEmitSoundTime; // GameTime_t
-    public static nint m_iAddonBits; // int32_t
-    public static nint m_iPrimaryAddon; // int32_t
-    public static nint m_iSecondaryAddon; // int32_t
-    public static nint m_iProgressBarDuration; // int32_t
-    public static nint m_flProgressBarStartTime; // float
-    public static nint m_iDirection; // int32_t
-    public static nint m_iShotsFired; // int32_t
-    public static nint m_bNightVisionOn; // bool
-    public static nint m_bHasNightVision; // bool
-    public static nint m_flVelocityModifier; // float
-    public static nint m_flHitHeading; // float
-    public static nint m_nHitBodyPart; // int32_t
-    public static nint m_iStartAccount; // int32_t
-    public static nint m_vecIntroStartEyePosition; // Vector
-    public static nint m_vecIntroStartPlayerForward; // Vector
-    public static nint m_flClientDeathTime; // GameTime_t
-    public static nint m_flNightVisionAlpha; // float
-    public static nint m_bScreenTearFrameCaptured; // bool
-    public static nint m_flFlashBangTime; // float
-    public static nint m_flFlashScreenshotAlpha; // float
-    public static nint m_flFlashOverlayAlpha; // float
-    public static nint m_bFlashBuildUp; // bool
-    public static nint m_bFlashDspHasBeenCleared; // bool
-    public static nint m_bFlashScreenshotHasBeenGrabbed; // bool
-    public static nint m_flFlashMaxAlpha; // float
-    public static nint m_flFlashDuration; // float
-    public static nint m_lastStandingPos; // Vector
-    public static nint m_vecLastMuzzleFlashPos; // Vector
-    public static nint m_angLastMuzzleFlashAngle; // QAngle
-    public static nint m_hMuzzleFlashShape; // CHandle<C_BaseEntity>
-    public static nint m_iHealthBarRenderMaskIndex; // int32_t
-    public static nint m_flHealthFadeValue; // float
-    public static nint m_flHealthFadeAlpha; // float
-    public static nint m_nMyCollisionGroup; // int32_t
-    public static nint m_ignoreLadderJumpTime; // float
-    public static nint m_ladderSurpressionTimer; // CountdownTimer
-    public static nint m_lastLadderNormal; // Vector
-    public static nint m_lastLadderPos; // Vector
-    public static nint m_flDeathCCWeight; // float
-    public static nint m_bOldIsScoped; // bool
-    public static nint m_flPrevRoundEndTime; // float
-    public static nint m_flPrevMatchEndTime; // float
-    public static nint m_unCurrentEquipmentValue; // uint16_t
-    public static nint m_unRoundStartEquipmentValue; // uint16_t
-    public static nint m_unFreezetimeEndEquipmentValue; // uint16_t
-    public static nint m_vecThirdPersonViewPositionOverride; // Vector
-    public static nint m_nHeavyAssaultSuitCooldownRemaining; // int32_t
-    public static nint m_ArmorValue; // int32_t
-    public static nint m_angEyeAngles; // QAngle
-    public static nint m_fNextThinkPushAway; // float
-    public static nint m_bShouldAutobuyDMWeapons; // bool
-    public static nint m_bShouldAutobuyNow; // bool
-    public static nint m_bHud_MiniScoreHidden; // bool
-    public static nint m_bHud_RadarHidden; // bool
-    public static nint m_nLastKillerIndex; // CEntityIndex
-    public static nint m_nLastConcurrentKilled; // int32_t
-    public static nint m_nDeathCamMusic; // int32_t
-    public static nint m_iIDEntIndex; // CEntityIndex
-    public static nint m_delayTargetIDTimer; // CountdownTimer
-    public static nint m_iTargetedWeaponEntIndex; // CEntityIndex
-    public static nint m_iOldIDEntIndex; // CEntityIndex
-    public static nint m_holdTargetIDTimer; // CountdownTimer
-    public static nint m_flCurrentMusicStartTime; // float
-    public static nint m_flMusicRoundStartTime; // float
-    public static nint m_bDeferStartMusicOnWarmup; // bool
-    public static nint m_cycleLatch; // int32_t
-    public static nint m_serverIntendedCycle; // float
-    public static nint m_vecPlayerPatchEconIndices; // uint32_t[5]
-    public static nint m_bHideTargetID; // bool
-    public static nint m_flLastSmokeOverlayAlpha; // float
-    public static nint m_vLastSmokeOverlayColor; // Vector
-    public static nint m_nPlayerSmokedFx; // ParticleIndex_t
-    public static nint m_nPlayerInfernoBodyFx; // ParticleIndex_t
-    public static nint m_nPlayerInfernoFootFx; // ParticleIndex_t
-    public static nint m_flNextMagDropTime; // float
-    public static nint m_nLastMagDropAttachmentIndex; // int32_t
-    public static nint m_vecBulletHitModels; // CUtlVector<C_BulletHitModel*>
-    public static nint m_vecPickupModelSlerpers; // CUtlVector<C_PickUpModelSlerper*>
-    public static nint m_vecLastAliveLocalVelocity; // Vector
-    public static nint m_entitySpottedState; // EntitySpottedState_t
-    public static nint m_nSurvivalTeamNumber; // int32_t
-    public static nint m_bGuardianShouldSprayCustomXMark; // bool
-    public static nint m_bHasDeathInfo; // bool
-    public static nint m_flDeathInfoTime; // float
-    public static nint m_vecDeathInfoOrigin; // Vector
-    public static nint m_bKilledByHeadshot; // bool
-    public static nint m_hOriginalController; // CHandle<CCSPlayerController>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSPlayerResource { // C_BaseEntity
-    public static nint m_bHostageAlive; // bool[12]
-    public static nint m_isHostageFollowingSomeone; // bool[12]
-    public static nint m_iHostageEntityIDs; // CEntityIndex[12]
-    public static nint m_bombsiteCenterA; // Vector
-    public static nint m_bombsiteCenterB; // Vector
-    public static nint m_hostageRescueX; // int32_t[4]
-    public static nint m_hostageRescueY; // int32_t[4]
-    public static nint m_hostageRescueZ; // int32_t[4]
-    public static nint m_bEndMatchNextMapAllVoted; // bool
-    public static nint m_foundGoalPositions; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSTeam { // C_Team
-    public static nint m_szTeamMatchStat; // char[512]
-    public static nint m_numMapVictories; // int32_t
-    public static nint m_bSurrendered; // bool
-    public static nint m_scoreFirstHalf; // int32_t
-    public static nint m_scoreSecondHalf; // int32_t
-    public static nint m_scoreOvertime; // int32_t
-    public static nint m_szClanTeamname; // char[129]
-    public static nint m_iClanID; // uint32_t
-    public static nint m_szTeamFlagImage; // char[8]
-    public static nint m_szTeamLogoImage; // char[8]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSWeaponBase { // C_BasePlayerWeapon
-    public static nint m_flFireSequenceStartTime; // float
-    public static nint m_nFireSequenceStartTimeChange; // int32_t
-    public static nint m_nFireSequenceStartTimeAck; // int32_t
-    public static nint m_ePlayerFireEvent; // PlayerAnimEvent_t
-    public static nint m_ePlayerFireEventAttackType; // WeaponAttackType_t
-    public static nint m_seqIdle; // HSequence
-    public static nint m_seqFirePrimary; // HSequence
-    public static nint m_seqFireSecondary; // HSequence
-    public static nint m_thirdPersonFireSequences; // CUtlVector<HSequence>
-    public static nint m_hCurrentThirdPersonSequence; // HSequence
-    public static nint m_nSilencerBoneIndex; // int32_t
-    public static nint m_thirdPersonSequences; // HSequence[7]
-    public static nint m_ClientPreviousWeaponState; // CSWeaponState_t
-    public static nint m_iState; // CSWeaponState_t
-    public static nint m_flCrosshairDistance; // float
-    public static nint m_iAmmoLastCheck; // int32_t
-    public static nint m_iAlpha; // int32_t
-    public static nint m_iScopeTextureID; // int32_t
-    public static nint m_iCrosshairTextureID; // int32_t
-    public static nint m_flGunAccuracyPositionDeprecated; // float
-    public static nint m_nLastEmptySoundCmdNum; // int32_t
-    public static nint m_nViewModelIndex; // uint32_t
-    public static nint m_bReloadsWithClips; // bool
-    public static nint m_flTimeWeaponIdle; // GameTime_t
-    public static nint m_bFireOnEmpty; // bool
-    public static nint m_OnPlayerPickup; // CEntityIOOutput
-    public static nint m_weaponMode; // CSWeaponMode
-    public static nint m_flTurningInaccuracyDelta; // float
-    public static nint m_vecTurningInaccuracyEyeDirLast; // Vector
-    public static nint m_flTurningInaccuracy; // float
-    public static nint m_fAccuracyPenalty; // float
-    public static nint m_flLastAccuracyUpdateTime; // GameTime_t
-    public static nint m_fAccuracySmoothedForZoom; // float
-    public static nint m_fScopeZoomEndTime; // GameTime_t
-    public static nint m_iRecoilIndex; // int32_t
-    public static nint m_flRecoilIndex; // float
-    public static nint m_bBurstMode; // bool
-    public static nint m_nPostponeFireReadyTicks; // GameTick_t
-    public static nint m_flPostponeFireReadyFrac; // float
-    public static nint m_bInReload; // bool
-    public static nint m_bReloadVisuallyComplete; // bool
-    public static nint m_flDroppedAtTime; // GameTime_t
-    public static nint m_bIsHauledBack; // bool
-    public static nint m_bSilencerOn; // bool
-    public static nint m_flTimeSilencerSwitchComplete; // GameTime_t
-    public static nint m_iOriginalTeamNumber; // int32_t
-    public static nint m_flNextAttackRenderTimeOffset; // float
-    public static nint m_bVisualsDataSet; // bool
-    public static nint m_bOldFirstPersonSpectatedState; // bool
-    public static nint m_hOurPing; // CHandle<C_BaseEntity>
-    public static nint m_nOurPingIndex; // CEntityIndex
-    public static nint m_vecOurPingPos; // Vector
-    public static nint m_bGlowForPing; // bool
-    public static nint m_bUIWeapon; // bool
-    public static nint m_hPrevOwner; // CHandle<C_CSPlayerPawn>
-    public static nint m_nDropTick; // GameTick_t
-    public static nint m_donated; // bool
-    public static nint m_fLastShotTime; // GameTime_t
-    public static nint m_bWasOwnedByCT; // bool
-    public static nint m_bWasOwnedByTerrorist; // bool
-    public static nint m_gunHeat; // float
-    public static nint m_smokeAttachments; // uint32_t
-    public static nint m_lastSmokeTime; // GameTime_t
-    public static nint m_flNextClientFireBulletTime; // float
-    public static nint m_flNextClientFireBulletTime_Repredict; // float
-    public static nint m_IronSightController; // C_IronSightController
-    public static nint m_iIronSightMode; // int32_t
-    public static nint m_flLastLOSTraceFailureTime; // GameTime_t
-    public static nint m_iNumEmptyAttacks; // int32_t
-    public static nint m_flLastMagDropRequestTime; // GameTime_t
-    public static nint m_flWatTickOffset; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CSWeaponBaseGun { // C_CSWeaponBase
-    public static nint m_zoomLevel; // int32_t
-    public static nint m_iBurstShotsRemaining; // int32_t
-    public static nint m_iSilencerBodygroup; // int32_t
-    public static nint m_silencedModelIndex; // int32_t
-    public static nint m_inPrecache; // bool
-    public static nint m_bNeedsBoltAction; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Chicken { // C_DynamicProp
-    public static nint m_hHolidayHatAddon; // CHandle<CBaseAnimGraph>
-    public static nint m_jumpedThisFrame; // bool
-    public static nint m_leader; // CHandle<C_CSPlayerPawn>
-    public static nint m_AttributeManager; // C_AttributeContainer
-    public static nint m_OriginalOwnerXuidLow; // uint32_t
-    public static nint m_OriginalOwnerXuidHigh; // uint32_t
-    public static nint m_bAttributesInitialized; // bool
-    public static nint m_hWaterWakeParticles; // ParticleIndex_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ClientRagdoll { // CBaseAnimGraph
-    public static nint m_bFadeOut; // bool
-    public static nint m_bImportant; // bool
-    public static nint m_flEffectTime; // GameTime_t
-    public static nint m_gibDespawnTime; // GameTime_t
-    public static nint m_iCurrentFriction; // int32_t
-    public static nint m_iMinFriction; // int32_t
-    public static nint m_iMaxFriction; // int32_t
-    public static nint m_iFrictionAnimState; // int32_t
-    public static nint m_bReleaseRagdoll; // bool
-    public static nint m_iEyeAttachment; // AttachmentHandle_t
-    public static nint m_bFadingOut; // bool
-    public static nint m_flScaleEnd; // float[10]
-    public static nint m_flScaleTimeStart; // GameTime_t[10]
-    public static nint m_flScaleTimeEnd; // GameTime_t[10]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ColorCorrection { // C_BaseEntity
-    public static nint m_vecOrigin; // Vector
-    public static nint m_MinFalloff; // float
-    public static nint m_MaxFalloff; // float
-    public static nint m_flFadeInDuration; // float
-    public static nint m_flFadeOutDuration; // float
-    public static nint m_flMaxWeight; // float
-    public static nint m_flCurWeight; // float
-    public static nint m_netlookupFilename; // char[512]
-    public static nint m_bEnabled; // bool
-    public static nint m_bMaster; // bool
-    public static nint m_bClientSide; // bool
-    public static nint m_bExclusive; // bool
-    public static nint m_bEnabledOnClient; // bool[1]
-    public static nint m_flCurWeightOnClient; // float[1]
-    public static nint m_bFadingIn; // bool[1]
-    public static nint m_flFadeStartWeight; // float[1]
-    public static nint m_flFadeStartTime; // float[1]
-    public static nint m_flFadeDuration; // float[1]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ColorCorrectionVolume { // C_BaseTrigger
-    public static nint m_LastEnterWeight; // float
-    public static nint m_LastEnterTime; // float
-    public static nint m_LastExitWeight; // float
-    public static nint m_LastExitTime; // float
-    public static nint m_bEnabled; // bool
-    public static nint m_MaxWeight; // float
-    public static nint m_FadeDuration; // float
-    public static nint m_Weight; // float
-    public static nint m_lookupFilename; // char[512]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CommandContext {
-    public static nint needsprocessing; // bool
-    public static nint command_number; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_CsmFovOverride { // C_BaseEntity
-    public static nint m_cameraName; // CUtlString
-    public static nint m_flCsmFovOverrideValue; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DEagle { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DecoyGrenade { // C_BaseCSGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DecoyProjectile { // C_BaseCSGrenadeProjectile
-    public static nint m_nDecoyShotTick; // int32_t
-    public static nint m_nClientLastKnownDecoyShotTick; // int32_t
-    public static nint m_flTimeParticleEffectSpawn; // GameTime_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DynamicLight { // C_BaseModelEntity
-    public static nint m_Flags; // uint8_t
-    public static nint m_LightStyle; // uint8_t
-    public static nint m_Radius; // float
-    public static nint m_Exponent; // int32_t
-    public static nint m_InnerAngle; // float
-    public static nint m_OuterAngle; // float
-    public static nint m_SpotRadius; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DynamicProp { // C_BreakableProp
-    public static nint m_bUseHitboxesForRenderBox; // bool
-    public static nint m_bUseAnimGraph; // bool
-    public static nint m_pOutputAnimBegun; // CEntityIOOutput
-    public static nint m_pOutputAnimOver; // CEntityIOOutput
-    public static nint m_pOutputAnimLoopCycleOver; // CEntityIOOutput
-    public static nint m_OnAnimReachedStart; // CEntityIOOutput
-    public static nint m_OnAnimReachedEnd; // CEntityIOOutput
-    public static nint m_iszIdleAnim; // CUtlSymbolLarge
-    public static nint m_nIdleAnimLoopMode; // AnimLoopMode_t
-    public static nint m_bRandomizeCycle; // bool
-    public static nint m_bStartDisabled; // bool
-    public static nint m_bFiredStartEndOutput; // bool
-    public static nint m_bForceNpcExclude; // bool
-    public static nint m_bCreateNonSolid; // bool
-    public static nint m_bIsOverrideProp; // bool
-    public static nint m_iInitialGlowState; // int32_t
-    public static nint m_nGlowRange; // int32_t
-    public static nint m_nGlowRangeMin; // int32_t
-    public static nint m_glowColor; // Color
-    public static nint m_nGlowTeam; // int32_t
-    public static nint m_iCachedFrameCount; // int32_t
-    public static nint m_vecCachedRenderMins; // Vector
-    public static nint m_vecCachedRenderMaxs; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DynamicPropAlias_cable_dynamic { // C_DynamicProp
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DynamicPropAlias_dynamic_prop { // C_DynamicProp
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_DynamicPropAlias_prop_dynamic_override { // C_DynamicProp
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EconEntity { // C_BaseFlex
-    public static nint m_flFlexDelayTime; // float
-    public static nint m_flFlexDelayedWeight; // float*
-    public static nint m_bAttributesInitialized; // bool
-    public static nint m_AttributeManager; // C_AttributeContainer
-    public static nint m_OriginalOwnerXuidLow; // uint32_t
-    public static nint m_OriginalOwnerXuidHigh; // uint32_t
-    public static nint m_nFallbackPaintKit; // int32_t
-    public static nint m_nFallbackSeed; // int32_t
-    public static nint m_flFallbackWear; // float
-    public static nint m_nFallbackStatTrak; // int32_t
-    public static nint m_bClientside; // bool
-    public static nint m_bParticleSystemsCreated; // bool
-    public static nint m_vecAttachedParticles; // CUtlVector<int32_t>
-    public static nint m_hViewmodelAttachment; // CHandle<CBaseAnimGraph>
-    public static nint m_iOldTeam; // int32_t
-    public static nint m_bAttachmentDirty; // bool
-    public static nint m_nUnloadedModelIndex; // int32_t
-    public static nint m_iNumOwnerValidationRetries; // int32_t
-    public static nint m_hOldProvidee; // CHandle<C_BaseEntity>
-    public static nint m_vecAttachedModels; // CUtlVector<C_EconEntity::AttachedModelData_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EconEntity_AttachedModelData_t {
-    public static nint m_iModelDisplayFlags; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EconItemView { // IEconItemInterface
-    public static nint m_bInventoryImageRgbaRequested; // bool
-    public static nint m_bInventoryImageTriedCache; // bool
-    public static nint m_nInventoryImageRgbaWidth; // int32_t
-    public static nint m_nInventoryImageRgbaHeight; // int32_t
-    public static nint m_szCurrentLoadCachedFileName; // char[260]
-    public static nint m_bRestoreCustomMaterialAfterPrecache; // bool
-    public static nint m_iItemDefinitionIndex; // uint16_t
-    public static nint m_iEntityQuality; // int32_t
-    public static nint m_iEntityLevel; // uint32_t
-    public static nint m_iItemID; // uint64_t
-    public static nint m_iItemIDHigh; // uint32_t
-    public static nint m_iItemIDLow; // uint32_t
-    public static nint m_iAccountID; // uint32_t
-    public static nint m_iInventoryPosition; // uint32_t
-    public static nint m_bInitialized; // bool
-    public static nint m_bDisallowSOC; // bool
-    public static nint m_bIsStoreItem; // bool
-    public static nint m_bIsTradeItem; // bool
-    public static nint m_iEntityQuantity; // int32_t
-    public static nint m_iRarityOverride; // int32_t
-    public static nint m_iQualityOverride; // int32_t
-    public static nint m_unClientFlags; // uint8_t
-    public static nint m_unOverrideStyle; // uint8_t
-    public static nint m_AttributeList; // CAttributeList
-    public static nint m_NetworkedDynamicAttributes; // CAttributeList
-    public static nint m_szCustomName; // char[161]
-    public static nint m_szCustomNameOverride; // char[161]
-    public static nint m_bInitializedTags; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EconWearable { // C_EconEntity
-    public static nint m_nForceSkin; // int32_t
-    public static nint m_bAlwaysAllow; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EntityDissolve { // C_BaseModelEntity
-    public static nint m_flStartTime; // GameTime_t
-    public static nint m_flFadeInStart; // float
-    public static nint m_flFadeInLength; // float
-    public static nint m_flFadeOutModelStart; // float
-    public static nint m_flFadeOutModelLength; // float
-    public static nint m_flFadeOutStart; // float
-    public static nint m_flFadeOutLength; // float
-    public static nint m_flNextSparkTime; // GameTime_t
-    public static nint m_nDissolveType; // EntityDisolveType_t
-    public static nint m_vDissolverOrigin; // Vector
-    public static nint m_nMagnitude; // uint32_t
-    public static nint m_bCoreExplode; // bool
-    public static nint m_bLinkedToServerEnt; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EntityFlame { // C_BaseEntity
-    public static nint m_hEntAttached; // CHandle<C_BaseEntity>
-    public static nint m_hOldAttached; // CHandle<C_BaseEntity>
-    public static nint m_bCheapEffect; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvCombinedLightProbeVolume { // C_BaseEntity
-    public static nint m_Color; // Color
-    public static nint m_flBrightness; // float
-    public static nint m_hCubemapTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_bCustomCubemapTexture; // bool
-    public static nint m_hLightProbeTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_hLightProbeDirectLightIndicesTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_hLightProbeDirectLightScalarsTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_hLightProbeDirectLightShadowsTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_vBoxMins; // Vector
-    public static nint m_vBoxMaxs; // Vector
-    public static nint m_bMoveable; // bool
-    public static nint m_nHandshake; // int32_t
-    public static nint m_nEnvCubeMapArrayIndex; // int32_t
-    public static nint m_nPriority; // int32_t
-    public static nint m_bStartDisabled; // bool
-    public static nint m_flEdgeFadeDist; // float
-    public static nint m_vEdgeFadeDists; // Vector
-    public static nint m_nLightProbeSizeX; // int32_t
-    public static nint m_nLightProbeSizeY; // int32_t
-    public static nint m_nLightProbeSizeZ; // int32_t
-    public static nint m_nLightProbeAtlasX; // int32_t
-    public static nint m_nLightProbeAtlasY; // int32_t
-    public static nint m_nLightProbeAtlasZ; // int32_t
-    public static nint m_bEnabled; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvCubemap { // C_BaseEntity
-    public static nint m_hCubemapTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_bCustomCubemapTexture; // bool
-    public static nint m_flInfluenceRadius; // float
-    public static nint m_vBoxProjectMins; // Vector
-    public static nint m_vBoxProjectMaxs; // Vector
-    public static nint m_bMoveable; // bool
-    public static nint m_nHandshake; // int32_t
-    public static nint m_nEnvCubeMapArrayIndex; // int32_t
-    public static nint m_nPriority; // int32_t
-    public static nint m_flEdgeFadeDist; // float
-    public static nint m_vEdgeFadeDists; // Vector
-    public static nint m_flDiffuseScale; // float
-    public static nint m_bStartDisabled; // bool
-    public static nint m_bDefaultEnvMap; // bool
-    public static nint m_bDefaultSpecEnvMap; // bool
-    public static nint m_bIndoorCubeMap; // bool
-    public static nint m_bCopyDiffuseFromDefaultCubemap; // bool
-    public static nint m_bEnabled; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvCubemapBox { // C_EnvCubemap
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvCubemapFog { // C_BaseEntity
-    public static nint m_flEndDistance; // float
-    public static nint m_flStartDistance; // float
-    public static nint m_flFogFalloffExponent; // float
-    public static nint m_bHeightFogEnabled; // bool
-    public static nint m_flFogHeightWidth; // float
-    public static nint m_flFogHeightEnd; // float
-    public static nint m_flFogHeightStart; // float
-    public static nint m_flFogHeightExponent; // float
-    public static nint m_flLODBias; // float
-    public static nint m_bActive; // bool
-    public static nint m_bStartDisabled; // bool
-    public static nint m_flFogMaxOpacity; // float
-    public static nint m_nCubemapSourceType; // int32_t
-    public static nint m_hSkyMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_iszSkyEntity; // CUtlSymbolLarge
-    public static nint m_hFogCubemapTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_bHasHeightFogEnd; // bool
-    public static nint m_bFirstTime; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvDecal { // C_BaseModelEntity
-    public static nint m_hDecalMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_flWidth; // float
-    public static nint m_flHeight; // float
-    public static nint m_flDepth; // float
-    public static nint m_nRenderOrder; // uint32_t
-    public static nint m_bProjectOnWorld; // bool
-    public static nint m_bProjectOnCharacters; // bool
-    public static nint m_bProjectOnWater; // bool
-    public static nint m_flDepthSortBias; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvDetailController { // C_BaseEntity
-    public static nint m_flFadeStartDist; // float
-    public static nint m_flFadeEndDist; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvLightProbeVolume { // C_BaseEntity
-    public static nint m_hLightProbeTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_hLightProbeDirectLightIndicesTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_hLightProbeDirectLightScalarsTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_hLightProbeDirectLightShadowsTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_vBoxMins; // Vector
-    public static nint m_vBoxMaxs; // Vector
-    public static nint m_bMoveable; // bool
-    public static nint m_nHandshake; // int32_t
-    public static nint m_nPriority; // int32_t
-    public static nint m_bStartDisabled; // bool
-    public static nint m_nLightProbeSizeX; // int32_t
-    public static nint m_nLightProbeSizeY; // int32_t
-    public static nint m_nLightProbeSizeZ; // int32_t
-    public static nint m_nLightProbeAtlasX; // int32_t
-    public static nint m_nLightProbeAtlasY; // int32_t
-    public static nint m_nLightProbeAtlasZ; // int32_t
-    public static nint m_bEnabled; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvParticleGlow { // C_ParticleSystem
-    public static nint m_flAlphaScale; // float
-    public static nint m_flRadiusScale; // float
-    public static nint m_flSelfIllumScale; // float
-    public static nint m_ColorTint; // Color
-    public static nint m_hTextureOverride; // CStrongHandle<InfoForResourceTypeCTextureBase>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvProjectedTexture { // C_ModelPointEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvScreenOverlay { // C_PointEntity
-    public static nint m_iszOverlayNames; // CUtlSymbolLarge[10]
-    public static nint m_flOverlayTimes; // float[10]
-    public static nint m_flStartTime; // GameTime_t
-    public static nint m_iDesiredOverlay; // int32_t
-    public static nint m_bIsActive; // bool
-    public static nint m_bWasActive; // bool
-    public static nint m_iCachedDesiredOverlay; // int32_t
-    public static nint m_iCurrentOverlay; // int32_t
-    public static nint m_flCurrentOverlayTime; // GameTime_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvSky { // C_BaseModelEntity
-    public static nint m_hSkyMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_hSkyMaterialLightingOnly; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_bStartDisabled; // bool
-    public static nint m_vTintColor; // Color
-    public static nint m_vTintColorLightingOnly; // Color
-    public static nint m_flBrightnessScale; // float
-    public static nint m_nFogType; // int32_t
-    public static nint m_flFogMinStart; // float
-    public static nint m_flFogMinEnd; // float
-    public static nint m_flFogMaxStart; // float
-    public static nint m_flFogMaxEnd; // float
-    public static nint m_bEnabled; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvVolumetricFogController { // C_BaseEntity
-    public static nint m_flScattering; // float
-    public static nint m_flAnisotropy; // float
-    public static nint m_flFadeSpeed; // float
-    public static nint m_flDrawDistance; // float
-    public static nint m_flFadeInStart; // float
-    public static nint m_flFadeInEnd; // float
-    public static nint m_flIndirectStrength; // float
-    public static nint m_nIndirectTextureDimX; // int32_t
-    public static nint m_nIndirectTextureDimY; // int32_t
-    public static nint m_nIndirectTextureDimZ; // int32_t
-    public static nint m_vBoxMins; // Vector
-    public static nint m_vBoxMaxs; // Vector
-    public static nint m_bActive; // bool
-    public static nint m_flStartAnisoTime; // GameTime_t
-    public static nint m_flStartScatterTime; // GameTime_t
-    public static nint m_flStartDrawDistanceTime; // GameTime_t
-    public static nint m_flStartAnisotropy; // float
-    public static nint m_flStartScattering; // float
-    public static nint m_flStartDrawDistance; // float
-    public static nint m_flDefaultAnisotropy; // float
-    public static nint m_flDefaultScattering; // float
-    public static nint m_flDefaultDrawDistance; // float
-    public static nint m_bStartDisabled; // bool
-    public static nint m_bEnableIndirect; // bool
-    public static nint m_bIsMaster; // bool
-    public static nint m_hFogIndirectTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_nForceRefreshCount; // int32_t
-    public static nint m_bFirstTime; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvVolumetricFogVolume { // C_BaseEntity
-    public static nint m_bActive; // bool
-    public static nint m_vBoxMins; // Vector
-    public static nint m_vBoxMaxs; // Vector
-    public static nint m_bStartDisabled; // bool
-    public static nint m_flStrength; // float
-    public static nint m_nFalloffShape; // int32_t
-    public static nint m_flFalloffExponent; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvWind { // C_BaseEntity
-    public static nint m_EnvWindShared; // C_EnvWindShared
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvWindClientside { // C_BaseEntity
-    public static nint m_EnvWindShared; // C_EnvWindShared
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvWindShared {
-    public static nint m_flStartTime; // GameTime_t
-    public static nint m_iWindSeed; // uint32_t
-    public static nint m_iMinWind; // uint16_t
-    public static nint m_iMaxWind; // uint16_t
-    public static nint m_windRadius; // int32_t
-    public static nint m_iMinGust; // uint16_t
-    public static nint m_iMaxGust; // uint16_t
-    public static nint m_flMinGustDelay; // float
-    public static nint m_flMaxGustDelay; // float
-    public static nint m_flGustDuration; // float
-    public static nint m_iGustDirChange; // uint16_t
-    public static nint m_location; // Vector
-    public static nint m_iszGustSound; // int32_t
-    public static nint m_iWindDir; // int32_t
-    public static nint m_flWindSpeed; // float
-    public static nint m_currentWindVector; // Vector
-    public static nint m_CurrentSwayVector; // Vector
-    public static nint m_PrevSwayVector; // Vector
-    public static nint m_iInitialWindDir; // uint16_t
-    public static nint m_flInitialWindSpeed; // float
-    public static nint m_flVariationTime; // GameTime_t
-    public static nint m_flSwayTime; // GameTime_t
-    public static nint m_flSimTime; // GameTime_t
-    public static nint m_flSwitchTime; // GameTime_t
-    public static nint m_flAveWindSpeed; // float
-    public static nint m_bGusting; // bool
-    public static nint m_flWindAngleVariation; // float
-    public static nint m_flWindSpeedVariation; // float
-    public static nint m_iEntIndex; // CEntityIndex
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvWindShared_WindAveEvent_t {
-    public static nint m_flStartWindSpeed; // float
-    public static nint m_flAveWindSpeed; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_EnvWindShared_WindVariationEvent_t {
-    public static nint m_flWindAngleVariation; // float
-    public static nint m_flWindSpeedVariation; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FireCrackerBlast { // C_Inferno
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FireFromAboveSprite { // C_Sprite
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FireSmoke { // C_BaseFire
-    public static nint m_nFlameModelIndex; // int32_t
-    public static nint m_nFlameFromAboveModelIndex; // int32_t
-    public static nint m_flScaleRegister; // float
-    public static nint m_flScaleStart; // float
-    public static nint m_flScaleEnd; // float
-    public static nint m_flScaleTimeStart; // GameTime_t
-    public static nint m_flScaleTimeEnd; // GameTime_t
-    public static nint m_flChildFlameSpread; // float
-    public static nint m_flClipPerc; // float
-    public static nint m_bClipTested; // bool
-    public static nint m_bFadingOut; // bool
-    public static nint m_tParticleSpawn; // TimedEvent
-    public static nint m_pFireOverlay; // CFireOverlay*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FireSprite { // C_Sprite
-    public static nint m_vecMoveDir; // Vector
-    public static nint m_bFadeFromAbove; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Fish { // CBaseAnimGraph
-    public static nint m_pos; // Vector
-    public static nint m_vel; // Vector
-    public static nint m_angles; // QAngle
-    public static nint m_localLifeState; // int32_t
-    public static nint m_deathDepth; // float
-    public static nint m_deathAngle; // float
-    public static nint m_buoyancy; // float
-    public static nint m_wiggleTimer; // CountdownTimer
-    public static nint m_wigglePhase; // float
-    public static nint m_wiggleRate; // float
-    public static nint m_actualPos; // Vector
-    public static nint m_actualAngles; // QAngle
-    public static nint m_poolOrigin; // Vector
-    public static nint m_waterLevel; // float
-    public static nint m_gotUpdate; // bool
-    public static nint m_x; // float
-    public static nint m_y; // float
-    public static nint m_z; // float
-    public static nint m_angle; // float
-    public static nint m_errorHistory; // float[20]
-    public static nint m_errorHistoryIndex; // int32_t
-    public static nint m_errorHistoryCount; // int32_t
-    public static nint m_averageError; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Fists { // C_CSWeaponBase
-    public static nint m_bPlayingUninterruptableAct; // bool
-    public static nint m_nUninterruptableActivity; // PlayerAnimEvent_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Flashbang { // C_BaseCSGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FlashbangProjectile { // C_BaseCSGrenadeProjectile
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FogController { // C_BaseEntity
-    public static nint m_fog; // fogparams_t
-    public static nint m_bUseAngles; // bool
-    public static nint m_iChangedVariables; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FootstepControl { // C_BaseTrigger
-    public static nint m_source; // CUtlSymbolLarge
-    public static nint m_destination; // CUtlSymbolLarge
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncBrush { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncConveyor { // C_BaseModelEntity
-    public static nint m_vecMoveDirEntitySpace; // Vector
-    public static nint m_flTargetSpeed; // float
-    public static nint m_nTransitionStartTick; // GameTick_t
-    public static nint m_nTransitionDurationTicks; // int32_t
-    public static nint m_flTransitionStartSpeed; // float
-    public static nint m_hConveyorModels; // C_NetworkUtlVectorBase<CHandle<C_BaseEntity>>
-    public static nint m_flCurrentConveyorOffset; // float
-    public static nint m_flCurrentConveyorSpeed; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncElectrifiedVolume { // C_FuncBrush
-    public static nint m_nAmbientEffect; // ParticleIndex_t
-    public static nint m_EffectName; // CUtlSymbolLarge
-    public static nint m_bState; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncLadder { // C_BaseModelEntity
-    public static nint m_vecLadderDir; // Vector
-    public static nint m_Dismounts; // CUtlVector<CHandle<C_InfoLadderDismount>>
-    public static nint m_vecLocalTop; // Vector
-    public static nint m_vecPlayerMountPositionTop; // Vector
-    public static nint m_vecPlayerMountPositionBottom; // Vector
-    public static nint m_flAutoRideSpeed; // float
-    public static nint m_bDisabled; // bool
-    public static nint m_bFakeLadder; // bool
-    public static nint m_bHasSlack; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncMonitor { // C_FuncBrush
-    public static nint m_targetCamera; // CUtlString
-    public static nint m_nResolutionEnum; // int32_t
-    public static nint m_bRenderShadows; // bool
-    public static nint m_bUseUniqueColorTarget; // bool
-    public static nint m_brushModelName; // CUtlString
-    public static nint m_hTargetCamera; // CHandle<C_BaseEntity>
-    public static nint m_bEnabled; // bool
-    public static nint m_bDraw3DSkybox; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncMoveLinear { // C_BaseToggle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncRotating { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_FuncTrackTrain { // C_BaseModelEntity
-    public static nint m_nLongAxis; // int32_t
-    public static nint m_flRadius; // float
-    public static nint m_flLineLength; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_GameRules {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_GameRulesProxy { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_GlobalLight { // C_BaseEntity
-    public static nint m_WindClothForceHandle; // uint16_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_GradientFog { // C_BaseEntity
-    public static nint m_hGradientFogTexture; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_flFogStartDistance; // float
-    public static nint m_flFogEndDistance; // float
-    public static nint m_bHeightFogEnabled; // bool
-    public static nint m_flFogStartHeight; // float
-    public static nint m_flFogEndHeight; // float
-    public static nint m_flFarZ; // float
-    public static nint m_flFogMaxOpacity; // float
-    public static nint m_flFogFalloffExponent; // float
-    public static nint m_flFogVerticalExponent; // float
-    public static nint m_fogColor; // Color
-    public static nint m_flFogStrength; // float
-    public static nint m_flFadeTime; // float
-    public static nint m_bStartDisabled; // bool
-    public static nint m_bIsEnabled; // bool
-    public static nint m_bGradientFogNeedsTextures; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_HEGrenade { // C_BaseCSGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_HEGrenadeProjectile { // C_BaseCSGrenadeProjectile
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_HandleTest { // C_BaseEntity
-    public static nint m_Handle; // CHandle<C_BaseEntity>
-    public static nint m_bSendHandle; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Hostage { // C_BaseCombatCharacter
-    public static nint m_entitySpottedState; // EntitySpottedState_t
-    public static nint m_leader; // CHandle<C_BaseEntity>
-    public static nint m_reuseTimer; // CountdownTimer
-    public static nint m_vel; // Vector
-    public static nint m_isRescued; // bool
-    public static nint m_jumpedThisFrame; // bool
-    public static nint m_nHostageState; // int32_t
-    public static nint m_bHandsHaveBeenCut; // bool
-    public static nint m_hHostageGrabber; // CHandle<C_CSPlayerPawn>
-    public static nint m_fLastGrabTime; // GameTime_t
-    public static nint m_vecGrabbedPos; // Vector
-    public static nint m_flRescueStartTime; // GameTime_t
-    public static nint m_flGrabSuccessTime; // GameTime_t
-    public static nint m_flDropStartTime; // GameTime_t
-    public static nint m_flDeadOrRescuedTime; // GameTime_t
-    public static nint m_blinkTimer; // CountdownTimer
-    public static nint m_lookAt; // Vector
-    public static nint m_lookAroundTimer; // CountdownTimer
-    public static nint m_isInit; // bool
-    public static nint m_eyeAttachment; // AttachmentHandle_t
-    public static nint m_chestAttachment; // AttachmentHandle_t
-    public static nint m_pPredictionOwner; // CBasePlayerController*
-    public static nint m_fNewestAlphaThinkTime; // GameTime_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_HostageCarriableProp { // CBaseAnimGraph
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_IncendiaryGrenade { // C_MolotovGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Inferno { // C_BaseModelEntity
-    public static nint m_nfxFireDamageEffect; // ParticleIndex_t
-    public static nint m_firePositions; // Vector[64]
-    public static nint m_fireParentPositions; // Vector[64]
-    public static nint m_bFireIsBurning; // bool[64]
-    public static nint m_BurnNormal; // Vector[64]
-    public static nint m_fireCount; // int32_t
-    public static nint m_nInfernoType; // int32_t
-    public static nint m_nFireLifetime; // float
-    public static nint m_bInPostEffectTime; // bool
-    public static nint m_lastFireCount; // int32_t
-    public static nint m_nFireEffectTickBegin; // int32_t
-    public static nint m_drawableCount; // int32_t
-    public static nint m_blosCheck; // bool
-    public static nint m_nlosperiod; // int32_t
-    public static nint m_maxFireHalfWidth; // float
-    public static nint m_maxFireHeight; // float
-    public static nint m_minBounds; // Vector
-    public static nint m_maxBounds; // Vector
-    public static nint m_flLastGrassBurnThink; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_InfoInstructorHintHostageRescueZone { // C_PointEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_InfoLadderDismount { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_InfoVisibilityBox { // C_BaseEntity
-    public static nint m_nMode; // int32_t
-    public static nint m_vBoxSize; // Vector
-    public static nint m_bEnabled; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_IronSightController {
-    public static nint m_bIronSightAvailable; // bool
-    public static nint m_flIronSightAmount; // float
-    public static nint m_flIronSightAmountGained; // float
-    public static nint m_flIronSightAmountBiased; // float
-    public static nint m_flIronSightAmount_Interpolated; // float
-    public static nint m_flIronSightAmountGained_Interpolated; // float
-    public static nint m_flIronSightAmountBiased_Interpolated; // float
-    public static nint m_flInterpolationLastUpdated; // float
-    public static nint m_angDeltaAverage; // QAngle[8]
-    public static nint m_angViewLast; // QAngle
-    public static nint m_vecDotCoords; // Vector2D
-    public static nint m_flDotBlur; // float
-    public static nint m_flSpeedRatio; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Item { // C_EconEntity
-    public static nint m_bShouldGlow; // bool
-    public static nint m_pReticleHintTextName; // char[256]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ItemDogtags { // C_Item
-    public static nint m_OwningPlayer; // CHandle<C_CSPlayerPawn>
-    public static nint m_KillingPlayer; // CHandle<C_CSPlayerPawn>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Item_Healthshot { // C_WeaponBaseItem
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Knife { // C_CSWeaponBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LightDirectionalEntity { // C_LightEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LightEntity { // C_BaseModelEntity
-    public static nint m_CLightComponent; // CLightComponent*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LightEnvironmentEntity { // C_LightDirectionalEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LightGlow { // C_BaseModelEntity
-    public static nint m_nHorizontalSize; // uint32_t
-    public static nint m_nVerticalSize; // uint32_t
-    public static nint m_nMinDist; // uint32_t
-    public static nint m_nMaxDist; // uint32_t
-    public static nint m_nOuterMaxDist; // uint32_t
-    public static nint m_flGlowProxySize; // float
-    public static nint m_flHDRColorScale; // float
-    public static nint m_Glow; // C_LightGlowOverlay
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LightGlowOverlay { // CGlowOverlay
-    public static nint m_vecOrigin; // Vector
-    public static nint m_vecDirection; // Vector
-    public static nint m_nMinDist; // int32_t
-    public static nint m_nMaxDist; // int32_t
-    public static nint m_nOuterMaxDist; // int32_t
-    public static nint m_bOneSided; // bool
-    public static nint m_bModulateByDot; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LightOrthoEntity { // C_LightEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LightSpotEntity { // C_LightEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_LocalTempEntity { // CBaseAnimGraph
-    public static nint flags; // int32_t
-    public static nint die; // GameTime_t
-    public static nint m_flFrameMax; // float
-    public static nint x; // float
-    public static nint y; // float
-    public static nint fadeSpeed; // float
-    public static nint bounceFactor; // float
-    public static nint hitSound; // int32_t
-    public static nint priority; // int32_t
-    public static nint tentOffset; // Vector
-    public static nint m_vecTempEntAngVelocity; // QAngle
-    public static nint tempent_renderamt; // int32_t
-    public static nint m_vecNormal; // Vector
-    public static nint m_flSpriteScale; // float
-    public static nint m_nFlickerFrame; // int32_t
-    public static nint m_flFrameRate; // float
-    public static nint m_flFrame; // float
-    public static nint m_pszImpactEffect; // char*
-    public static nint m_pszParticleEffect; // char*
-    public static nint m_bParticleCollision; // bool
-    public static nint m_iLastCollisionFrame; // int32_t
-    public static nint m_vLastCollisionOrigin; // Vector
-    public static nint m_vecTempEntVelocity; // Vector
-    public static nint m_vecPrevAbsOrigin; // Vector
-    public static nint m_vecTempEntAcceleration; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_MapPreviewParticleSystem { // C_ParticleSystem
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_MapVetoPickController { // C_BaseEntity
-    public static nint m_nDraftType; // int32_t
-    public static nint m_nTeamWinningCoinToss; // int32_t
-    public static nint m_nTeamWithFirstChoice; // int32_t[64]
-    public static nint m_nVoteMapIdsList; // int32_t[7]
-    public static nint m_nAccountIDs; // int32_t[64]
-    public static nint m_nMapId0; // int32_t[64]
-    public static nint m_nMapId1; // int32_t[64]
-    public static nint m_nMapId2; // int32_t[64]
-    public static nint m_nMapId3; // int32_t[64]
-    public static nint m_nMapId4; // int32_t[64]
-    public static nint m_nMapId5; // int32_t[64]
-    public static nint m_nStartingSide0; // int32_t[64]
-    public static nint m_nCurrentPhase; // int32_t
-    public static nint m_nPhaseStartTick; // int32_t
-    public static nint m_nPhaseDurationTicks; // int32_t
-    public static nint m_nPostDataUpdateTick; // int32_t
-    public static nint m_bDisabledHud; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Melee { // C_CSWeaponBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ModelPointEntity { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_MolotovGrenade { // C_BaseCSGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_MolotovProjectile { // C_BaseCSGrenadeProjectile
-    public static nint m_bIsIncGrenade; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Multimeter { // CBaseAnimGraph
-    public static nint m_hTargetC4; // CHandle<C_PlantedC4>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_MultiplayRules { // C_GameRules
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_NetTestBaseCombatCharacter { // C_BaseCombatCharacter
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_OmniLight { // C_BarnLight
-    public static nint m_flInnerAngle; // float
-    public static nint m_flOuterAngle; // float
-    public static nint m_bShowLight; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ParticleSystem { // C_BaseModelEntity
-    public static nint m_szSnapshotFileName; // char[512]
-    public static nint m_bActive; // bool
-    public static nint m_bFrozen; // bool
-    public static nint m_flFreezeTransitionDuration; // float
-    public static nint m_nStopType; // int32_t
-    public static nint m_bAnimateDuringGameplayPause; // bool
-    public static nint m_iEffectIndex; // CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>
-    public static nint m_flStartTime; // GameTime_t
-    public static nint m_flPreSimTime; // float
-    public static nint m_vServerControlPoints; // Vector[4]
-    public static nint m_iServerControlPointAssignments; // uint8_t[4]
-    public static nint m_hControlPointEnts; // CHandle<C_BaseEntity>[64]
-    public static nint m_bNoSave; // bool
-    public static nint m_bNoFreeze; // bool
-    public static nint m_bNoRamp; // bool
-    public static nint m_bStartActive; // bool
-    public static nint m_iszEffectName; // CUtlSymbolLarge
-    public static nint m_iszControlPointNames; // CUtlSymbolLarge[64]
-    public static nint m_nDataCP; // int32_t
-    public static nint m_vecDataCPValue; // Vector
-    public static nint m_nTintCP; // int32_t
-    public static nint m_clrTint; // Color
-    public static nint m_bOldActive; // bool
-    public static nint m_bOldFrozen; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PathParticleRope { // C_BaseEntity
-    public static nint m_bStartActive; // bool
-    public static nint m_flMaxSimulationTime; // float
-    public static nint m_iszEffectName; // CUtlSymbolLarge
-    public static nint m_PathNodes_Name; // CUtlVector<CUtlSymbolLarge>
-    public static nint m_flParticleSpacing; // float
-    public static nint m_flSlack; // float
-    public static nint m_flRadius; // float
-    public static nint m_ColorTint; // Color
-    public static nint m_nEffectState; // int32_t
-    public static nint m_iEffectIndex; // CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>
-    public static nint m_PathNodes_Position; // C_NetworkUtlVectorBase<Vector>
-    public static nint m_PathNodes_TangentIn; // C_NetworkUtlVectorBase<Vector>
-    public static nint m_PathNodes_TangentOut; // C_NetworkUtlVectorBase<Vector>
-    public static nint m_PathNodes_Color; // C_NetworkUtlVectorBase<Vector>
-    public static nint m_PathNodes_PinEnabled; // C_NetworkUtlVectorBase<bool>
-    public static nint m_PathNodes_RadiusScale; // C_NetworkUtlVectorBase<float>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PathParticleRopeAlias_path_particle_rope_clientside { // C_PathParticleRope
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PhysBox { // C_Breakable
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PhysMagnet { // CBaseAnimGraph
-    public static nint m_aAttachedObjectsFromServer; // CUtlVector<int32_t>
-    public static nint m_aAttachedObjects; // CUtlVector<CHandle<C_BaseEntity>>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PhysPropClientside { // C_BreakableProp
-    public static nint m_flTouchDelta; // GameTime_t
-    public static nint m_fDeathTime; // GameTime_t
-    public static nint m_impactEnergyScale; // float
-    public static nint m_inertiaScale; // float
-    public static nint m_flDmgModBullet; // float
-    public static nint m_flDmgModClub; // float
-    public static nint m_flDmgModExplosive; // float
-    public static nint m_flDmgModFire; // float
-    public static nint m_iszPhysicsDamageTableName; // CUtlSymbolLarge
-    public static nint m_iszBasePropData; // CUtlSymbolLarge
-    public static nint m_iInteractions; // int32_t
-    public static nint m_bHasBreakPiecesOrCommands; // bool
-    public static nint m_vecDamagePosition; // Vector
-    public static nint m_vecDamageDirection; // Vector
-    public static nint m_nDamageType; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PhysicsProp { // C_BreakableProp
-    public static nint m_bAwake; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PhysicsPropMultiplayer { // C_PhysicsProp
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PickUpModelSlerper { // CBaseAnimGraph
-    public static nint m_hPlayerParent; // CHandle<C_BaseEntity>
-    public static nint m_hItem; // CHandle<C_BaseEntity>
-    public static nint m_flTimePickedUp; // float
-    public static nint m_angOriginal; // QAngle
-    public static nint m_vecPosOriginal; // Vector
-    public static nint m_angRandom; // QAngle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PlantedC4 { // CBaseAnimGraph
-    public static nint m_bBombTicking; // bool
-    public static nint m_nBombSite; // int32_t
-    public static nint m_nSourceSoundscapeHash; // int32_t
-    public static nint m_entitySpottedState; // EntitySpottedState_t
-    public static nint m_flNextGlow; // GameTime_t
-    public static nint m_flNextBeep; // GameTime_t
-    public static nint m_flC4Blow; // GameTime_t
-    public static nint m_bCannotBeDefused; // bool
-    public static nint m_bHasExploded; // bool
-    public static nint m_flTimerLength; // float
-    public static nint m_bBeingDefused; // bool
-    public static nint m_bTriggerWarning; // float
-    public static nint m_bExplodeWarning; // float
-    public static nint m_bC4Activated; // bool
-    public static nint m_bTenSecWarning; // bool
-    public static nint m_flDefuseLength; // float
-    public static nint m_flDefuseCountDown; // GameTime_t
-    public static nint m_bBombDefused; // bool
-    public static nint m_hBombDefuser; // CHandle<C_CSPlayerPawn>
-    public static nint m_hControlPanel; // CHandle<C_BaseEntity>
-    public static nint m_hDefuserMultimeter; // CHandle<C_Multimeter>
-    public static nint m_flNextRadarFlashTime; // GameTime_t
-    public static nint m_bRadarFlash; // bool
-    public static nint m_pBombDefuser; // CHandle<C_CSPlayerPawn>
-    public static nint m_fLastDefuseTime; // GameTime_t
-    public static nint m_pPredictionOwner; // CBasePlayerController*
-    public static nint m_vecC4ExplodeSpectatePos; // Vector
-    public static nint m_vecC4ExplodeSpectateAng; // QAngle
-    public static nint m_flC4ExplodeSpectateDuration; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PlayerPing { // C_BaseEntity
-    public static nint m_hPlayer; // CHandle<C_CSPlayerPawn>
-    public static nint m_hPingedEntity; // CHandle<C_BaseEntity>
-    public static nint m_iType; // int32_t
-    public static nint m_bUrgent; // bool
-    public static nint m_szPlaceName; // char[18]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PlayerSprayDecal { // C_ModelPointEntity
-    public static nint m_nUniqueID; // int32_t
-    public static nint m_unAccountID; // uint32_t
-    public static nint m_unTraceID; // uint32_t
-    public static nint m_rtGcTime; // uint32_t
-    public static nint m_vecEndPos; // Vector
-    public static nint m_vecStart; // Vector
-    public static nint m_vecLeft; // Vector
-    public static nint m_vecNormal; // Vector
-    public static nint m_nPlayer; // int32_t
-    public static nint m_nEntity; // int32_t
-    public static nint m_nHitbox; // int32_t
-    public static nint m_flCreationTime; // float
-    public static nint m_nTintID; // int32_t
-    public static nint m_nVersion; // uint8_t
-    public static nint m_ubSignature; // uint8_t[128]
-    public static nint m_SprayRenderHelper; // CPlayerSprayDecalRenderHelper
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PlayerVisibility { // C_BaseEntity
-    public static nint m_flVisibilityStrength; // float
-    public static nint m_flFogDistanceMultiplier; // float
-    public static nint m_flFogMaxDensityMultiplier; // float
-    public static nint m_flFadeTime; // float
-    public static nint m_bStartDisabled; // bool
-    public static nint m_bIsEnabled; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointCamera { // C_BaseEntity
-    public static nint m_FOV; // float
-    public static nint m_Resolution; // float
-    public static nint m_bFogEnable; // bool
-    public static nint m_FogColor; // Color
-    public static nint m_flFogStart; // float
-    public static nint m_flFogEnd; // float
-    public static nint m_flFogMaxDensity; // float
-    public static nint m_bActive; // bool
-    public static nint m_bUseScreenAspectRatio; // bool
-    public static nint m_flAspectRatio; // float
-    public static nint m_bNoSky; // bool
-    public static nint m_fBrightness; // float
-    public static nint m_flZFar; // float
-    public static nint m_flZNear; // float
-    public static nint m_bCanHLTVUse; // bool
-    public static nint m_bDofEnabled; // bool
-    public static nint m_flDofNearBlurry; // float
-    public static nint m_flDofNearCrisp; // float
-    public static nint m_flDofFarCrisp; // float
-    public static nint m_flDofFarBlurry; // float
-    public static nint m_flDofTiltToGround; // float
-    public static nint m_TargetFOV; // float
-    public static nint m_DegreesPerSecond; // float
-    public static nint m_bIsOn; // bool
-    public static nint m_pNext; // C_PointCamera*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointCameraVFOV { // C_PointCamera
-    public static nint m_flVerticalFOV; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointClientUIDialog { // C_BaseClientUIEntity
-    public static nint m_hActivator; // CHandle<C_BaseEntity>
-    public static nint m_bStartEnabled; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointClientUIHUD { // C_BaseClientUIEntity
-    public static nint m_bCheckCSSClasses; // bool
-    public static nint m_bIgnoreInput; // bool
-    public static nint m_flWidth; // float
-    public static nint m_flHeight; // float
-    public static nint m_flDPI; // float
-    public static nint m_flInteractDistance; // float
-    public static nint m_flDepthOffset; // float
-    public static nint m_unOwnerContext; // uint32_t
-    public static nint m_unHorizontalAlign; // uint32_t
-    public static nint m_unVerticalAlign; // uint32_t
-    public static nint m_unOrientation; // uint32_t
-    public static nint m_bAllowInteractionFromAllSceneWorlds; // bool
-    public static nint m_vecCSSClasses; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointClientUIWorldPanel { // C_BaseClientUIEntity
-    public static nint m_bForceRecreateNextUpdate; // bool
-    public static nint m_bMoveViewToPlayerNextThink; // bool
-    public static nint m_bCheckCSSClasses; // bool
-    public static nint m_anchorDeltaTransform; // CTransform
-    public static nint m_pOffScreenIndicator; // CPointOffScreenIndicatorUi*
-    public static nint m_bIgnoreInput; // bool
-    public static nint m_bLit; // bool
-    public static nint m_bFollowPlayerAcrossTeleport; // bool
-    public static nint m_flWidth; // float
-    public static nint m_flHeight; // float
-    public static nint m_flDPI; // float
-    public static nint m_flInteractDistance; // float
-    public static nint m_flDepthOffset; // float
-    public static nint m_unOwnerContext; // uint32_t
-    public static nint m_unHorizontalAlign; // uint32_t
-    public static nint m_unVerticalAlign; // uint32_t
-    public static nint m_unOrientation; // uint32_t
-    public static nint m_bAllowInteractionFromAllSceneWorlds; // bool
-    public static nint m_vecCSSClasses; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
-    public static nint m_bOpaque; // bool
-    public static nint m_bNoDepth; // bool
-    public static nint m_bRenderBackface; // bool
-    public static nint m_bUseOffScreenIndicator; // bool
-    public static nint m_bExcludeFromSaveGames; // bool
-    public static nint m_bGrabbable; // bool
-    public static nint m_bOnlyRenderToTexture; // bool
-    public static nint m_bDisableMipGen; // bool
-    public static nint m_nExplicitImageLayout; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointClientUIWorldTextPanel { // C_PointClientUIWorldPanel
-    public static nint m_messageText; // char[512]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointCommentaryNode { // CBaseAnimGraph
-    public static nint m_bActive; // bool
-    public static nint m_bWasActive; // bool
-    public static nint m_flEndTime; // GameTime_t
-    public static nint m_flStartTime; // GameTime_t
-    public static nint m_flStartTimeInCommentary; // float
-    public static nint m_iszCommentaryFile; // CUtlSymbolLarge
-    public static nint m_iszTitle; // CUtlSymbolLarge
-    public static nint m_iszSpeakers; // CUtlSymbolLarge
-    public static nint m_iNodeNumber; // int32_t
-    public static nint m_iNodeNumberMax; // int32_t
-    public static nint m_bListenedTo; // bool
-    public static nint m_hViewPosition; // CHandle<C_BaseEntity>
-    public static nint m_bRestartAfterRestore; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointEntity { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointValueRemapper { // C_BaseEntity
-    public static nint m_bDisabled; // bool
-    public static nint m_bDisabledOld; // bool
-    public static nint m_bUpdateOnClient; // bool
-    public static nint m_nInputType; // ValueRemapperInputType_t
-    public static nint m_hRemapLineStart; // CHandle<C_BaseEntity>
-    public static nint m_hRemapLineEnd; // CHandle<C_BaseEntity>
-    public static nint m_flMaximumChangePerSecond; // float
-    public static nint m_flDisengageDistance; // float
-    public static nint m_flEngageDistance; // float
-    public static nint m_bRequiresUseKey; // bool
-    public static nint m_nOutputType; // ValueRemapperOutputType_t
-    public static nint m_hOutputEntities; // C_NetworkUtlVectorBase<CHandle<C_BaseEntity>>
-    public static nint m_nHapticsType; // ValueRemapperHapticsType_t
-    public static nint m_nMomentumType; // ValueRemapperMomentumType_t
-    public static nint m_flMomentumModifier; // float
-    public static nint m_flSnapValue; // float
-    public static nint m_flCurrentMomentum; // float
-    public static nint m_nRatchetType; // ValueRemapperRatchetType_t
-    public static nint m_flRatchetOffset; // float
-    public static nint m_flInputOffset; // float
-    public static nint m_bEngaged; // bool
-    public static nint m_bFirstUpdate; // bool
-    public static nint m_flPreviousValue; // float
-    public static nint m_flPreviousUpdateTickTime; // GameTime_t
-    public static nint m_vecPreviousTestPoint; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PointWorldText { // C_ModelPointEntity
-    public static nint m_bForceRecreateNextUpdate; // bool
-    public static nint m_messageText; // char[512]
-    public static nint m_FontName; // char[64]
-    public static nint m_bEnabled; // bool
-    public static nint m_bFullbright; // bool
-    public static nint m_flWorldUnitsPerPx; // float
-    public static nint m_flFontSize; // float
-    public static nint m_flDepthOffset; // float
-    public static nint m_Color; // Color
-    public static nint m_nJustifyHorizontal; // PointWorldTextJustifyHorizontal_t
-    public static nint m_nJustifyVertical; // PointWorldTextJustifyVertical_t
-    public static nint m_nReorientMode; // PointWorldTextReorientMode_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PostProcessingVolume { // C_BaseTrigger
-    public static nint m_hPostSettings; // CStrongHandle<InfoForResourceTypeCPostProcessingResource>
-    public static nint m_flFadeDuration; // float
-    public static nint m_flMinLogExposure; // float
-    public static nint m_flMaxLogExposure; // float
-    public static nint m_flMinExposure; // float
-    public static nint m_flMaxExposure; // float
-    public static nint m_flExposureCompensation; // float
-    public static nint m_flExposureFadeSpeedUp; // float
-    public static nint m_flExposureFadeSpeedDown; // float
-    public static nint m_flTonemapEVSmoothingRange; // float
-    public static nint m_bMaster; // bool
-    public static nint m_bExposureControl; // bool
-    public static nint m_flRate; // float
-    public static nint m_flTonemapPercentTarget; // float
-    public static nint m_flTonemapPercentBrightPixels; // float
-    public static nint m_flTonemapMinAvgLum; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Precipitation { // C_BaseTrigger
-    public static nint m_flDensity; // float
-    public static nint m_flParticleInnerDist; // float
-    public static nint m_pParticleDef; // char*
-    public static nint m_tParticlePrecipTraceTimer; // TimedEvent[1]
-    public static nint m_bActiveParticlePrecipEmitter; // bool[1]
-    public static nint m_bParticlePrecipInitialized; // bool
-    public static nint m_bHasSimulatedSinceLastSceneObjectUpdate; // bool
-    public static nint m_nAvailableSheetSequencesMaxIndex; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PrecipitationBlocker { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PredictedViewModel { // C_BaseViewModel
-    public static nint m_vPredictedLagOffset; // Vector
-    public static nint m_targetSpeed; // QAngle
-    public static nint m_currentSpeed; // QAngle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_PropDoorRotating { // C_BasePropDoor
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_RagdollManager { // C_BaseEntity
-    public static nint m_iCurrentMaxRagdollCount; // int8_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_RagdollProp { // CBaseAnimGraph
-    public static nint m_ragPos; // C_NetworkUtlVectorBase<Vector>
-    public static nint m_ragAngles; // C_NetworkUtlVectorBase<QAngle>
-    public static nint m_flBlendWeight; // float
-    public static nint m_hRagdollSource; // CHandle<C_BaseEntity>
-    public static nint m_iEyeAttachment; // AttachmentHandle_t
-    public static nint m_flBlendWeightCurrent; // float
-    public static nint m_parentPhysicsBoneIndices; // CUtlVector<int32_t>
-    public static nint m_worldSpaceBoneComputationOrder; // CUtlVector<int32_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_RagdollPropAttached { // C_RagdollProp
-    public static nint m_boneIndexAttached; // uint32_t
-    public static nint m_ragdollAttachedObjectIndex; // uint32_t
-    public static nint m_attachmentPointBoneSpace; // Vector
-    public static nint m_attachmentPointRagdollSpace; // Vector
-    public static nint m_vecOffset; // Vector
-    public static nint m_parentTime; // float
-    public static nint m_bHasParent; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_RectLight { // C_BarnLight
-    public static nint m_bShowLight; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_RetakeGameRules {
-    public static nint m_nMatchSeed; // int32_t
-    public static nint m_bBlockersPresent; // bool
-    public static nint m_bRoundInProgress; // bool
-    public static nint m_iFirstSecondHalfRound; // int32_t
-    public static nint m_iBombSite; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_RopeKeyframe { // C_BaseModelEntity
-    public static nint m_LinksTouchingSomething; // CBitVec<10>
-    public static nint m_nLinksTouchingSomething; // int32_t
-    public static nint m_bApplyWind; // bool
-    public static nint m_fPrevLockedPoints; // int32_t
-    public static nint m_iForcePointMoveCounter; // int32_t
-    public static nint m_bPrevEndPointPos; // bool[2]
-    public static nint m_vPrevEndPointPos; // Vector[2]
-    public static nint m_flCurScroll; // float
-    public static nint m_flScrollSpeed; // float
-    public static nint m_RopeFlags; // uint16_t
-    public static nint m_iRopeMaterialModelIndex; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_LightValues; // Vector[10]
-    public static nint m_nSegments; // uint8_t
-    public static nint m_hStartPoint; // CHandle<C_BaseEntity>
-    public static nint m_hEndPoint; // CHandle<C_BaseEntity>
-    public static nint m_iStartAttachment; // AttachmentHandle_t
-    public static nint m_iEndAttachment; // AttachmentHandle_t
-    public static nint m_Subdiv; // uint8_t
-    public static nint m_RopeLength; // int16_t
-    public static nint m_Slack; // int16_t
-    public static nint m_TextureScale; // float
-    public static nint m_fLockedPoints; // uint8_t
-    public static nint m_nChangeCount; // uint8_t
-    public static nint m_Width; // float
-    public static nint m_PhysicsDelegate; // C_RopeKeyframe::CPhysicsDelegate
-    public static nint m_hMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_TextureHeight; // int32_t
-    public static nint m_vecImpulse; // Vector
-    public static nint m_vecPreviousImpulse; // Vector
-    public static nint m_flCurrentGustTimer; // float
-    public static nint m_flCurrentGustLifetime; // float
-    public static nint m_flTimeToNextGust; // float
-    public static nint m_vWindDir; // Vector
-    public static nint m_vColorMod; // Vector
-    public static nint m_vCachedEndPointAttachmentPos; // Vector[2]
-    public static nint m_vCachedEndPointAttachmentAngle; // QAngle[2]
-    public static nint m_bConstrainBetweenEndpoints; // bool
-    public static nint m_bEndPointAttachmentPositionsDirty; // bitfield:1
-    public static nint m_bEndPointAttachmentAnglesDirty; // bitfield:1
-    public static nint m_bNewDataThisFrame; // bitfield:1
-    public static nint m_bPhysicsInitted; // bitfield:1
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_RopeKeyframe_CPhysicsDelegate {
-    public static nint m_pKeyframe; // C_RopeKeyframe*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SceneEntity { // C_PointEntity
-    public static nint m_bIsPlayingBack; // bool
-    public static nint m_bPaused; // bool
-    public static nint m_bMultiplayer; // bool
-    public static nint m_bAutogenerated; // bool
-    public static nint m_flForceClientTime; // float
-    public static nint m_nSceneStringIndex; // uint16_t
-    public static nint m_bClientOnly; // bool
-    public static nint m_hOwner; // CHandle<C_BaseFlex>
-    public static nint m_hActorList; // C_NetworkUtlVectorBase<CHandle<C_BaseFlex>>
-    public static nint m_bWasPlaying; // bool
-    public static nint m_QueuedEvents; // CUtlVector<C_SceneEntity::QueuedEvents_t>
-    public static nint m_flCurrentTime; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SceneEntity_QueuedEvents_t {
-    public static nint starttime; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SensorGrenade { // C_BaseCSGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SensorGrenadeProjectile { // C_BaseCSGrenadeProjectile
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ShatterGlassShardPhysics { // C_PhysicsProp
-    public static nint m_ShardDesc; // shard_model_desc_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SingleplayRules { // C_GameRules
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SkyCamera { // C_BaseEntity
-    public static nint m_skyboxData; // sky3dparams_t
-    public static nint m_skyboxSlotToken; // CUtlStringToken
-    public static nint m_bUseAngles; // bool
-    public static nint m_pNext; // C_SkyCamera*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SmokeGrenade { // C_BaseCSGrenade
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SmokeGrenadeProjectile { // C_BaseCSGrenadeProjectile
-    public static nint m_nSmokeEffectTickBegin; // int32_t
-    public static nint m_bDidSmokeEffect; // bool
-    public static nint m_nRandomSeed; // int32_t
-    public static nint m_vSmokeColor; // Vector
-    public static nint m_vSmokeDetonationPos; // Vector
-    public static nint m_VoxelFrameData; // CUtlVector<uint8_t>
-    public static nint m_bSmokeVolumeDataReceived; // bool
-    public static nint m_bSmokeEffectSpawned; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundAreaEntityBase { // C_BaseEntity
-    public static nint m_bDisabled; // bool
-    public static nint m_bWasEnabled; // bool
-    public static nint m_iszSoundAreaType; // CUtlSymbolLarge
-    public static nint m_vPos; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundAreaEntityOrientedBox { // C_SoundAreaEntityBase
-    public static nint m_vMin; // Vector
-    public static nint m_vMax; // Vector
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundAreaEntitySphere { // C_SoundAreaEntityBase
-    public static nint m_flRadius; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundOpvarSetAABBEntity { // C_SoundOpvarSetPointEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundOpvarSetAutoRoomEntity { // C_SoundOpvarSetPointEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundOpvarSetOBBEntity { // C_SoundOpvarSetAABBEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundOpvarSetOBBWindEntity { // C_SoundOpvarSetPointBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundOpvarSetPathCornerEntity { // C_SoundOpvarSetPointEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundOpvarSetPointBase { // C_BaseEntity
-    public static nint m_iszStackName; // CUtlSymbolLarge
-    public static nint m_iszOperatorName; // CUtlSymbolLarge
-    public static nint m_iszOpvarName; // CUtlSymbolLarge
-    public static nint m_iOpvarIndex; // int32_t
-    public static nint m_bUseAutoCompare; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SoundOpvarSetPointEntity { // C_SoundOpvarSetPointBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SpotlightEnd { // C_BaseModelEntity
-    public static nint m_flLightScale; // float
-    public static nint m_Radius; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Sprite { // C_BaseModelEntity
-    public static nint m_hSpriteMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_hAttachedToEntity; // CHandle<C_BaseEntity>
-    public static nint m_nAttachment; // AttachmentHandle_t
-    public static nint m_flSpriteFramerate; // float
-    public static nint m_flFrame; // float
-    public static nint m_flDieTime; // GameTime_t
-    public static nint m_nBrightness; // uint32_t
-    public static nint m_flBrightnessDuration; // float
-    public static nint m_flSpriteScale; // float
-    public static nint m_flScaleDuration; // float
-    public static nint m_bWorldSpaceScale; // bool
-    public static nint m_flGlowProxySize; // float
-    public static nint m_flHDRColorScale; // float
-    public static nint m_flLastTime; // GameTime_t
-    public static nint m_flMaxFrame; // float
-    public static nint m_flStartScale; // float
-    public static nint m_flDestScale; // float
-    public static nint m_flScaleTimeStart; // GameTime_t
-    public static nint m_nStartBrightness; // int32_t
-    public static nint m_nDestBrightness; // int32_t
-    public static nint m_flBrightnessTimeStart; // GameTime_t
-    public static nint m_hOldSpriteMaterial; // CWeakHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_nSpriteWidth; // int32_t
-    public static nint m_nSpriteHeight; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SpriteOriented { // C_Sprite
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Sun { // C_BaseModelEntity
-    public static nint m_fxSSSunFlareEffectIndex; // ParticleIndex_t
-    public static nint m_fxSunFlareEffectIndex; // ParticleIndex_t
-    public static nint m_fdistNormalize; // float
-    public static nint m_vSunPos; // Vector
-    public static nint m_vDirection; // Vector
-    public static nint m_iszEffectName; // CUtlSymbolLarge
-    public static nint m_iszSSEffectName; // CUtlSymbolLarge
-    public static nint m_clrOverlay; // Color
-    public static nint m_bOn; // bool
-    public static nint m_bmaxColor; // bool
-    public static nint m_flSize; // float
-    public static nint m_flHazeScale; // float
-    public static nint m_flRotation; // float
-    public static nint m_flHDRColorScale; // float
-    public static nint m_flAlphaHaze; // float
-    public static nint m_flAlphaScale; // float
-    public static nint m_flAlphaHdr; // float
-    public static nint m_flFarZScale; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_SunGlowOverlay { // CGlowOverlay
-    public static nint m_bModulateByDot; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_Team { // C_BaseEntity
-    public static nint m_aPlayerControllers; // C_NetworkUtlVectorBase<CHandle<CBasePlayerController>>
-    public static nint m_aPlayers; // C_NetworkUtlVectorBase<CHandle<C_BasePlayerPawn>>
-    public static nint m_iScore; // int32_t
-    public static nint m_szTeamname; // char[129]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TeamRoundTimer { // C_BaseEntity
-    public static nint m_bTimerPaused; // bool
-    public static nint m_flTimeRemaining; // float
-    public static nint m_flTimerEndTime; // GameTime_t
-    public static nint m_bIsDisabled; // bool
-    public static nint m_bShowInHUD; // bool
-    public static nint m_nTimerLength; // int32_t
-    public static nint m_nTimerInitialLength; // int32_t
-    public static nint m_nTimerMaxLength; // int32_t
-    public static nint m_bAutoCountdown; // bool
-    public static nint m_nSetupTimeLength; // int32_t
-    public static nint m_nState; // int32_t
-    public static nint m_bStartPaused; // bool
-    public static nint m_bInCaptureWatchState; // bool
-    public static nint m_flTotalTime; // float
-    public static nint m_bStopWatchTimer; // bool
-    public static nint m_bFireFinished; // bool
-    public static nint m_bFire5MinRemain; // bool
-    public static nint m_bFire4MinRemain; // bool
-    public static nint m_bFire3MinRemain; // bool
-    public static nint m_bFire2MinRemain; // bool
-    public static nint m_bFire1MinRemain; // bool
-    public static nint m_bFire30SecRemain; // bool
-    public static nint m_bFire10SecRemain; // bool
-    public static nint m_bFire5SecRemain; // bool
-    public static nint m_bFire4SecRemain; // bool
-    public static nint m_bFire3SecRemain; // bool
-    public static nint m_bFire2SecRemain; // bool
-    public static nint m_bFire1SecRemain; // bool
-    public static nint m_nOldTimerLength; // int32_t
-    public static nint m_nOldTimerState; // int32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TeamplayRules { // C_MultiplayRules
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TextureBasedAnimatable { // C_BaseModelEntity
-    public static nint m_bLoop; // bool
-    public static nint m_flFPS; // float
-    public static nint m_hPositionKeys; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_hRotationKeys; // CStrongHandle<InfoForResourceTypeCTextureBase>
-    public static nint m_vAnimationBoundsMin; // Vector
-    public static nint m_vAnimationBoundsMax; // Vector
-    public static nint m_flStartTime; // float
-    public static nint m_flStartFrame; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TintController { // C_BaseEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TonemapController2 { // C_BaseEntity
-    public static nint m_flAutoExposureMin; // float
-    public static nint m_flAutoExposureMax; // float
-    public static nint m_flTonemapPercentTarget; // float
-    public static nint m_flTonemapPercentBrightPixels; // float
-    public static nint m_flTonemapMinAvgLum; // float
-    public static nint m_flExposureAdaptationSpeedUp; // float
-    public static nint m_flExposureAdaptationSpeedDown; // float
-    public static nint m_flTonemapEVSmoothingRange; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TonemapController2Alias_env_tonemap_controller2 { // C_TonemapController2
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TriggerBuoyancy { // C_BaseTrigger
-    public static nint m_BuoyancyHelper; // CBuoyancyHelper
-    public static nint m_flFluidDensity; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TriggerLerpObject { // C_BaseTrigger
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TriggerMultiple { // C_BaseTrigger
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TriggerPhysics { // C_BaseTrigger
-    public static nint m_gravityScale; // float
-    public static nint m_linearLimit; // float
-    public static nint m_linearDamping; // float
-    public static nint m_angularLimit; // float
-    public static nint m_angularDamping; // float
-    public static nint m_linearForce; // float
-    public static nint m_flFrequency; // float
-    public static nint m_flDampingRatio; // float
-    public static nint m_vecLinearForcePointAt; // Vector
-    public static nint m_bCollapseToForcePoint; // bool
-    public static nint m_vecLinearForcePointAtWorld; // Vector
-    public static nint m_vecLinearForceDirection; // Vector
-    public static nint m_bConvertToDebrisWhenPossible; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_TriggerVolume { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ViewmodelAttachmentModel { // CBaseAnimGraph
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_ViewmodelWeapon { // CBaseAnimGraph
-    public static nint m_worldModel; // char*
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_VoteController { // C_BaseEntity
-    public static nint m_iActiveIssueIndex; // int32_t
-    public static nint m_iOnlyTeamToVote; // int32_t
-    public static nint m_nVoteOptionCount; // int32_t[5]
-    public static nint m_nPotentialVotes; // int32_t
-    public static nint m_bVotesDirty; // bool
-    public static nint m_bTypeDirty; // bool
-    public static nint m_bIsYesNoVote; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WaterBullet { // CBaseAnimGraph
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponAWP { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponAug { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponBaseItem { // C_CSWeaponBase
-    public static nint m_SequenceCompleteTimer; // CountdownTimer
-    public static nint m_bRedraw; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponBizon { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponCZ75a { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponElite { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponFamas { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponFiveSeven { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponG3SG1 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponGalilAR { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponGlock { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponHKP2000 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponM249 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponM4A1 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponM4A1Silencer { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponMAC10 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponMP5SD { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponMP7 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponMP9 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponMag7 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponNOVA { // C_CSWeaponBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponNegev { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponP250 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponP90 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponRevolver { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponSCAR20 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponSG556 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponSSG08 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponSawedoff { // C_CSWeaponBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponShield { // C_CSWeaponBaseGun
-    public static nint m_flDisplayHealth; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponTaser { // C_CSWeaponBaseGun
-    public static nint m_fFireTime; // GameTime_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponTec9 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponUMP45 { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponUSPSilencer { // C_CSWeaponBaseGun
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WeaponXM1014 { // C_CSWeaponBase
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_World { // C_BaseModelEntity
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WorldModelGloves { // CBaseAnimGraph
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WorldModelNametag { // CBaseAnimGraph
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_WorldModelStattrak { // CBaseAnimGraph
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class C_fogplayerparams_t {
-    public static nint m_hCtrl; // CHandle<C_FogController>
-    public static nint m_flTransitionTime; // float
-    public static nint m_OldColor; // Color
-    public static nint m_flOldStart; // float
-    public static nint m_flOldEnd; // float
-    public static nint m_flOldMaxDensity; // float
-    public static nint m_flOldHDRColorScale; // float
-    public static nint m_flOldFarZ; // float
-    public static nint m_NewColor; // Color
-    public static nint m_flNewStart; // float
-    public static nint m_flNewEnd; // float
-    public static nint m_flNewMaxDensity; // float
-    public static nint m_flNewHDRColorScale; // float
-    public static nint m_flNewFarZ; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompMatMutatorCondition_t {
-    public static nint m_nMutatorCondition; // CompMatPropertyMutatorConditionType_t
-    public static nint m_strMutatorConditionContainerName; // CUtlString
-    public static nint m_strMutatorConditionContainerVarName; // CUtlString
-    public static nint m_strMutatorConditionContainerVarValue; // CUtlString
-    public static nint m_bPassWhenTrue; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompMatPropertyMutator_t {
-    public static nint m_bEnabled; // bool
-    public static nint m_nMutatorCommandType; // CompMatPropertyMutatorType_t
-    public static nint m_strInitWith_Container; // CUtlString
-    public static nint m_strCopyProperty_InputContainerSrc; // CUtlString
-    public static nint m_strCopyProperty_InputContainerProperty; // CUtlString
-    public static nint m_strCopyProperty_TargetProperty; // CUtlString
-    public static nint m_strRandomRollInputVars_SeedInputVar; // CUtlString
-    public static nint m_vecRandomRollInputVars_InputVarsToRoll; // CUtlVector<CUtlString>
-    public static nint m_strCopyMatchingKeys_InputContainerSrc; // CUtlString
-    public static nint m_strCopyKeysWithSuffix_InputContainerSrc; // CUtlString
-    public static nint m_strCopyKeysWithSuffix_FindSuffix; // CUtlString
-    public static nint m_strCopyKeysWithSuffix_ReplaceSuffix; // CUtlString
-    public static nint m_nSetValue_Value; // CompositeMaterialInputLooseVariable_t
-    public static nint m_strGenerateTexture_TargetParam; // CUtlString
-    public static nint m_strGenerateTexture_InitialContainer; // CUtlString
-    public static nint m_nResolution; // int32_t
-    public static nint m_bIsScratchTarget; // bool
-    public static nint m_bSplatDebugInfo; // bool
-    public static nint m_bCaptureInRenderDoc; // bool
-    public static nint m_vecTexGenInstructions; // CUtlVector<CompMatPropertyMutator_t>
-    public static nint m_vecConditionalMutators; // CUtlVector<CompMatPropertyMutator_t>
-    public static nint m_strPopInputQueue_Container; // CUtlString
-    public static nint m_strDrawText_InputContainerSrc; // CUtlString
-    public static nint m_strDrawText_InputContainerProperty; // CUtlString
-    public static nint m_vecDrawText_Position; // Vector2D
-    public static nint m_colDrawText_Color; // Color
-    public static nint m_strDrawText_Font; // CUtlString
-    public static nint m_vecConditions; // CUtlVector<CompMatMutatorCondition_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompositeMaterialAssemblyProcedure_t {
-    public static nint m_vecCompMatIncludes; // CUtlVector<CResourceName>
-    public static nint m_vecMatchFilters; // CUtlVector<CompositeMaterialMatchFilter_t>
-    public static nint m_vecCompositeInputContainers; // CUtlVector<CompositeMaterialInputContainer_t>
-    public static nint m_vecPropertyMutators; // CUtlVector<CompMatPropertyMutator_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompositeMaterialEditorPoint_t {
-    public static nint m_ModelName; // CResourceName
-    public static nint m_nSequenceIndex; // int32_t
-    public static nint m_flCycle; // float
-    public static nint m_KVModelStateChoices; // KeyValues3
-    public static nint m_bEnableChildModel; // bool
-    public static nint m_ChildModelName; // CResourceName
-    public static nint m_vecCompositeMaterialAssemblyProcedures; // CUtlVector<CompositeMaterialAssemblyProcedure_t>
-    public static nint m_vecCompositeMaterials; // CUtlVector<CompositeMaterial_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompositeMaterialInputContainer_t {
-    public static nint m_bEnabled; // bool
-    public static nint m_nCompositeMaterialInputContainerSourceType; // CompositeMaterialInputContainerSourceType_t
-    public static nint m_strSpecificContainerMaterial; // CResourceName
-    public static nint m_strAttrName; // CUtlString
-    public static nint m_strAlias; // CUtlString
-    public static nint m_vecLooseVariables; // CUtlVector<CompositeMaterialInputLooseVariable_t>
-    public static nint m_strAttrNameForVar; // CUtlString
-    public static nint m_bExposeExternally; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompositeMaterialInputLooseVariable_t {
-    public static nint m_strName; // CUtlString
-    public static nint m_bExposeExternally; // bool
-    public static nint m_strExposedFriendlyName; // CUtlString
-    public static nint m_strExposedFriendlyGroupName; // CUtlString
-    public static nint m_bExposedVariableIsFixedRange; // bool
-    public static nint m_strExposedVisibleWhenTrue; // CUtlString
-    public static nint m_strExposedHiddenWhenTrue; // CUtlString
-    public static nint m_nVariableType; // CompositeMaterialInputLooseVariableType_t
-    public static nint m_bValueBoolean; // bool
-    public static nint m_nValueIntX; // int32_t
-    public static nint m_nValueIntY; // int32_t
-    public static nint m_nValueIntZ; // int32_t
-    public static nint m_nValueIntW; // int32_t
-    public static nint m_bHasFloatBounds; // bool
-    public static nint m_flValueFloatX; // float
-    public static nint m_flValueFloatX_Min; // float
-    public static nint m_flValueFloatX_Max; // float
-    public static nint m_flValueFloatY; // float
-    public static nint m_flValueFloatY_Min; // float
-    public static nint m_flValueFloatY_Max; // float
-    public static nint m_flValueFloatZ; // float
-    public static nint m_flValueFloatZ_Min; // float
-    public static nint m_flValueFloatZ_Max; // float
-    public static nint m_flValueFloatW; // float
-    public static nint m_flValueFloatW_Min; // float
-    public static nint m_flValueFloatW_Max; // float
-    public static nint m_cValueColor4; // Color
-    public static nint m_nValueSystemVar; // CompositeMaterialVarSystemVar_t
-    public static nint m_strResourceMaterial; // CResourceName
-    public static nint m_strTextureContentAssetPath; // CUtlString
-    public static nint m_strTextureRuntimeResourcePath; // CResourceName
-    public static nint m_strTextureCompilationVtexTemplate; // CUtlString
-    public static nint m_nTextureType; // CompositeMaterialInputTextureType_t
-    public static nint m_strString; // CUtlString
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompositeMaterialMatchFilter_t {
-    public static nint m_nCompositeMaterialMatchFilterType; // CompositeMaterialMatchFilterType_t
-    public static nint m_strMatchFilter; // CUtlString
-    public static nint m_strMatchValue; // CUtlString
-    public static nint m_bPassWhenTrue; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CompositeMaterial_t {
-    public static nint m_TargetKVs; // KeyValues3
-    public static nint m_PreGenerationKVs; // KeyValues3
-    public static nint m_FinalKVs; // KeyValues3
-    public static nint m_vecGeneratedTextures; // CUtlVector<GeneratedTextureHandle_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class CountdownTimer {
-    public static nint m_duration; // float
-    public static nint m_timestamp; // GameTime_t
-    public static nint m_timescale; // float
-    public static nint m_nWorldGroupId; // WorldGroupId_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class EngineCountdownTimer {
-    public static nint m_duration; // float
-    public static nint m_timestamp; // float
-    public static nint m_timescale; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class EntityRenderAttribute_t {
-    public static nint m_ID; // CUtlStringToken
-    public static nint m_Values; // Vector4D
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class EntitySpottedState_t {
-    public static nint m_bSpotted; // bool
-    public static nint m_bSpottedByMask; // uint32_t[2]
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class GeneratedTextureHandle_t {
-    public static nint m_strBitmapName; // CUtlString
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class IClientAlphaProperty {
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class IntervalTimer {
-    public static nint m_timestamp; // GameTime_t
-    public static nint m_nWorldGroupId; // WorldGroupId_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class PhysicsRagdollPose_t {
-    public static nint __m_pChainEntity; // CNetworkVarChainer
-    public static nint m_Transforms; // C_NetworkUtlVectorBase<CTransform>
-    public static nint m_hOwner; // CHandle<C_BaseEntity>
-    public static nint m_bDirty; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class SellbackPurchaseEntry_t {
-    public static nint m_unDefIdx; // uint16_t
-    public static nint m_nCost; // int32_t
-    public static nint m_nPrevArmor; // int32_t
-    public static nint m_bPrevHelmet; // bool
-    public static nint m_hItem; // CEntityHandle
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class SequenceHistory_t {
-    public static nint m_hSequence; // HSequence
-    public static nint m_flSeqStartTime; // GameTime_t
-    public static nint m_flSeqFixedCycle; // float
-    public static nint m_nSeqLoopMode; // AnimLoopMode_t
-    public static nint m_flPlaybackRate; // float
-    public static nint m_flCyclesPerSecond; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class ServerAuthoritativeWeaponSlot_t {
-    public static nint unClass; // uint16_t
-    public static nint unSlot; // uint16_t
-    public static nint unItemDefIdx; // uint16_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class TimedEvent {
-    public static nint m_TimeBetweenEvents; // float
-    public static nint m_fNextEvent; // float
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class VPhysicsCollisionAttribute_t {
-    public static nint m_nInteractsAs; // uint64_t
-    public static nint m_nInteractsWith; // uint64_t
-    public static nint m_nInteractsExclude; // uint64_t
-    public static nint m_nEntityId; // uint32_t
-    public static nint m_nOwnerId; // uint32_t
-    public static nint m_nHierarchyId; // uint16_t
-    public static nint m_nCollisionGroup; // uint8_t
-    public static nint m_nCollisionFunctionMask; // uint8_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class ViewAngleServerChange_t {
-    public static nint nType; // FixAngleSet_t
-    public static nint qAngle; // QAngle
-    public static nint nIndex; // uint32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class WeaponPurchaseCount_t {
-    public static nint m_nItemDefIndex; // uint16_t
-    public static nint m_nCount; // uint16_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class WeaponPurchaseTracker_t {
-    public static nint m_weaponPurchases; // C_UtlVectorEmbeddedNetworkVar<WeaponPurchaseCount_t>
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class audioparams_t {
-    public static nint localSound; // Vector[8]
-    public static nint soundscapeIndex; // int32_t
-    public static nint localBits; // uint8_t
-    public static nint soundscapeEntityListIndex; // int32_t
-    public static nint soundEventHash; // uint32_t
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class fogparams_t {
-    public static nint dirPrimary; // Vector
-    public static nint colorPrimary; // Color
-    public static nint colorSecondary; // Color
-    public static nint colorPrimaryLerpTo; // Color
-    public static nint colorSecondaryLerpTo; // Color
-    public static nint start; // float
-    public static nint end; // float
-    public static nint farz; // float
-    public static nint maxdensity; // float
-    public static nint exponent; // float
-    public static nint HDRColorScale; // float
-    public static nint skyboxFogFactor; // float
-    public static nint skyboxFogFactorLerpTo; // float
-    public static nint startLerpTo; // float
-    public static nint endLerpTo; // float
-    public static nint maxdensityLerpTo; // float
-    public static nint lerptime; // GameTime_t
-    public static nint duration; // float
-    public static nint blendtobackground; // float
-    public static nint scattering; // float
-    public static nint locallightscale; // float
-    public static nint enable; // bool
-    public static nint blend; // bool
-    public static nint m_bNoReflectionFog; // bool
-    public static nint m_bPadding; // bool
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class shard_model_desc_t {
-    public static nint m_nModelID; // int32_t
-    public static nint m_hMaterial; // CStrongHandle<InfoForResourceTypeIMaterial2>
-    public static nint m_solid; // ShardSolid_t
-    public static nint m_ShatterPanelMode; // ShatterPanelMode
-    public static nint m_vecPanelSize; // Vector2D
-    public static nint m_vecStressPositionA; // Vector2D
-    public static nint m_vecStressPositionB; // Vector2D
-    public static nint m_vecPanelVertices; // C_NetworkUtlVectorBase<Vector2D>
-    public static nint m_flGlassHalfThickness; // float
-    public static nint m_bHasParent; // bool
-    public static nint m_bParentFrozen; // bool
-    public static nint m_SurfacePropStringToken; // CUtlStringToken
-}
-
-[OffsetsWithFilePath("client.dll.json")] public static class sky3dparams_t {
-    public static nint scale; // int16_t
-    public static nint origin; // Vector
-    public static nint bClip3DSkyBoxNearToWorldFar; // bool
-    public static nint flClip3DSkyBoxNearToWorldFarOffset; // float
-    public static nint fog; // fogparams_t
-    public static nint m_nWorldGroupID; // WorldGroupId_t
+public static class CCSPlayer_MovementServices { // CPlayer_MovementServices_Humanoid
+    public const nint m_flMaxFallVelocity = 0x218; // float
+    public const nint m_vecLadderNormal = 0x21C; // Vector
+    public const nint m_nLadderSurfacePropIndex = 0x228; // int32_t
+    public const nint m_flDuckAmount = 0x22C; // float
+    public const nint m_flDuckSpeed = 0x230; // float
+    public const nint m_bDuckOverride = 0x234; // bool
+    public const nint m_bDesiresDuck = 0x235; // bool
+    public const nint m_flDuckOffset = 0x238; // float
+    public const nint m_nDuckTimeMsecs = 0x23C; // uint32_t
+    public const nint m_nDuckJumpTimeMsecs = 0x240; // uint32_t
+    public const nint m_nJumpTimeMsecs = 0x244; // uint32_t
+    public const nint m_flLastDuckTime = 0x248; // float
+    public const nint m_vecLastPositionAtFullCrouchSpeed = 0x258; // Vector2D
+    public const nint m_duckUntilOnGround = 0x260; // bool
+    public const nint m_bHasWalkMovedSinceLastJump = 0x261; // bool
+    public const nint m_bInStuckTest = 0x262; // bool
+    public const nint m_flStuckCheckTime = 0x270; // float[64][2]
+    public const nint m_nTraceCount = 0x470; // int32_t
+    public const nint m_StuckLast = 0x474; // int32_t
+    public const nint m_bSpeedCropped = 0x478; // bool
+    public const nint m_nOldWaterLevel = 0x47C; // int32_t
+    public const nint m_flWaterEntryTime = 0x480; // float
+    public const nint m_vecForward = 0x484; // Vector
+    public const nint m_vecLeft = 0x490; // Vector
+    public const nint m_vecUp = 0x49C; // Vector
+    public const nint m_nGameCodeHasMovedPlayerAfterCommand = 0x4A8; // int32_t
+    public const nint m_bOldJumpPressed = 0x4AC; // bool
+    public const nint m_flJumpPressedTime = 0x4B0; // float
+    public const nint m_flJumpUntil = 0x4B4; // float
+    public const nint m_flJumpVel = 0x4B8; // float
+    public const nint m_fStashGrenadeParameterWhen = 0x4BC; // GameTime_t
+    public const nint m_nButtonDownMaskPrev = 0x4C0; // uint64_t
+    public const nint m_flOffsetTickCompleteTime = 0x4C8; // float
+    public const nint m_flOffsetTickStashedSpeed = 0x4CC; // float
+    public const nint m_flStamina = 0x4D0; // float
+    public const nint m_flHeightAtJumpStart = 0x4D4; // float
+    public const nint m_flMaxJumpHeightThisJump = 0x4D8; // float
+}
+
+public static class CCSPlayer_PingServices { // CPlayerPawnComponent
+    public const nint m_hPlayerPing = 0x40; // CHandle<C_BaseEntity>
+}
+
+public static class CCSPlayer_UseServices { // CPlayer_UseServices
+}
+
+public static class CCSPlayer_ViewModelServices { // CPlayer_ViewModelServices
+    public const nint m_hViewModel = 0x40; // CHandle<C_BaseViewModel>[3]
+}
+
+public static class CCSPlayer_WaterServices { // CPlayer_WaterServices
+    public const nint m_flWaterJumpTime = 0x40; // float
+    public const nint m_vecWaterJumpVel = 0x44; // Vector
+    public const nint m_flSwimSoundTime = 0x50; // float
+}
+
+public static class CCSPlayer_WeaponServices { // CPlayer_WeaponServices
+    public const nint m_flNextAttack = 0xB8; // GameTime_t
+    public const nint m_bIsLookingAtWeapon = 0xBC; // bool
+    public const nint m_bIsHoldingLookAtWeapon = 0xBD; // bool
+    public const nint m_nOldShootPositionHistoryCount = 0xC0; // uint32_t
+    public const nint m_nOldInputHistoryCount = 0x458; // uint32_t
+}
+
+public static class CCSTakeDamageInfoAPI {
+}
+
+public static class CCSWeaponBaseAPI {
+}
+
+public static class CCSWeaponBaseVData { // CBasePlayerWeaponVData
+    public const nint m_WeaponType = 0x248; // CSWeaponType
+    public const nint m_WeaponCategory = 0x24C; // CSWeaponCategory
+    public const nint m_szViewModel = 0x250; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
+    public const nint m_szPlayerModel = 0x330; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
+    public const nint m_szWorldDroppedModel = 0x410; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
+    public const nint m_szAimsightLensMaskModel = 0x4F0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
+    public const nint m_szMagazineModel = 0x5D0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeCModel>>
+    public const nint m_szHeatEffect = 0x6B0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_szEjectBrassEffect = 0x790; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_szMuzzleFlashParticleAlt = 0x870; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_szMuzzleFlashThirdPersonParticle = 0x950; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_szMuzzleFlashThirdPersonParticleAlt = 0xA30; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_szTracerParticle = 0xB10; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_GearSlot = 0xBF0; // gear_slot_t
+    public const nint m_GearSlotPosition = 0xBF4; // int32_t
+    public const nint m_DefaultLoadoutSlot = 0xBF8; // loadout_slot_t
+    public const nint m_sWrongTeamMsg = 0xC00; // CUtlString
+    public const nint m_nPrice = 0xC08; // int32_t
+    public const nint m_nKillAward = 0xC0C; // int32_t
+    public const nint m_nPrimaryReserveAmmoMax = 0xC10; // int32_t
+    public const nint m_nSecondaryReserveAmmoMax = 0xC14; // int32_t
+    public const nint m_bMeleeWeapon = 0xC18; // bool
+    public const nint m_bHasBurstMode = 0xC19; // bool
+    public const nint m_bIsRevolver = 0xC1A; // bool
+    public const nint m_bCannotShootUnderwater = 0xC1B; // bool
+    public const nint m_szName = 0xC20; // CGlobalSymbol
+    public const nint m_szAnimExtension = 0xC28; // CUtlString
+    public const nint m_eSilencerType = 0xC30; // CSWeaponSilencerType
+    public const nint m_nCrosshairMinDistance = 0xC34; // int32_t
+    public const nint m_nCrosshairDeltaDistance = 0xC38; // int32_t
+    public const nint m_bIsFullAuto = 0xC3C; // bool
+    public const nint m_nNumBullets = 0xC40; // int32_t
+    public const nint m_flCycleTime = 0xC44; // CFiringModeFloat
+    public const nint m_flMaxSpeed = 0xC4C; // CFiringModeFloat
+    public const nint m_flSpread = 0xC54; // CFiringModeFloat
+    public const nint m_flInaccuracyCrouch = 0xC5C; // CFiringModeFloat
+    public const nint m_flInaccuracyStand = 0xC64; // CFiringModeFloat
+    public const nint m_flInaccuracyJump = 0xC6C; // CFiringModeFloat
+    public const nint m_flInaccuracyLand = 0xC74; // CFiringModeFloat
+    public const nint m_flInaccuracyLadder = 0xC7C; // CFiringModeFloat
+    public const nint m_flInaccuracyFire = 0xC84; // CFiringModeFloat
+    public const nint m_flInaccuracyMove = 0xC8C; // CFiringModeFloat
+    public const nint m_flRecoilAngle = 0xC94; // CFiringModeFloat
+    public const nint m_flRecoilAngleVariance = 0xC9C; // CFiringModeFloat
+    public const nint m_flRecoilMagnitude = 0xCA4; // CFiringModeFloat
+    public const nint m_flRecoilMagnitudeVariance = 0xCAC; // CFiringModeFloat
+    public const nint m_nTracerFrequency = 0xCB4; // CFiringModeInt
+    public const nint m_flInaccuracyJumpInitial = 0xCBC; // float
+    public const nint m_flInaccuracyJumpApex = 0xCC0; // float
+    public const nint m_flInaccuracyReload = 0xCC4; // float
+    public const nint m_nRecoilSeed = 0xCC8; // int32_t
+    public const nint m_nSpreadSeed = 0xCCC; // int32_t
+    public const nint m_flTimeToIdleAfterFire = 0xCD0; // float
+    public const nint m_flIdleInterval = 0xCD4; // float
+    public const nint m_flAttackMovespeedFactor = 0xCD8; // float
+    public const nint m_flHeatPerShot = 0xCDC; // float
+    public const nint m_flInaccuracyPitchShift = 0xCE0; // float
+    public const nint m_flInaccuracyAltSoundThreshold = 0xCE4; // float
+    public const nint m_flBotAudibleRange = 0xCE8; // float
+    public const nint m_szUseRadioSubtitle = 0xCF0; // CUtlString
+    public const nint m_bUnzoomsAfterShot = 0xCF8; // bool
+    public const nint m_bHideViewModelWhenZoomed = 0xCF9; // bool
+    public const nint m_nZoomLevels = 0xCFC; // int32_t
+    public const nint m_nZoomFOV1 = 0xD00; // int32_t
+    public const nint m_nZoomFOV2 = 0xD04; // int32_t
+    public const nint m_flZoomTime0 = 0xD08; // float
+    public const nint m_flZoomTime1 = 0xD0C; // float
+    public const nint m_flZoomTime2 = 0xD10; // float
+    public const nint m_flIronSightPullUpSpeed = 0xD14; // float
+    public const nint m_flIronSightPutDownSpeed = 0xD18; // float
+    public const nint m_flIronSightFOV = 0xD1C; // float
+    public const nint m_flIronSightPivotForward = 0xD20; // float
+    public const nint m_flIronSightLooseness = 0xD24; // float
+    public const nint m_angPivotAngle = 0xD28; // QAngle
+    public const nint m_vecIronSightEyePos = 0xD34; // Vector
+    public const nint m_nDamage = 0xD40; // int32_t
+    public const nint m_flHeadshotMultiplier = 0xD44; // float
+    public const nint m_flArmorRatio = 0xD48; // float
+    public const nint m_flPenetration = 0xD4C; // float
+    public const nint m_flRange = 0xD50; // float
+    public const nint m_flRangeModifier = 0xD54; // float
+    public const nint m_flFlinchVelocityModifierLarge = 0xD58; // float
+    public const nint m_flFlinchVelocityModifierSmall = 0xD5C; // float
+    public const nint m_flRecoveryTimeCrouch = 0xD60; // float
+    public const nint m_flRecoveryTimeStand = 0xD64; // float
+    public const nint m_flRecoveryTimeCrouchFinal = 0xD68; // float
+    public const nint m_flRecoveryTimeStandFinal = 0xD6C; // float
+    public const nint m_nRecoveryTransitionStartBullet = 0xD70; // int32_t
+    public const nint m_nRecoveryTransitionEndBullet = 0xD74; // int32_t
+    public const nint m_flThrowVelocity = 0xD78; // float
+    public const nint m_vSmokeColor = 0xD7C; // Vector
+    public const nint m_szAnimClass = 0xD88; // CGlobalSymbol
+}
+
+public static class CCSWeaponBaseVDataAPI {
+}
+
+public static class CClientAlphaProperty { // IClientAlphaProperty
+    public const nint m_nRenderFX = 0x10; // uint8_t
+    public const nint m_nRenderMode = 0x11; // uint8_t
+    public const nint m_bAlphaOverride = 0x0; // bitfield:1
+    public const nint m_bShadowAlphaOverride = 0x0; // bitfield:1
+    public const nint m_nReserved = 0x0; // bitfield:6
+    public const nint m_nAlpha = 0x13; // uint8_t
+    public const nint m_nDesyncOffset = 0x14; // uint16_t
+    public const nint m_nReserved2 = 0x16; // uint16_t
+    public const nint m_nDistFadeStart = 0x18; // uint16_t
+    public const nint m_nDistFadeEnd = 0x1A; // uint16_t
+    public const nint m_flFadeScale = 0x1C; // float
+    public const nint m_flRenderFxStartTime = 0x20; // GameTime_t
+    public const nint m_flRenderFxDuration = 0x24; // float
+}
+
+public static class CClientPointEntityAPI {
+}
+
+public static class CClientScriptEntity { // C_BaseEntity
+}
+
+public static class CCollisionProperty {
+    public const nint m_collisionAttribute = 0x10; // VPhysicsCollisionAttribute_t
+    public const nint m_vecMins = 0x40; // Vector
+    public const nint m_vecMaxs = 0x4C; // Vector
+    public const nint m_usSolidFlags = 0x5A; // uint8_t
+    public const nint m_nSolidType = 0x5B; // SolidType_t
+    public const nint m_triggerBloat = 0x5C; // uint8_t
+    public const nint m_nSurroundType = 0x5D; // SurroundingBoundsType_t
+    public const nint m_CollisionGroup = 0x5E; // uint8_t
+    public const nint m_nEnablePhysics = 0x5F; // uint8_t
+    public const nint m_flBoundingRadius = 0x60; // float
+    public const nint m_vecSpecifiedSurroundingMins = 0x64; // Vector
+    public const nint m_vecSpecifiedSurroundingMaxs = 0x70; // Vector
+    public const nint m_vecSurroundingMaxs = 0x7C; // Vector
+    public const nint m_vecSurroundingMins = 0x88; // Vector
+    public const nint m_vCapsuleCenter1 = 0x94; // Vector
+    public const nint m_vCapsuleCenter2 = 0xA0; // Vector
+    public const nint m_flCapsuleRadius = 0xAC; // float
+}
+
+public static class CCompositeMaterialEditorDoc {
+    public const nint m_nVersion = 0x8; // int32_t
+    public const nint m_Points = 0x10; // CUtlVector<CompositeMaterialEditorPoint_t>
+    public const nint m_KVthumbnail = 0x28; // KeyValues3
+}
+
+public static class CDamageRecord {
+    public const nint m_PlayerDamager = 0x28; // CHandle<C_CSPlayerPawnBase>
+    public const nint m_PlayerRecipient = 0x2C; // CHandle<C_CSPlayerPawnBase>
+    public const nint m_hPlayerControllerDamager = 0x30; // CHandle<CCSPlayerController>
+    public const nint m_hPlayerControllerRecipient = 0x34; // CHandle<CCSPlayerController>
+    public const nint m_szPlayerDamagerName = 0x38; // CUtlString
+    public const nint m_szPlayerRecipientName = 0x40; // CUtlString
+    public const nint m_DamagerXuid = 0x48; // uint64_t
+    public const nint m_RecipientXuid = 0x50; // uint64_t
+    public const nint m_iDamage = 0x58; // int32_t
+    public const nint m_iActualHealthRemoved = 0x5C; // int32_t
+    public const nint m_iNumHits = 0x60; // int32_t
+    public const nint m_iLastBulletUpdate = 0x64; // int32_t
+    public const nint m_bIsOtherEnemy = 0x68; // bool
+    public const nint m_killType = 0x69; // EKillTypes_t
+}
+
+public static class CDecalInfo {
+    public const nint m_flAnimationScale = 0x0; // float
+    public const nint m_flAnimationLifeSpan = 0x4; // float
+    public const nint m_flPlaceTime = 0x8; // float
+    public const nint m_flFadeStartTime = 0xC; // float
+    public const nint m_flFadeDuration = 0x10; // float
+    public const nint m_nVBSlot = 0x14; // int32_t
+    public const nint m_nBoneIndex = 0x18; // int32_t
+    public const nint m_vPosition = 0x28; // Vector
+    public const nint m_flBoundingRadiusSqr = 0x34; // float
+    public const nint m_pNext = 0x40; // CDecalInfo*
+    public const nint m_pPrev = 0x48; // CDecalInfo*
+    public const nint m_nDecalMaterialIndex = 0xA8; // int32_t
+}
+
+public static class CDynamicPropAPI {
+}
+
+public static class CEconItemAttribute {
+    public const nint m_iAttributeDefinitionIndex = 0x30; // uint16_t
+    public const nint m_flValue = 0x34; // float
+    public const nint m_flInitialValue = 0x38; // float
+    public const nint m_nRefundableCurrency = 0x3C; // int32_t
+    public const nint m_bSetBonus = 0x40; // bool
+}
+
+public static class CEffectData {
+    public const nint m_vOrigin = 0x8; // Vector
+    public const nint m_vStart = 0x14; // Vector
+    public const nint m_vNormal = 0x20; // Vector
+    public const nint m_vAngles = 0x2C; // QAngle
+    public const nint m_hEntity = 0x38; // CEntityHandle
+    public const nint m_hOtherEntity = 0x3C; // CEntityHandle
+    public const nint m_flScale = 0x40; // float
+    public const nint m_flMagnitude = 0x44; // float
+    public const nint m_flRadius = 0x48; // float
+    public const nint m_nSurfaceProp = 0x4C; // CUtlStringToken
+    public const nint m_nEffectIndex = 0x50; // CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>
+    public const nint m_nDamageType = 0x58; // uint32_t
+    public const nint m_nPenetrate = 0x5C; // uint8_t
+    public const nint m_nMaterial = 0x5E; // uint16_t
+    public const nint m_nHitBox = 0x60; // uint16_t
+    public const nint m_nColor = 0x62; // uint8_t
+    public const nint m_fFlags = 0x63; // uint8_t
+    public const nint m_nAttachmentIndex = 0x64; // AttachmentHandle_t
+    public const nint m_nAttachmentName = 0x68; // CUtlStringToken
+    public const nint m_iEffectName = 0x6C; // uint16_t
+    public const nint m_nExplosionType = 0x6E; // uint8_t
+}
+
+public static class CEntityComponent {
+}
+
+public static class CEntityIdentity {
+    public const nint m_nameStringableIndex = 0x14; // int32_t
+    public const nint m_name = 0x18; // CUtlSymbolLarge
+    public const nint m_designerName = 0x20; // CUtlSymbolLarge
+    public const nint m_flags = 0x30; // uint32_t
+    public const nint m_worldGroupId = 0x38; // WorldGroupId_t
+    public const nint m_fDataObjectTypes = 0x3C; // uint32_t
+    public const nint m_PathIndex = 0x40; // ChangeAccessorFieldPathIndex_t
+    public const nint m_pPrev = 0x58; // CEntityIdentity*
+    public const nint m_pNext = 0x60; // CEntityIdentity*
+    public const nint m_pPrevByClass = 0x68; // CEntityIdentity*
+    public const nint m_pNextByClass = 0x70; // CEntityIdentity*
+}
+
+public static class CEntityInstance {
+    public const nint m_iszPrivateVScripts = 0x8; // CUtlSymbolLarge
+    public const nint m_pEntity = 0x10; // CEntityIdentity*
+    public const nint m_CScriptComponent = 0x28; // CScriptComponent*
+    public const nint m_bVisibleinPVS = 0x30; // bool
+}
+
+public static class CFireOverlay { // CGlowOverlay
+    public const nint m_pOwner = 0xD0; // C_FireSmoke*
+    public const nint m_vBaseColors = 0xD8; // Vector[4]
+    public const nint m_flScale = 0x108; // float
+    public const nint m_nGUID = 0x10C; // int32_t
+}
+
+public static class CFlashlightEffect {
+    public const nint m_bIsOn = 0x10; // bool
+    public const nint m_bMuzzleFlashEnabled = 0x20; // bool
+    public const nint m_flMuzzleFlashBrightness = 0x24; // float
+    public const nint m_quatMuzzleFlashOrientation = 0x30; // Quaternion
+    public const nint m_vecMuzzleFlashOrigin = 0x40; // Vector
+    public const nint m_flFov = 0x4C; // float
+    public const nint m_flFarZ = 0x50; // float
+    public const nint m_flLinearAtten = 0x54; // float
+    public const nint m_bCastsShadows = 0x58; // bool
+    public const nint m_flCurrentPullBackDist = 0x5C; // float
+    public const nint m_FlashlightTexture = 0x60; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_MuzzleFlashTexture = 0x68; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_textureName = 0x70; // char[64]
+}
+
+public static class CFuncWater { // C_BaseModelEntity
+    public const nint m_BuoyancyHelper = 0xCD0; // CBuoyancyHelper
+}
+
+public static class CGameSceneNode {
+    public const nint m_nodeToWorld = 0x10; // CTransform
+    public const nint m_pOwner = 0x30; // CEntityInstance*
+    public const nint m_pParent = 0x38; // CGameSceneNode*
+    public const nint m_pChild = 0x40; // CGameSceneNode*
+    public const nint m_pNextSibling = 0x48; // CGameSceneNode*
+    public const nint m_hParent = 0x70; // CGameSceneNodeHandle
+    public const nint m_vecOrigin = 0x80; // CNetworkOriginCellCoordQuantizedVector
+    public const nint m_angRotation = 0xB8; // QAngle
+    public const nint m_flScale = 0xC4; // float
+    public const nint m_vecAbsOrigin = 0xC8; // Vector
+    public const nint m_angAbsRotation = 0xD4; // QAngle
+    public const nint m_flAbsScale = 0xE0; // float
+    public const nint m_nParentAttachmentOrBone = 0xE4; // int16_t
+    public const nint m_bDebugAbsOriginChanges = 0xE6; // bool
+    public const nint m_bDormant = 0xE7; // bool
+    public const nint m_bForceParentToBeNetworked = 0xE8; // bool
+    public const nint m_bDirtyHierarchy = 0x0; // bitfield:1
+    public const nint m_bDirtyBoneMergeInfo = 0x0; // bitfield:1
+    public const nint m_bNetworkedPositionChanged = 0x0; // bitfield:1
+    public const nint m_bNetworkedAnglesChanged = 0x0; // bitfield:1
+    public const nint m_bNetworkedScaleChanged = 0x0; // bitfield:1
+    public const nint m_bWillBeCallingPostDataUpdate = 0x0; // bitfield:1
+    public const nint m_bBoneMergeFlex = 0x0; // bitfield:1
+    public const nint m_nLatchAbsOrigin = 0x0; // bitfield:2
+    public const nint m_bDirtyBoneMergeBoneToRoot = 0x0; // bitfield:1
+    public const nint m_nHierarchicalDepth = 0xEB; // uint8_t
+    public const nint m_nHierarchyType = 0xEC; // uint8_t
+    public const nint m_nDoNotSetAnimTimeInInvalidatePhysicsCount = 0xED; // uint8_t
+    public const nint m_name = 0xF0; // CUtlStringToken
+    public const nint m_hierarchyAttachName = 0x130; // CUtlStringToken
+    public const nint m_flZOffset = 0x134; // float
+    public const nint m_vRenderOrigin = 0x138; // Vector
+}
+
+public static class CGameSceneNodeHandle {
+    public const nint m_hOwner = 0x8; // CEntityHandle
+    public const nint m_name = 0xC; // CUtlStringToken
+}
+
+public static class CGlobalLightBase {
+    public const nint m_bSpotLight = 0x10; // bool
+    public const nint m_SpotLightOrigin = 0x14; // Vector
+    public const nint m_SpotLightAngles = 0x20; // QAngle
+    public const nint m_ShadowDirection = 0x2C; // Vector
+    public const nint m_AmbientDirection = 0x38; // Vector
+    public const nint m_SpecularDirection = 0x44; // Vector
+    public const nint m_InspectorSpecularDirection = 0x50; // Vector
+    public const nint m_flSpecularPower = 0x5C; // float
+    public const nint m_flSpecularIndependence = 0x60; // float
+    public const nint m_SpecularColor = 0x64; // Color
+    public const nint m_bStartDisabled = 0x68; // bool
+    public const nint m_bEnabled = 0x69; // bool
+    public const nint m_LightColor = 0x6A; // Color
+    public const nint m_AmbientColor1 = 0x6E; // Color
+    public const nint m_AmbientColor2 = 0x72; // Color
+    public const nint m_AmbientColor3 = 0x76; // Color
+    public const nint m_flSunDistance = 0x7C; // float
+    public const nint m_flFOV = 0x80; // float
+    public const nint m_flNearZ = 0x84; // float
+    public const nint m_flFarZ = 0x88; // float
+    public const nint m_bEnableShadows = 0x8C; // bool
+    public const nint m_bOldEnableShadows = 0x8D; // bool
+    public const nint m_bBackgroundClearNotRequired = 0x8E; // bool
+    public const nint m_flCloudScale = 0x90; // float
+    public const nint m_flCloud1Speed = 0x94; // float
+    public const nint m_flCloud1Direction = 0x98; // float
+    public const nint m_flCloud2Speed = 0x9C; // float
+    public const nint m_flCloud2Direction = 0xA0; // float
+    public const nint m_flAmbientScale1 = 0xB0; // float
+    public const nint m_flAmbientScale2 = 0xB4; // float
+    public const nint m_flGroundScale = 0xB8; // float
+    public const nint m_flLightScale = 0xBC; // float
+    public const nint m_flFoWDarkness = 0xC0; // float
+    public const nint m_bEnableSeparateSkyboxFog = 0xC4; // bool
+    public const nint m_vFowColor = 0xC8; // Vector
+    public const nint m_ViewOrigin = 0xD4; // Vector
+    public const nint m_ViewAngles = 0xE0; // QAngle
+    public const nint m_flViewFoV = 0xEC; // float
+    public const nint m_WorldPoints = 0xF0; // Vector[8]
+    public const nint m_vFogOffsetLayer0 = 0x4A8; // Vector2D
+    public const nint m_vFogOffsetLayer1 = 0x4B0; // Vector2D
+    public const nint m_hEnvWind = 0x4B8; // CHandle<C_BaseEntity>
+    public const nint m_hEnvSky = 0x4BC; // CHandle<C_BaseEntity>
+}
+
+public static class CGlowOverlay {
+    public const nint m_vPos = 0x8; // Vector
+    public const nint m_bDirectional = 0x14; // bool
+    public const nint m_vDirection = 0x18; // Vector
+    public const nint m_bInSky = 0x24; // bool
+    public const nint m_skyObstructionScale = 0x28; // float
+    public const nint m_Sprites = 0x30; // CGlowSprite[4]
+    public const nint m_nSprites = 0xB0; // int32_t
+    public const nint m_flProxyRadius = 0xB4; // float
+    public const nint m_flHDRColorScale = 0xB8; // float
+    public const nint m_flGlowObstructionScale = 0xBC; // float
+    public const nint m_bCacheGlowObstruction = 0xC0; // bool
+    public const nint m_bCacheSkyObstruction = 0xC1; // bool
+    public const nint m_bActivated = 0xC2; // int16_t
+    public const nint m_ListIndex = 0xC4; // uint16_t
+    public const nint m_queryHandle = 0xC8; // int32_t
+}
+
+public static class CGlowProperty {
+    public const nint m_fGlowColor = 0x8; // Vector
+    public const nint m_iGlowType = 0x30; // int32_t
+    public const nint m_iGlowTeam = 0x34; // int32_t
+    public const nint m_nGlowRange = 0x38; // int32_t
+    public const nint m_nGlowRangeMin = 0x3C; // int32_t
+    public const nint m_glowColorOverride = 0x40; // Color
+    public const nint m_bFlashing = 0x44; // bool
+    public const nint m_flGlowTime = 0x48; // float
+    public const nint m_flGlowStartTime = 0x4C; // float
+    public const nint m_bEligibleForScreenHighlight = 0x50; // bool
+    public const nint m_bGlowing = 0x51; // bool
+}
+
+public static class CGlowSprite {
+    public const nint m_vColor = 0x0; // Vector
+    public const nint m_flHorzSize = 0xC; // float
+    public const nint m_flVertSize = 0x10; // float
+    public const nint m_hMaterial = 0x18; // CStrongHandle<InfoForResourceTypeIMaterial2>
+}
+
+public static class CGrenadeTracer { // C_BaseModelEntity
+    public const nint m_flTracerDuration = 0xCF0; // float
+    public const nint m_nType = 0xCF4; // GrenadeType_t
+}
+
+public static class CHitboxComponent { // CEntityComponent
+    public const nint m_bvDisabledHitGroups = 0x24; // uint32_t[1]
+}
+
+public static class CHostageRescueZone { // CHostageRescueZoneShim
+}
+
+public static class CHostageRescueZoneShim { // C_BaseTrigger
+}
+
+public static class CInfoDynamicShadowHint { // C_PointEntity
+    public const nint m_bDisabled = 0x550; // bool
+    public const nint m_flRange = 0x554; // float
+    public const nint m_nImportance = 0x558; // int32_t
+    public const nint m_nLightChoice = 0x55C; // int32_t
+    public const nint m_hLight = 0x560; // CHandle<C_BaseEntity>
+}
+
+public static class CInfoDynamicShadowHintBox { // CInfoDynamicShadowHint
+    public const nint m_vBoxMins = 0x568; // Vector
+    public const nint m_vBoxMaxs = 0x574; // Vector
+}
+
+public static class CInfoOffscreenPanoramaTexture { // C_PointEntity
+    public const nint m_bDisabled = 0x550; // bool
+    public const nint m_nResolutionX = 0x554; // int32_t
+    public const nint m_nResolutionY = 0x558; // int32_t
+    public const nint m_szLayoutFileName = 0x560; // CUtlSymbolLarge
+    public const nint m_RenderAttrName = 0x568; // CUtlSymbolLarge
+    public const nint m_TargetEntities = 0x570; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
+    public const nint m_nTargetChangeCount = 0x588; // int32_t
+    public const nint m_vecCSSClasses = 0x590; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
+    public const nint m_bCheckCSSClasses = 0x708; // bool
+}
+
+public static class CInfoParticleTarget { // C_PointEntity
+}
+
+public static class CInfoTarget { // C_PointEntity
+}
+
+public static class CInfoWorldLayer { // C_BaseEntity
+    public const nint m_pOutputOnEntitiesSpawned = 0x550; // CEntityIOOutput
+    public const nint m_worldName = 0x578; // CUtlSymbolLarge
+    public const nint m_layerName = 0x580; // CUtlSymbolLarge
+    public const nint m_bWorldLayerVisible = 0x588; // bool
+    public const nint m_bEntitiesSpawned = 0x589; // bool
+    public const nint m_bCreateAsChildSpawnGroup = 0x58A; // bool
+    public const nint m_hLayerSpawnGroup = 0x58C; // uint32_t
+    public const nint m_bWorldLayerActuallyVisible = 0x590; // bool
+}
+
+public static class CInterpolatedValue {
+    public const nint m_flStartTime = 0x0; // float
+    public const nint m_flEndTime = 0x4; // float
+    public const nint m_flStartValue = 0x8; // float
+    public const nint m_flEndValue = 0xC; // float
+    public const nint m_nInterpType = 0x10; // int32_t
+}
+
+public static class CLightComponent { // CEntityComponent
+    public const nint __m_pChainEntity = 0x48; // CNetworkVarChainer
+    public const nint m_Color = 0x85; // Color
+    public const nint m_SecondaryColor = 0x89; // Color
+    public const nint m_flBrightness = 0x90; // float
+    public const nint m_flBrightnessScale = 0x94; // float
+    public const nint m_flBrightnessMult = 0x98; // float
+    public const nint m_flRange = 0x9C; // float
+    public const nint m_flFalloff = 0xA0; // float
+    public const nint m_flAttenuation0 = 0xA4; // float
+    public const nint m_flAttenuation1 = 0xA8; // float
+    public const nint m_flAttenuation2 = 0xAC; // float
+    public const nint m_flTheta = 0xB0; // float
+    public const nint m_flPhi = 0xB4; // float
+    public const nint m_hLightCookie = 0xB8; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_nCascades = 0xC0; // int32_t
+    public const nint m_nCastShadows = 0xC4; // int32_t
+    public const nint m_nShadowWidth = 0xC8; // int32_t
+    public const nint m_nShadowHeight = 0xCC; // int32_t
+    public const nint m_bRenderDiffuse = 0xD0; // bool
+    public const nint m_nRenderSpecular = 0xD4; // int32_t
+    public const nint m_bRenderTransmissive = 0xD8; // bool
+    public const nint m_flOrthoLightWidth = 0xDC; // float
+    public const nint m_flOrthoLightHeight = 0xE0; // float
+    public const nint m_nStyle = 0xE4; // int32_t
+    public const nint m_Pattern = 0xE8; // CUtlString
+    public const nint m_nCascadeRenderStaticObjects = 0xF0; // int32_t
+    public const nint m_flShadowCascadeCrossFade = 0xF4; // float
+    public const nint m_flShadowCascadeDistanceFade = 0xF8; // float
+    public const nint m_flShadowCascadeDistance0 = 0xFC; // float
+    public const nint m_flShadowCascadeDistance1 = 0x100; // float
+    public const nint m_flShadowCascadeDistance2 = 0x104; // float
+    public const nint m_flShadowCascadeDistance3 = 0x108; // float
+    public const nint m_nShadowCascadeResolution0 = 0x10C; // int32_t
+    public const nint m_nShadowCascadeResolution1 = 0x110; // int32_t
+    public const nint m_nShadowCascadeResolution2 = 0x114; // int32_t
+    public const nint m_nShadowCascadeResolution3 = 0x118; // int32_t
+    public const nint m_bUsesBakedShadowing = 0x11C; // bool
+    public const nint m_nShadowPriority = 0x120; // int32_t
+    public const nint m_nBakedShadowIndex = 0x124; // int32_t
+    public const nint m_bRenderToCubemaps = 0x128; // bool
+    public const nint m_nDirectLight = 0x12C; // int32_t
+    public const nint m_nIndirectLight = 0x130; // int32_t
+    public const nint m_flFadeMinDist = 0x134; // float
+    public const nint m_flFadeMaxDist = 0x138; // float
+    public const nint m_flShadowFadeMinDist = 0x13C; // float
+    public const nint m_flShadowFadeMaxDist = 0x140; // float
+    public const nint m_bEnabled = 0x144; // bool
+    public const nint m_bFlicker = 0x145; // bool
+    public const nint m_bPrecomputedFieldsValid = 0x146; // bool
+    public const nint m_vPrecomputedBoundsMins = 0x148; // Vector
+    public const nint m_vPrecomputedBoundsMaxs = 0x154; // Vector
+    public const nint m_vPrecomputedOBBOrigin = 0x160; // Vector
+    public const nint m_vPrecomputedOBBAngles = 0x16C; // QAngle
+    public const nint m_vPrecomputedOBBExtent = 0x178; // Vector
+    public const nint m_flPrecomputedMaxRange = 0x184; // float
+    public const nint m_nFogLightingMode = 0x188; // int32_t
+    public const nint m_flFogContributionStength = 0x18C; // float
+    public const nint m_flNearClipPlane = 0x190; // float
+    public const nint m_SkyColor = 0x194; // Color
+    public const nint m_flSkyIntensity = 0x198; // float
+    public const nint m_SkyAmbientBounce = 0x19C; // Color
+    public const nint m_bUseSecondaryColor = 0x1A0; // bool
+    public const nint m_bMixedShadows = 0x1A1; // bool
+    public const nint m_flLightStyleStartTime = 0x1A4; // GameTime_t
+    public const nint m_flCapsuleLength = 0x1A8; // float
+    public const nint m_flMinRoughness = 0x1AC; // float
+}
+
+public static class CLogicRelay { // CLogicalEntity
+    public const nint m_OnTrigger = 0x550; // CEntityIOOutput
+    public const nint m_OnSpawn = 0x578; // CEntityIOOutput
+    public const nint m_bDisabled = 0x5A0; // bool
+    public const nint m_bWaitForRefire = 0x5A1; // bool
+    public const nint m_bTriggerOnce = 0x5A2; // bool
+    public const nint m_bFastRetrigger = 0x5A3; // bool
+    public const nint m_bPassthoughCaller = 0x5A4; // bool
+}
+
+public static class CLogicalEntity { // C_BaseEntity
+}
+
+public static class CModelState {
+    public const nint m_hModel = 0xA0; // CStrongHandle<InfoForResourceTypeCModel>
+    public const nint m_ModelName = 0xA8; // CUtlSymbolLarge
+    public const nint m_bClientClothCreationSuppressed = 0xE8; // bool
+    public const nint m_MeshGroupMask = 0x180; // uint64_t
+    public const nint m_nIdealMotionType = 0x202; // int8_t
+    public const nint m_nForceLOD = 0x203; // int8_t
+    public const nint m_nClothUpdateFlags = 0x204; // int8_t
+}
+
+public static class CNetworkedSequenceOperation {
+    public const nint m_hSequence = 0x8; // HSequence
+    public const nint m_flPrevCycle = 0xC; // float
+    public const nint m_flCycle = 0x10; // float
+    public const nint m_flWeight = 0x14; // CNetworkedQuantizedFloat
+    public const nint m_bSequenceChangeNetworked = 0x1C; // bool
+    public const nint m_bDiscontinuity = 0x1D; // bool
+    public const nint m_flPrevCycleFromDiscontinuity = 0x20; // float
+    public const nint m_flPrevCycleForAnimEventDetection = 0x24; // float
+}
+
+public static class CPlayerSprayDecalRenderHelper {
+}
+
+public static class CPlayer_AutoaimServices { // CPlayerPawnComponent
+}
+
+public static class CPlayer_CameraServices { // CPlayerPawnComponent
+    public const nint m_vecCsViewPunchAngle = 0x40; // QAngle
+    public const nint m_nCsViewPunchAngleTick = 0x4C; // GameTick_t
+    public const nint m_flCsViewPunchAngleTickRatio = 0x50; // float
+    public const nint m_PlayerFog = 0x58; // C_fogplayerparams_t
+    public const nint m_hColorCorrectionCtrl = 0x98; // CHandle<C_ColorCorrection>
+    public const nint m_hViewEntity = 0x9C; // CHandle<C_BaseEntity>
+    public const nint m_hTonemapController = 0xA0; // CHandle<C_TonemapController2>
+    public const nint m_audio = 0xA8; // audioparams_t
+    public const nint m_PostProcessingVolumes = 0x120; // C_NetworkUtlVectorBase<CHandle<C_PostProcessingVolume>>
+    public const nint m_flOldPlayerZ = 0x138; // float
+    public const nint m_flOldPlayerViewOffsetZ = 0x13C; // float
+    public const nint m_CurrentFog = 0x140; // fogparams_t
+    public const nint m_hOldFogController = 0x1A8; // CHandle<C_FogController>
+    public const nint m_bOverrideFogColor = 0x1AC; // bool[5]
+    public const nint m_OverrideFogColor = 0x1B1; // Color[5]
+    public const nint m_bOverrideFogStartEnd = 0x1C5; // bool[5]
+    public const nint m_fOverrideFogStart = 0x1CC; // float[5]
+    public const nint m_fOverrideFogEnd = 0x1E0; // float[5]
+    public const nint m_hActivePostProcessingVolume = 0x1F4; // CHandle<C_PostProcessingVolume>
+    public const nint m_angDemoViewAngles = 0x1F8; // QAngle
+}
+
+public static class CPlayer_FlashlightServices { // CPlayerPawnComponent
+}
+
+public static class CPlayer_ItemServices { // CPlayerPawnComponent
+}
+
+public static class CPlayer_MovementServices { // CPlayerPawnComponent
+    public const nint m_nImpulse = 0x40; // int32_t
+    public const nint m_nButtons = 0x48; // CInButtonState
+    public const nint m_nQueuedButtonDownMask = 0x68; // uint64_t
+    public const nint m_nQueuedButtonChangeMask = 0x70; // uint64_t
+    public const nint m_nButtonDoublePressed = 0x78; // uint64_t
+    public const nint m_pButtonPressedCmdNumber = 0x80; // uint32_t[64]
+    public const nint m_nLastCommandNumberProcessed = 0x180; // uint32_t
+    public const nint m_nToggleButtonDownMask = 0x188; // uint64_t
+    public const nint m_flMaxspeed = 0x198; // float
+    public const nint m_arrForceSubtickMoveWhen = 0x19C; // float[4]
+    public const nint m_flForwardMove = 0x1AC; // float
+    public const nint m_flLeftMove = 0x1B0; // float
+    public const nint m_flUpMove = 0x1B4; // float
+    public const nint m_vecLastMovementImpulses = 0x1B8; // Vector
+    public const nint m_vecOldViewAngles = 0x1C4; // QAngle
+}
+
+public static class CPlayer_MovementServices_Humanoid { // CPlayer_MovementServices
+    public const nint m_flStepSoundTime = 0x1D8; // float
+    public const nint m_flFallVelocity = 0x1DC; // float
+    public const nint m_bInCrouch = 0x1E0; // bool
+    public const nint m_nCrouchState = 0x1E4; // uint32_t
+    public const nint m_flCrouchTransitionStartTime = 0x1E8; // GameTime_t
+    public const nint m_bDucked = 0x1EC; // bool
+    public const nint m_bDucking = 0x1ED; // bool
+    public const nint m_bInDuckJump = 0x1EE; // bool
+    public const nint m_groundNormal = 0x1F0; // Vector
+    public const nint m_flSurfaceFriction = 0x1FC; // float
+    public const nint m_surfaceProps = 0x200; // CUtlStringToken
+    public const nint m_nStepside = 0x210; // int32_t
+}
+
+public static class CPlayer_ObserverServices { // CPlayerPawnComponent
+    public const nint m_iObserverMode = 0x40; // uint8_t
+    public const nint m_hObserverTarget = 0x44; // CHandle<C_BaseEntity>
+    public const nint m_iObserverLastMode = 0x48; // ObserverMode_t
+    public const nint m_bForcedObserverMode = 0x4C; // bool
+    public const nint m_flObserverChaseDistance = 0x50; // float
+    public const nint m_flObserverChaseDistanceCalcTime = 0x54; // GameTime_t
+}
+
+public static class CPlayer_UseServices { // CPlayerPawnComponent
+}
+
+public static class CPlayer_ViewModelServices { // CPlayerPawnComponent
+}
+
+public static class CPlayer_WaterServices { // CPlayerPawnComponent
+}
+
+public static class CPlayer_WeaponServices { // CPlayerPawnComponent
+    public const nint m_hMyWeapons = 0x40; // C_NetworkUtlVectorBase<CHandle<C_BasePlayerWeapon>>
+    public const nint m_hActiveWeapon = 0x58; // CHandle<C_BasePlayerWeapon>
+    public const nint m_hLastWeapon = 0x5C; // CHandle<C_BasePlayerWeapon>
+    public const nint m_iAmmo = 0x60; // uint16_t[32]
+}
+
+public static class CPointOffScreenIndicatorUi { // C_PointClientUIWorldPanel
+    public const nint m_bBeenEnabled = 0xF30; // bool
+    public const nint m_bHide = 0xF31; // bool
+    public const nint m_flSeenTargetTime = 0xF34; // float
+    public const nint m_pTargetPanel = 0xF38; // C_PointClientUIWorldPanel*
+}
+
+public static class CPointTemplate { // CLogicalEntity
+    public const nint m_iszWorldName = 0x550; // CUtlSymbolLarge
+    public const nint m_iszSource2EntityLumpName = 0x558; // CUtlSymbolLarge
+    public const nint m_iszEntityFilterName = 0x560; // CUtlSymbolLarge
+    public const nint m_flTimeoutInterval = 0x568; // float
+    public const nint m_bAsynchronouslySpawnEntities = 0x56C; // bool
+    public const nint m_pOutputOnSpawned = 0x570; // CEntityIOOutput
+    public const nint m_clientOnlyEntityBehavior = 0x598; // PointTemplateClientOnlyEntityBehavior_t
+    public const nint m_ownerSpawnGroupType = 0x59C; // PointTemplateOwnerSpawnGroupType_t
+    public const nint m_createdSpawnGroupHandles = 0x5A0; // CUtlVector<uint32_t>
+    public const nint m_SpawnedEntityHandles = 0x5B8; // CUtlVector<CEntityHandle>
+    public const nint m_ScriptSpawnCallback = 0x5D0; // HSCRIPT
+    public const nint m_ScriptCallbackScope = 0x5D8; // HSCRIPT
+}
+
+public static class CPrecipitationVData { // CEntitySubclassVDataBase
+    public const nint m_szParticlePrecipitationEffect = 0x28; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIParticleSystemDefinition>>
+    public const nint m_flInnerDistance = 0x108; // float
+    public const nint m_nAttachType = 0x10C; // ParticleAttachment_t
+    public const nint m_bBatchSameVolumeType = 0x110; // bool
+    public const nint m_nRTEnvCP = 0x114; // int32_t
+    public const nint m_nRTEnvCPComponent = 0x118; // int32_t
+    public const nint m_szModifier = 0x120; // CUtlString
+}
+
+public static class CProjectedTextureBase {
+    public const nint m_hTargetEntity = 0xC; // CHandle<C_BaseEntity>
+    public const nint m_bState = 0x10; // bool
+    public const nint m_bAlwaysUpdate = 0x11; // bool
+    public const nint m_flLightFOV = 0x14; // float
+    public const nint m_bEnableShadows = 0x18; // bool
+    public const nint m_bSimpleProjection = 0x19; // bool
+    public const nint m_bLightOnlyTarget = 0x1A; // bool
+    public const nint m_bLightWorld = 0x1B; // bool
+    public const nint m_bCameraSpace = 0x1C; // bool
+    public const nint m_flBrightnessScale = 0x20; // float
+    public const nint m_LightColor = 0x24; // Color
+    public const nint m_flIntensity = 0x28; // float
+    public const nint m_flLinearAttenuation = 0x2C; // float
+    public const nint m_flQuadraticAttenuation = 0x30; // float
+    public const nint m_bVolumetric = 0x34; // bool
+    public const nint m_flVolumetricIntensity = 0x38; // float
+    public const nint m_flNoiseStrength = 0x3C; // float
+    public const nint m_flFlashlightTime = 0x40; // float
+    public const nint m_nNumPlanes = 0x44; // uint32_t
+    public const nint m_flPlaneOffset = 0x48; // float
+    public const nint m_flColorTransitionTime = 0x4C; // float
+    public const nint m_flAmbient = 0x50; // float
+    public const nint m_SpotlightTextureName = 0x54; // char[512]
+    public const nint m_nSpotlightTextureFrame = 0x254; // int32_t
+    public const nint m_nShadowQuality = 0x258; // uint32_t
+    public const nint m_flNearZ = 0x25C; // float
+    public const nint m_flFarZ = 0x260; // float
+    public const nint m_flProjectionSize = 0x264; // float
+    public const nint m_flRotation = 0x268; // float
+    public const nint m_bFlipHorizontal = 0x26C; // bool
+}
+
+public static class CPulseGraphInstance_ClientEntity { // CBasePulseGraphInstance
+    public const nint m_pParent = 0xD8; // CClientScriptEntity*
+}
+
+public static class CRenderComponent { // CEntityComponent
+    public const nint __m_pChainEntity = 0x10; // CNetworkVarChainer
+    public const nint m_bIsRenderingWithViewModels = 0x50; // bool
+    public const nint m_nSplitscreenFlags = 0x54; // uint32_t
+    public const nint m_bEnableRendering = 0x60; // bool
+    public const nint m_bInterpolationReadyToDraw = 0xB0; // bool
+}
+
+public static class CSMatchStats_t { // CSPerRoundStats_t
+    public const nint m_iEnemy5Ks = 0x68; // int32_t
+    public const nint m_iEnemy4Ks = 0x6C; // int32_t
+    public const nint m_iEnemy3Ks = 0x70; // int32_t
+    public const nint m_iEnemyKnifeKills = 0x74; // int32_t
+    public const nint m_iEnemyTaserKills = 0x78; // int32_t
+}
+
+public static class CSPerRoundStats_t {
+    public const nint m_iKills = 0x30; // int32_t
+    public const nint m_iDeaths = 0x34; // int32_t
+    public const nint m_iAssists = 0x38; // int32_t
+    public const nint m_iDamage = 0x3C; // int32_t
+    public const nint m_iEquipmentValue = 0x40; // int32_t
+    public const nint m_iMoneySaved = 0x44; // int32_t
+    public const nint m_iKillReward = 0x48; // int32_t
+    public const nint m_iLiveTime = 0x4C; // int32_t
+    public const nint m_iHeadShotKills = 0x50; // int32_t
+    public const nint m_iObjective = 0x54; // int32_t
+    public const nint m_iCashEarned = 0x58; // int32_t
+    public const nint m_iUtilityDamage = 0x5C; // int32_t
+    public const nint m_iEnemiesFlashed = 0x60; // int32_t
+}
+
+public static class CScriptComponent { // CEntityComponent
+    public const nint m_scriptClassName = 0x30; // CUtlSymbolLarge
+}
+
+public static class CServerOnlyModelEntity { // C_BaseModelEntity
+}
+
+public static class CSkeletonInstance { // CGameSceneNode
+    public const nint m_modelState = 0x160; // CModelState
+    public const nint m_bIsAnimationEnabled = 0x370; // bool
+    public const nint m_bUseParentRenderBounds = 0x371; // bool
+    public const nint m_bDisableSolidCollisionsForHierarchy = 0x372; // bool
+    public const nint m_bDirtyMotionType = 0x0; // bitfield:1
+    public const nint m_bIsGeneratingLatchedParentSpaceState = 0x0; // bitfield:1
+    public const nint m_materialGroup = 0x374; // CUtlStringToken
+    public const nint m_nHitboxSet = 0x378; // uint8_t
+}
+
+public static class CSkyboxReference { // C_BaseEntity
+    public const nint m_worldGroupId = 0x550; // WorldGroupId_t
+    public const nint m_hSkyCamera = 0x554; // CHandle<C_SkyCamera>
+}
+
+public static class CTablet { // C_CSWeaponBase
+}
+
+public static class CTakeDamageInfoAPI {
+}
+
+public static class CTimeline { // IntervalTimer
+    public const nint m_flValues = 0x10; // float[64]
+    public const nint m_nValueCounts = 0x110; // int32_t[64]
+    public const nint m_nBucketCount = 0x210; // int32_t
+    public const nint m_flInterval = 0x214; // float
+    public const nint m_flFinalValue = 0x218; // float
+    public const nint m_nCompressionType = 0x21C; // TimelineCompression_t
+    public const nint m_bStopped = 0x220; // bool
+}
+
+public static class CTripWireFire { // C_BaseCSGrenade
+}
+
+public static class CTripWireFireProjectile { // C_BaseGrenade
+}
+
+public static class CWaterSplasher { // C_BaseModelEntity
+}
+
+public static class CWeaponZoneRepulsor { // C_CSWeaponBaseGun
+}
+
+public static class C_AK47 { // C_CSWeaponBaseGun
+}
+
+public static class C_AttributeContainer { // CAttributeManager
+    public const nint m_Item = 0x50; // C_EconItemView
+    public const nint m_iExternalItemProviderRegisteredToken = 0x498; // int32_t
+    public const nint m_ullRegisteredAsItemID = 0x4A0; // uint64_t
+}
+
+public static class C_BarnLight { // C_BaseModelEntity
+    public const nint m_bEnabled = 0xCD0; // bool
+    public const nint m_nColorMode = 0xCD4; // int32_t
+    public const nint m_Color = 0xCD8; // Color
+    public const nint m_flColorTemperature = 0xCDC; // float
+    public const nint m_flBrightness = 0xCE0; // float
+    public const nint m_flBrightnessScale = 0xCE4; // float
+    public const nint m_nDirectLight = 0xCE8; // int32_t
+    public const nint m_nBakedShadowIndex = 0xCEC; // int32_t
+    public const nint m_nLuminaireShape = 0xCF0; // int32_t
+    public const nint m_flLuminaireSize = 0xCF4; // float
+    public const nint m_flLuminaireAnisotropy = 0xCF8; // float
+    public const nint m_LightStyleString = 0xD00; // CUtlString
+    public const nint m_flLightStyleStartTime = 0xD08; // GameTime_t
+    public const nint m_QueuedLightStyleStrings = 0xD10; // C_NetworkUtlVectorBase<CUtlString>
+    public const nint m_LightStyleEvents = 0xD28; // C_NetworkUtlVectorBase<CUtlString>
+    public const nint m_LightStyleTargets = 0xD40; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
+    public const nint m_StyleEvent = 0xD58; // CEntityIOOutput[4]
+    public const nint m_hLightCookie = 0xDF8; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_flShape = 0xE00; // float
+    public const nint m_flSoftX = 0xE04; // float
+    public const nint m_flSoftY = 0xE08; // float
+    public const nint m_flSkirt = 0xE0C; // float
+    public const nint m_flSkirtNear = 0xE10; // float
+    public const nint m_vSizeParams = 0xE14; // Vector
+    public const nint m_flRange = 0xE20; // float
+    public const nint m_vShear = 0xE24; // Vector
+    public const nint m_nBakeSpecularToCubemaps = 0xE30; // int32_t
+    public const nint m_vBakeSpecularToCubemapsSize = 0xE34; // Vector
+    public const nint m_nCastShadows = 0xE40; // int32_t
+    public const nint m_nShadowMapSize = 0xE44; // int32_t
+    public const nint m_nShadowPriority = 0xE48; // int32_t
+    public const nint m_bContactShadow = 0xE4C; // bool
+    public const nint m_nBounceLight = 0xE50; // int32_t
+    public const nint m_flBounceScale = 0xE54; // float
+    public const nint m_flMinRoughness = 0xE58; // float
+    public const nint m_vAlternateColor = 0xE5C; // Vector
+    public const nint m_fAlternateColorBrightness = 0xE68; // float
+    public const nint m_nFog = 0xE6C; // int32_t
+    public const nint m_flFogStrength = 0xE70; // float
+    public const nint m_nFogShadows = 0xE74; // int32_t
+    public const nint m_flFogScale = 0xE78; // float
+    public const nint m_flFadeSizeStart = 0xE7C; // float
+    public const nint m_flFadeSizeEnd = 0xE80; // float
+    public const nint m_flShadowFadeSizeStart = 0xE84; // float
+    public const nint m_flShadowFadeSizeEnd = 0xE88; // float
+    public const nint m_bPrecomputedFieldsValid = 0xE8C; // bool
+    public const nint m_vPrecomputedBoundsMins = 0xE90; // Vector
+    public const nint m_vPrecomputedBoundsMaxs = 0xE9C; // Vector
+    public const nint m_vPrecomputedOBBOrigin = 0xEA8; // Vector
+    public const nint m_vPrecomputedOBBAngles = 0xEB4; // QAngle
+    public const nint m_vPrecomputedOBBExtent = 0xEC0; // Vector
+}
+
+public static class C_BaseButton { // C_BaseToggle
+    public const nint m_glowEntity = 0xCD0; // CHandle<C_BaseModelEntity>
+    public const nint m_usable = 0xCD4; // bool
+    public const nint m_szDisplayText = 0xCD8; // CUtlSymbolLarge
+}
+
+public static class C_BaseCSGrenade { // C_CSWeaponBase
+    public const nint m_bClientPredictDelete = 0x1A70; // bool
+    public const nint m_bRedraw = 0x1A71; // bool
+    public const nint m_bIsHeldByPlayer = 0x1A72; // bool
+    public const nint m_bPinPulled = 0x1A73; // bool
+    public const nint m_bJumpThrow = 0x1A74; // bool
+    public const nint m_bThrowAnimating = 0x1A75; // bool
+    public const nint m_fThrowTime = 0x1A78; // GameTime_t
+    public const nint m_flThrowStrength = 0x1A7C; // float
+    public const nint m_flThrowStrengthApproach = 0x1A80; // float
+    public const nint m_fDropTime = 0x1A84; // GameTime_t
+    public const nint m_bJustPulledPin = 0x1A88; // bool
+    public const nint m_nNextHoldTick = 0x1A8C; // GameTick_t
+    public const nint m_flNextHoldFrac = 0x1A90; // float
+    public const nint m_hSwitchToWeaponAfterThrow = 0x1A94; // CHandle<C_CSWeaponBase>
+}
+
+public static class C_BaseCSGrenadeProjectile { // C_BaseGrenade
+    public const nint m_vInitialPosition = 0x10C0; // Vector
+    public const nint m_vInitialVelocity = 0x10CC; // Vector
+    public const nint m_nBounces = 0x10D8; // int32_t
+    public const nint m_nExplodeEffectIndex = 0x10E0; // CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>
+    public const nint m_nExplodeEffectTickBegin = 0x10E8; // int32_t
+    public const nint m_vecExplodeEffectOrigin = 0x10EC; // Vector
+    public const nint m_flSpawnTime = 0x10F8; // GameTime_t
+    public const nint vecLastTrailLinePos = 0x10FC; // Vector
+    public const nint flNextTrailLineTime = 0x1108; // GameTime_t
+    public const nint m_bExplodeEffectBegan = 0x110C; // bool
+    public const nint m_bCanCreateGrenadeTrail = 0x110D; // bool
+    public const nint m_nSnapshotTrajectoryEffectIndex = 0x1110; // ParticleIndex_t
+    public const nint m_hSnapshotTrajectoryParticleSnapshot = 0x1118; // CStrongHandle<InfoForResourceTypeIParticleSnapshot>
+    public const nint m_arrTrajectoryTrailPoints = 0x1120; // CUtlVector<Vector>
+    public const nint m_arrTrajectoryTrailPointCreationTimes = 0x1138; // CUtlVector<float>
+    public const nint m_flTrajectoryTrailEffectCreationTime = 0x1150; // float
+}
+
+public static class C_BaseClientUIEntity { // C_BaseModelEntity
+    public const nint m_bEnabled = 0xCD8; // bool
+    public const nint m_DialogXMLName = 0xCE0; // CUtlSymbolLarge
+    public const nint m_PanelClassName = 0xCE8; // CUtlSymbolLarge
+    public const nint m_PanelID = 0xCF0; // CUtlSymbolLarge
+}
+
+public static class C_BaseCombatCharacter { // C_BaseFlex
+    public const nint m_hMyWearables = 0x1070; // C_NetworkUtlVectorBase<CHandle<C_EconWearable>>
+    public const nint m_bloodColor = 0x1088; // int32_t
+    public const nint m_leftFootAttachment = 0x108C; // AttachmentHandle_t
+    public const nint m_rightFootAttachment = 0x108D; // AttachmentHandle_t
+    public const nint m_nWaterWakeMode = 0x1090; // C_BaseCombatCharacter::WaterWakeMode_t
+    public const nint m_flWaterWorldZ = 0x1094; // float
+    public const nint m_flWaterNextTraceTime = 0x1098; // float
+    public const nint m_flFieldOfView = 0x109C; // float
+}
+
+public static class C_BaseDoor { // C_BaseToggle
+    public const nint m_bIsUsable = 0xCD0; // bool
+}
+
+public static class C_BaseEntity { // CEntityInstance
+    public const nint m_CBodyComponent = 0x38; // CBodyComponent*
+    public const nint m_NetworkTransmitComponent = 0x40; // CNetworkTransmitComponent
+    public const nint m_nLastThinkTick = 0x310; // GameTick_t
+    public const nint m_pGameSceneNode = 0x318; // CGameSceneNode*
+    public const nint m_pRenderComponent = 0x320; // CRenderComponent*
+    public const nint m_pCollision = 0x328; // CCollisionProperty*
+    public const nint m_iMaxHealth = 0x330; // int32_t
+    public const nint m_iHealth = 0x334; // int32_t
+    public const nint m_lifeState = 0x338; // uint8_t
+    public const nint m_bTakesDamage = 0x339; // bool
+    public const nint m_nTakeDamageFlags = 0x33C; // TakeDamageFlags_t
+    public const nint m_bIsPlatform = 0x340; // bool
+    public const nint m_ubInterpolationFrame = 0x341; // uint8_t
+    public const nint m_hSceneObjectController = 0x344; // CHandle<C_BaseEntity>
+    public const nint m_nNoInterpolationTick = 0x348; // int32_t
+    public const nint m_nVisibilityNoInterpolationTick = 0x34C; // int32_t
+    public const nint m_flProxyRandomValue = 0x350; // float
+    public const nint m_iEFlags = 0x354; // int32_t
+    public const nint m_nWaterType = 0x358; // uint8_t
+    public const nint m_bInterpolateEvenWithNoModel = 0x359; // bool
+    public const nint m_bPredictionEligible = 0x35A; // bool
+    public const nint m_bApplyLayerMatchIDToModel = 0x35B; // bool
+    public const nint m_tokLayerMatchID = 0x35C; // CUtlStringToken
+    public const nint m_nSubclassID = 0x360; // CUtlStringToken
+    public const nint m_nSimulationTick = 0x370; // int32_t
+    public const nint m_iCurrentThinkContext = 0x374; // int32_t
+    public const nint m_aThinkFunctions = 0x378; // CUtlVector<thinkfunc_t>
+    public const nint m_nDisableContextThinkStartTick = 0x390; // GameTick_t
+    public const nint m_flAnimTime = 0x394; // float
+    public const nint m_flSimulationTime = 0x398; // float
+    public const nint m_nSceneObjectOverrideFlags = 0x39C; // uint8_t
+    public const nint m_bHasSuccessfullyInterpolated = 0x39D; // bool
+    public const nint m_bHasAddedVarsToInterpolation = 0x39E; // bool
+    public const nint m_bRenderEvenWhenNotSuccessfullyInterpolated = 0x39F; // bool
+    public const nint m_nInterpolationLatchDirtyFlags = 0x3A0; // int32_t[2]
+    public const nint m_ListEntry = 0x3A8; // uint16_t[11]
+    public const nint m_flCreateTime = 0x3C0; // GameTime_t
+    public const nint m_flSpeed = 0x3C4; // float
+    public const nint m_EntClientFlags = 0x3C8; // uint16_t
+    public const nint m_bClientSideRagdoll = 0x3CA; // bool
+    public const nint m_iTeamNum = 0x3CB; // uint8_t
+    public const nint m_spawnflags = 0x3CC; // uint32_t
+    public const nint m_nNextThinkTick = 0x3D0; // GameTick_t
+    public const nint m_fFlags = 0x3D4; // uint32_t
+    public const nint m_vecAbsVelocity = 0x3D8; // Vector
+    public const nint m_vecVelocity = 0x3E8; // CNetworkVelocityVector
+    public const nint m_vecBaseVelocity = 0x418; // Vector
+    public const nint m_hEffectEntity = 0x424; // CHandle<C_BaseEntity>
+    public const nint m_hOwnerEntity = 0x428; // CHandle<C_BaseEntity>
+    public const nint m_MoveCollide = 0x42C; // MoveCollide_t
+    public const nint m_MoveType = 0x42D; // MoveType_t
+    public const nint m_nActualMoveType = 0x42E; // MoveType_t
+    public const nint m_flWaterLevel = 0x430; // float
+    public const nint m_fEffects = 0x434; // uint32_t
+    public const nint m_hGroundEntity = 0x438; // CHandle<C_BaseEntity>
+    public const nint m_flFriction = 0x43C; // float
+    public const nint m_flElasticity = 0x440; // float
+    public const nint m_flGravityScale = 0x444; // float
+    public const nint m_flTimeScale = 0x448; // float
+    public const nint m_bAnimatedEveryTick = 0x44C; // bool
+    public const nint m_flNavIgnoreUntilTime = 0x450; // GameTime_t
+    public const nint m_hThink = 0x454; // uint16_t
+    public const nint m_fBBoxVisFlags = 0x460; // uint8_t
+    public const nint m_bPredictable = 0x461; // bool
+    public const nint m_bRenderWithViewModels = 0x462; // bool
+    public const nint m_nSplitUserPlayerPredictionSlot = 0x464; // CSplitScreenSlot
+    public const nint m_nFirstPredictableCommand = 0x468; // int32_t
+    public const nint m_nLastPredictableCommand = 0x46C; // int32_t
+    public const nint m_hOldMoveParent = 0x470; // CHandle<C_BaseEntity>
+    public const nint m_Particles = 0x478; // CParticleProperty
+    public const nint m_vecPredictedScriptFloats = 0x4A0; // CUtlVector<float>
+    public const nint m_vecPredictedScriptFloatIDs = 0x4B8; // CUtlVector<int32_t>
+    public const nint m_nNextScriptVarRecordID = 0x4E8; // int32_t
+    public const nint m_vecAngVelocity = 0x4F8; // QAngle
+    public const nint m_DataChangeEventRef = 0x504; // int32_t
+    public const nint m_dependencies = 0x508; // CUtlVector<CEntityHandle>
+    public const nint m_nCreationTick = 0x520; // int32_t
+    public const nint m_bAnimTimeChanged = 0x539; // bool
+    public const nint m_bSimulationTimeChanged = 0x53A; // bool
+    public const nint m_sUniqueHammerID = 0x548; // CUtlString
+}
+
+public static class C_BaseEntityAPI {
+}
+
+public static class C_BaseFire { // C_BaseEntity
+    public const nint m_flScale = 0x550; // float
+    public const nint m_flStartScale = 0x554; // float
+    public const nint m_flScaleTime = 0x558; // float
+    public const nint m_nFlags = 0x55C; // uint32_t
+}
+
+public static class C_BaseFlex { // CBaseAnimGraph
+    public const nint m_flexWeight = 0xEE8; // C_NetworkUtlVectorBase<float>
+    public const nint m_vLookTargetPosition = 0xF00; // Vector
+    public const nint m_blinktoggle = 0xF18; // bool
+    public const nint m_nLastFlexUpdateFrameCount = 0xF78; // int32_t
+    public const nint m_CachedViewTarget = 0xF7C; // Vector
+    public const nint m_nNextSceneEventId = 0xF88; // uint32_t
+    public const nint m_iBlink = 0xF8C; // int32_t
+    public const nint m_blinktime = 0xF90; // float
+    public const nint m_prevblinktoggle = 0xF94; // bool
+    public const nint m_iJawOpen = 0xF98; // int32_t
+    public const nint m_flJawOpenAmount = 0xF9C; // float
+    public const nint m_flBlinkAmount = 0xFA0; // float
+    public const nint m_iMouthAttachment = 0xFA4; // AttachmentHandle_t
+    public const nint m_iEyeAttachment = 0xFA5; // AttachmentHandle_t
+    public const nint m_bResetFlexWeightsOnModelChange = 0xFA6; // bool
+    public const nint m_nEyeOcclusionRendererBone = 0xFC0; // int32_t
+    public const nint m_mEyeOcclusionRendererCameraToBoneTransform = 0xFC4; // matrix3x4_t
+    public const nint m_vEyeOcclusionRendererHalfExtent = 0xFF4; // Vector
+    public const nint m_PhonemeClasses = 0x1010; // C_BaseFlex::Emphasized_Phoneme[3]
+}
+
+public static class C_BaseFlex_Emphasized_Phoneme {
+    public const nint m_sClassName = 0x0; // CUtlString
+    public const nint m_flAmount = 0x18; // float
+    public const nint m_bRequired = 0x1C; // bool
+    public const nint m_bBasechecked = 0x1D; // bool
+    public const nint m_bValid = 0x1E; // bool
+}
+
+public static class C_BaseGrenade { // C_BaseFlex
+    public const nint m_bHasWarnedAI = 0x1070; // bool
+    public const nint m_bIsSmokeGrenade = 0x1071; // bool
+    public const nint m_bIsLive = 0x1072; // bool
+    public const nint m_DmgRadius = 0x1074; // float
+    public const nint m_flDetonateTime = 0x1078; // GameTime_t
+    public const nint m_flWarnAITime = 0x107C; // float
+    public const nint m_flDamage = 0x1080; // float
+    public const nint m_iszBounceSound = 0x1088; // CUtlSymbolLarge
+    public const nint m_ExplosionSound = 0x1090; // CUtlString
+    public const nint m_hThrower = 0x109C; // CHandle<C_CSPlayerPawn>
+    public const nint m_flNextAttack = 0x10B4; // GameTime_t
+    public const nint m_hOriginalThrower = 0x10B8; // CHandle<C_CSPlayerPawn>
+}
+
+public static class C_BaseModelEntity { // C_BaseEntity
+    public const nint m_CRenderComponent = 0xA20; // CRenderComponent*
+    public const nint m_CHitboxComponent = 0xA28; // CHitboxComponent
+    public const nint m_bInitModelEffects = 0xA70; // bool
+    public const nint m_bIsStaticProp = 0xA71; // bool
+    public const nint m_nLastAddDecal = 0xA74; // int32_t
+    public const nint m_nDecalsAdded = 0xA78; // int32_t
+    public const nint m_iOldHealth = 0xA7C; // int32_t
+    public const nint m_nRenderMode = 0xA80; // RenderMode_t
+    public const nint m_nRenderFX = 0xA81; // RenderFx_t
+    public const nint m_bAllowFadeInView = 0xA82; // bool
+    public const nint m_clrRender = 0xA83; // Color
+    public const nint m_vecRenderAttributes = 0xA88; // C_UtlVectorEmbeddedNetworkVar<EntityRenderAttribute_t>
+    public const nint m_bRenderToCubemaps = 0xAF0; // bool
+    public const nint m_Collision = 0xAF8; // CCollisionProperty
+    public const nint m_Glow = 0xBA8; // CGlowProperty
+    public const nint m_flGlowBackfaceMult = 0xC00; // float
+    public const nint m_fadeMinDist = 0xC04; // float
+    public const nint m_fadeMaxDist = 0xC08; // float
+    public const nint m_flFadeScale = 0xC0C; // float
+    public const nint m_flShadowStrength = 0xC10; // float
+    public const nint m_nObjectCulling = 0xC14; // uint8_t
+    public const nint m_nAddDecal = 0xC18; // int32_t
+    public const nint m_vDecalPosition = 0xC1C; // Vector
+    public const nint m_vDecalForwardAxis = 0xC28; // Vector
+    public const nint m_flDecalHealBloodRate = 0xC34; // float
+    public const nint m_flDecalHealHeightRate = 0xC38; // float
+    public const nint m_ConfigEntitiesToPropagateMaterialDecalsTo = 0xC40; // C_NetworkUtlVectorBase<CHandle<C_BaseModelEntity>>
+    public const nint m_vecViewOffset = 0xC58; // CNetworkViewOffsetVector
+    public const nint m_pClientAlphaProperty = 0xC88; // CClientAlphaProperty*
+    public const nint m_ClientOverrideTint = 0xC90; // Color
+    public const nint m_bUseClientOverrideTint = 0xC94; // bool
+}
+
+public static class C_BasePlayerPawn { // C_BaseCombatCharacter
+    public const nint m_pWeaponServices = 0x1100; // CPlayer_WeaponServices*
+    public const nint m_pItemServices = 0x1108; // CPlayer_ItemServices*
+    public const nint m_pAutoaimServices = 0x1110; // CPlayer_AutoaimServices*
+    public const nint m_pObserverServices = 0x1118; // CPlayer_ObserverServices*
+    public const nint m_pWaterServices = 0x1120; // CPlayer_WaterServices*
+    public const nint m_pUseServices = 0x1128; // CPlayer_UseServices*
+    public const nint m_pFlashlightServices = 0x1130; // CPlayer_FlashlightServices*
+    public const nint m_pCameraServices = 0x1138; // CPlayer_CameraServices*
+    public const nint m_pMovementServices = 0x1140; // CPlayer_MovementServices*
+    public const nint m_ServerViewAngleChanges = 0x1150; // C_UtlVectorEmbeddedNetworkVar<ViewAngleServerChange_t>
+    public const nint m_nHighestConsumedServerViewAngleChangeIndex = 0x11A0; // uint32_t
+    public const nint v_angle = 0x11A4; // QAngle
+    public const nint v_anglePrevious = 0x11B0; // QAngle
+    public const nint m_iHideHUD = 0x11BC; // uint32_t
+    public const nint m_skybox3d = 0x11C0; // sky3dparams_t
+    public const nint m_flDeathTime = 0x1250; // GameTime_t
+    public const nint m_vecPredictionError = 0x1254; // Vector
+    public const nint m_flPredictionErrorTime = 0x1260; // GameTime_t
+    public const nint m_vecLastCameraSetupLocalOrigin = 0x1264; // Vector
+    public const nint m_flLastCameraSetupTime = 0x1270; // GameTime_t
+    public const nint m_flFOVSensitivityAdjust = 0x1274; // float
+    public const nint m_flMouseSensitivity = 0x1278; // float
+    public const nint m_vOldOrigin = 0x127C; // Vector
+    public const nint m_flOldSimulationTime = 0x1288; // float
+    public const nint m_nLastExecutedCommandNumber = 0x128C; // int32_t
+    public const nint m_nLastExecutedCommandTick = 0x1290; // int32_t
+    public const nint m_hController = 0x1294; // CHandle<CBasePlayerController>
+    public const nint m_bIsSwappingToPredictableController = 0x1298; // bool
+}
+
+public static class C_BasePlayerWeapon { // C_EconEntity
+    public const nint m_nNextPrimaryAttackTick = 0x15B8; // GameTick_t
+    public const nint m_flNextPrimaryAttackTickRatio = 0x15BC; // float
+    public const nint m_nNextSecondaryAttackTick = 0x15C0; // GameTick_t
+    public const nint m_flNextSecondaryAttackTickRatio = 0x15C4; // float
+    public const nint m_iClip1 = 0x15C8; // int32_t
+    public const nint m_iClip2 = 0x15CC; // int32_t
+    public const nint m_pReserveAmmo = 0x15D0; // int32_t[2]
+}
+
+public static class C_BasePropDoor { // C_DynamicProp
+    public const nint m_eDoorState = 0x1150; // DoorState_t
+    public const nint m_modelChanged = 0x1154; // bool
+    public const nint m_bLocked = 0x1155; // bool
+    public const nint m_closedPosition = 0x1158; // Vector
+    public const nint m_closedAngles = 0x1164; // QAngle
+    public const nint m_hMaster = 0x1170; // CHandle<C_BasePropDoor>
+    public const nint m_vWhereToSetLightingOrigin = 0x1174; // Vector
+}
+
+public static class C_BaseToggle { // C_BaseModelEntity
+}
+
+public static class C_BaseTrigger { // C_BaseToggle
+    public const nint m_bDisabled = 0xCD0; // bool
+    public const nint m_bClientSidePredicted = 0xCD1; // bool
+}
+
+public static class C_BaseViewModel { // CBaseAnimGraph
+    public const nint m_vecLastFacing = 0xEE0; // Vector
+    public const nint m_nViewModelIndex = 0xEEC; // uint32_t
+    public const nint m_nAnimationParity = 0xEF0; // uint32_t
+    public const nint m_flAnimationStartTime = 0xEF4; // float
+    public const nint m_hWeapon = 0xEF8; // CHandle<C_BasePlayerWeapon>
+    public const nint m_sVMName = 0xF00; // CUtlSymbolLarge
+    public const nint m_sAnimationPrefix = 0xF08; // CUtlSymbolLarge
+    public const nint m_hWeaponModel = 0xF10; // CHandle<C_ViewmodelWeapon>
+    public const nint m_iCameraAttachment = 0xF14; // AttachmentHandle_t
+    public const nint m_vecLastCameraAngles = 0xF18; // QAngle
+    public const nint m_previousElapsedDuration = 0xF24; // float
+    public const nint m_previousCycle = 0xF28; // float
+    public const nint m_nOldAnimationParity = 0xF2C; // int32_t
+    public const nint m_hOldLayerSequence = 0xF30; // HSequence
+    public const nint m_oldLayer = 0xF34; // int32_t
+    public const nint m_oldLayerStartTime = 0xF38; // float
+    public const nint m_hControlPanel = 0xF3C; // CHandle<C_BaseEntity>
+}
+
+public static class C_Beam { // C_BaseModelEntity
+    public const nint m_flFrameRate = 0xCD0; // float
+    public const nint m_flHDRColorScale = 0xCD4; // float
+    public const nint m_flFireTime = 0xCD8; // GameTime_t
+    public const nint m_flDamage = 0xCDC; // float
+    public const nint m_nNumBeamEnts = 0xCE0; // uint8_t
+    public const nint m_queryHandleHalo = 0xCE4; // int32_t
+    public const nint m_hBaseMaterial = 0xD08; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_nHaloIndex = 0xD10; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_nBeamType = 0xD18; // BeamType_t
+    public const nint m_nBeamFlags = 0xD1C; // uint32_t
+    public const nint m_hAttachEntity = 0xD20; // CHandle<C_BaseEntity>[10]
+    public const nint m_nAttachIndex = 0xD48; // AttachmentHandle_t[10]
+    public const nint m_fWidth = 0xD54; // float
+    public const nint m_fEndWidth = 0xD58; // float
+    public const nint m_fFadeLength = 0xD5C; // float
+    public const nint m_fHaloScale = 0xD60; // float
+    public const nint m_fAmplitude = 0xD64; // float
+    public const nint m_fStartFrame = 0xD68; // float
+    public const nint m_fSpeed = 0xD6C; // float
+    public const nint m_flFrame = 0xD70; // float
+    public const nint m_nClipStyle = 0xD74; // BeamClipStyle_t
+    public const nint m_bTurnedOff = 0xD78; // bool
+    public const nint m_vecEndPos = 0xD7C; // Vector
+    public const nint m_hEndEntity = 0xD88; // CHandle<C_BaseEntity>
+}
+
+public static class C_Breakable { // C_BaseModelEntity
+}
+
+public static class C_BreakableProp { // CBaseProp
+    public const nint m_OnBreak = 0xF20; // CEntityIOOutput
+    public const nint m_OnHealthChanged = 0xF48; // CEntityOutputTemplate<float>
+    public const nint m_OnTakeDamage = 0xF70; // CEntityIOOutput
+    public const nint m_impactEnergyScale = 0xF98; // float
+    public const nint m_iMinHealthDmg = 0xF9C; // int32_t
+    public const nint m_flPressureDelay = 0xFA0; // float
+    public const nint m_hBreaker = 0xFA4; // CHandle<C_BaseEntity>
+    public const nint m_PerformanceMode = 0xFA8; // PerformanceMode_t
+    public const nint m_flDmgModBullet = 0xFAC; // float
+    public const nint m_flDmgModClub = 0xFB0; // float
+    public const nint m_flDmgModExplosive = 0xFB4; // float
+    public const nint m_flDmgModFire = 0xFB8; // float
+    public const nint m_iszPhysicsDamageTableName = 0xFC0; // CUtlSymbolLarge
+    public const nint m_iszBasePropData = 0xFC8; // CUtlSymbolLarge
+    public const nint m_iInteractions = 0xFD0; // int32_t
+    public const nint m_flPreventDamageBeforeTime = 0xFD4; // GameTime_t
+    public const nint m_bHasBreakPiecesOrCommands = 0xFD8; // bool
+    public const nint m_explodeDamage = 0xFDC; // float
+    public const nint m_explodeRadius = 0xFE0; // float
+    public const nint m_explosionDelay = 0xFE8; // float
+    public const nint m_explosionBuildupSound = 0xFF0; // CUtlSymbolLarge
+    public const nint m_explosionCustomEffect = 0xFF8; // CUtlSymbolLarge
+    public const nint m_explosionCustomSound = 0x1000; // CUtlSymbolLarge
+    public const nint m_explosionModifier = 0x1008; // CUtlSymbolLarge
+    public const nint m_hPhysicsAttacker = 0x1010; // CHandle<C_BasePlayerPawn>
+    public const nint m_flLastPhysicsInfluenceTime = 0x1014; // GameTime_t
+    public const nint m_flDefaultFadeScale = 0x1018; // float
+    public const nint m_hLastAttacker = 0x101C; // CHandle<C_BaseEntity>
+    public const nint m_hFlareEnt = 0x1020; // CHandle<C_BaseEntity>
+    public const nint m_noGhostCollision = 0x1024; // bool
+}
+
+public static class C_BulletHitModel { // CBaseAnimGraph
+    public const nint m_matLocal = 0xED8; // matrix3x4_t
+    public const nint m_iBoneIndex = 0xF08; // int32_t
+    public const nint m_hPlayerParent = 0xF0C; // CHandle<C_BaseEntity>
+    public const nint m_bIsHit = 0xF10; // bool
+    public const nint m_flTimeCreated = 0xF14; // float
+    public const nint m_vecStartPos = 0xF18; // Vector
+}
+
+public static class C_C4 { // C_CSWeaponBase
+    public const nint m_szScreenText = 0x1A70; // char[32]
+    public const nint m_activeLightParticleIndex = 0x1A90; // ParticleIndex_t
+    public const nint m_eActiveLightEffect = 0x1A94; // C4LightEffect_t
+    public const nint m_bStartedArming = 0x1A98; // bool
+    public const nint m_fArmedTime = 0x1A9C; // GameTime_t
+    public const nint m_bBombPlacedAnimation = 0x1AA0; // bool
+    public const nint m_bIsPlantingViaUse = 0x1AA1; // bool
+    public const nint m_entitySpottedState = 0x1AA8; // EntitySpottedState_t
+    public const nint m_nSpotRules = 0x1AC0; // int32_t
+    public const nint m_bPlayedArmingBeeps = 0x1AC4; // bool[7]
+    public const nint m_bBombPlanted = 0x1ACB; // bool
+    public const nint m_bDroppedFromDeath = 0x1ACC; // bool
+}
+
+public static class C_CSGOViewModel { // C_PredictedViewModel
+    public const nint m_bShouldIgnoreOffsetAndAccuracy = 0xF68; // bool
+    public const nint m_nWeaponParity = 0xF6C; // uint32_t
+    public const nint m_nOldWeaponParity = 0xF70; // uint32_t
+    public const nint m_nLastKnownAssociatedWeaponEntIndex = 0xF74; // CEntityIndex
+    public const nint m_bNeedToQueueHighResComposite = 0xF78; // bool
+    public const nint m_vLoweredWeaponOffset = 0xFDC; // QAngle
+}
+
+public static class C_CSGO_CounterTerroristTeamIntroCamera { // C_CSGO_TeamPreviewCamera
+}
+
+public static class C_CSGO_CounterTerroristWingmanIntroCamera { // C_CSGO_TeamPreviewCamera
+}
+
+public static class C_CSGO_EndOfMatchCamera { // C_CSGO_TeamPreviewCamera
+}
+
+public static class C_CSGO_EndOfMatchCharacterPosition { // C_CSGO_TeamPreviewCharacterPosition
+}
+
+public static class C_CSGO_EndOfMatchLineupEnd { // C_CSGO_EndOfMatchLineupEndpoint
+}
+
+public static class C_CSGO_EndOfMatchLineupEndpoint { // C_BaseEntity
+}
+
+public static class C_CSGO_EndOfMatchLineupStart { // C_CSGO_EndOfMatchLineupEndpoint
+}
+
+public static class C_CSGO_MapPreviewCameraPath { // C_BaseEntity
+    public const nint m_flZFar = 0x550; // float
+    public const nint m_flZNear = 0x554; // float
+    public const nint m_bLoop = 0x558; // bool
+    public const nint m_bVerticalFOV = 0x559; // bool
+    public const nint m_bConstantSpeed = 0x55A; // bool
+    public const nint m_flDuration = 0x55C; // float
+    public const nint m_flPathLength = 0x5A0; // float
+    public const nint m_flPathDuration = 0x5A4; // float
+}
+
+public static class C_CSGO_MapPreviewCameraPathNode { // C_BaseEntity
+    public const nint m_szParentPathUniqueID = 0x550; // CUtlSymbolLarge
+    public const nint m_nPathIndex = 0x558; // int32_t
+    public const nint m_vInTangentLocal = 0x55C; // Vector
+    public const nint m_vOutTangentLocal = 0x568; // Vector
+    public const nint m_flFOV = 0x574; // float
+    public const nint m_flSpeed = 0x578; // float
+    public const nint m_flEaseIn = 0x57C; // float
+    public const nint m_flEaseOut = 0x580; // float
+    public const nint m_vInTangentWorld = 0x584; // Vector
+    public const nint m_vOutTangentWorld = 0x590; // Vector
+}
+
+public static class C_CSGO_PreviewModel { // C_BaseFlex
+    public const nint m_animgraph = 0x1070; // CUtlString
+    public const nint m_animgraphCharacterModeString = 0x1078; // CGlobalSymbol
+    public const nint m_defaultAnim = 0x1080; // CUtlString
+    public const nint m_nDefaultAnimLoopMode = 0x1088; // AnimLoopMode_t
+    public const nint m_flInitialModelScale = 0x108C; // float
+}
+
+public static class C_CSGO_PreviewModelAlias_csgo_item_previewmodel { // C_CSGO_PreviewModel
+}
+
+public static class C_CSGO_PreviewModel_GraphController { // CAnimGraphControllerBase
+    public const nint m_pszCharacterMode = 0x18; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_pszWeaponState = 0x38; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_pszWeaponType = 0x58; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_pszEndOfMatchCelebration = 0x78; // CAnimGraphParamOptionalRef<char*>
+}
+
+public static class C_CSGO_PreviewPlayer { // C_CSPlayerPawn
+    public const nint m_animgraph = 0x2418; // CUtlString
+    public const nint m_animgraphCharacterModeString = 0x2420; // CGlobalSymbol
+    public const nint m_flInitialModelScale = 0x2428; // float
+}
+
+public static class C_CSGO_PreviewPlayerAlias_csgo_player_previewmodel { // C_CSGO_PreviewPlayer
+}
+
+public static class C_CSGO_PreviewPlayer_GraphController { // CAnimGraphControllerBase
+    public const nint m_pszCharacterMode = 0x18; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_pszTeamPreviewVariant = 0x38; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_pszTeamPreviewPosition = 0x58; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_pszEndOfMatchCelebration = 0x78; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_nTeamPreviewRandom = 0x98; // CAnimGraphParamOptionalRef<int32_t>
+    public const nint m_pszWeaponState = 0xB0; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_pszWeaponType = 0xD0; // CAnimGraphParamOptionalRef<char*>
+    public const nint m_bCT = 0xF0; // CAnimGraphParamOptionalRef<bool>
+}
+
+public static class C_CSGO_TeamIntroCharacterPosition { // C_CSGO_TeamPreviewCharacterPosition
+}
+
+public static class C_CSGO_TeamIntroCounterTerroristPosition { // C_CSGO_TeamIntroCharacterPosition
+}
+
+public static class C_CSGO_TeamIntroTerroristPosition { // C_CSGO_TeamIntroCharacterPosition
+}
+
+public static class C_CSGO_TeamPreviewCamera { // C_CSGO_MapPreviewCameraPath
+    public const nint m_nVariant = 0x5B0; // int32_t
+    public const nint m_bDofEnabled = 0x5B4; // bool
+    public const nint m_flDofNearBlurry = 0x5B8; // float
+    public const nint m_flDofNearCrisp = 0x5BC; // float
+    public const nint m_flDofFarCrisp = 0x5C0; // float
+    public const nint m_flDofFarBlurry = 0x5C4; // float
+    public const nint m_flDofTiltToGround = 0x5C8; // float
+}
+
+public static class C_CSGO_TeamPreviewCharacterPosition { // C_BaseEntity
+    public const nint m_nVariant = 0x550; // int32_t
+    public const nint m_nRandom = 0x554; // int32_t
+    public const nint m_nOrdinal = 0x558; // int32_t
+    public const nint m_sWeaponName = 0x560; // CUtlString
+    public const nint m_xuid = 0x568; // uint64_t
+    public const nint m_agentItem = 0x570; // C_EconItemView
+    public const nint m_glovesItem = 0x9B8; // C_EconItemView
+    public const nint m_weaponItem = 0xE00; // C_EconItemView
+}
+
+public static class C_CSGO_TeamPreviewModel { // C_CSGO_PreviewPlayer
+}
+
+public static class C_CSGO_TeamSelectCamera { // C_CSGO_TeamPreviewCamera
+}
+
+public static class C_CSGO_TeamSelectCharacterPosition { // C_CSGO_TeamPreviewCharacterPosition
+}
+
+public static class C_CSGO_TeamSelectCounterTerroristPosition { // C_CSGO_TeamSelectCharacterPosition
+}
+
+public static class C_CSGO_TeamSelectTerroristPosition { // C_CSGO_TeamSelectCharacterPosition
+}
+
+public static class C_CSGO_TerroristTeamIntroCamera { // C_CSGO_TeamPreviewCamera
+}
+
+public static class C_CSGO_TerroristWingmanIntroCamera { // C_CSGO_TeamPreviewCamera
+}
+
+public static class C_CSGameRules { // C_TeamplayRules
+    public const nint __m_pChainEntity = 0x8; // CNetworkVarChainer
+    public const nint m_bFreezePeriod = 0x30; // bool
+    public const nint m_bWarmupPeriod = 0x31; // bool
+    public const nint m_fWarmupPeriodEnd = 0x34; // GameTime_t
+    public const nint m_fWarmupPeriodStart = 0x38; // GameTime_t
+    public const nint m_nTotalPausedTicks = 0x3C; // int32_t
+    public const nint m_nPauseStartTick = 0x40; // int32_t
+    public const nint m_bServerPaused = 0x44; // bool
+    public const nint m_bGamePaused = 0x45; // bool
+    public const nint m_bTerroristTimeOutActive = 0x46; // bool
+    public const nint m_bCTTimeOutActive = 0x47; // bool
+    public const nint m_flTerroristTimeOutRemaining = 0x48; // float
+    public const nint m_flCTTimeOutRemaining = 0x4C; // float
+    public const nint m_nTerroristTimeOuts = 0x50; // int32_t
+    public const nint m_nCTTimeOuts = 0x54; // int32_t
+    public const nint m_bTechnicalTimeOut = 0x58; // bool
+    public const nint m_bMatchWaitingForResume = 0x59; // bool
+    public const nint m_iRoundTime = 0x5C; // int32_t
+    public const nint m_fMatchStartTime = 0x60; // float
+    public const nint m_fRoundStartTime = 0x64; // GameTime_t
+    public const nint m_flRestartRoundTime = 0x68; // GameTime_t
+    public const nint m_bGameRestart = 0x6C; // bool
+    public const nint m_flGameStartTime = 0x70; // float
+    public const nint m_timeUntilNextPhaseStarts = 0x74; // float
+    public const nint m_gamePhase = 0x78; // int32_t
+    public const nint m_totalRoundsPlayed = 0x7C; // int32_t
+    public const nint m_nRoundsPlayedThisPhase = 0x80; // int32_t
+    public const nint m_nOvertimePlaying = 0x84; // int32_t
+    public const nint m_iHostagesRemaining = 0x88; // int32_t
+    public const nint m_bAnyHostageReached = 0x8C; // bool
+    public const nint m_bMapHasBombTarget = 0x8D; // bool
+    public const nint m_bMapHasRescueZone = 0x8E; // bool
+    public const nint m_bMapHasBuyZone = 0x8F; // bool
+    public const nint m_bIsQueuedMatchmaking = 0x90; // bool
+    public const nint m_nQueuedMatchmakingMode = 0x94; // int32_t
+    public const nint m_bIsValveDS = 0x98; // bool
+    public const nint m_bLogoMap = 0x99; // bool
+    public const nint m_bPlayAllStepSoundsOnServer = 0x9A; // bool
+    public const nint m_iSpectatorSlotCount = 0x9C; // int32_t
+    public const nint m_MatchDevice = 0xA0; // int32_t
+    public const nint m_bHasMatchStarted = 0xA4; // bool
+    public const nint m_nNextMapInMapgroup = 0xA8; // int32_t
+    public const nint m_szTournamentEventName = 0xAC; // char[512]
+    public const nint m_szTournamentEventStage = 0x2AC; // char[512]
+    public const nint m_szMatchStatTxt = 0x4AC; // char[512]
+    public const nint m_szTournamentPredictionsTxt = 0x6AC; // char[512]
+    public const nint m_nTournamentPredictionsPct = 0x8AC; // int32_t
+    public const nint m_flCMMItemDropRevealStartTime = 0x8B0; // GameTime_t
+    public const nint m_flCMMItemDropRevealEndTime = 0x8B4; // GameTime_t
+    public const nint m_bIsDroppingItems = 0x8B8; // bool
+    public const nint m_bIsQuestEligible = 0x8B9; // bool
+    public const nint m_bIsHltvActive = 0x8BA; // bool
+    public const nint m_nGuardianModeWaveNumber = 0x8BC; // int32_t
+    public const nint m_nGuardianModeSpecialKillsRemaining = 0x8C0; // int32_t
+    public const nint m_nGuardianModeSpecialWeaponNeeded = 0x8C4; // int32_t
+    public const nint m_nGuardianGrenadesToGiveBots = 0x8C8; // int32_t
+    public const nint m_nNumHeaviesToSpawn = 0x8CC; // int32_t
+    public const nint m_numGlobalGiftsGiven = 0x8D0; // uint32_t
+    public const nint m_numGlobalGifters = 0x8D4; // uint32_t
+    public const nint m_numGlobalGiftsPeriodSeconds = 0x8D8; // uint32_t
+    public const nint m_arrFeaturedGiftersAccounts = 0x8DC; // uint32_t[4]
+    public const nint m_arrFeaturedGiftersGifts = 0x8EC; // uint32_t[4]
+    public const nint m_arrProhibitedItemIndices = 0x8FC; // uint16_t[100]
+    public const nint m_arrTournamentActiveCasterAccounts = 0x9C4; // uint32_t[4]
+    public const nint m_numBestOfMaps = 0x9D4; // int32_t
+    public const nint m_nHalloweenMaskListSeed = 0x9D8; // int32_t
+    public const nint m_bBombDropped = 0x9DC; // bool
+    public const nint m_bBombPlanted = 0x9DD; // bool
+    public const nint m_iRoundWinStatus = 0x9E0; // int32_t
+    public const nint m_eRoundWinReason = 0x9E4; // int32_t
+    public const nint m_bTCantBuy = 0x9E8; // bool
+    public const nint m_bCTCantBuy = 0x9E9; // bool
+    public const nint m_flGuardianBuyUntilTime = 0x9EC; // GameTime_t
+    public const nint m_iMatchStats_RoundResults = 0x9F0; // int32_t[30]
+    public const nint m_iMatchStats_PlayersAlive_CT = 0xA68; // int32_t[30]
+    public const nint m_iMatchStats_PlayersAlive_T = 0xAE0; // int32_t[30]
+    public const nint m_TeamRespawnWaveTimes = 0xB58; // float[32]
+    public const nint m_flNextRespawnWave = 0xBD8; // GameTime_t[32]
+    public const nint m_nServerQuestID = 0xC58; // int32_t
+    public const nint m_vMinimapMins = 0xC5C; // Vector
+    public const nint m_vMinimapMaxs = 0xC68; // Vector
+    public const nint m_MinimapVerticalSectionHeights = 0xC74; // float[8]
+    public const nint m_bDontIncrementCoopWave = 0xC94; // bool
+    public const nint m_bSpawnedTerrorHuntHeavy = 0xC95; // bool
+    public const nint m_nEndMatchMapGroupVoteTypes = 0xC98; // int32_t[10]
+    public const nint m_nEndMatchMapGroupVoteOptions = 0xCC0; // int32_t[10]
+    public const nint m_nEndMatchMapVoteWinner = 0xCE8; // int32_t
+    public const nint m_iNumConsecutiveCTLoses = 0xCEC; // int32_t
+    public const nint m_iNumConsecutiveTerroristLoses = 0xCF0; // int32_t
+    public const nint m_bMarkClientStopRecordAtRoundEnd = 0xD10; // bool
+    public const nint m_nMatchAbortedEarlyReason = 0xD68; // int32_t
+    public const nint m_bHasTriggeredRoundStartMusic = 0xD6C; // bool
+    public const nint m_bHasTriggeredCoopSpawnReset = 0xD6D; // bool
+    public const nint m_bSwitchingTeamsAtRoundReset = 0xD6E; // bool
+    public const nint m_pGameModeRules = 0xD88; // CCSGameModeRules*
+    public const nint m_RetakeRules = 0xD90; // C_RetakeGameRules
+    public const nint m_nMatchEndCount = 0xEA8; // uint8_t
+    public const nint m_nTTeamIntroVariant = 0xEAC; // int32_t
+    public const nint m_nCTTeamIntroVariant = 0xEB0; // int32_t
+    public const nint m_bTeamIntroPeriod = 0xEB4; // bool
+    public const nint m_iRoundEndWinnerTeam = 0xEB8; // int32_t
+    public const nint m_eRoundEndReason = 0xEBC; // int32_t
+    public const nint m_bRoundEndShowTimerDefend = 0xEC0; // bool
+    public const nint m_iRoundEndTimerTime = 0xEC4; // int32_t
+    public const nint m_sRoundEndFunFactToken = 0xEC8; // CUtlString
+    public const nint m_iRoundEndFunFactPlayerSlot = 0xED0; // CPlayerSlot
+    public const nint m_iRoundEndFunFactData1 = 0xED4; // int32_t
+    public const nint m_iRoundEndFunFactData2 = 0xED8; // int32_t
+    public const nint m_iRoundEndFunFactData3 = 0xEDC; // int32_t
+    public const nint m_sRoundEndMessage = 0xEE0; // CUtlString
+    public const nint m_iRoundEndPlayerCount = 0xEE8; // int32_t
+    public const nint m_bRoundEndNoMusic = 0xEEC; // bool
+    public const nint m_iRoundEndLegacy = 0xEF0; // int32_t
+    public const nint m_nRoundEndCount = 0xEF4; // uint8_t
+    public const nint m_iRoundStartRoundNumber = 0xEF8; // int32_t
+    public const nint m_nRoundStartCount = 0xEFC; // uint8_t
+    public const nint m_flLastPerfSampleTime = 0x4F08; // double
+}
+
+public static class C_CSGameRulesProxy { // C_GameRulesProxy
+    public const nint m_pGameRules = 0x550; // C_CSGameRules*
+}
+
+public static class C_CSMinimapBoundary { // C_BaseEntity
+}
+
+public static class C_CSObserverPawn { // C_CSPlayerPawnBase
+    public const nint m_hDetectParentChange = 0x1718; // CEntityHandle
+}
+
+public static class C_CSObserverPawnAPI {
+}
+
+public static class C_CSPlayerPawn { // C_CSPlayerPawnBase
+    public const nint m_pBulletServices = 0x1718; // CCSPlayer_BulletServices*
+    public const nint m_pHostageServices = 0x1720; // CCSPlayer_HostageServices*
+    public const nint m_pBuyServices = 0x1728; // CCSPlayer_BuyServices*
+    public const nint m_pGlowServices = 0x1730; // CCSPlayer_GlowServices*
+    public const nint m_pActionTrackingServices = 0x1738; // CCSPlayer_ActionTrackingServices*
+    public const nint m_flHealthShotBoostExpirationTime = 0x1740; // GameTime_t
+    public const nint m_flLastFiredWeaponTime = 0x1744; // GameTime_t
+    public const nint m_bHasFemaleVoice = 0x1748; // bool
+    public const nint m_flLandseconds = 0x174C; // float
+    public const nint m_flOldFallVelocity = 0x1750; // float
+    public const nint m_szLastPlaceName = 0x1754; // char[18]
+    public const nint m_bPrevDefuser = 0x1766; // bool
+    public const nint m_bPrevHelmet = 0x1767; // bool
+    public const nint m_nPrevArmorVal = 0x1768; // int32_t
+    public const nint m_nPrevGrenadeAmmoCount = 0x176C; // int32_t
+    public const nint m_unPreviousWeaponHash = 0x1770; // uint32_t
+    public const nint m_unWeaponHash = 0x1774; // uint32_t
+    public const nint m_bInBuyZone = 0x1778; // bool
+    public const nint m_bPreviouslyInBuyZone = 0x1779; // bool
+    public const nint m_aimPunchAngle = 0x177C; // QAngle
+    public const nint m_aimPunchAngleVel = 0x1788; // QAngle
+    public const nint m_aimPunchTickBase = 0x1794; // int32_t
+    public const nint m_aimPunchTickFraction = 0x1798; // float
+    public const nint m_aimPunchCache = 0x17A0; // CUtlVector<QAngle>
+    public const nint m_bInLanding = 0x17C0; // bool
+    public const nint m_flLandingTime = 0x17C4; // float
+    public const nint m_bInHostageRescueZone = 0x17C8; // bool
+    public const nint m_bInBombZone = 0x17C9; // bool
+    public const nint m_bIsBuyMenuOpen = 0x17CA; // bool
+    public const nint m_flTimeOfLastInjury = 0x17CC; // GameTime_t
+    public const nint m_flNextSprayDecalTime = 0x17D0; // GameTime_t
+    public const nint m_iRetakesOffering = 0x18E8; // int32_t
+    public const nint m_iRetakesOfferingCard = 0x18EC; // int32_t
+    public const nint m_bRetakesHasDefuseKit = 0x18F0; // bool
+    public const nint m_bRetakesMVPLastRound = 0x18F1; // bool
+    public const nint m_iRetakesMVPBoostItem = 0x18F4; // int32_t
+    public const nint m_RetakesMVPBoostExtraUtility = 0x18F8; // loadout_slot_t
+    public const nint m_bNeedToReApplyGloves = 0x1918; // bool
+    public const nint m_EconGloves = 0x1920; // C_EconItemView
+    public const nint m_nEconGlovesChanged = 0x1D68; // uint8_t
+    public const nint m_bMustSyncRagdollState = 0x1D69; // bool
+    public const nint m_nRagdollDamageBone = 0x1D6C; // int32_t
+    public const nint m_vRagdollDamageForce = 0x1D70; // Vector
+    public const nint m_vRagdollDamagePosition = 0x1D7C; // Vector
+    public const nint m_szRagdollDamageWeaponName = 0x1D88; // char[64]
+    public const nint m_bRagdollDamageHeadshot = 0x1DC8; // bool
+    public const nint m_vRagdollServerOrigin = 0x1DCC; // Vector
+    public const nint m_bLastHeadBoneTransformIsValid = 0x23E0; // bool
+    public const nint m_lastLandTime = 0x23E4; // GameTime_t
+    public const nint m_bOnGroundLastTick = 0x23E8; // bool
+    public const nint m_qDeathEyeAngles = 0x2404; // QAngle
+    public const nint m_bSkipOneHeadConstraintUpdate = 0x2410; // bool
+}
+
+public static class C_CSPlayerPawnAPI {
+}
+
+public static class C_CSPlayerPawnBase { // C_BasePlayerPawn
+    public const nint m_pPingServices = 0x12C0; // CCSPlayer_PingServices*
+    public const nint m_pViewModelServices = 0x12C8; // CPlayer_ViewModelServices*
+    public const nint m_fRenderingClipPlane = 0x12D8; // float[4]
+    public const nint m_nLastClipPlaneSetupFrame = 0x12E8; // int32_t
+    public const nint m_vecLastClipCameraPos = 0x12EC; // Vector
+    public const nint m_vecLastClipCameraForward = 0x12F8; // Vector
+    public const nint m_bClipHitStaticWorld = 0x1304; // bool
+    public const nint m_bCachedPlaneIsValid = 0x1305; // bool
+    public const nint m_pClippingWeapon = 0x1308; // C_CSWeaponBase*
+    public const nint m_previousPlayerState = 0x1310; // CSPlayerState
+    public const nint m_flLastCollisionCeiling = 0x1314; // float
+    public const nint m_flLastCollisionCeilingChangeTime = 0x1318; // float
+    public const nint m_grenadeParameterStashTime = 0x1338; // GameTime_t
+    public const nint m_bGrenadeParametersStashed = 0x133C; // bool
+    public const nint m_angStashedShootAngles = 0x1340; // QAngle
+    public const nint m_vecStashedGrenadeThrowPosition = 0x134C; // Vector
+    public const nint m_vecStashedVelocity = 0x1358; // Vector
+    public const nint m_angShootAngleHistory = 0x1364; // QAngle[2]
+    public const nint m_vecThrowPositionHistory = 0x137C; // Vector[2]
+    public const nint m_vecVelocityHistory = 0x1394; // Vector[2]
+    public const nint m_thirdPersonHeading = 0x13B0; // QAngle
+    public const nint m_flSlopeDropOffset = 0x13C8; // float
+    public const nint m_flSlopeDropHeight = 0x13D8; // float
+    public const nint m_vHeadConstraintOffset = 0x13E8; // Vector
+    public const nint m_bIsScoped = 0x1400; // bool
+    public const nint m_bIsWalking = 0x1401; // bool
+    public const nint m_bResumeZoom = 0x1402; // bool
+    public const nint m_iPlayerState = 0x1404; // CSPlayerState
+    public const nint m_bIsDefusing = 0x1408; // bool
+    public const nint m_bIsGrabbingHostage = 0x1409; // bool
+    public const nint m_iBlockingUseActionInProgress = 0x140C; // CSPlayerBlockingUseAction_t
+    public const nint m_bIsRescuing = 0x1410; // bool
+    public const nint m_fImmuneToGunGameDamageTime = 0x1414; // GameTime_t
+    public const nint m_fImmuneToGunGameDamageTimeLast = 0x1418; // GameTime_t
+    public const nint m_bGunGameImmunity = 0x141C; // bool
+    public const nint m_GunGameImmunityColor = 0x141D; // Color
+    public const nint m_bHasMovedSinceSpawn = 0x1421; // bool
+    public const nint m_fMolotovUseTime = 0x1424; // float
+    public const nint m_fMolotovDamageTime = 0x1428; // float
+    public const nint m_nWhichBombZone = 0x142C; // int32_t
+    public const nint m_bInNoDefuseArea = 0x1430; // bool
+    public const nint m_iThrowGrenadeCounter = 0x1434; // int32_t
+    public const nint m_bWaitForNoAttack = 0x1438; // bool
+    public const nint m_flGuardianTooFarDistFrac = 0x143C; // float
+    public const nint m_flDetectedByEnemySensorTime = 0x1440; // GameTime_t
+    public const nint m_flNextGuardianTooFarWarning = 0x1444; // float
+    public const nint m_bSuppressGuardianTooFarWarningAudio = 0x1448; // bool
+    public const nint m_bKilledByTaser = 0x1449; // bool
+    public const nint m_iMoveState = 0x144C; // int32_t
+    public const nint m_bCanMoveDuringFreezePeriod = 0x1450; // bool
+    public const nint m_flLowerBodyYawTarget = 0x1454; // float
+    public const nint m_bStrafing = 0x1458; // bool
+    public const nint m_flLastSpawnTimeIndex = 0x145C; // GameTime_t
+    public const nint m_flEmitSoundTime = 0x1460; // GameTime_t
+    public const nint m_iAddonBits = 0x1464; // int32_t
+    public const nint m_iPrimaryAddon = 0x1468; // int32_t
+    public const nint m_iSecondaryAddon = 0x146C; // int32_t
+    public const nint m_iProgressBarDuration = 0x1470; // int32_t
+    public const nint m_flProgressBarStartTime = 0x1474; // float
+    public const nint m_iDirection = 0x1478; // int32_t
+    public const nint m_iShotsFired = 0x147C; // int32_t
+    public const nint m_bNightVisionOn = 0x1480; // bool
+    public const nint m_bHasNightVision = 0x1481; // bool
+    public const nint m_flVelocityModifier = 0x1484; // float
+    public const nint m_flHitHeading = 0x1488; // float
+    public const nint m_nHitBodyPart = 0x148C; // int32_t
+    public const nint m_iStartAccount = 0x1490; // int32_t
+    public const nint m_vecIntroStartEyePosition = 0x1494; // Vector
+    public const nint m_vecIntroStartPlayerForward = 0x14A0; // Vector
+    public const nint m_flClientDeathTime = 0x14AC; // GameTime_t
+    public const nint m_flNightVisionAlpha = 0x14B0; // float
+    public const nint m_bScreenTearFrameCaptured = 0x14B4; // bool
+    public const nint m_flFlashBangTime = 0x14B8; // float
+    public const nint m_flFlashScreenshotAlpha = 0x14BC; // float
+    public const nint m_flFlashOverlayAlpha = 0x14C0; // float
+    public const nint m_bFlashBuildUp = 0x14C4; // bool
+    public const nint m_bFlashDspHasBeenCleared = 0x14C5; // bool
+    public const nint m_bFlashScreenshotHasBeenGrabbed = 0x14C6; // bool
+    public const nint m_flFlashMaxAlpha = 0x14C8; // float
+    public const nint m_flFlashDuration = 0x14CC; // float
+    public const nint m_lastStandingPos = 0x14D0; // Vector
+    public const nint m_vecLastMuzzleFlashPos = 0x14DC; // Vector
+    public const nint m_angLastMuzzleFlashAngle = 0x14E8; // QAngle
+    public const nint m_hMuzzleFlashShape = 0x14F4; // CHandle<C_BaseEntity>
+    public const nint m_iHealthBarRenderMaskIndex = 0x14F8; // int32_t
+    public const nint m_flHealthFadeValue = 0x14FC; // float
+    public const nint m_flHealthFadeAlpha = 0x1500; // float
+    public const nint m_nMyCollisionGroup = 0x1504; // int32_t
+    public const nint m_ignoreLadderJumpTime = 0x1508; // float
+    public const nint m_ladderSurpressionTimer = 0x1510; // CountdownTimer
+    public const nint m_lastLadderNormal = 0x1528; // Vector
+    public const nint m_lastLadderPos = 0x1534; // Vector
+    public const nint m_flDeathCCWeight = 0x1548; // float
+    public const nint m_bOldIsScoped = 0x154C; // bool
+    public const nint m_flPrevRoundEndTime = 0x1550; // float
+    public const nint m_flPrevMatchEndTime = 0x1554; // float
+    public const nint m_unCurrentEquipmentValue = 0x1558; // uint16_t
+    public const nint m_unRoundStartEquipmentValue = 0x155A; // uint16_t
+    public const nint m_unFreezetimeEndEquipmentValue = 0x155C; // uint16_t
+    public const nint m_vecThirdPersonViewPositionOverride = 0x1560; // Vector
+    public const nint m_nHeavyAssaultSuitCooldownRemaining = 0x156C; // int32_t
+    public const nint m_ArmorValue = 0x1570; // int32_t
+    public const nint m_angEyeAngles = 0x1578; // QAngle
+    public const nint m_fNextThinkPushAway = 0x1590; // float
+    public const nint m_bShouldAutobuyDMWeapons = 0x1594; // bool
+    public const nint m_bShouldAutobuyNow = 0x1595; // bool
+    public const nint m_bHud_MiniScoreHidden = 0x1596; // bool
+    public const nint m_bHud_RadarHidden = 0x1597; // bool
+    public const nint m_nLastKillerIndex = 0x1598; // CEntityIndex
+    public const nint m_nLastConcurrentKilled = 0x159C; // int32_t
+    public const nint m_nDeathCamMusic = 0x15A0; // int32_t
+    public const nint m_iIDEntIndex = 0x15A4; // CEntityIndex
+    public const nint m_delayTargetIDTimer = 0x15A8; // CountdownTimer
+    public const nint m_iTargetedWeaponEntIndex = 0x15C0; // CEntityIndex
+    public const nint m_iOldIDEntIndex = 0x15C4; // CEntityIndex
+    public const nint m_holdTargetIDTimer = 0x15C8; // CountdownTimer
+    public const nint m_flCurrentMusicStartTime = 0x15E4; // float
+    public const nint m_flMusicRoundStartTime = 0x15E8; // float
+    public const nint m_bDeferStartMusicOnWarmup = 0x15EC; // bool
+    public const nint m_cycleLatch = 0x15F0; // int32_t
+    public const nint m_serverIntendedCycle = 0x15F4; // float
+    public const nint m_vecPlayerPatchEconIndices = 0x15F8; // uint32_t[5]
+    public const nint m_bHideTargetID = 0x1614; // bool
+    public const nint m_flLastSmokeOverlayAlpha = 0x1618; // float
+    public const nint m_vLastSmokeOverlayColor = 0x161C; // Vector
+    public const nint m_nPlayerSmokedFx = 0x1628; // ParticleIndex_t
+    public const nint m_nPlayerInfernoBodyFx = 0x162C; // ParticleIndex_t
+    public const nint m_nPlayerInfernoFootFx = 0x1630; // ParticleIndex_t
+    public const nint m_flNextMagDropTime = 0x1634; // float
+    public const nint m_nLastMagDropAttachmentIndex = 0x1638; // int32_t
+    public const nint m_vecBulletHitModels = 0x1640; // CUtlVector<C_BulletHitModel*>
+    public const nint m_vecPickupModelSlerpers = 0x1658; // CUtlVector<C_PickUpModelSlerper*>
+    public const nint m_vecLastAliveLocalVelocity = 0x1670; // Vector
+    public const nint m_entitySpottedState = 0x1698; // EntitySpottedState_t
+    public const nint m_nSurvivalTeamNumber = 0x16B0; // int32_t
+    public const nint m_bGuardianShouldSprayCustomXMark = 0x16B4; // bool
+    public const nint m_bHasDeathInfo = 0x16B5; // bool
+    public const nint m_flDeathInfoTime = 0x16B8; // float
+    public const nint m_vecDeathInfoOrigin = 0x16BC; // Vector
+    public const nint m_bKilledByHeadshot = 0x16C8; // bool
+    public const nint m_hOriginalController = 0x16CC; // CHandle<CCSPlayerController>
+}
+
+public static class C_CSPlayerResource { // C_BaseEntity
+    public const nint m_bHostageAlive = 0x550; // bool[12]
+    public const nint m_isHostageFollowingSomeone = 0x55C; // bool[12]
+    public const nint m_iHostageEntityIDs = 0x568; // CEntityIndex[12]
+    public const nint m_bombsiteCenterA = 0x598; // Vector
+    public const nint m_bombsiteCenterB = 0x5A4; // Vector
+    public const nint m_hostageRescueX = 0x5B0; // int32_t[4]
+    public const nint m_hostageRescueY = 0x5C0; // int32_t[4]
+    public const nint m_hostageRescueZ = 0x5D0; // int32_t[4]
+    public const nint m_bEndMatchNextMapAllVoted = 0x5E0; // bool
+    public const nint m_foundGoalPositions = 0x5E1; // bool
+}
+
+public static class C_CSTeam { // C_Team
+    public const nint m_szTeamMatchStat = 0x608; // char[512]
+    public const nint m_numMapVictories = 0x808; // int32_t
+    public const nint m_bSurrendered = 0x80C; // bool
+    public const nint m_scoreFirstHalf = 0x810; // int32_t
+    public const nint m_scoreSecondHalf = 0x814; // int32_t
+    public const nint m_scoreOvertime = 0x818; // int32_t
+    public const nint m_szClanTeamname = 0x81C; // char[129]
+    public const nint m_iClanID = 0x8A0; // uint32_t
+    public const nint m_szTeamFlagImage = 0x8A4; // char[8]
+    public const nint m_szTeamLogoImage = 0x8AC; // char[8]
+}
+
+public static class C_CSWeaponBase { // C_BasePlayerWeapon
+    public const nint m_flFireSequenceStartTime = 0x162C; // float
+    public const nint m_nFireSequenceStartTimeChange = 0x1630; // int32_t
+    public const nint m_nFireSequenceStartTimeAck = 0x1634; // int32_t
+    public const nint m_ePlayerFireEvent = 0x1638; // PlayerAnimEvent_t
+    public const nint m_ePlayerFireEventAttackType = 0x163C; // WeaponAttackType_t
+    public const nint m_seqIdle = 0x1640; // HSequence
+    public const nint m_seqFirePrimary = 0x1644; // HSequence
+    public const nint m_seqFireSecondary = 0x1648; // HSequence
+    public const nint m_thirdPersonFireSequences = 0x1650; // CUtlVector<HSequence>
+    public const nint m_hCurrentThirdPersonSequence = 0x1668; // HSequence
+    public const nint m_nSilencerBoneIndex = 0x166C; // int32_t
+    public const nint m_thirdPersonSequences = 0x1670; // HSequence[7]
+    public const nint m_ClientPreviousWeaponState = 0x16A8; // CSWeaponState_t
+    public const nint m_iState = 0x16AC; // CSWeaponState_t
+    public const nint m_flCrosshairDistance = 0x16B0; // float
+    public const nint m_iAmmoLastCheck = 0x16B4; // int32_t
+    public const nint m_iAlpha = 0x16B8; // int32_t
+    public const nint m_iScopeTextureID = 0x16BC; // int32_t
+    public const nint m_iCrosshairTextureID = 0x16C0; // int32_t
+    public const nint m_flGunAccuracyPositionDeprecated = 0x16C4; // float
+    public const nint m_nLastEmptySoundCmdNum = 0x16C8; // int32_t
+    public const nint m_nViewModelIndex = 0x16CC; // uint32_t
+    public const nint m_bReloadsWithClips = 0x16D0; // bool
+    public const nint m_flTimeWeaponIdle = 0x16D4; // GameTime_t
+    public const nint m_bFireOnEmpty = 0x16D8; // bool
+    public const nint m_OnPlayerPickup = 0x16E0; // CEntityIOOutput
+    public const nint m_weaponMode = 0x1708; // CSWeaponMode
+    public const nint m_flTurningInaccuracyDelta = 0x170C; // float
+    public const nint m_vecTurningInaccuracyEyeDirLast = 0x1710; // Vector
+    public const nint m_flTurningInaccuracy = 0x171C; // float
+    public const nint m_fAccuracyPenalty = 0x1720; // float
+    public const nint m_flLastAccuracyUpdateTime = 0x1724; // GameTime_t
+    public const nint m_fAccuracySmoothedForZoom = 0x1728; // float
+    public const nint m_fScopeZoomEndTime = 0x172C; // GameTime_t
+    public const nint m_iRecoilIndex = 0x1730; // int32_t
+    public const nint m_flRecoilIndex = 0x1734; // float
+    public const nint m_bBurstMode = 0x1738; // bool
+    public const nint m_nPostponeFireReadyTicks = 0x173C; // GameTick_t
+    public const nint m_flPostponeFireReadyFrac = 0x1740; // float
+    public const nint m_bInReload = 0x1744; // bool
+    public const nint m_bReloadVisuallyComplete = 0x1745; // bool
+    public const nint m_flDroppedAtTime = 0x1748; // GameTime_t
+    public const nint m_bIsHauledBack = 0x174C; // bool
+    public const nint m_bSilencerOn = 0x174D; // bool
+    public const nint m_flTimeSilencerSwitchComplete = 0x1750; // GameTime_t
+    public const nint m_iOriginalTeamNumber = 0x1754; // int32_t
+    public const nint m_flNextAttackRenderTimeOffset = 0x1758; // float
+    public const nint m_bVisualsDataSet = 0x17E0; // bool
+    public const nint m_bOldFirstPersonSpectatedState = 0x17E1; // bool
+    public const nint m_hOurPing = 0x17E4; // CHandle<C_BaseEntity>
+    public const nint m_nOurPingIndex = 0x17E8; // CEntityIndex
+    public const nint m_vecOurPingPos = 0x17EC; // Vector
+    public const nint m_bGlowForPing = 0x17F8; // bool
+    public const nint m_bUIWeapon = 0x17F9; // bool
+    public const nint m_hPrevOwner = 0x1808; // CHandle<C_CSPlayerPawn>
+    public const nint m_nDropTick = 0x180C; // GameTick_t
+    public const nint m_donated = 0x182C; // bool
+    public const nint m_fLastShotTime = 0x1830; // GameTime_t
+    public const nint m_bWasOwnedByCT = 0x1834; // bool
+    public const nint m_bWasOwnedByTerrorist = 0x1835; // bool
+    public const nint m_gunHeat = 0x1838; // float
+    public const nint m_smokeAttachments = 0x183C; // uint32_t
+    public const nint m_lastSmokeTime = 0x1840; // GameTime_t
+    public const nint m_flNextClientFireBulletTime = 0x1844; // float
+    public const nint m_flNextClientFireBulletTime_Repredict = 0x1848; // float
+    public const nint m_IronSightController = 0x1920; // C_IronSightController
+    public const nint m_iIronSightMode = 0x19D0; // int32_t
+    public const nint m_flLastLOSTraceFailureTime = 0x19E0; // GameTime_t
+    public const nint m_iNumEmptyAttacks = 0x19E4; // int32_t
+    public const nint m_flLastMagDropRequestTime = 0x1A60; // GameTime_t
+    public const nint m_flWatTickOffset = 0x1A64; // float
+}
+
+public static class C_CSWeaponBaseGun { // C_CSWeaponBase
+    public const nint m_zoomLevel = 0x1A70; // int32_t
+    public const nint m_iBurstShotsRemaining = 0x1A74; // int32_t
+    public const nint m_iSilencerBodygroup = 0x1A78; // int32_t
+    public const nint m_silencedModelIndex = 0x1A88; // int32_t
+    public const nint m_inPrecache = 0x1A8C; // bool
+    public const nint m_bNeedsBoltAction = 0x1A8D; // bool
+}
+
+public static class C_Chicken { // C_DynamicProp
+    public const nint m_hHolidayHatAddon = 0x1148; // CHandle<CBaseAnimGraph>
+    public const nint m_jumpedThisFrame = 0x114C; // bool
+    public const nint m_leader = 0x1150; // CHandle<C_CSPlayerPawn>
+    public const nint m_AttributeManager = 0x1158; // C_AttributeContainer
+    public const nint m_OriginalOwnerXuidLow = 0x1600; // uint32_t
+    public const nint m_OriginalOwnerXuidHigh = 0x1604; // uint32_t
+    public const nint m_bAttributesInitialized = 0x1608; // bool
+    public const nint m_hWaterWakeParticles = 0x160C; // ParticleIndex_t
+}
+
+public static class C_ClientRagdoll { // CBaseAnimGraph
+    public const nint m_bFadeOut = 0xED8; // bool
+    public const nint m_bImportant = 0xED9; // bool
+    public const nint m_flEffectTime = 0xEDC; // GameTime_t
+    public const nint m_gibDespawnTime = 0xEE0; // GameTime_t
+    public const nint m_iCurrentFriction = 0xEE4; // int32_t
+    public const nint m_iMinFriction = 0xEE8; // int32_t
+    public const nint m_iMaxFriction = 0xEEC; // int32_t
+    public const nint m_iFrictionAnimState = 0xEF0; // int32_t
+    public const nint m_bReleaseRagdoll = 0xEF4; // bool
+    public const nint m_iEyeAttachment = 0xEF5; // AttachmentHandle_t
+    public const nint m_bFadingOut = 0xEF6; // bool
+    public const nint m_flScaleEnd = 0xEF8; // float[10]
+    public const nint m_flScaleTimeStart = 0xF20; // GameTime_t[10]
+    public const nint m_flScaleTimeEnd = 0xF48; // GameTime_t[10]
+}
+
+public static class C_ColorCorrection { // C_BaseEntity
+    public const nint m_vecOrigin = 0x550; // Vector
+    public const nint m_MinFalloff = 0x55C; // float
+    public const nint m_MaxFalloff = 0x560; // float
+    public const nint m_flFadeInDuration = 0x564; // float
+    public const nint m_flFadeOutDuration = 0x568; // float
+    public const nint m_flMaxWeight = 0x56C; // float
+    public const nint m_flCurWeight = 0x570; // float
+    public const nint m_netlookupFilename = 0x574; // char[512]
+    public const nint m_bEnabled = 0x774; // bool
+    public const nint m_bMaster = 0x775; // bool
+    public const nint m_bClientSide = 0x776; // bool
+    public const nint m_bExclusive = 0x777; // bool
+    public const nint m_bEnabledOnClient = 0x778; // bool[1]
+    public const nint m_flCurWeightOnClient = 0x77C; // float[1]
+    public const nint m_bFadingIn = 0x780; // bool[1]
+    public const nint m_flFadeStartWeight = 0x784; // float[1]
+    public const nint m_flFadeStartTime = 0x788; // float[1]
+    public const nint m_flFadeDuration = 0x78C; // float[1]
+}
+
+public static class C_ColorCorrectionVolume { // C_BaseTrigger
+    public const nint m_LastEnterWeight = 0xCD8; // float
+    public const nint m_LastEnterTime = 0xCDC; // float
+    public const nint m_LastExitWeight = 0xCE0; // float
+    public const nint m_LastExitTime = 0xCE4; // float
+    public const nint m_bEnabled = 0xCE8; // bool
+    public const nint m_MaxWeight = 0xCEC; // float
+    public const nint m_FadeDuration = 0xCF0; // float
+    public const nint m_Weight = 0xCF4; // float
+    public const nint m_lookupFilename = 0xCF8; // char[512]
+}
+
+public static class C_CommandContext {
+    public const nint needsprocessing = 0x0; // bool
+    public const nint command_number = 0x90; // int32_t
+}
+
+public static class C_CsmFovOverride { // C_BaseEntity
+    public const nint m_cameraName = 0x550; // CUtlString
+    public const nint m_flCsmFovOverrideValue = 0x558; // float
+}
+
+public static class C_DEagle { // C_CSWeaponBaseGun
+}
+
+public static class C_DecoyGrenade { // C_BaseCSGrenade
+}
+
+public static class C_DecoyProjectile { // C_BaseCSGrenadeProjectile
+    public const nint m_nDecoyShotTick = 0x1158; // int32_t
+    public const nint m_nClientLastKnownDecoyShotTick = 0x115C; // int32_t
+    public const nint m_flTimeParticleEffectSpawn = 0x1180; // GameTime_t
+}
+
+public static class C_DynamicLight { // C_BaseModelEntity
+    public const nint m_Flags = 0xCD0; // uint8_t
+    public const nint m_LightStyle = 0xCD1; // uint8_t
+    public const nint m_Radius = 0xCD4; // float
+    public const nint m_Exponent = 0xCD8; // int32_t
+    public const nint m_InnerAngle = 0xCDC; // float
+    public const nint m_OuterAngle = 0xCE0; // float
+    public const nint m_SpotRadius = 0xCE4; // float
+}
+
+public static class C_DynamicProp { // C_BreakableProp
+    public const nint m_bUseHitboxesForRenderBox = 0x1028; // bool
+    public const nint m_bUseAnimGraph = 0x1029; // bool
+    public const nint m_pOutputAnimBegun = 0x1030; // CEntityIOOutput
+    public const nint m_pOutputAnimOver = 0x1058; // CEntityIOOutput
+    public const nint m_pOutputAnimLoopCycleOver = 0x1080; // CEntityIOOutput
+    public const nint m_OnAnimReachedStart = 0x10A8; // CEntityIOOutput
+    public const nint m_OnAnimReachedEnd = 0x10D0; // CEntityIOOutput
+    public const nint m_iszIdleAnim = 0x10F8; // CUtlSymbolLarge
+    public const nint m_nIdleAnimLoopMode = 0x1100; // AnimLoopMode_t
+    public const nint m_bRandomizeCycle = 0x1104; // bool
+    public const nint m_bStartDisabled = 0x1105; // bool
+    public const nint m_bFiredStartEndOutput = 0x1106; // bool
+    public const nint m_bForceNpcExclude = 0x1107; // bool
+    public const nint m_bCreateNonSolid = 0x1108; // bool
+    public const nint m_bIsOverrideProp = 0x1109; // bool
+    public const nint m_iInitialGlowState = 0x110C; // int32_t
+    public const nint m_nGlowRange = 0x1110; // int32_t
+    public const nint m_nGlowRangeMin = 0x1114; // int32_t
+    public const nint m_glowColor = 0x1118; // Color
+    public const nint m_nGlowTeam = 0x111C; // int32_t
+    public const nint m_iCachedFrameCount = 0x1120; // int32_t
+    public const nint m_vecCachedRenderMins = 0x1124; // Vector
+    public const nint m_vecCachedRenderMaxs = 0x1130; // Vector
+}
+
+public static class C_DynamicPropAlias_cable_dynamic { // C_DynamicProp
+}
+
+public static class C_DynamicPropAlias_dynamic_prop { // C_DynamicProp
+}
+
+public static class C_DynamicPropAlias_prop_dynamic_override { // C_DynamicProp
+}
+
+public static class C_EconEntity { // C_BaseFlex
+    public const nint m_flFlexDelayTime = 0x1080; // float
+    public const nint m_flFlexDelayedWeight = 0x1088; // float*
+    public const nint m_bAttributesInitialized = 0x1090; // bool
+    public const nint m_AttributeManager = 0x1098; // C_AttributeContainer
+    public const nint m_OriginalOwnerXuidLow = 0x1540; // uint32_t
+    public const nint m_OriginalOwnerXuidHigh = 0x1544; // uint32_t
+    public const nint m_nFallbackPaintKit = 0x1548; // int32_t
+    public const nint m_nFallbackSeed = 0x154C; // int32_t
+    public const nint m_flFallbackWear = 0x1550; // float
+    public const nint m_nFallbackStatTrak = 0x1554; // int32_t
+    public const nint m_bClientside = 0x1558; // bool
+    public const nint m_bParticleSystemsCreated = 0x1559; // bool
+    public const nint m_vecAttachedParticles = 0x1560; // CUtlVector<int32_t>
+    public const nint m_hViewmodelAttachment = 0x1578; // CHandle<CBaseAnimGraph>
+    public const nint m_iOldTeam = 0x157C; // int32_t
+    public const nint m_bAttachmentDirty = 0x1580; // bool
+    public const nint m_nUnloadedModelIndex = 0x1584; // int32_t
+    public const nint m_iNumOwnerValidationRetries = 0x1588; // int32_t
+    public const nint m_hOldProvidee = 0x1598; // CHandle<C_BaseEntity>
+    public const nint m_vecAttachedModels = 0x15A0; // CUtlVector<C_EconEntity::AttachedModelData_t>
+}
+
+public static class C_EconEntity_AttachedModelData_t {
+    public const nint m_iModelDisplayFlags = 0x0; // int32_t
+}
+
+public static class C_EconItemView { // IEconItemInterface
+    public const nint m_bInventoryImageRgbaRequested = 0x60; // bool
+    public const nint m_bInventoryImageTriedCache = 0x61; // bool
+    public const nint m_nInventoryImageRgbaWidth = 0x80; // int32_t
+    public const nint m_nInventoryImageRgbaHeight = 0x84; // int32_t
+    public const nint m_szCurrentLoadCachedFileName = 0x88; // char[260]
+    public const nint m_bRestoreCustomMaterialAfterPrecache = 0x1B8; // bool
+    public const nint m_iItemDefinitionIndex = 0x1BA; // uint16_t
+    public const nint m_iEntityQuality = 0x1BC; // int32_t
+    public const nint m_iEntityLevel = 0x1C0; // uint32_t
+    public const nint m_iItemID = 0x1C8; // uint64_t
+    public const nint m_iItemIDHigh = 0x1D0; // uint32_t
+    public const nint m_iItemIDLow = 0x1D4; // uint32_t
+    public const nint m_iAccountID = 0x1D8; // uint32_t
+    public const nint m_iInventoryPosition = 0x1DC; // uint32_t
+    public const nint m_bInitialized = 0x1E8; // bool
+    public const nint m_bDisallowSOC = 0x1E9; // bool
+    public const nint m_bIsStoreItem = 0x1EA; // bool
+    public const nint m_bIsTradeItem = 0x1EB; // bool
+    public const nint m_iEntityQuantity = 0x1EC; // int32_t
+    public const nint m_iRarityOverride = 0x1F0; // int32_t
+    public const nint m_iQualityOverride = 0x1F4; // int32_t
+    public const nint m_unClientFlags = 0x1F8; // uint8_t
+    public const nint m_unOverrideStyle = 0x1F9; // uint8_t
+    public const nint m_AttributeList = 0x210; // CAttributeList
+    public const nint m_NetworkedDynamicAttributes = 0x270; // CAttributeList
+    public const nint m_szCustomName = 0x2D0; // char[161]
+    public const nint m_szCustomNameOverride = 0x371; // char[161]
+    public const nint m_bInitializedTags = 0x440; // bool
+}
+
+public static class C_EconWearable { // C_EconEntity
+    public const nint m_nForceSkin = 0x15B8; // int32_t
+    public const nint m_bAlwaysAllow = 0x15BC; // bool
+}
+
+public static class C_EntityDissolve { // C_BaseModelEntity
+    public const nint m_flStartTime = 0xCD8; // GameTime_t
+    public const nint m_flFadeInStart = 0xCDC; // float
+    public const nint m_flFadeInLength = 0xCE0; // float
+    public const nint m_flFadeOutModelStart = 0xCE4; // float
+    public const nint m_flFadeOutModelLength = 0xCE8; // float
+    public const nint m_flFadeOutStart = 0xCEC; // float
+    public const nint m_flFadeOutLength = 0xCF0; // float
+    public const nint m_flNextSparkTime = 0xCF4; // GameTime_t
+    public const nint m_nDissolveType = 0xCF8; // EntityDisolveType_t
+    public const nint m_vDissolverOrigin = 0xCFC; // Vector
+    public const nint m_nMagnitude = 0xD08; // uint32_t
+    public const nint m_bCoreExplode = 0xD0C; // bool
+    public const nint m_bLinkedToServerEnt = 0xD0D; // bool
+}
+
+public static class C_EntityFlame { // C_BaseEntity
+    public const nint m_hEntAttached = 0x550; // CHandle<C_BaseEntity>
+    public const nint m_hOldAttached = 0x578; // CHandle<C_BaseEntity>
+    public const nint m_bCheapEffect = 0x57C; // bool
+}
+
+public static class C_EnvCombinedLightProbeVolume { // C_BaseEntity
+    public const nint m_Color = 0x15A8; // Color
+    public const nint m_flBrightness = 0x15AC; // float
+    public const nint m_hCubemapTexture = 0x15B0; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_bCustomCubemapTexture = 0x15B8; // bool
+    public const nint m_hLightProbeTexture = 0x15C0; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_hLightProbeDirectLightIndicesTexture = 0x15C8; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_hLightProbeDirectLightScalarsTexture = 0x15D0; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_hLightProbeDirectLightShadowsTexture = 0x15D8; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_vBoxMins = 0x15E0; // Vector
+    public const nint m_vBoxMaxs = 0x15EC; // Vector
+    public const nint m_bMoveable = 0x15F8; // bool
+    public const nint m_nHandshake = 0x15FC; // int32_t
+    public const nint m_nEnvCubeMapArrayIndex = 0x1600; // int32_t
+    public const nint m_nPriority = 0x1604; // int32_t
+    public const nint m_bStartDisabled = 0x1608; // bool
+    public const nint m_flEdgeFadeDist = 0x160C; // float
+    public const nint m_vEdgeFadeDists = 0x1610; // Vector
+    public const nint m_nLightProbeSizeX = 0x161C; // int32_t
+    public const nint m_nLightProbeSizeY = 0x1620; // int32_t
+    public const nint m_nLightProbeSizeZ = 0x1624; // int32_t
+    public const nint m_nLightProbeAtlasX = 0x1628; // int32_t
+    public const nint m_nLightProbeAtlasY = 0x162C; // int32_t
+    public const nint m_nLightProbeAtlasZ = 0x1630; // int32_t
+    public const nint m_bEnabled = 0x1649; // bool
+}
+
+public static class C_EnvCubemap { // C_BaseEntity
+    public const nint m_hCubemapTexture = 0x5D0; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_bCustomCubemapTexture = 0x5D8; // bool
+    public const nint m_flInfluenceRadius = 0x5DC; // float
+    public const nint m_vBoxProjectMins = 0x5E0; // Vector
+    public const nint m_vBoxProjectMaxs = 0x5EC; // Vector
+    public const nint m_bMoveable = 0x5F8; // bool
+    public const nint m_nHandshake = 0x5FC; // int32_t
+    public const nint m_nEnvCubeMapArrayIndex = 0x600; // int32_t
+    public const nint m_nPriority = 0x604; // int32_t
+    public const nint m_flEdgeFadeDist = 0x608; // float
+    public const nint m_vEdgeFadeDists = 0x60C; // Vector
+    public const nint m_flDiffuseScale = 0x618; // float
+    public const nint m_bStartDisabled = 0x61C; // bool
+    public const nint m_bDefaultEnvMap = 0x61D; // bool
+    public const nint m_bDefaultSpecEnvMap = 0x61E; // bool
+    public const nint m_bIndoorCubeMap = 0x61F; // bool
+    public const nint m_bCopyDiffuseFromDefaultCubemap = 0x620; // bool
+    public const nint m_bEnabled = 0x630; // bool
+}
+
+public static class C_EnvCubemapBox { // C_EnvCubemap
+}
+
+public static class C_EnvCubemapFog { // C_BaseEntity
+    public const nint m_flEndDistance = 0x550; // float
+    public const nint m_flStartDistance = 0x554; // float
+    public const nint m_flFogFalloffExponent = 0x558; // float
+    public const nint m_bHeightFogEnabled = 0x55C; // bool
+    public const nint m_flFogHeightWidth = 0x560; // float
+    public const nint m_flFogHeightEnd = 0x564; // float
+    public const nint m_flFogHeightStart = 0x568; // float
+    public const nint m_flFogHeightExponent = 0x56C; // float
+    public const nint m_flLODBias = 0x570; // float
+    public const nint m_bActive = 0x574; // bool
+    public const nint m_bStartDisabled = 0x575; // bool
+    public const nint m_flFogMaxOpacity = 0x578; // float
+    public const nint m_nCubemapSourceType = 0x57C; // int32_t
+    public const nint m_hSkyMaterial = 0x580; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_iszSkyEntity = 0x588; // CUtlSymbolLarge
+    public const nint m_hFogCubemapTexture = 0x590; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_bHasHeightFogEnd = 0x598; // bool
+    public const nint m_bFirstTime = 0x599; // bool
+}
+
+public static class C_EnvDecal { // C_BaseModelEntity
+    public const nint m_hDecalMaterial = 0xCD0; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_flWidth = 0xCD8; // float
+    public const nint m_flHeight = 0xCDC; // float
+    public const nint m_flDepth = 0xCE0; // float
+    public const nint m_nRenderOrder = 0xCE4; // uint32_t
+    public const nint m_bProjectOnWorld = 0xCE8; // bool
+    public const nint m_bProjectOnCharacters = 0xCE9; // bool
+    public const nint m_bProjectOnWater = 0xCEA; // bool
+    public const nint m_flDepthSortBias = 0xCEC; // float
+}
+
+public static class C_EnvDetailController { // C_BaseEntity
+    public const nint m_flFadeStartDist = 0x550; // float
+    public const nint m_flFadeEndDist = 0x554; // float
+}
+
+public static class C_EnvLightProbeVolume { // C_BaseEntity
+    public const nint m_hLightProbeTexture = 0x1528; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_hLightProbeDirectLightIndicesTexture = 0x1530; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_hLightProbeDirectLightScalarsTexture = 0x1538; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_hLightProbeDirectLightShadowsTexture = 0x1540; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_vBoxMins = 0x1548; // Vector
+    public const nint m_vBoxMaxs = 0x1554; // Vector
+    public const nint m_bMoveable = 0x1560; // bool
+    public const nint m_nHandshake = 0x1564; // int32_t
+    public const nint m_nPriority = 0x1568; // int32_t
+    public const nint m_bStartDisabled = 0x156C; // bool
+    public const nint m_nLightProbeSizeX = 0x1570; // int32_t
+    public const nint m_nLightProbeSizeY = 0x1574; // int32_t
+    public const nint m_nLightProbeSizeZ = 0x1578; // int32_t
+    public const nint m_nLightProbeAtlasX = 0x157C; // int32_t
+    public const nint m_nLightProbeAtlasY = 0x1580; // int32_t
+    public const nint m_nLightProbeAtlasZ = 0x1584; // int32_t
+    public const nint m_bEnabled = 0x1591; // bool
+}
+
+public static class C_EnvParticleGlow { // C_ParticleSystem
+    public const nint m_flAlphaScale = 0x1280; // float
+    public const nint m_flRadiusScale = 0x1284; // float
+    public const nint m_flSelfIllumScale = 0x1288; // float
+    public const nint m_ColorTint = 0x128C; // Color
+    public const nint m_hTextureOverride = 0x1290; // CStrongHandle<InfoForResourceTypeCTextureBase>
+}
+
+public static class C_EnvProjectedTexture { // C_ModelPointEntity
+}
+
+public static class C_EnvScreenOverlay { // C_PointEntity
+    public const nint m_iszOverlayNames = 0x550; // CUtlSymbolLarge[10]
+    public const nint m_flOverlayTimes = 0x5A0; // float[10]
+    public const nint m_flStartTime = 0x5C8; // GameTime_t
+    public const nint m_iDesiredOverlay = 0x5CC; // int32_t
+    public const nint m_bIsActive = 0x5D0; // bool
+    public const nint m_bWasActive = 0x5D1; // bool
+    public const nint m_iCachedDesiredOverlay = 0x5D4; // int32_t
+    public const nint m_iCurrentOverlay = 0x5D8; // int32_t
+    public const nint m_flCurrentOverlayTime = 0x5DC; // GameTime_t
+}
+
+public static class C_EnvSky { // C_BaseModelEntity
+    public const nint m_hSkyMaterial = 0xCD0; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_hSkyMaterialLightingOnly = 0xCD8; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_bStartDisabled = 0xCE0; // bool
+    public const nint m_vTintColor = 0xCE1; // Color
+    public const nint m_vTintColorLightingOnly = 0xCE5; // Color
+    public const nint m_flBrightnessScale = 0xCEC; // float
+    public const nint m_nFogType = 0xCF0; // int32_t
+    public const nint m_flFogMinStart = 0xCF4; // float
+    public const nint m_flFogMinEnd = 0xCF8; // float
+    public const nint m_flFogMaxStart = 0xCFC; // float
+    public const nint m_flFogMaxEnd = 0xD00; // float
+    public const nint m_bEnabled = 0xD04; // bool
+}
+
+public static class C_EnvVolumetricFogController { // C_BaseEntity
+    public const nint m_flScattering = 0x550; // float
+    public const nint m_flAnisotropy = 0x554; // float
+    public const nint m_flFadeSpeed = 0x558; // float
+    public const nint m_flDrawDistance = 0x55C; // float
+    public const nint m_flFadeInStart = 0x560; // float
+    public const nint m_flFadeInEnd = 0x564; // float
+    public const nint m_flIndirectStrength = 0x568; // float
+    public const nint m_nIndirectTextureDimX = 0x56C; // int32_t
+    public const nint m_nIndirectTextureDimY = 0x570; // int32_t
+    public const nint m_nIndirectTextureDimZ = 0x574; // int32_t
+    public const nint m_vBoxMins = 0x578; // Vector
+    public const nint m_vBoxMaxs = 0x584; // Vector
+    public const nint m_bActive = 0x590; // bool
+    public const nint m_flStartAnisoTime = 0x594; // GameTime_t
+    public const nint m_flStartScatterTime = 0x598; // GameTime_t
+    public const nint m_flStartDrawDistanceTime = 0x59C; // GameTime_t
+    public const nint m_flStartAnisotropy = 0x5A0; // float
+    public const nint m_flStartScattering = 0x5A4; // float
+    public const nint m_flStartDrawDistance = 0x5A8; // float
+    public const nint m_flDefaultAnisotropy = 0x5AC; // float
+    public const nint m_flDefaultScattering = 0x5B0; // float
+    public const nint m_flDefaultDrawDistance = 0x5B4; // float
+    public const nint m_bStartDisabled = 0x5B8; // bool
+    public const nint m_bEnableIndirect = 0x5B9; // bool
+    public const nint m_bIsMaster = 0x5BA; // bool
+    public const nint m_hFogIndirectTexture = 0x5C0; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_nForceRefreshCount = 0x5C8; // int32_t
+    public const nint m_bFirstTime = 0x5CC; // bool
+}
+
+public static class C_EnvVolumetricFogVolume { // C_BaseEntity
+    public const nint m_bActive = 0x550; // bool
+    public const nint m_vBoxMins = 0x554; // Vector
+    public const nint m_vBoxMaxs = 0x560; // Vector
+    public const nint m_bStartDisabled = 0x56C; // bool
+    public const nint m_flStrength = 0x570; // float
+    public const nint m_nFalloffShape = 0x574; // int32_t
+    public const nint m_flFalloffExponent = 0x578; // float
+}
+
+public static class C_EnvWind { // C_BaseEntity
+    public const nint m_EnvWindShared = 0x550; // C_EnvWindShared
+}
+
+public static class C_EnvWindClientside { // C_BaseEntity
+    public const nint m_EnvWindShared = 0x550; // C_EnvWindShared
+}
+
+public static class C_EnvWindShared {
+    public const nint m_flStartTime = 0x8; // GameTime_t
+    public const nint m_iWindSeed = 0xC; // uint32_t
+    public const nint m_iMinWind = 0x10; // uint16_t
+    public const nint m_iMaxWind = 0x12; // uint16_t
+    public const nint m_windRadius = 0x14; // int32_t
+    public const nint m_iMinGust = 0x18; // uint16_t
+    public const nint m_iMaxGust = 0x1A; // uint16_t
+    public const nint m_flMinGustDelay = 0x1C; // float
+    public const nint m_flMaxGustDelay = 0x20; // float
+    public const nint m_flGustDuration = 0x24; // float
+    public const nint m_iGustDirChange = 0x28; // uint16_t
+    public const nint m_location = 0x2C; // Vector
+    public const nint m_iszGustSound = 0x38; // int32_t
+    public const nint m_iWindDir = 0x3C; // int32_t
+    public const nint m_flWindSpeed = 0x40; // float
+    public const nint m_currentWindVector = 0x44; // Vector
+    public const nint m_CurrentSwayVector = 0x50; // Vector
+    public const nint m_PrevSwayVector = 0x5C; // Vector
+    public const nint m_iInitialWindDir = 0x68; // uint16_t
+    public const nint m_flInitialWindSpeed = 0x6C; // float
+    public const nint m_flVariationTime = 0x70; // GameTime_t
+    public const nint m_flSwayTime = 0x74; // GameTime_t
+    public const nint m_flSimTime = 0x78; // GameTime_t
+    public const nint m_flSwitchTime = 0x7C; // GameTime_t
+    public const nint m_flAveWindSpeed = 0x80; // float
+    public const nint m_bGusting = 0x84; // bool
+    public const nint m_flWindAngleVariation = 0x88; // float
+    public const nint m_flWindSpeedVariation = 0x8C; // float
+    public const nint m_iEntIndex = 0x90; // CEntityIndex
+}
+
+public static class C_EnvWindShared_WindAveEvent_t {
+    public const nint m_flStartWindSpeed = 0x0; // float
+    public const nint m_flAveWindSpeed = 0x4; // float
+}
+
+public static class C_EnvWindShared_WindVariationEvent_t {
+    public const nint m_flWindAngleVariation = 0x0; // float
+    public const nint m_flWindSpeedVariation = 0x4; // float
+}
+
+public static class C_FireCrackerBlast { // C_Inferno
+}
+
+public static class C_FireFromAboveSprite { // C_Sprite
+}
+
+public static class C_FireSmoke { // C_BaseFire
+    public const nint m_nFlameModelIndex = 0x560; // int32_t
+    public const nint m_nFlameFromAboveModelIndex = 0x564; // int32_t
+    public const nint m_flScaleRegister = 0x568; // float
+    public const nint m_flScaleStart = 0x56C; // float
+    public const nint m_flScaleEnd = 0x570; // float
+    public const nint m_flScaleTimeStart = 0x574; // GameTime_t
+    public const nint m_flScaleTimeEnd = 0x578; // GameTime_t
+    public const nint m_flChildFlameSpread = 0x57C; // float
+    public const nint m_flClipPerc = 0x590; // float
+    public const nint m_bClipTested = 0x594; // bool
+    public const nint m_bFadingOut = 0x595; // bool
+    public const nint m_tParticleSpawn = 0x598; // TimedEvent
+    public const nint m_pFireOverlay = 0x5A0; // CFireOverlay*
+}
+
+public static class C_FireSprite { // C_Sprite
+    public const nint m_vecMoveDir = 0xE00; // Vector
+    public const nint m_bFadeFromAbove = 0xE0C; // bool
+}
+
+public static class C_Fish { // CBaseAnimGraph
+    public const nint m_pos = 0xED8; // Vector
+    public const nint m_vel = 0xEE4; // Vector
+    public const nint m_angles = 0xEF0; // QAngle
+    public const nint m_localLifeState = 0xEFC; // int32_t
+    public const nint m_deathDepth = 0xF00; // float
+    public const nint m_deathAngle = 0xF04; // float
+    public const nint m_buoyancy = 0xF08; // float
+    public const nint m_wiggleTimer = 0xF10; // CountdownTimer
+    public const nint m_wigglePhase = 0xF28; // float
+    public const nint m_wiggleRate = 0xF2C; // float
+    public const nint m_actualPos = 0xF30; // Vector
+    public const nint m_actualAngles = 0xF3C; // QAngle
+    public const nint m_poolOrigin = 0xF48; // Vector
+    public const nint m_waterLevel = 0xF54; // float
+    public const nint m_gotUpdate = 0xF58; // bool
+    public const nint m_x = 0xF5C; // float
+    public const nint m_y = 0xF60; // float
+    public const nint m_z = 0xF64; // float
+    public const nint m_angle = 0xF68; // float
+    public const nint m_errorHistory = 0xF6C; // float[20]
+    public const nint m_errorHistoryIndex = 0xFBC; // int32_t
+    public const nint m_errorHistoryCount = 0xFC0; // int32_t
+    public const nint m_averageError = 0xFC4; // float
+}
+
+public static class C_Fists { // C_CSWeaponBase
+    public const nint m_bPlayingUninterruptableAct = 0x1A70; // bool
+    public const nint m_nUninterruptableActivity = 0x1A74; // PlayerAnimEvent_t
+}
+
+public static class C_Flashbang { // C_BaseCSGrenade
+}
+
+public static class C_FlashbangProjectile { // C_BaseCSGrenadeProjectile
+}
+
+public static class C_FogController { // C_BaseEntity
+    public const nint m_fog = 0x550; // fogparams_t
+    public const nint m_bUseAngles = 0x5B8; // bool
+    public const nint m_iChangedVariables = 0x5BC; // int32_t
+}
+
+public static class C_FootstepControl { // C_BaseTrigger
+    public const nint m_source = 0xCD8; // CUtlSymbolLarge
+    public const nint m_destination = 0xCE0; // CUtlSymbolLarge
+}
+
+public static class C_FuncBrush { // C_BaseModelEntity
+}
+
+public static class C_FuncConveyor { // C_BaseModelEntity
+    public const nint m_vecMoveDirEntitySpace = 0xCD8; // Vector
+    public const nint m_flTargetSpeed = 0xCE4; // float
+    public const nint m_nTransitionStartTick = 0xCE8; // GameTick_t
+    public const nint m_nTransitionDurationTicks = 0xCEC; // int32_t
+    public const nint m_flTransitionStartSpeed = 0xCF0; // float
+    public const nint m_hConveyorModels = 0xCF8; // C_NetworkUtlVectorBase<CHandle<C_BaseEntity>>
+    public const nint m_flCurrentConveyorOffset = 0xD10; // float
+    public const nint m_flCurrentConveyorSpeed = 0xD14; // float
+}
+
+public static class C_FuncElectrifiedVolume { // C_FuncBrush
+    public const nint m_nAmbientEffect = 0xCD0; // ParticleIndex_t
+    public const nint m_EffectName = 0xCD8; // CUtlSymbolLarge
+    public const nint m_bState = 0xCE0; // bool
+}
+
+public static class C_FuncLadder { // C_BaseModelEntity
+    public const nint m_vecLadderDir = 0xCD0; // Vector
+    public const nint m_Dismounts = 0xCE0; // CUtlVector<CHandle<C_InfoLadderDismount>>
+    public const nint m_vecLocalTop = 0xCF8; // Vector
+    public const nint m_vecPlayerMountPositionTop = 0xD04; // Vector
+    public const nint m_vecPlayerMountPositionBottom = 0xD10; // Vector
+    public const nint m_flAutoRideSpeed = 0xD1C; // float
+    public const nint m_bDisabled = 0xD20; // bool
+    public const nint m_bFakeLadder = 0xD21; // bool
+    public const nint m_bHasSlack = 0xD22; // bool
+}
+
+public static class C_FuncMonitor { // C_FuncBrush
+    public const nint m_targetCamera = 0xCD0; // CUtlString
+    public const nint m_nResolutionEnum = 0xCD8; // int32_t
+    public const nint m_bRenderShadows = 0xCDC; // bool
+    public const nint m_bUseUniqueColorTarget = 0xCDD; // bool
+    public const nint m_brushModelName = 0xCE0; // CUtlString
+    public const nint m_hTargetCamera = 0xCE8; // CHandle<C_BaseEntity>
+    public const nint m_bEnabled = 0xCEC; // bool
+    public const nint m_bDraw3DSkybox = 0xCED; // bool
+}
+
+public static class C_FuncMoveLinear { // C_BaseToggle
+}
+
+public static class C_FuncRotating { // C_BaseModelEntity
+}
+
+public static class C_FuncTrackTrain { // C_BaseModelEntity
+    public const nint m_nLongAxis = 0xCD0; // int32_t
+    public const nint m_flRadius = 0xCD4; // float
+    public const nint m_flLineLength = 0xCD8; // float
+}
+
+public static class C_GameRules {
+}
+
+public static class C_GameRulesProxy { // C_BaseEntity
+}
+
+public static class C_GlobalLight { // C_BaseEntity
+    public const nint m_WindClothForceHandle = 0xA10; // uint16_t
+}
+
+public static class C_GradientFog { // C_BaseEntity
+    public const nint m_hGradientFogTexture = 0x550; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_flFogStartDistance = 0x558; // float
+    public const nint m_flFogEndDistance = 0x55C; // float
+    public const nint m_bHeightFogEnabled = 0x560; // bool
+    public const nint m_flFogStartHeight = 0x564; // float
+    public const nint m_flFogEndHeight = 0x568; // float
+    public const nint m_flFarZ = 0x56C; // float
+    public const nint m_flFogMaxOpacity = 0x570; // float
+    public const nint m_flFogFalloffExponent = 0x574; // float
+    public const nint m_flFogVerticalExponent = 0x578; // float
+    public const nint m_fogColor = 0x57C; // Color
+    public const nint m_flFogStrength = 0x580; // float
+    public const nint m_flFadeTime = 0x584; // float
+    public const nint m_bStartDisabled = 0x588; // bool
+    public const nint m_bIsEnabled = 0x589; // bool
+    public const nint m_bGradientFogNeedsTextures = 0x58A; // bool
+}
+
+public static class C_HEGrenade { // C_BaseCSGrenade
+}
+
+public static class C_HEGrenadeProjectile { // C_BaseCSGrenadeProjectile
+}
+
+public static class C_HandleTest { // C_BaseEntity
+    public const nint m_Handle = 0x550; // CHandle<C_BaseEntity>
+    public const nint m_bSendHandle = 0x554; // bool
+}
+
+public static class C_Hostage { // C_BaseCombatCharacter
+    public const nint m_entitySpottedState = 0x1100; // EntitySpottedState_t
+    public const nint m_leader = 0x1118; // CHandle<C_BaseEntity>
+    public const nint m_reuseTimer = 0x1120; // CountdownTimer
+    public const nint m_vel = 0x1138; // Vector
+    public const nint m_isRescued = 0x1144; // bool
+    public const nint m_jumpedThisFrame = 0x1145; // bool
+    public const nint m_nHostageState = 0x1148; // int32_t
+    public const nint m_bHandsHaveBeenCut = 0x114C; // bool
+    public const nint m_hHostageGrabber = 0x1150; // CHandle<C_CSPlayerPawn>
+    public const nint m_fLastGrabTime = 0x1154; // GameTime_t
+    public const nint m_vecGrabbedPos = 0x1158; // Vector
+    public const nint m_flRescueStartTime = 0x1164; // GameTime_t
+    public const nint m_flGrabSuccessTime = 0x1168; // GameTime_t
+    public const nint m_flDropStartTime = 0x116C; // GameTime_t
+    public const nint m_flDeadOrRescuedTime = 0x1170; // GameTime_t
+    public const nint m_blinkTimer = 0x1178; // CountdownTimer
+    public const nint m_lookAt = 0x1190; // Vector
+    public const nint m_lookAroundTimer = 0x11A0; // CountdownTimer
+    public const nint m_isInit = 0x11B8; // bool
+    public const nint m_eyeAttachment = 0x11B9; // AttachmentHandle_t
+    public const nint m_chestAttachment = 0x11BA; // AttachmentHandle_t
+    public const nint m_pPredictionOwner = 0x11C0; // CBasePlayerController*
+    public const nint m_fNewestAlphaThinkTime = 0x11C8; // GameTime_t
+}
+
+public static class C_HostageCarriableProp { // CBaseAnimGraph
+}
+
+public static class C_IncendiaryGrenade { // C_MolotovGrenade
+}
+
+public static class C_Inferno { // C_BaseModelEntity
+    public const nint m_nfxFireDamageEffect = 0xD10; // ParticleIndex_t
+    public const nint m_firePositions = 0xD14; // Vector[64]
+    public const nint m_fireParentPositions = 0x1014; // Vector[64]
+    public const nint m_bFireIsBurning = 0x1314; // bool[64]
+    public const nint m_BurnNormal = 0x1354; // Vector[64]
+    public const nint m_fireCount = 0x1654; // int32_t
+    public const nint m_nInfernoType = 0x1658; // int32_t
+    public const nint m_nFireLifetime = 0x165C; // float
+    public const nint m_bInPostEffectTime = 0x1660; // bool
+    public const nint m_lastFireCount = 0x1664; // int32_t
+    public const nint m_nFireEffectTickBegin = 0x1668; // int32_t
+    public const nint m_drawableCount = 0x8270; // int32_t
+    public const nint m_blosCheck = 0x8274; // bool
+    public const nint m_nlosperiod = 0x8278; // int32_t
+    public const nint m_maxFireHalfWidth = 0x827C; // float
+    public const nint m_maxFireHeight = 0x8280; // float
+    public const nint m_minBounds = 0x8284; // Vector
+    public const nint m_maxBounds = 0x8290; // Vector
+    public const nint m_flLastGrassBurnThink = 0x829C; // float
+}
+
+public static class C_InfoInstructorHintHostageRescueZone { // C_PointEntity
+}
+
+public static class C_InfoLadderDismount { // C_BaseEntity
+}
+
+public static class C_InfoVisibilityBox { // C_BaseEntity
+    public const nint m_nMode = 0x554; // int32_t
+    public const nint m_vBoxSize = 0x558; // Vector
+    public const nint m_bEnabled = 0x564; // bool
+}
+
+public static class C_IronSightController {
+    public const nint m_bIronSightAvailable = 0x10; // bool
+    public const nint m_flIronSightAmount = 0x14; // float
+    public const nint m_flIronSightAmountGained = 0x18; // float
+    public const nint m_flIronSightAmountBiased = 0x1C; // float
+    public const nint m_flIronSightAmount_Interpolated = 0x20; // float
+    public const nint m_flIronSightAmountGained_Interpolated = 0x24; // float
+    public const nint m_flIronSightAmountBiased_Interpolated = 0x28; // float
+    public const nint m_flInterpolationLastUpdated = 0x2C; // float
+    public const nint m_angDeltaAverage = 0x30; // QAngle[8]
+    public const nint m_angViewLast = 0x90; // QAngle
+    public const nint m_vecDotCoords = 0x9C; // Vector2D
+    public const nint m_flDotBlur = 0xA4; // float
+    public const nint m_flSpeedRatio = 0xA8; // float
+}
+
+public static class C_Item { // C_EconEntity
+    public const nint m_bShouldGlow = 0x15B8; // bool
+    public const nint m_pReticleHintTextName = 0x15B9; // char[256]
+}
+
+public static class C_ItemDogtags { // C_Item
+    public const nint m_OwningPlayer = 0x16C0; // CHandle<C_CSPlayerPawn>
+    public const nint m_KillingPlayer = 0x16C4; // CHandle<C_CSPlayerPawn>
+}
+
+public static class C_Item_Healthshot { // C_WeaponBaseItem
+}
+
+public static class C_Knife { // C_CSWeaponBase
+}
+
+public static class C_LightDirectionalEntity { // C_LightEntity
+}
+
+public static class C_LightEntity { // C_BaseModelEntity
+    public const nint m_CLightComponent = 0xCD0; // CLightComponent*
+}
+
+public static class C_LightEnvironmentEntity { // C_LightDirectionalEntity
+}
+
+public static class C_LightGlow { // C_BaseModelEntity
+    public const nint m_nHorizontalSize = 0xCD0; // uint32_t
+    public const nint m_nVerticalSize = 0xCD4; // uint32_t
+    public const nint m_nMinDist = 0xCD8; // uint32_t
+    public const nint m_nMaxDist = 0xCDC; // uint32_t
+    public const nint m_nOuterMaxDist = 0xCE0; // uint32_t
+    public const nint m_flGlowProxySize = 0xCE4; // float
+    public const nint m_flHDRColorScale = 0xCE8; // float
+    public const nint m_Glow = 0xCF0; // C_LightGlowOverlay
+}
+
+public static class C_LightGlowOverlay { // CGlowOverlay
+    public const nint m_vecOrigin = 0xD0; // Vector
+    public const nint m_vecDirection = 0xDC; // Vector
+    public const nint m_nMinDist = 0xE8; // int32_t
+    public const nint m_nMaxDist = 0xEC; // int32_t
+    public const nint m_nOuterMaxDist = 0xF0; // int32_t
+    public const nint m_bOneSided = 0xF4; // bool
+    public const nint m_bModulateByDot = 0xF5; // bool
+}
+
+public static class C_LightOrthoEntity { // C_LightEntity
+}
+
+public static class C_LightSpotEntity { // C_LightEntity
+}
+
+public static class C_LocalTempEntity { // CBaseAnimGraph
+    public const nint flags = 0xEF0; // int32_t
+    public const nint die = 0xEF4; // GameTime_t
+    public const nint m_flFrameMax = 0xEF8; // float
+    public const nint x = 0xEFC; // float
+    public const nint y = 0xF00; // float
+    public const nint fadeSpeed = 0xF04; // float
+    public const nint bounceFactor = 0xF08; // float
+    public const nint hitSound = 0xF0C; // int32_t
+    public const nint priority = 0xF10; // int32_t
+    public const nint tentOffset = 0xF14; // Vector
+    public const nint m_vecTempEntAngVelocity = 0xF20; // QAngle
+    public const nint tempent_renderamt = 0xF2C; // int32_t
+    public const nint m_vecNormal = 0xF30; // Vector
+    public const nint m_flSpriteScale = 0xF3C; // float
+    public const nint m_nFlickerFrame = 0xF40; // int32_t
+    public const nint m_flFrameRate = 0xF44; // float
+    public const nint m_flFrame = 0xF48; // float
+    public const nint m_pszImpactEffect = 0xF50; // char*
+    public const nint m_pszParticleEffect = 0xF58; // char*
+    public const nint m_bParticleCollision = 0xF60; // bool
+    public const nint m_iLastCollisionFrame = 0xF64; // int32_t
+    public const nint m_vLastCollisionOrigin = 0xF68; // Vector
+    public const nint m_vecTempEntVelocity = 0xF74; // Vector
+    public const nint m_vecPrevAbsOrigin = 0xF80; // Vector
+    public const nint m_vecTempEntAcceleration = 0xF8C; // Vector
+}
+
+public static class C_MapPreviewParticleSystem { // C_ParticleSystem
+}
+
+public static class C_MapVetoPickController { // C_BaseEntity
+    public const nint m_nDraftType = 0x560; // int32_t
+    public const nint m_nTeamWinningCoinToss = 0x564; // int32_t
+    public const nint m_nTeamWithFirstChoice = 0x568; // int32_t[64]
+    public const nint m_nVoteMapIdsList = 0x668; // int32_t[7]
+    public const nint m_nAccountIDs = 0x684; // int32_t[64]
+    public const nint m_nMapId0 = 0x784; // int32_t[64]
+    public const nint m_nMapId1 = 0x884; // int32_t[64]
+    public const nint m_nMapId2 = 0x984; // int32_t[64]
+    public const nint m_nMapId3 = 0xA84; // int32_t[64]
+    public const nint m_nMapId4 = 0xB84; // int32_t[64]
+    public const nint m_nMapId5 = 0xC84; // int32_t[64]
+    public const nint m_nStartingSide0 = 0xD84; // int32_t[64]
+    public const nint m_nCurrentPhase = 0xE84; // int32_t
+    public const nint m_nPhaseStartTick = 0xE88; // int32_t
+    public const nint m_nPhaseDurationTicks = 0xE8C; // int32_t
+    public const nint m_nPostDataUpdateTick = 0xE90; // int32_t
+    public const nint m_bDisabledHud = 0xE94; // bool
+}
+
+public static class C_Melee { // C_CSWeaponBase
+}
+
+public static class C_ModelPointEntity { // C_BaseModelEntity
+}
+
+public static class C_MolotovGrenade { // C_BaseCSGrenade
+}
+
+public static class C_MolotovProjectile { // C_BaseCSGrenadeProjectile
+    public const nint m_bIsIncGrenade = 0x1158; // bool
+}
+
+public static class C_Multimeter { // CBaseAnimGraph
+    public const nint m_hTargetC4 = 0xEE0; // CHandle<C_PlantedC4>
+}
+
+public static class C_MultiplayRules { // C_GameRules
+}
+
+public static class C_NetTestBaseCombatCharacter { // C_BaseCombatCharacter
+}
+
+public static class C_OmniLight { // C_BarnLight
+    public const nint m_flInnerAngle = 0xF18; // float
+    public const nint m_flOuterAngle = 0xF1C; // float
+    public const nint m_bShowLight = 0xF20; // bool
+}
+
+public static class C_ParticleSystem { // C_BaseModelEntity
+    public const nint m_szSnapshotFileName = 0xCD0; // char[512]
+    public const nint m_bActive = 0xED0; // bool
+    public const nint m_bFrozen = 0xED1; // bool
+    public const nint m_flFreezeTransitionDuration = 0xED4; // float
+    public const nint m_nStopType = 0xED8; // int32_t
+    public const nint m_bAnimateDuringGameplayPause = 0xEDC; // bool
+    public const nint m_iEffectIndex = 0xEE0; // CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>
+    public const nint m_flStartTime = 0xEE8; // GameTime_t
+    public const nint m_flPreSimTime = 0xEEC; // float
+    public const nint m_vServerControlPoints = 0xEF0; // Vector[4]
+    public const nint m_iServerControlPointAssignments = 0xF20; // uint8_t[4]
+    public const nint m_hControlPointEnts = 0xF24; // CHandle<C_BaseEntity>[64]
+    public const nint m_bNoSave = 0x1024; // bool
+    public const nint m_bNoFreeze = 0x1025; // bool
+    public const nint m_bNoRamp = 0x1026; // bool
+    public const nint m_bStartActive = 0x1027; // bool
+    public const nint m_iszEffectName = 0x1028; // CUtlSymbolLarge
+    public const nint m_iszControlPointNames = 0x1030; // CUtlSymbolLarge[64]
+    public const nint m_nDataCP = 0x1230; // int32_t
+    public const nint m_vecDataCPValue = 0x1234; // Vector
+    public const nint m_nTintCP = 0x1240; // int32_t
+    public const nint m_clrTint = 0x1244; // Color
+    public const nint m_bOldActive = 0x1268; // bool
+    public const nint m_bOldFrozen = 0x1269; // bool
+}
+
+public static class C_PathParticleRope { // C_BaseEntity
+    public const nint m_bStartActive = 0x550; // bool
+    public const nint m_flMaxSimulationTime = 0x554; // float
+    public const nint m_iszEffectName = 0x558; // CUtlSymbolLarge
+    public const nint m_PathNodes_Name = 0x560; // CUtlVector<CUtlSymbolLarge>
+    public const nint m_flParticleSpacing = 0x578; // float
+    public const nint m_flSlack = 0x57C; // float
+    public const nint m_flRadius = 0x580; // float
+    public const nint m_ColorTint = 0x584; // Color
+    public const nint m_nEffectState = 0x588; // int32_t
+    public const nint m_iEffectIndex = 0x590; // CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>
+    public const nint m_PathNodes_Position = 0x598; // C_NetworkUtlVectorBase<Vector>
+    public const nint m_PathNodes_TangentIn = 0x5B0; // C_NetworkUtlVectorBase<Vector>
+    public const nint m_PathNodes_TangentOut = 0x5C8; // C_NetworkUtlVectorBase<Vector>
+    public const nint m_PathNodes_Color = 0x5E0; // C_NetworkUtlVectorBase<Vector>
+    public const nint m_PathNodes_PinEnabled = 0x5F8; // C_NetworkUtlVectorBase<bool>
+    public const nint m_PathNodes_RadiusScale = 0x610; // C_NetworkUtlVectorBase<float>
+}
+
+public static class C_PathParticleRopeAlias_path_particle_rope_clientside { // C_PathParticleRope
+}
+
+public static class C_PhysBox { // C_Breakable
+}
+
+public static class C_PhysMagnet { // CBaseAnimGraph
+    public const nint m_aAttachedObjectsFromServer = 0xED8; // CUtlVector<int32_t>
+    public const nint m_aAttachedObjects = 0xEF0; // CUtlVector<CHandle<C_BaseEntity>>
+}
+
+public static class C_PhysPropClientside { // C_BreakableProp
+    public const nint m_flTouchDelta = 0x1028; // GameTime_t
+    public const nint m_fDeathTime = 0x102C; // GameTime_t
+    public const nint m_impactEnergyScale = 0x1030; // float
+    public const nint m_inertiaScale = 0x1034; // float
+    public const nint m_flDmgModBullet = 0x1038; // float
+    public const nint m_flDmgModClub = 0x103C; // float
+    public const nint m_flDmgModExplosive = 0x1040; // float
+    public const nint m_flDmgModFire = 0x1044; // float
+    public const nint m_iszPhysicsDamageTableName = 0x1048; // CUtlSymbolLarge
+    public const nint m_iszBasePropData = 0x1050; // CUtlSymbolLarge
+    public const nint m_iInteractions = 0x1058; // int32_t
+    public const nint m_bHasBreakPiecesOrCommands = 0x105C; // bool
+    public const nint m_vecDamagePosition = 0x1060; // Vector
+    public const nint m_vecDamageDirection = 0x106C; // Vector
+    public const nint m_nDamageType = 0x1078; // int32_t
+}
+
+public static class C_PhysicsProp { // C_BreakableProp
+    public const nint m_bAwake = 0x1028; // bool
+}
+
+public static class C_PhysicsPropMultiplayer { // C_PhysicsProp
+}
+
+public static class C_PickUpModelSlerper { // CBaseAnimGraph
+    public const nint m_hPlayerParent = 0xED8; // CHandle<C_BaseEntity>
+    public const nint m_hItem = 0xEDC; // CHandle<C_BaseEntity>
+    public const nint m_flTimePickedUp = 0xEE0; // float
+    public const nint m_angOriginal = 0xEE4; // QAngle
+    public const nint m_vecPosOriginal = 0xEF0; // Vector
+    public const nint m_angRandom = 0xF00; // QAngle
+}
+
+public static class C_PlantedC4 { // CBaseAnimGraph
+    public const nint m_bBombTicking = 0xED8; // bool
+    public const nint m_nBombSite = 0xEDC; // int32_t
+    public const nint m_nSourceSoundscapeHash = 0xEE0; // int32_t
+    public const nint m_entitySpottedState = 0xEE8; // EntitySpottedState_t
+    public const nint m_flNextGlow = 0xF00; // GameTime_t
+    public const nint m_flNextBeep = 0xF04; // GameTime_t
+    public const nint m_flC4Blow = 0xF08; // GameTime_t
+    public const nint m_bCannotBeDefused = 0xF0C; // bool
+    public const nint m_bHasExploded = 0xF0D; // bool
+    public const nint m_flTimerLength = 0xF10; // float
+    public const nint m_bBeingDefused = 0xF14; // bool
+    public const nint m_bTriggerWarning = 0xF18; // float
+    public const nint m_bExplodeWarning = 0xF1C; // float
+    public const nint m_bC4Activated = 0xF20; // bool
+    public const nint m_bTenSecWarning = 0xF21; // bool
+    public const nint m_flDefuseLength = 0xF24; // float
+    public const nint m_flDefuseCountDown = 0xF28; // GameTime_t
+    public const nint m_bBombDefused = 0xF2C; // bool
+    public const nint m_hBombDefuser = 0xF30; // CHandle<C_CSPlayerPawn>
+    public const nint m_hControlPanel = 0xF34; // CHandle<C_BaseEntity>
+    public const nint m_hDefuserMultimeter = 0xF38; // CHandle<C_Multimeter>
+    public const nint m_flNextRadarFlashTime = 0xF3C; // GameTime_t
+    public const nint m_bRadarFlash = 0xF40; // bool
+    public const nint m_pBombDefuser = 0xF44; // CHandle<C_CSPlayerPawn>
+    public const nint m_fLastDefuseTime = 0xF48; // GameTime_t
+    public const nint m_pPredictionOwner = 0xF50; // CBasePlayerController*
+    public const nint m_vecC4ExplodeSpectatePos = 0xF58; // Vector
+    public const nint m_vecC4ExplodeSpectateAng = 0xF64; // QAngle
+    public const nint m_flC4ExplodeSpectateDuration = 0xF70; // float
+}
+
+public static class C_PlayerPing { // C_BaseEntity
+    public const nint m_hPlayer = 0x580; // CHandle<C_CSPlayerPawn>
+    public const nint m_hPingedEntity = 0x584; // CHandle<C_BaseEntity>
+    public const nint m_iType = 0x588; // int32_t
+    public const nint m_bUrgent = 0x58C; // bool
+    public const nint m_szPlaceName = 0x58D; // char[18]
+}
+
+public static class C_PlayerSprayDecal { // C_ModelPointEntity
+    public const nint m_nUniqueID = 0xCD0; // int32_t
+    public const nint m_unAccountID = 0xCD4; // uint32_t
+    public const nint m_unTraceID = 0xCD8; // uint32_t
+    public const nint m_rtGcTime = 0xCDC; // uint32_t
+    public const nint m_vecEndPos = 0xCE0; // Vector
+    public const nint m_vecStart = 0xCEC; // Vector
+    public const nint m_vecLeft = 0xCF8; // Vector
+    public const nint m_vecNormal = 0xD04; // Vector
+    public const nint m_nPlayer = 0xD10; // int32_t
+    public const nint m_nEntity = 0xD14; // int32_t
+    public const nint m_nHitbox = 0xD18; // int32_t
+    public const nint m_flCreationTime = 0xD1C; // float
+    public const nint m_nTintID = 0xD20; // int32_t
+    public const nint m_nVersion = 0xD24; // uint8_t
+    public const nint m_ubSignature = 0xD25; // uint8_t[128]
+    public const nint m_SprayRenderHelper = 0xDB0; // CPlayerSprayDecalRenderHelper
+}
+
+public static class C_PlayerVisibility { // C_BaseEntity
+    public const nint m_flVisibilityStrength = 0x550; // float
+    public const nint m_flFogDistanceMultiplier = 0x554; // float
+    public const nint m_flFogMaxDensityMultiplier = 0x558; // float
+    public const nint m_flFadeTime = 0x55C; // float
+    public const nint m_bStartDisabled = 0x560; // bool
+    public const nint m_bIsEnabled = 0x561; // bool
+}
+
+public static class C_PointCamera { // C_BaseEntity
+    public const nint m_FOV = 0x550; // float
+    public const nint m_Resolution = 0x554; // float
+    public const nint m_bFogEnable = 0x558; // bool
+    public const nint m_FogColor = 0x559; // Color
+    public const nint m_flFogStart = 0x560; // float
+    public const nint m_flFogEnd = 0x564; // float
+    public const nint m_flFogMaxDensity = 0x568; // float
+    public const nint m_bActive = 0x56C; // bool
+    public const nint m_bUseScreenAspectRatio = 0x56D; // bool
+    public const nint m_flAspectRatio = 0x570; // float
+    public const nint m_bNoSky = 0x574; // bool
+    public const nint m_fBrightness = 0x578; // float
+    public const nint m_flZFar = 0x57C; // float
+    public const nint m_flZNear = 0x580; // float
+    public const nint m_bCanHLTVUse = 0x584; // bool
+    public const nint m_bDofEnabled = 0x585; // bool
+    public const nint m_flDofNearBlurry = 0x588; // float
+    public const nint m_flDofNearCrisp = 0x58C; // float
+    public const nint m_flDofFarCrisp = 0x590; // float
+    public const nint m_flDofFarBlurry = 0x594; // float
+    public const nint m_flDofTiltToGround = 0x598; // float
+    public const nint m_TargetFOV = 0x59C; // float
+    public const nint m_DegreesPerSecond = 0x5A0; // float
+    public const nint m_bIsOn = 0x5A4; // bool
+    public const nint m_pNext = 0x5A8; // C_PointCamera*
+}
+
+public static class C_PointCameraVFOV { // C_PointCamera
+    public const nint m_flVerticalFOV = 0x5B0; // float
+}
+
+public static class C_PointClientUIDialog { // C_BaseClientUIEntity
+    public const nint m_hActivator = 0xD00; // CHandle<C_BaseEntity>
+    public const nint m_bStartEnabled = 0xD04; // bool
+}
+
+public static class C_PointClientUIHUD { // C_BaseClientUIEntity
+    public const nint m_bCheckCSSClasses = 0xD08; // bool
+    public const nint m_bIgnoreInput = 0xE90; // bool
+    public const nint m_flWidth = 0xE94; // float
+    public const nint m_flHeight = 0xE98; // float
+    public const nint m_flDPI = 0xE9C; // float
+    public const nint m_flInteractDistance = 0xEA0; // float
+    public const nint m_flDepthOffset = 0xEA4; // float
+    public const nint m_unOwnerContext = 0xEA8; // uint32_t
+    public const nint m_unHorizontalAlign = 0xEAC; // uint32_t
+    public const nint m_unVerticalAlign = 0xEB0; // uint32_t
+    public const nint m_unOrientation = 0xEB4; // uint32_t
+    public const nint m_bAllowInteractionFromAllSceneWorlds = 0xEB8; // bool
+    public const nint m_vecCSSClasses = 0xEC0; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
+}
+
+public static class C_PointClientUIWorldPanel { // C_BaseClientUIEntity
+    public const nint m_bForceRecreateNextUpdate = 0xD08; // bool
+    public const nint m_bMoveViewToPlayerNextThink = 0xD09; // bool
+    public const nint m_bCheckCSSClasses = 0xD0A; // bool
+    public const nint m_anchorDeltaTransform = 0xD10; // CTransform
+    public const nint m_pOffScreenIndicator = 0xEB0; // CPointOffScreenIndicatorUi*
+    public const nint m_bIgnoreInput = 0xED8; // bool
+    public const nint m_bLit = 0xED9; // bool
+    public const nint m_bFollowPlayerAcrossTeleport = 0xEDA; // bool
+    public const nint m_flWidth = 0xEDC; // float
+    public const nint m_flHeight = 0xEE0; // float
+    public const nint m_flDPI = 0xEE4; // float
+    public const nint m_flInteractDistance = 0xEE8; // float
+    public const nint m_flDepthOffset = 0xEEC; // float
+    public const nint m_unOwnerContext = 0xEF0; // uint32_t
+    public const nint m_unHorizontalAlign = 0xEF4; // uint32_t
+    public const nint m_unVerticalAlign = 0xEF8; // uint32_t
+    public const nint m_unOrientation = 0xEFC; // uint32_t
+    public const nint m_bAllowInteractionFromAllSceneWorlds = 0xF00; // bool
+    public const nint m_vecCSSClasses = 0xF08; // C_NetworkUtlVectorBase<CUtlSymbolLarge>
+    public const nint m_bOpaque = 0xF20; // bool
+    public const nint m_bNoDepth = 0xF21; // bool
+    public const nint m_bRenderBackface = 0xF22; // bool
+    public const nint m_bUseOffScreenIndicator = 0xF23; // bool
+    public const nint m_bExcludeFromSaveGames = 0xF24; // bool
+    public const nint m_bGrabbable = 0xF25; // bool
+    public const nint m_bOnlyRenderToTexture = 0xF26; // bool
+    public const nint m_bDisableMipGen = 0xF27; // bool
+    public const nint m_nExplicitImageLayout = 0xF28; // int32_t
+}
+
+public static class C_PointClientUIWorldTextPanel { // C_PointClientUIWorldPanel
+    public const nint m_messageText = 0xF30; // char[512]
+}
+
+public static class C_PointCommentaryNode { // CBaseAnimGraph
+    public const nint m_bActive = 0xEE0; // bool
+    public const nint m_bWasActive = 0xEE1; // bool
+    public const nint m_flEndTime = 0xEE4; // GameTime_t
+    public const nint m_flStartTime = 0xEE8; // GameTime_t
+    public const nint m_flStartTimeInCommentary = 0xEEC; // float
+    public const nint m_iszCommentaryFile = 0xEF0; // CUtlSymbolLarge
+    public const nint m_iszTitle = 0xEF8; // CUtlSymbolLarge
+    public const nint m_iszSpeakers = 0xF00; // CUtlSymbolLarge
+    public const nint m_iNodeNumber = 0xF08; // int32_t
+    public const nint m_iNodeNumberMax = 0xF0C; // int32_t
+    public const nint m_bListenedTo = 0xF10; // bool
+    public const nint m_hViewPosition = 0xF20; // CHandle<C_BaseEntity>
+    public const nint m_bRestartAfterRestore = 0xF24; // bool
+}
+
+public static class C_PointEntity { // C_BaseEntity
+}
+
+public static class C_PointValueRemapper { // C_BaseEntity
+    public const nint m_bDisabled = 0x550; // bool
+    public const nint m_bDisabledOld = 0x551; // bool
+    public const nint m_bUpdateOnClient = 0x552; // bool
+    public const nint m_nInputType = 0x554; // ValueRemapperInputType_t
+    public const nint m_hRemapLineStart = 0x558; // CHandle<C_BaseEntity>
+    public const nint m_hRemapLineEnd = 0x55C; // CHandle<C_BaseEntity>
+    public const nint m_flMaximumChangePerSecond = 0x560; // float
+    public const nint m_flDisengageDistance = 0x564; // float
+    public const nint m_flEngageDistance = 0x568; // float
+    public const nint m_bRequiresUseKey = 0x56C; // bool
+    public const nint m_nOutputType = 0x570; // ValueRemapperOutputType_t
+    public const nint m_hOutputEntities = 0x578; // C_NetworkUtlVectorBase<CHandle<C_BaseEntity>>
+    public const nint m_nHapticsType = 0x590; // ValueRemapperHapticsType_t
+    public const nint m_nMomentumType = 0x594; // ValueRemapperMomentumType_t
+    public const nint m_flMomentumModifier = 0x598; // float
+    public const nint m_flSnapValue = 0x59C; // float
+    public const nint m_flCurrentMomentum = 0x5A0; // float
+    public const nint m_nRatchetType = 0x5A4; // ValueRemapperRatchetType_t
+    public const nint m_flRatchetOffset = 0x5A8; // float
+    public const nint m_flInputOffset = 0x5AC; // float
+    public const nint m_bEngaged = 0x5B0; // bool
+    public const nint m_bFirstUpdate = 0x5B1; // bool
+    public const nint m_flPreviousValue = 0x5B4; // float
+    public const nint m_flPreviousUpdateTickTime = 0x5B8; // GameTime_t
+    public const nint m_vecPreviousTestPoint = 0x5BC; // Vector
+}
+
+public static class C_PointWorldText { // C_ModelPointEntity
+    public const nint m_bForceRecreateNextUpdate = 0xCD8; // bool
+    public const nint m_messageText = 0xCE8; // char[512]
+    public const nint m_FontName = 0xEE8; // char[64]
+    public const nint m_bEnabled = 0xF28; // bool
+    public const nint m_bFullbright = 0xF29; // bool
+    public const nint m_flWorldUnitsPerPx = 0xF2C; // float
+    public const nint m_flFontSize = 0xF30; // float
+    public const nint m_flDepthOffset = 0xF34; // float
+    public const nint m_Color = 0xF38; // Color
+    public const nint m_nJustifyHorizontal = 0xF3C; // PointWorldTextJustifyHorizontal_t
+    public const nint m_nJustifyVertical = 0xF40; // PointWorldTextJustifyVertical_t
+    public const nint m_nReorientMode = 0xF44; // PointWorldTextReorientMode_t
+}
+
+public static class C_PostProcessingVolume { // C_BaseTrigger
+    public const nint m_hPostSettings = 0xCE8; // CStrongHandle<InfoForResourceTypeCPostProcessingResource>
+    public const nint m_flFadeDuration = 0xCF0; // float
+    public const nint m_flMinLogExposure = 0xCF4; // float
+    public const nint m_flMaxLogExposure = 0xCF8; // float
+    public const nint m_flMinExposure = 0xCFC; // float
+    public const nint m_flMaxExposure = 0xD00; // float
+    public const nint m_flExposureCompensation = 0xD04; // float
+    public const nint m_flExposureFadeSpeedUp = 0xD08; // float
+    public const nint m_flExposureFadeSpeedDown = 0xD0C; // float
+    public const nint m_flTonemapEVSmoothingRange = 0xD10; // float
+    public const nint m_bMaster = 0xD14; // bool
+    public const nint m_bExposureControl = 0xD15; // bool
+    public const nint m_flRate = 0xD18; // float
+    public const nint m_flTonemapPercentTarget = 0xD1C; // float
+    public const nint m_flTonemapPercentBrightPixels = 0xD20; // float
+    public const nint m_flTonemapMinAvgLum = 0xD24; // float
+}
+
+public static class C_Precipitation { // C_BaseTrigger
+    public const nint m_flDensity = 0xCD8; // float
+    public const nint m_flParticleInnerDist = 0xCE8; // float
+    public const nint m_pParticleDef = 0xCF0; // char*
+    public const nint m_tParticlePrecipTraceTimer = 0xD18; // TimedEvent[1]
+    public const nint m_bActiveParticlePrecipEmitter = 0xD20; // bool[1]
+    public const nint m_bParticlePrecipInitialized = 0xD21; // bool
+    public const nint m_bHasSimulatedSinceLastSceneObjectUpdate = 0xD22; // bool
+    public const nint m_nAvailableSheetSequencesMaxIndex = 0xD24; // int32_t
+}
+
+public static class C_PrecipitationBlocker { // C_BaseModelEntity
+}
+
+public static class C_PredictedViewModel { // C_BaseViewModel
+    public const nint m_vPredictedLagOffset = 0xF40; // Vector
+    public const nint m_targetSpeed = 0xF4C; // QAngle
+    public const nint m_currentSpeed = 0xF58; // QAngle
+}
+
+public static class C_PropDoorRotating { // C_BasePropDoor
+}
+
+public static class C_RagdollManager { // C_BaseEntity
+    public const nint m_iCurrentMaxRagdollCount = 0x550; // int8_t
+}
+
+public static class C_RagdollProp { // CBaseAnimGraph
+    public const nint m_ragPos = 0xEE0; // C_NetworkUtlVectorBase<Vector>
+    public const nint m_ragAngles = 0xEF8; // C_NetworkUtlVectorBase<QAngle>
+    public const nint m_flBlendWeight = 0xF10; // float
+    public const nint m_hRagdollSource = 0xF14; // CHandle<C_BaseEntity>
+    public const nint m_iEyeAttachment = 0xF18; // AttachmentHandle_t
+    public const nint m_flBlendWeightCurrent = 0xF1C; // float
+    public const nint m_parentPhysicsBoneIndices = 0xF20; // CUtlVector<int32_t>
+    public const nint m_worldSpaceBoneComputationOrder = 0xF38; // CUtlVector<int32_t>
+}
+
+public static class C_RagdollPropAttached { // C_RagdollProp
+    public const nint m_boneIndexAttached = 0xF50; // uint32_t
+    public const nint m_ragdollAttachedObjectIndex = 0xF54; // uint32_t
+    public const nint m_attachmentPointBoneSpace = 0xF58; // Vector
+    public const nint m_attachmentPointRagdollSpace = 0xF64; // Vector
+    public const nint m_vecOffset = 0xF70; // Vector
+    public const nint m_parentTime = 0xF7C; // float
+    public const nint m_bHasParent = 0xF80; // bool
+}
+
+public static class C_RectLight { // C_BarnLight
+    public const nint m_bShowLight = 0xF18; // bool
+}
+
+public static class C_RetakeGameRules {
+    public const nint m_nMatchSeed = 0xF8; // int32_t
+    public const nint m_bBlockersPresent = 0xFC; // bool
+    public const nint m_bRoundInProgress = 0xFD; // bool
+    public const nint m_iFirstSecondHalfRound = 0x100; // int32_t
+    public const nint m_iBombSite = 0x104; // int32_t
+}
+
+public static class C_RopeKeyframe { // C_BaseModelEntity
+    public const nint m_LinksTouchingSomething = 0xCD8; // CBitVec<10>
+    public const nint m_nLinksTouchingSomething = 0xCDC; // int32_t
+    public const nint m_bApplyWind = 0xCE0; // bool
+    public const nint m_fPrevLockedPoints = 0xCE4; // int32_t
+    public const nint m_iForcePointMoveCounter = 0xCE8; // int32_t
+    public const nint m_bPrevEndPointPos = 0xCEC; // bool[2]
+    public const nint m_vPrevEndPointPos = 0xCF0; // Vector[2]
+    public const nint m_flCurScroll = 0xD08; // float
+    public const nint m_flScrollSpeed = 0xD0C; // float
+    public const nint m_RopeFlags = 0xD10; // uint16_t
+    public const nint m_iRopeMaterialModelIndex = 0xD18; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_LightValues = 0xF90; // Vector[10]
+    public const nint m_nSegments = 0x1008; // uint8_t
+    public const nint m_hStartPoint = 0x100C; // CHandle<C_BaseEntity>
+    public const nint m_hEndPoint = 0x1010; // CHandle<C_BaseEntity>
+    public const nint m_iStartAttachment = 0x1014; // AttachmentHandle_t
+    public const nint m_iEndAttachment = 0x1015; // AttachmentHandle_t
+    public const nint m_Subdiv = 0x1016; // uint8_t
+    public const nint m_RopeLength = 0x1018; // int16_t
+    public const nint m_Slack = 0x101A; // int16_t
+    public const nint m_TextureScale = 0x101C; // float
+    public const nint m_fLockedPoints = 0x1020; // uint8_t
+    public const nint m_nChangeCount = 0x1021; // uint8_t
+    public const nint m_Width = 0x1024; // float
+    public const nint m_PhysicsDelegate = 0x1028; // C_RopeKeyframe::CPhysicsDelegate
+    public const nint m_hMaterial = 0x1038; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_TextureHeight = 0x1040; // int32_t
+    public const nint m_vecImpulse = 0x1044; // Vector
+    public const nint m_vecPreviousImpulse = 0x1050; // Vector
+    public const nint m_flCurrentGustTimer = 0x105C; // float
+    public const nint m_flCurrentGustLifetime = 0x1060; // float
+    public const nint m_flTimeToNextGust = 0x1064; // float
+    public const nint m_vWindDir = 0x1068; // Vector
+    public const nint m_vColorMod = 0x1074; // Vector
+    public const nint m_vCachedEndPointAttachmentPos = 0x1080; // Vector[2]
+    public const nint m_vCachedEndPointAttachmentAngle = 0x1098; // QAngle[2]
+    public const nint m_bConstrainBetweenEndpoints = 0x10B0; // bool
+    public const nint m_bEndPointAttachmentPositionsDirty = 0x0; // bitfield:1
+    public const nint m_bEndPointAttachmentAnglesDirty = 0x0; // bitfield:1
+    public const nint m_bNewDataThisFrame = 0x0; // bitfield:1
+    public const nint m_bPhysicsInitted = 0x0; // bitfield:1
+}
+
+public static class C_RopeKeyframe_CPhysicsDelegate {
+    public const nint m_pKeyframe = 0x8; // C_RopeKeyframe*
+}
+
+public static class C_SceneEntity { // C_PointEntity
+    public const nint m_bIsPlayingBack = 0x558; // bool
+    public const nint m_bPaused = 0x559; // bool
+    public const nint m_bMultiplayer = 0x55A; // bool
+    public const nint m_bAutogenerated = 0x55B; // bool
+    public const nint m_flForceClientTime = 0x55C; // float
+    public const nint m_nSceneStringIndex = 0x560; // uint16_t
+    public const nint m_bClientOnly = 0x562; // bool
+    public const nint m_hOwner = 0x564; // CHandle<C_BaseFlex>
+    public const nint m_hActorList = 0x568; // C_NetworkUtlVectorBase<CHandle<C_BaseFlex>>
+    public const nint m_bWasPlaying = 0x580; // bool
+    public const nint m_QueuedEvents = 0x590; // CUtlVector<C_SceneEntity::QueuedEvents_t>
+    public const nint m_flCurrentTime = 0x5A8; // float
+}
+
+public static class C_SceneEntity_QueuedEvents_t {
+    public const nint starttime = 0x0; // float
+}
+
+public static class C_SensorGrenade { // C_BaseCSGrenade
+}
+
+public static class C_SensorGrenadeProjectile { // C_BaseCSGrenadeProjectile
+}
+
+public static class C_ShatterGlassShardPhysics { // C_PhysicsProp
+    public const nint m_ShardDesc = 0x1038; // shard_model_desc_t
+}
+
+public static class C_SingleplayRules { // C_GameRules
+}
+
+public static class C_SkyCamera { // C_BaseEntity
+    public const nint m_skyboxData = 0x550; // sky3dparams_t
+    public const nint m_skyboxSlotToken = 0x5E0; // CUtlStringToken
+    public const nint m_bUseAngles = 0x5E4; // bool
+    public const nint m_pNext = 0x5E8; // C_SkyCamera*
+}
+
+public static class C_SmokeGrenade { // C_BaseCSGrenade
+}
+
+public static class C_SmokeGrenadeProjectile { // C_BaseCSGrenadeProjectile
+    public const nint m_nSmokeEffectTickBegin = 0x1160; // int32_t
+    public const nint m_bDidSmokeEffect = 0x1164; // bool
+    public const nint m_nRandomSeed = 0x1168; // int32_t
+    public const nint m_vSmokeColor = 0x116C; // Vector
+    public const nint m_vSmokeDetonationPos = 0x1178; // Vector
+    public const nint m_VoxelFrameData = 0x1188; // CUtlVector<uint8_t>
+    public const nint m_bSmokeVolumeDataReceived = 0x11A0; // bool
+    public const nint m_bSmokeEffectSpawned = 0x11A1; // bool
+}
+
+public static class C_SoundAreaEntityBase { // C_BaseEntity
+    public const nint m_bDisabled = 0x550; // bool
+    public const nint m_bWasEnabled = 0x558; // bool
+    public const nint m_iszSoundAreaType = 0x560; // CUtlSymbolLarge
+    public const nint m_vPos = 0x568; // Vector
+}
+
+public static class C_SoundAreaEntityOrientedBox { // C_SoundAreaEntityBase
+    public const nint m_vMin = 0x578; // Vector
+    public const nint m_vMax = 0x584; // Vector
+}
+
+public static class C_SoundAreaEntitySphere { // C_SoundAreaEntityBase
+    public const nint m_flRadius = 0x578; // float
+}
+
+public static class C_SoundOpvarSetAABBEntity { // C_SoundOpvarSetPointEntity
+}
+
+public static class C_SoundOpvarSetAutoRoomEntity { // C_SoundOpvarSetPointEntity
+}
+
+public static class C_SoundOpvarSetOBBEntity { // C_SoundOpvarSetAABBEntity
+}
+
+public static class C_SoundOpvarSetOBBWindEntity { // C_SoundOpvarSetPointBase
+}
+
+public static class C_SoundOpvarSetPathCornerEntity { // C_SoundOpvarSetPointEntity
+}
+
+public static class C_SoundOpvarSetPointBase { // C_BaseEntity
+    public const nint m_iszStackName = 0x550; // CUtlSymbolLarge
+    public const nint m_iszOperatorName = 0x558; // CUtlSymbolLarge
+    public const nint m_iszOpvarName = 0x560; // CUtlSymbolLarge
+    public const nint m_iOpvarIndex = 0x568; // int32_t
+    public const nint m_bUseAutoCompare = 0x56C; // bool
+}
+
+public static class C_SoundOpvarSetPointEntity { // C_SoundOpvarSetPointBase
+}
+
+public static class C_SpotlightEnd { // C_BaseModelEntity
+    public const nint m_flLightScale = 0xCD0; // float
+    public const nint m_Radius = 0xCD4; // float
+}
+
+public static class C_Sprite { // C_BaseModelEntity
+    public const nint m_hSpriteMaterial = 0xCE8; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_hAttachedToEntity = 0xCF0; // CHandle<C_BaseEntity>
+    public const nint m_nAttachment = 0xCF4; // AttachmentHandle_t
+    public const nint m_flSpriteFramerate = 0xCF8; // float
+    public const nint m_flFrame = 0xCFC; // float
+    public const nint m_flDieTime = 0xD00; // GameTime_t
+    public const nint m_nBrightness = 0xD10; // uint32_t
+    public const nint m_flBrightnessDuration = 0xD14; // float
+    public const nint m_flSpriteScale = 0xD18; // float
+    public const nint m_flScaleDuration = 0xD1C; // float
+    public const nint m_bWorldSpaceScale = 0xD20; // bool
+    public const nint m_flGlowProxySize = 0xD24; // float
+    public const nint m_flHDRColorScale = 0xD28; // float
+    public const nint m_flLastTime = 0xD2C; // GameTime_t
+    public const nint m_flMaxFrame = 0xD30; // float
+    public const nint m_flStartScale = 0xD34; // float
+    public const nint m_flDestScale = 0xD38; // float
+    public const nint m_flScaleTimeStart = 0xD3C; // GameTime_t
+    public const nint m_nStartBrightness = 0xD40; // int32_t
+    public const nint m_nDestBrightness = 0xD44; // int32_t
+    public const nint m_flBrightnessTimeStart = 0xD48; // GameTime_t
+    public const nint m_hOldSpriteMaterial = 0xD50; // CWeakHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_nSpriteWidth = 0xDF8; // int32_t
+    public const nint m_nSpriteHeight = 0xDFC; // int32_t
+}
+
+public static class C_SpriteOriented { // C_Sprite
+}
+
+public static class C_Sun { // C_BaseModelEntity
+    public const nint m_fxSSSunFlareEffectIndex = 0xCD0; // ParticleIndex_t
+    public const nint m_fxSunFlareEffectIndex = 0xCD4; // ParticleIndex_t
+    public const nint m_fdistNormalize = 0xCD8; // float
+    public const nint m_vSunPos = 0xCDC; // Vector
+    public const nint m_vDirection = 0xCE8; // Vector
+    public const nint m_iszEffectName = 0xCF8; // CUtlSymbolLarge
+    public const nint m_iszSSEffectName = 0xD00; // CUtlSymbolLarge
+    public const nint m_clrOverlay = 0xD08; // Color
+    public const nint m_bOn = 0xD0C; // bool
+    public const nint m_bmaxColor = 0xD0D; // bool
+    public const nint m_flSize = 0xD10; // float
+    public const nint m_flHazeScale = 0xD14; // float
+    public const nint m_flRotation = 0xD18; // float
+    public const nint m_flHDRColorScale = 0xD1C; // float
+    public const nint m_flAlphaHaze = 0xD20; // float
+    public const nint m_flAlphaScale = 0xD24; // float
+    public const nint m_flAlphaHdr = 0xD28; // float
+    public const nint m_flFarZScale = 0xD2C; // float
+}
+
+public static class C_SunGlowOverlay { // CGlowOverlay
+    public const nint m_bModulateByDot = 0xD0; // bool
+}
+
+public static class C_Team { // C_BaseEntity
+    public const nint m_aPlayerControllers = 0x550; // C_NetworkUtlVectorBase<CHandle<CBasePlayerController>>
+    public const nint m_aPlayers = 0x568; // C_NetworkUtlVectorBase<CHandle<C_BasePlayerPawn>>
+    public const nint m_iScore = 0x580; // int32_t
+    public const nint m_szTeamname = 0x584; // char[129]
+}
+
+public static class C_TeamRoundTimer { // C_BaseEntity
+    public const nint m_bTimerPaused = 0x550; // bool
+    public const nint m_flTimeRemaining = 0x554; // float
+    public const nint m_flTimerEndTime = 0x558; // GameTime_t
+    public const nint m_bIsDisabled = 0x55C; // bool
+    public const nint m_bShowInHUD = 0x55D; // bool
+    public const nint m_nTimerLength = 0x560; // int32_t
+    public const nint m_nTimerInitialLength = 0x564; // int32_t
+    public const nint m_nTimerMaxLength = 0x568; // int32_t
+    public const nint m_bAutoCountdown = 0x56C; // bool
+    public const nint m_nSetupTimeLength = 0x570; // int32_t
+    public const nint m_nState = 0x574; // int32_t
+    public const nint m_bStartPaused = 0x578; // bool
+    public const nint m_bInCaptureWatchState = 0x579; // bool
+    public const nint m_flTotalTime = 0x57C; // float
+    public const nint m_bStopWatchTimer = 0x580; // bool
+    public const nint m_bFireFinished = 0x581; // bool
+    public const nint m_bFire5MinRemain = 0x582; // bool
+    public const nint m_bFire4MinRemain = 0x583; // bool
+    public const nint m_bFire3MinRemain = 0x584; // bool
+    public const nint m_bFire2MinRemain = 0x585; // bool
+    public const nint m_bFire1MinRemain = 0x586; // bool
+    public const nint m_bFire30SecRemain = 0x587; // bool
+    public const nint m_bFire10SecRemain = 0x588; // bool
+    public const nint m_bFire5SecRemain = 0x589; // bool
+    public const nint m_bFire4SecRemain = 0x58A; // bool
+    public const nint m_bFire3SecRemain = 0x58B; // bool
+    public const nint m_bFire2SecRemain = 0x58C; // bool
+    public const nint m_bFire1SecRemain = 0x58D; // bool
+    public const nint m_nOldTimerLength = 0x590; // int32_t
+    public const nint m_nOldTimerState = 0x594; // int32_t
+}
+
+public static class C_TeamplayRules { // C_MultiplayRules
+}
+
+public static class C_TextureBasedAnimatable { // C_BaseModelEntity
+    public const nint m_bLoop = 0xCD0; // bool
+    public const nint m_flFPS = 0xCD4; // float
+    public const nint m_hPositionKeys = 0xCD8; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_hRotationKeys = 0xCE0; // CStrongHandle<InfoForResourceTypeCTextureBase>
+    public const nint m_vAnimationBoundsMin = 0xCE8; // Vector
+    public const nint m_vAnimationBoundsMax = 0xCF4; // Vector
+    public const nint m_flStartTime = 0xD00; // float
+    public const nint m_flStartFrame = 0xD04; // float
+}
+
+public static class C_TintController { // C_BaseEntity
+}
+
+public static class C_TonemapController2 { // C_BaseEntity
+    public const nint m_flAutoExposureMin = 0x550; // float
+    public const nint m_flAutoExposureMax = 0x554; // float
+    public const nint m_flTonemapPercentTarget = 0x558; // float
+    public const nint m_flTonemapPercentBrightPixels = 0x55C; // float
+    public const nint m_flTonemapMinAvgLum = 0x560; // float
+    public const nint m_flExposureAdaptationSpeedUp = 0x564; // float
+    public const nint m_flExposureAdaptationSpeedDown = 0x568; // float
+    public const nint m_flTonemapEVSmoothingRange = 0x56C; // float
+}
+
+public static class C_TonemapController2Alias_env_tonemap_controller2 { // C_TonemapController2
+}
+
+public static class C_TriggerBuoyancy { // C_BaseTrigger
+    public const nint m_BuoyancyHelper = 0xCD8; // CBuoyancyHelper
+    public const nint m_flFluidDensity = 0xCF8; // float
+}
+
+public static class C_TriggerLerpObject { // C_BaseTrigger
+}
+
+public static class C_TriggerMultiple { // C_BaseTrigger
+}
+
+public static class C_TriggerPhysics { // C_BaseTrigger
+    public const nint m_gravityScale = 0xCD8; // float
+    public const nint m_linearLimit = 0xCDC; // float
+    public const nint m_linearDamping = 0xCE0; // float
+    public const nint m_angularLimit = 0xCE4; // float
+    public const nint m_angularDamping = 0xCE8; // float
+    public const nint m_linearForce = 0xCEC; // float
+    public const nint m_flFrequency = 0xCF0; // float
+    public const nint m_flDampingRatio = 0xCF4; // float
+    public const nint m_vecLinearForcePointAt = 0xCF8; // Vector
+    public const nint m_bCollapseToForcePoint = 0xD04; // bool
+    public const nint m_vecLinearForcePointAtWorld = 0xD08; // Vector
+    public const nint m_vecLinearForceDirection = 0xD14; // Vector
+    public const nint m_bConvertToDebrisWhenPossible = 0xD20; // bool
+}
+
+public static class C_TriggerVolume { // C_BaseModelEntity
+}
+
+public static class C_ViewmodelAttachmentModel { // CBaseAnimGraph
+}
+
+public static class C_ViewmodelWeapon { // CBaseAnimGraph
+    public const nint m_worldModel = 0xED8; // char*
+}
+
+public static class C_VoteController { // C_BaseEntity
+    public const nint m_iActiveIssueIndex = 0x560; // int32_t
+    public const nint m_iOnlyTeamToVote = 0x564; // int32_t
+    public const nint m_nVoteOptionCount = 0x568; // int32_t[5]
+    public const nint m_nPotentialVotes = 0x57C; // int32_t
+    public const nint m_bVotesDirty = 0x580; // bool
+    public const nint m_bTypeDirty = 0x581; // bool
+    public const nint m_bIsYesNoVote = 0x582; // bool
+}
+
+public static class C_WaterBullet { // CBaseAnimGraph
+}
+
+public static class C_WeaponAWP { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponAug { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponBaseItem { // C_CSWeaponBase
+    public const nint m_SequenceCompleteTimer = 0x1A70; // CountdownTimer
+    public const nint m_bRedraw = 0x1A88; // bool
+}
+
+public static class C_WeaponBizon { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponCZ75a { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponElite { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponFamas { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponFiveSeven { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponG3SG1 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponGalilAR { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponGlock { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponHKP2000 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponM249 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponM4A1 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponM4A1Silencer { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponMAC10 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponMP5SD { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponMP7 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponMP9 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponMag7 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponNOVA { // C_CSWeaponBase
+}
+
+public static class C_WeaponNegev { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponP250 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponP90 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponRevolver { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponSCAR20 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponSG556 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponSSG08 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponSawedoff { // C_CSWeaponBase
+}
+
+public static class C_WeaponShield { // C_CSWeaponBaseGun
+    public const nint m_flDisplayHealth = 0x1A90; // float
+}
+
+public static class C_WeaponTaser { // C_CSWeaponBaseGun
+    public const nint m_fFireTime = 0x1A90; // GameTime_t
+}
+
+public static class C_WeaponTec9 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponUMP45 { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponUSPSilencer { // C_CSWeaponBaseGun
+}
+
+public static class C_WeaponXM1014 { // C_CSWeaponBase
+}
+
+public static class C_World { // C_BaseModelEntity
+}
+
+public static class C_WorldModelGloves { // CBaseAnimGraph
+}
+
+public static class C_WorldModelNametag { // CBaseAnimGraph
+}
+
+public static class C_WorldModelStattrak { // CBaseAnimGraph
+}
+
+public static class C_fogplayerparams_t {
+    public const nint m_hCtrl = 0x8; // CHandle<C_FogController>
+    public const nint m_flTransitionTime = 0xC; // float
+    public const nint m_OldColor = 0x10; // Color
+    public const nint m_flOldStart = 0x14; // float
+    public const nint m_flOldEnd = 0x18; // float
+    public const nint m_flOldMaxDensity = 0x1C; // float
+    public const nint m_flOldHDRColorScale = 0x20; // float
+    public const nint m_flOldFarZ = 0x24; // float
+    public const nint m_NewColor = 0x28; // Color
+    public const nint m_flNewStart = 0x2C; // float
+    public const nint m_flNewEnd = 0x30; // float
+    public const nint m_flNewMaxDensity = 0x34; // float
+    public const nint m_flNewHDRColorScale = 0x38; // float
+    public const nint m_flNewFarZ = 0x3C; // float
+}
+
+public static class CompMatMutatorCondition_t {
+    public const nint m_nMutatorCondition = 0x0; // CompMatPropertyMutatorConditionType_t
+    public const nint m_strMutatorConditionContainerName = 0x8; // CUtlString
+    public const nint m_strMutatorConditionContainerVarName = 0x10; // CUtlString
+    public const nint m_strMutatorConditionContainerVarValue = 0x18; // CUtlString
+    public const nint m_bPassWhenTrue = 0x20; // bool
+}
+
+public static class CompMatPropertyMutator_t {
+    public const nint m_bEnabled = 0x0; // bool
+    public const nint m_nMutatorCommandType = 0x4; // CompMatPropertyMutatorType_t
+    public const nint m_strInitWith_Container = 0x8; // CUtlString
+    public const nint m_strCopyProperty_InputContainerSrc = 0x10; // CUtlString
+    public const nint m_strCopyProperty_InputContainerProperty = 0x18; // CUtlString
+    public const nint m_strCopyProperty_TargetProperty = 0x20; // CUtlString
+    public const nint m_strRandomRollInputVars_SeedInputVar = 0x28; // CUtlString
+    public const nint m_vecRandomRollInputVars_InputVarsToRoll = 0x30; // CUtlVector<CUtlString>
+    public const nint m_strCopyMatchingKeys_InputContainerSrc = 0x48; // CUtlString
+    public const nint m_strCopyKeysWithSuffix_InputContainerSrc = 0x50; // CUtlString
+    public const nint m_strCopyKeysWithSuffix_FindSuffix = 0x58; // CUtlString
+    public const nint m_strCopyKeysWithSuffix_ReplaceSuffix = 0x60; // CUtlString
+    public const nint m_nSetValue_Value = 0x68; // CompositeMaterialInputLooseVariable_t
+    public const nint m_strGenerateTexture_TargetParam = 0x2D8; // CUtlString
+    public const nint m_strGenerateTexture_InitialContainer = 0x2E0; // CUtlString
+    public const nint m_nResolution = 0x2E8; // int32_t
+    public const nint m_bIsScratchTarget = 0x2EC; // bool
+    public const nint m_bSplatDebugInfo = 0x2ED; // bool
+    public const nint m_bCaptureInRenderDoc = 0x2EE; // bool
+    public const nint m_vecTexGenInstructions = 0x2F0; // CUtlVector<CompMatPropertyMutator_t>
+    public const nint m_vecConditionalMutators = 0x308; // CUtlVector<CompMatPropertyMutator_t>
+    public const nint m_strPopInputQueue_Container = 0x320; // CUtlString
+    public const nint m_strDrawText_InputContainerSrc = 0x328; // CUtlString
+    public const nint m_strDrawText_InputContainerProperty = 0x330; // CUtlString
+    public const nint m_vecDrawText_Position = 0x338; // Vector2D
+    public const nint m_colDrawText_Color = 0x340; // Color
+    public const nint m_strDrawText_Font = 0x348; // CUtlString
+    public const nint m_vecConditions = 0x350; // CUtlVector<CompMatMutatorCondition_t>
+}
+
+public static class CompositeMaterialAssemblyProcedure_t {
+    public const nint m_vecCompMatIncludes = 0x0; // CUtlVector<CResourceName>
+    public const nint m_vecMatchFilters = 0x18; // CUtlVector<CompositeMaterialMatchFilter_t>
+    public const nint m_vecCompositeInputContainers = 0x30; // CUtlVector<CompositeMaterialInputContainer_t>
+    public const nint m_vecPropertyMutators = 0x48; // CUtlVector<CompMatPropertyMutator_t>
+}
+
+public static class CompositeMaterialEditorPoint_t {
+    public const nint m_ModelName = 0x0; // CResourceName
+    public const nint m_nSequenceIndex = 0xE0; // int32_t
+    public const nint m_flCycle = 0xE4; // float
+    public const nint m_KVModelStateChoices = 0xE8; // KeyValues3
+    public const nint m_bEnableChildModel = 0xF8; // bool
+    public const nint m_ChildModelName = 0x100; // CResourceName
+    public const nint m_vecCompositeMaterialAssemblyProcedures = 0x1E0; // CUtlVector<CompositeMaterialAssemblyProcedure_t>
+    public const nint m_vecCompositeMaterials = 0x1F8; // CUtlVector<CompositeMaterial_t>
+}
+
+public static class CompositeMaterialInputContainer_t {
+    public const nint m_bEnabled = 0x0; // bool
+    public const nint m_nCompositeMaterialInputContainerSourceType = 0x4; // CompositeMaterialInputContainerSourceType_t
+    public const nint m_strSpecificContainerMaterial = 0x8; // CResourceName
+    public const nint m_strAttrName = 0xE8; // CUtlString
+    public const nint m_strAlias = 0xF0; // CUtlString
+    public const nint m_vecLooseVariables = 0xF8; // CUtlVector<CompositeMaterialInputLooseVariable_t>
+    public const nint m_strAttrNameForVar = 0x110; // CUtlString
+    public const nint m_bExposeExternally = 0x118; // bool
+}
+
+public static class CompositeMaterialInputLooseVariable_t {
+    public const nint m_strName = 0x0; // CUtlString
+    public const nint m_bExposeExternally = 0x8; // bool
+    public const nint m_strExposedFriendlyName = 0x10; // CUtlString
+    public const nint m_strExposedFriendlyGroupName = 0x18; // CUtlString
+    public const nint m_bExposedVariableIsFixedRange = 0x20; // bool
+    public const nint m_strExposedVisibleWhenTrue = 0x28; // CUtlString
+    public const nint m_strExposedHiddenWhenTrue = 0x30; // CUtlString
+    public const nint m_nVariableType = 0x38; // CompositeMaterialInputLooseVariableType_t
+    public const nint m_bValueBoolean = 0x3C; // bool
+    public const nint m_nValueIntX = 0x40; // int32_t
+    public const nint m_nValueIntY = 0x44; // int32_t
+    public const nint m_nValueIntZ = 0x48; // int32_t
+    public const nint m_nValueIntW = 0x4C; // int32_t
+    public const nint m_bHasFloatBounds = 0x50; // bool
+    public const nint m_flValueFloatX = 0x54; // float
+    public const nint m_flValueFloatX_Min = 0x58; // float
+    public const nint m_flValueFloatX_Max = 0x5C; // float
+    public const nint m_flValueFloatY = 0x60; // float
+    public const nint m_flValueFloatY_Min = 0x64; // float
+    public const nint m_flValueFloatY_Max = 0x68; // float
+    public const nint m_flValueFloatZ = 0x6C; // float
+    public const nint m_flValueFloatZ_Min = 0x70; // float
+    public const nint m_flValueFloatZ_Max = 0x74; // float
+    public const nint m_flValueFloatW = 0x78; // float
+    public const nint m_flValueFloatW_Min = 0x7C; // float
+    public const nint m_flValueFloatW_Max = 0x80; // float
+    public const nint m_cValueColor4 = 0x84; // Color
+    public const nint m_nValueSystemVar = 0x88; // CompositeMaterialVarSystemVar_t
+    public const nint m_strResourceMaterial = 0x90; // CResourceName
+    public const nint m_strTextureContentAssetPath = 0x170; // CUtlString
+    public const nint m_strTextureRuntimeResourcePath = 0x178; // CResourceName
+    public const nint m_strTextureCompilationVtexTemplate = 0x258; // CUtlString
+    public const nint m_nTextureType = 0x260; // CompositeMaterialInputTextureType_t
+    public const nint m_strString = 0x268; // CUtlString
+}
+
+public static class CompositeMaterialMatchFilter_t {
+    public const nint m_nCompositeMaterialMatchFilterType = 0x0; // CompositeMaterialMatchFilterType_t
+    public const nint m_strMatchFilter = 0x8; // CUtlString
+    public const nint m_strMatchValue = 0x10; // CUtlString
+    public const nint m_bPassWhenTrue = 0x18; // bool
+}
+
+public static class CompositeMaterial_t {
+    public const nint m_TargetKVs = 0x8; // KeyValues3
+    public const nint m_PreGenerationKVs = 0x18; // KeyValues3
+    public const nint m_FinalKVs = 0x28; // KeyValues3
+    public const nint m_vecGeneratedTextures = 0x40; // CUtlVector<GeneratedTextureHandle_t>
+}
+
+public static class CountdownTimer {
+    public const nint m_duration = 0x8; // float
+    public const nint m_timestamp = 0xC; // GameTime_t
+    public const nint m_timescale = 0x10; // float
+    public const nint m_nWorldGroupId = 0x14; // WorldGroupId_t
+}
+
+public static class EngineCountdownTimer {
+    public const nint m_duration = 0x8; // float
+    public const nint m_timestamp = 0xC; // float
+    public const nint m_timescale = 0x10; // float
+}
+
+public static class EntityRenderAttribute_t {
+    public const nint m_ID = 0x30; // CUtlStringToken
+    public const nint m_Values = 0x34; // Vector4D
+}
+
+public static class EntitySpottedState_t {
+    public const nint m_bSpotted = 0x8; // bool
+    public const nint m_bSpottedByMask = 0xC; // uint32_t[2]
+}
+
+public static class GeneratedTextureHandle_t {
+    public const nint m_strBitmapName = 0x0; // CUtlString
+}
+
+public static class IClientAlphaProperty {
+}
+
+public static class IntervalTimer {
+    public const nint m_timestamp = 0x8; // GameTime_t
+    public const nint m_nWorldGroupId = 0xC; // WorldGroupId_t
+}
+
+public static class PhysicsRagdollPose_t {
+    public const nint __m_pChainEntity = 0x8; // CNetworkVarChainer
+    public const nint m_Transforms = 0x30; // C_NetworkUtlVectorBase<CTransform>
+    public const nint m_hOwner = 0x48; // CHandle<C_BaseEntity>
+    public const nint m_bDirty = 0x68; // bool
+}
+
+public static class SellbackPurchaseEntry_t {
+    public const nint m_unDefIdx = 0x30; // uint16_t
+    public const nint m_nCost = 0x34; // int32_t
+    public const nint m_nPrevArmor = 0x38; // int32_t
+    public const nint m_bPrevHelmet = 0x3C; // bool
+    public const nint m_hItem = 0x40; // CEntityHandle
+}
+
+public static class SequenceHistory_t {
+    public const nint m_hSequence = 0x0; // HSequence
+    public const nint m_flSeqStartTime = 0x4; // GameTime_t
+    public const nint m_flSeqFixedCycle = 0x8; // float
+    public const nint m_nSeqLoopMode = 0xC; // AnimLoopMode_t
+    public const nint m_flPlaybackRate = 0x10; // float
+    public const nint m_flCyclesPerSecond = 0x14; // float
+}
+
+public static class ServerAuthoritativeWeaponSlot_t {
+    public const nint unClass = 0x28; // uint16_t
+    public const nint unSlot = 0x2A; // uint16_t
+    public const nint unItemDefIdx = 0x2C; // uint16_t
+}
+
+public static class TimedEvent {
+    public const nint m_TimeBetweenEvents = 0x0; // float
+    public const nint m_fNextEvent = 0x4; // float
+}
+
+public static class VPhysicsCollisionAttribute_t {
+    public const nint m_nInteractsAs = 0x8; // uint64_t
+    public const nint m_nInteractsWith = 0x10; // uint64_t
+    public const nint m_nInteractsExclude = 0x18; // uint64_t
+    public const nint m_nEntityId = 0x20; // uint32_t
+    public const nint m_nOwnerId = 0x24; // uint32_t
+    public const nint m_nHierarchyId = 0x28; // uint16_t
+    public const nint m_nCollisionGroup = 0x2A; // uint8_t
+    public const nint m_nCollisionFunctionMask = 0x2B; // uint8_t
+}
+
+public static class ViewAngleServerChange_t {
+    public const nint nType = 0x30; // FixAngleSet_t
+    public const nint qAngle = 0x34; // QAngle
+    public const nint nIndex = 0x40; // uint32_t
+}
+
+public static class WeaponPurchaseCount_t {
+    public const nint m_nItemDefIndex = 0x30; // uint16_t
+    public const nint m_nCount = 0x32; // uint16_t
+}
+
+public static class WeaponPurchaseTracker_t {
+    public const nint m_weaponPurchases = 0x8; // C_UtlVectorEmbeddedNetworkVar<WeaponPurchaseCount_t>
+}
+
+public static class audioparams_t {
+    public const nint localSound = 0x8; // Vector[8]
+    public const nint soundscapeIndex = 0x68; // int32_t
+    public const nint localBits = 0x6C; // uint8_t
+    public const nint soundscapeEntityListIndex = 0x70; // int32_t
+    public const nint soundEventHash = 0x74; // uint32_t
+}
+
+public static class fogparams_t {
+    public const nint dirPrimary = 0x8; // Vector
+    public const nint colorPrimary = 0x14; // Color
+    public const nint colorSecondary = 0x18; // Color
+    public const nint colorPrimaryLerpTo = 0x1C; // Color
+    public const nint colorSecondaryLerpTo = 0x20; // Color
+    public const nint start = 0x24; // float
+    public const nint end = 0x28; // float
+    public const nint farz = 0x2C; // float
+    public const nint maxdensity = 0x30; // float
+    public const nint exponent = 0x34; // float
+    public const nint HDRColorScale = 0x38; // float
+    public const nint skyboxFogFactor = 0x3C; // float
+    public const nint skyboxFogFactorLerpTo = 0x40; // float
+    public const nint startLerpTo = 0x44; // float
+    public const nint endLerpTo = 0x48; // float
+    public const nint maxdensityLerpTo = 0x4C; // float
+    public const nint lerptime = 0x50; // GameTime_t
+    public const nint duration = 0x54; // float
+    public const nint blendtobackground = 0x58; // float
+    public const nint scattering = 0x5C; // float
+    public const nint locallightscale = 0x60; // float
+    public const nint enable = 0x64; // bool
+    public const nint blend = 0x65; // bool
+    public const nint m_bNoReflectionFog = 0x66; // bool
+    public const nint m_bPadding = 0x67; // bool
+}
+
+public static class shard_model_desc_t {
+    public const nint m_nModelID = 0x8; // int32_t
+    public const nint m_hMaterial = 0x10; // CStrongHandle<InfoForResourceTypeIMaterial2>
+    public const nint m_solid = 0x18; // ShardSolid_t
+    public const nint m_ShatterPanelMode = 0x19; // ShatterPanelMode
+    public const nint m_vecPanelSize = 0x1C; // Vector2D
+    public const nint m_vecStressPositionA = 0x24; // Vector2D
+    public const nint m_vecStressPositionB = 0x2C; // Vector2D
+    public const nint m_vecPanelVertices = 0x38; // C_NetworkUtlVectorBase<Vector2D>
+    public const nint m_flGlassHalfThickness = 0x50; // float
+    public const nint m_bHasParent = 0x54; // bool
+    public const nint m_bParentFrozen = 0x55; // bool
+    public const nint m_SurfacePropStringToken = 0x58; // CUtlStringToken
+}
+
+public static class sky3dparams_t {
+    public const nint scale = 0x8; // int16_t
+    public const nint origin = 0xC; // Vector
+    public const nint bClip3DSkyBoxNearToWorldFar = 0x18; // bool
+    public const nint flClip3DSkyBoxNearToWorldFarOffset = 0x1C; // float
+    public const nint fog = 0x20; // fogparams_t
+    public const nint m_nWorldGroupID = 0x88; // WorldGroupId_t
 }
