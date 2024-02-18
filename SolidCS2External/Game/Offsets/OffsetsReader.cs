@@ -6,6 +6,7 @@ namespace SolidCS2External.Game.Offsets;
 // Reversed from https://github.com/a2x/cs2-dumper/blob/main/src/builder/json_file_builder.rs
 
 // ReSharper disable once ClassNeverInstantiated.Global
+[Obsolete("Replaced by OffsetSourceFileUpdater")]
 internal class JsonOffsetValue
 {
     [JsonPropertyName("value")] public int Value { get; set; }
@@ -14,11 +15,13 @@ internal class JsonOffsetValue
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
+[Obsolete("Replaced by OffsetSourceFileUpdater")]
 internal class JsonModule
 {
     [JsonPropertyName("data")] public Dictionary<string, JsonOffsetValue> Data { get; set; } = null!;
 }
 
+[Obsolete("Replaced by OffsetSourceFileUpdater")]
 public static class OffsetsReader
 {
     private static readonly Dictionary<string, Dictionary<string, JsonModule>> Cache = new();
