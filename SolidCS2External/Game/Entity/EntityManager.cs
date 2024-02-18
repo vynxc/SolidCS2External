@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using SolidCS2External.MemoryManagement;
 using WinApi.User32;
 
 namespace SolidCS2External.Game.Entity;
@@ -8,7 +9,7 @@ public class EntityManager
     private const int SleepTime = 40;
     private readonly IntPtr _clientDll;
 
-    private readonly Memory.Memory _memory = new("cs2");
+    private readonly Memory _memory = new("cs2");
     public readonly ConcurrentBag<EntityPawn> ConcurrentBag = new();
 
     public EntityManager()

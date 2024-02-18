@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace SolidCS2External.Memory;
+namespace SolidCS2External.MemoryManagement;
 
 public class Memory : Kernel32Memory, IDisposable
 {

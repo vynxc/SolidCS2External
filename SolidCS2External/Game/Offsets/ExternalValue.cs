@@ -1,13 +1,15 @@
-﻿namespace SolidCS2External.Game.Offsets;
+﻿using SolidCS2External.MemoryManagement;
+
+namespace SolidCS2External.Game.Offsets;
 
 public struct ExternalValue<T> where T : unmanaged
 {
     private readonly nint _address;
     public T? Value { get; private set; }
 
-    private readonly Memory.Memory _memory;
+    private readonly Memory _memory;
 
-    public ExternalValue(Memory.Memory memory, params nint[] baseAndOffsets)
+    public ExternalValue(Memory memory, params nint[] baseAndOffsets)
     {
         _memory = memory;
         _address = baseAndOffsets[0];

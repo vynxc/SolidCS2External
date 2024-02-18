@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace SolidCS2External.Memory;
+namespace SolidCS2External.MemoryManagement;
 
 // ReSharper disable InconsistentNaming
 public abstract class Kernel32Memory
