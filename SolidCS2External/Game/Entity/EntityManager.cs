@@ -17,7 +17,7 @@ public class EntityManager
         Task.Run(Update);
     }
 
-    private unsafe void Update()
+    private void Update()
     {
         while (!User32Methods.GetAsyncKeyState(VirtualKey.INSERT).IsPressed)
         {
@@ -39,11 +39,13 @@ public class EntityManager
                 if (listEntry2 is 0) continue;
                 var pCsPlayerPawn = _memory.Read<IntPtr>(listEntry2 + 120 * (playerPawn & 0x1FF));
                 if (pCsPlayerPawn is 0) continue;
-                var entityPawn = _memory.Read<EntityPawn>(pCsPlayerPawn);
+                var entityPawn = new EntityPawn(_memory, pCsPlayerPawn);
+                var health = entityPawn.Health.Value.GetValueOrDefault();
+                var origin = entityPawn.GameSceneNode.Origin.Value.GetValueOrDefault();
                 ConcurrentBag.Add(entityPawn);
-                Console.WriteLine("Health: " + entityPawn.Health);
+                Console.WriteLine("Health: " + health);
+                Console.WriteLine("Origin: " + origin);
                 Console.WriteLine("ConcurrentBag: " + ConcurrentBag.Count);
-                
             }
 
             Thread.Sleep(SleepTime);
