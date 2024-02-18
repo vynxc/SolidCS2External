@@ -11,7 +11,7 @@ public class Memory : Kernel32Memory, IDisposable
 
     public Memory(string processName)
     {
-        _process = Process.GetProcessesByName(processName).ElementAt(0) ??
+        _process = Process.GetProcessesByName(processName).FirstOrDefault() ??
                    throw new Exception(
                        "Process not found. Make sure the game is running and processName is correct.");
         var access = ProcessAccessType.PROCESS_QUERY_INFORMATION |
@@ -29,12 +29,13 @@ public class Memory : Kernel32Memory, IDisposable
         _process.Dispose();
     }
 
-    public IntPtr? GetModuleAddress(string moduleName)
+
+    public IntPtr GetModuleAddress(string moduleName)
     {
         foreach (ProcessModule module in _process.Modules)
             if (module.ModuleName == moduleName)
                 return module.BaseAddress;
-        return null;
+        throw new InvalidOperationException();
     }
 
     public Process GetProcess()

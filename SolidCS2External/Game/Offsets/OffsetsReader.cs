@@ -21,6 +21,8 @@ internal class JsonModule
 
 public static class OffsetsReader
 {
+    private static readonly Dictionary<string, Dictionary<string, JsonModule>> Cache = new();
+
     private static Dictionary<string, JsonModule>? ReadJsonFile(string filePath)
     {
         var jsonString = File.ReadAllText(filePath);
@@ -29,9 +31,16 @@ public static class OffsetsReader
 
     public static int ReadOffset(string filePath, string className, string offsetName)
     {
-        var jsonFile = ReadJsonFile(filePath);
-        if (jsonFile is null) throw new Exception("Failed to read json file");
-        if (jsonFile.ContainsKey(className) && jsonFile[className].Data.TryGetValue(offsetName, out var value))
+        if (!Cache.TryGetValue(filePath, out var jsonFile))
+        {
+            jsonFile = ReadJsonFile(filePath);
+            if (jsonFile is null) throw new Exception("Failed to read json file");
+            Cache[filePath] = jsonFile;
+        }
+
+
+        if (jsonFile.TryGetValue(className, out var module) &&
+            module.Data.TryGetValue(offsetName, out var value))
             return value.Value;
 
         throw new Exception($"Failed to find offset {offsetName} in class {className}");
