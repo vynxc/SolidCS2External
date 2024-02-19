@@ -26,21 +26,14 @@ public class Esp(Cs2Manager manager) : IFeature
         { "feetL", 27 }
     }.ToFrozenDictionary();
 
-    private static readonly ImmutableArray<(string Bone1, string Bone2)> BoneConnections = new[]
+    private static readonly FrozenDictionary<string, string[]> BoneConnections = new Dictionary<string, string[]>
     {
-        ("cou", "head"),
-        ("cou", "shoulderR"),
-        ("cou", "shoulderL"),
-        ("brasL", "shoulderL"),
-        ("brasR", "shoulderR"),
-        ("brasR", "handR"),
-        ("brasL", "handL"),
-        ("cou", "cock"),
-        ("kneesR", "cock"),
-        ("kneesL", "cock"),
-        ("kneesL", "feetL"),
-        ("kneesR", "feetR")
-    }.ToImmutableArray();
+        { "cou", ["head", "shoulderR", "shoulderL", "cock"] },
+        { "brasL", ["shoulderL", "handL"] },
+        { "brasR", ["shoulderR", "handR"] },
+        { "kneesR", ["feetR", "cock"] },
+        { "kneesL", ["feetL", "cock"] }
+    }.ToFrozenDictionary();
 
     public Cs2Manager Manager { get; } = manager;
 
@@ -79,22 +72,25 @@ public class Esp(Cs2Manager manager) : IFeature
 
     private void DrawSkeleton(EntityPawn entityPawn)
     {
-        foreach (var connection in BoneConnections)
+        foreach (var baseBone in BoneConnections)
         {
-            var bone1 = BoneOffsetMap[connection.Bone1];
-            var bone2 = BoneOffsetMap[connection.Bone2];
+            var bone1 = BoneOffsetMap[baseBone.Key];
+            foreach (var connectedBone in baseBone.Value)
+            {
+                var bone2 = BoneOffsetMap[connectedBone];
 
-            var bone1Pos = entityPawn.GameSceneNode.GetBonePosition(bone1);
-            var bone2Pos = entityPawn.GameSceneNode.GetBonePosition(bone2);
+                var bone1Pos = entityPawn.GameSceneNode.GetBonePosition(bone1);
+                var bone2Pos = entityPawn.GameSceneNode.GetBonePosition(bone2);
 
 
-            var screenBone1 = Manager.WorldToScreen(bone1Pos);
-            var screenBone2 = Manager.WorldToScreen(bone2Pos);
-            if (!screenBone1.HasValue || !screenBone2.HasValue)
-                continue;
+                var screenBone1 = Manager.WorldToScreen(bone1Pos);
+                var screenBone2 = Manager.WorldToScreen(bone2Pos);
+                if (!screenBone1.HasValue || !screenBone2.HasValue)
+                    continue;
 
-            ImGui.GetWindowDrawList().AddLine(screenBone1.Value, screenBone2.Value,
-                ImGui.GetColorU32(ImGuiCol.ButtonActive), 2);
+                ImGui.GetWindowDrawList().AddLine(screenBone1.Value, screenBone2.Value,
+                    ImGui.GetColorU32(ImGuiCol.ButtonActive), 2);
+            }
         }
     }
 }
