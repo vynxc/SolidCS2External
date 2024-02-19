@@ -54,6 +54,23 @@ public class Memory : Kernel32Memory, IDisposable
         return toReturn;
     }
 
+    public T[] ReadArray<T>(IntPtr address, int count)
+    {
+        var size = Marshal.SizeOf(default(T));
+        var bytes = ReadMemory(address, (uint)(count * size));
+        var toReturn = new T[count];
+        var ptr = Marshal.AllocHGlobal(size);
+
+        for (var i = 0; i < count; i++)
+        {
+            Marshal.Copy(bytes, i * size, ptr, size);
+            toReturn[i] = (T)(Marshal.PtrToStructure(ptr, typeof(T)) ?? throw new InvalidOperationException());
+        }
+
+        Marshal.FreeHGlobal(ptr);
+        return toReturn;
+    }
+
     public void Write<T>(IntPtr address, T data) where T : notnull
     {
         var size = Marshal.SizeOf(data);
@@ -65,7 +82,7 @@ public class Memory : Kernel32Memory, IDisposable
         WriteMemory(address, bytes);
     }
 
-    private byte[] ReadMemory(IntPtr address, uint byteArrayLength)
+    public byte[] ReadMemory(IntPtr address, uint byteArrayLength)
     {
         var buffer = new byte[byteArrayLength];
         ReadProcessMemory(_handle, address, buffer, byteArrayLength, out _);
@@ -75,5 +92,13 @@ public class Memory : Kernel32Memory, IDisposable
     private void WriteMemory(IntPtr address, byte[] data)
     {
         WriteProcessMemory(_handle, address, data, (uint)data.Length, out _);
+    }
+
+    public float[] BytesToFloatArray(byte[] bytes)
+    {
+        var floats = new float[bytes.Length / 4];
+        for (var i = 0; i < bytes.Length; i += 4)
+            floats[i / 4] = BitConverter.ToSingle(bytes, i);
+        return floats;
     }
 }

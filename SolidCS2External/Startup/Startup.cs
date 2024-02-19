@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SolidCS2External.Game;
 using SolidCS2External.ImGuiRendering;
 using SolidCS2External.Utils;
 
@@ -17,7 +18,7 @@ public class Startup(ApplicationRenderer rendererRunner)
         services.AddSingleton<Startup>();
         services.AddSingleton<ApplicationRenderer>();
         services.AddSingleton<RenderablesGetter>();
-
+        services.AddSingleton<Cs2Manager>();
         Console.WriteLine("Configured Services!");
     }
 }
