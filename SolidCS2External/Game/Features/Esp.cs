@@ -1,7 +1,7 @@
 ﻿using System.Collections.Frozen;
-using System.Collections.Immutable;
 using ImGuiNET;
 using SolidCS2External.Game.Entity;
+using SolidCS2External.Game.Offsets;
 using SolidCS2External.ImGuiRendering.Drawing;
 using SolidCS2External.Interfaces;
 
@@ -9,6 +9,7 @@ namespace SolidCS2External.Game.Features;
 
 public class Esp(Cs2Manager manager) : IFeature
 {
+    [Obsolete("Use BoneOffsets class. Kept for original offset values")]
     private static readonly FrozenDictionary<string, int> BoneOffsetMap = new Dictionary<string, int>
     {
         { "head", 6 },
@@ -26,13 +27,31 @@ public class Esp(Cs2Manager manager) : IFeature
         { "feetL", 27 }
     }.ToFrozenDictionary();
 
-    private static readonly FrozenDictionary<string, string[]> BoneConnections = new Dictionary<string, string[]>
+    private static class BoneOffsets
     {
-        { "cou", ["head", "shoulderR", "shoulderL", "cock"] },
-        { "brasL", ["shoulderL", "handL"] },
-        { "brasR", ["shoulderR", "handR"] },
-        { "kneesR", ["feetR", "cock"] },
-        { "kneesL", ["feetL", "cock"] }
+        public static readonly BoneOffset Head = new("head", 6);
+        public static readonly BoneOffset Cou = new("cou", 5);
+        public static readonly BoneOffset ShoulderR = new("shoulderR", 8);
+        public static readonly BoneOffset ShoulderL = new("shoulderL", 13);
+        public static readonly BoneOffset BrasR = new("brasR", 9);
+        public static readonly BoneOffset BrasL = new("brasL", 14);
+        public static readonly BoneOffset HandR = new("handR", 11);
+        public static readonly BoneOffset HandL = new("handL", 16);
+        public static readonly BoneOffset Cock = new("cock", 0);
+        public static readonly BoneOffset KneesR = new("kneesR", 23);
+        public static readonly BoneOffset KneesL = new("kneesL", 26);
+        public static readonly BoneOffset FeetR = new("feetR", 24);
+        public static readonly BoneOffset FeetL = new("feetL", 27);
+    }
+
+    // TODO: make a graph of a stick man instead
+    private static readonly FrozenDictionary<BoneOffset, BoneOffset[]> BoneConnections = new Dictionary<BoneOffset, BoneOffset[]>
+    {
+        { BoneOffsets.Cou, [BoneOffsets.Head, BoneOffsets.ShoulderR, BoneOffsets.ShoulderL, BoneOffsets.Cock] },
+        { BoneOffsets.BrasL, [BoneOffsets.ShoulderL, BoneOffsets.HandL] },
+        { BoneOffsets.BrasR, [BoneOffsets.ShoulderR, BoneOffsets.HandR] },
+        { BoneOffsets.KneesR, [BoneOffsets.FeetR, BoneOffsets.Cock] },
+        { BoneOffsets.KneesL, [BoneOffsets.FeetL, BoneOffsets.Cock] }
     }.ToFrozenDictionary();
 
     public Cs2Manager Manager { get; } = manager;
@@ -74,13 +93,13 @@ public class Esp(Cs2Manager manager) : IFeature
     {
         foreach (var baseBone in BoneConnections)
         {
-            var bone1 = BoneOffsetMap[baseBone.Key];
+            var boneOffset1 = baseBone.Key.Offset;
             foreach (var connectedBone in baseBone.Value)
             {
-                var bone2 = BoneOffsetMap[connectedBone];
+                var boneOffset2 = connectedBone.Offset;
 
-                var bone1Pos = entityPawn.GameSceneNode.GetBonePosition(bone1);
-                var bone2Pos = entityPawn.GameSceneNode.GetBonePosition(bone2);
+                var bone1Pos = entityPawn.GameSceneNode.GetBonePosition(boneOffset1);
+                var bone2Pos = entityPawn.GameSceneNode.GetBonePosition(boneOffset2);
 
 
                 var screenBone1 = Manager.WorldToScreen(bone1Pos);
