@@ -64,17 +64,21 @@ public class Esp(Cs2Manager manager) : IFeature
     {
     }
 
+    private EntityList _entityListRenderBuffer = EntityManager.CreateEntityListBuffer();
     public void Render()
     {
-        List<EntityPawn> tempPawns;
-        lock (Manager.EntityListLock)
+        lock (Manager.EntityListFrontBuffer.Lock)
         {
-            tempPawns = [..Manager.EntityList];
+            (_entityListRenderBuffer, Manager.EntityListFrontBuffer) =
+                (Manager.EntityListFrontBuffer, _entityListRenderBuffer);
         }
 
-        Console.WriteLine($"Rendering {tempPawns.Count} players @ {DateTime.Now:hh:mm:ss}");
-        foreach (var player in tempPawns)
+        Console.WriteLine($"Rendering {_entityListRenderBuffer.Buffer.Length} players @ {DateTime.Now:hh:mm:ss}");
+        foreach (var player in _entityListRenderBuffer.Buffer)
         {
+            if (player == null)
+                continue;
+            
             var head = player.GameSceneNode.GetBonePositionCached(BoneOffsets.Head.Offset);
             var foot = player.GameSceneNode.Origin.Value.GetValueOrDefault();
             var screenHead = Manager.WorldToScreen(head);

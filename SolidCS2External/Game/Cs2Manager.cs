@@ -14,27 +14,27 @@ public class Cs2Manager
     private readonly int _windowHeight;
     private readonly int _windowWidth;
     public readonly IntPtr ClientDll;
-    public readonly object EntityListLock = new();
     public readonly Memory Memory = new("cs2");
     private float[]? _viewMatrix;
-    public ConcurrentBag<EntityPawn> EntityList = new();
+    public EntityList EntityListFrontBuffer;
     public EntityManager EntityManager;
     public EntityPawn? LocalPlayer;
 
     public Cs2Manager()
-
     {
         ClientDll = Memory.GetModuleAddress("client.dll");
         EntityManager = new EntityManager(this);
         //TODO: Get window size
         _windowWidth = 3440;
         _windowHeight = 1440;
+        EntityListFrontBuffer = EntityManager.CreateEntityListBuffer();
         GlobalManager = this;
     }
 
     public void Update()
     {
         _viewMatrix = Memory.ReadArray<float>(ClientDll + client_dll.dwViewMatrix, 16);
+        // Vynxc's own span abomination
         /*var viewMatrixPtr = new ReadOnlySpan<float>(floatPtr, 16);
         ViewMatrixPtr = viewMatrixPtr.ToArray();
         Console.WriteLine(ViewMatrixPtr[0] + " " + ViewMatrixPtr[1] + " " + ViewMatrixPtr[2] + " " + ViewMatrixPtr[3]);*/
@@ -44,6 +44,7 @@ public class Cs2Manager
     {
         if (_viewMatrix is null)
             return null;
+        
         var vx = new Vector4(pos.X);
         var v1 = new Vector4(_viewMatrix[0], _viewMatrix[4], _viewMatrix[8], _viewMatrix[12]);
         var vy = new Vector4(pos.Y);
