@@ -7,6 +7,10 @@ namespace SolidCS2External.Game;
 
 public class Cs2Manager
 {
+#pragma warning disable CS8618
+    public static Cs2Manager GlobalManager { get; private set; }
+#pragma warning restore CS8618
+    
     private readonly int _windowHeight;
     private readonly int _windowWidth;
     public readonly IntPtr ClientDll;
@@ -25,6 +29,7 @@ public class Cs2Manager
         //TODO: Get window size
         _windowWidth = 3440;
         _windowHeight = 1440;
+        GlobalManager = this;
     }
 
     public void Update()
