@@ -75,7 +75,7 @@ public class Esp(Cs2Manager manager) : IFeature
         Console.WriteLine($"Rendering {tempPawns.Count} players @ {DateTime.Now:hh:mm:ss}");
         foreach (var player in tempPawns)
         {
-            var head = player.GameSceneNode.GetBonePosition(BoneOffsets.Head.Offset);
+            var head = player.GameSceneNode.GetBonePositionCached(BoneOffsets.Head.Offset);
             var foot = player.GameSceneNode.Origin.Value.GetValueOrDefault();
             var screenHead = Manager.WorldToScreen(head);
             var screenFoot = Manager.WorldToScreen(foot);
@@ -98,8 +98,8 @@ public class Esp(Cs2Manager manager) : IFeature
             {
                 var boneOffset2 = connectedBone.Offset;
 
-                var bone1Pos = entityPawn.GameSceneNode.GetBonePosition(boneOffset1);
-                var bone2Pos = entityPawn.GameSceneNode.GetBonePosition(boneOffset2);
+                var bone1Pos = entityPawn.GameSceneNode.GetBonePositionCached(boneOffset1);
+                var bone2Pos = entityPawn.GameSceneNode.GetBonePositionCached(boneOffset2);
 
 
                 var screenBone1 = Manager.WorldToScreen(bone1Pos);

@@ -1,4 +1,5 @@
-﻿using SolidCS2External.Interfaces;
+﻿using SolidCS2External.Game.Entity;
+using SolidCS2External.Interfaces;
 
 namespace SolidCS2External.Game.Managers;
 
@@ -12,6 +13,9 @@ public class FeaturesManager(List<IFeature> renderables)
     {
         foreach (var feature in renderables.Where(x => x.Enabled))
             feature.Render();
+        
+        foreach (var entityPawn in Cs2Manager.GlobalManager.EntityList)
+            entityPawn.GameSceneNode.ClearBonePositionCache();
     }
 
     public void Add(IFeature feature)
