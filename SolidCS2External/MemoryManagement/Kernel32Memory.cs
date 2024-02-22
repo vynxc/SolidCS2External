@@ -43,19 +43,19 @@ public abstract class Kernel32Memory
 
     [DllImport("kernel32.dll")]
     public static extern int ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In] [Out] byte[] buffer,
-        uint size, out IntPtr lpNumberOfBytesRead);
+        IntPtr size, out IntPtr lpNumberOfBytesRead);
 
     [DllImport("kernel32.dll")]
     public static extern int WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In] [Out] byte[] buffer,
-        uint size, out IntPtr lpNumberOfBytesWritten);
+        IntPtr size, out IntPtr lpNumberOfBytesWritten);
     
     [DllImport("kernel32.dll")]
     public static extern unsafe int ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In] [Out] void* buffer,
-        uint size, out IntPtr lpNumberOfBytesRead);
+        IntPtr size, out IntPtr lpNumberOfBytesRead);
 
     [DllImport("kernel32.dll")]
     public static extern unsafe int WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, void* buffer,
-        uint size, out IntPtr lpNumberOfBytesWritten);
+        IntPtr size, out IntPtr lpNumberOfBytesWritten);
 
     [Flags]
     protected enum ProcessAccessType
