@@ -63,18 +63,11 @@ public class Esp(Cs2Manager manager) : IFeature
     public void Initialize()
     {
     }
-
-    private EntityList _entityListRenderBuffer = EntityManager.CreateEntityListBuffer();
-    public void Render()
+    
+    public void Render(EntityList entityList)
     {
-        lock (Manager.EntityListFrontBuffer.Lock)
-        {
-            (_entityListRenderBuffer, Manager.EntityListFrontBuffer) =
-                (Manager.EntityListFrontBuffer, _entityListRenderBuffer);
-        }
-
-        Console.WriteLine($"Rendering {_entityListRenderBuffer.Buffer.Length} players @ {DateTime.Now:hh:mm:ss}");
-        foreach (var player in _entityListRenderBuffer.Buffer)
+        Console.WriteLine($"Rendering {entityList.Buffer.Length} players @ {DateTime.Now:hh:mm:ss}");
+        foreach (var player in entityList.Buffer)
         {
             if (player == null)
                 continue;

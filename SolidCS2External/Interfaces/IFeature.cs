@@ -1,4 +1,5 @@
 ﻿using SolidCS2External.Game;
+using SolidCS2External.Game.Entity;
 
 namespace SolidCS2External.Interfaces;
 
@@ -8,5 +9,5 @@ public interface IFeature
     bool Enabled { get; set; }
     string Name { get; }
     void Initialize();
-    void Render();
+    void Render(EntityList entityList);
 }
