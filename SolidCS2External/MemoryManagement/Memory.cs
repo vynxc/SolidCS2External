@@ -124,21 +124,6 @@ public class Memory : Kernel32Memory, IDisposable
            // WriteProcessMemory(_handle, address, bufPtr, (uint)span.Length, out _);
         }
     }
-    /// <summary>
-    ///     Writes data of type <typeparamref name="T" /> to the specified memory address.
-    /// </summary>
-    /// <typeparam name="T">The type of data to write</typeparam>
-    /// <param name="address">The memory address to write the data to</param>
-    /// <param name="data">The data to be written</param>
-    /// <exception cref="InvalidOperationException">Thrown when the process module with the specified address is not found</exception>
-    /// <exception cref="ArgumentNullException">Thrown when the data is null</exception>
-    public unsafe void WriteWithMarshal<T>(IntPtr address, T data) where T : unmanaged
-    {
-        var size = sizeof(T);
-        var bytes = new byte[size];
-        MemoryMarshal.Write(bytes, data);
-        //WriteMemory(address, bytes);
-    }
 
     /// <summary>
     ///     Read memory from a specific address.
@@ -151,28 +136,5 @@ public class Memory : Kernel32Memory, IDisposable
         var buffer = new byte[byteArrayLength];
         ReadProcessMemory(_handle, address, buffer, byteArrayLength, out _);
         return buffer;
-    }
-
-    /// <summary>
-    ///     Writes data to the specified memory address in the target process.
-    /// </summary>
-    /// <param name="address">The address in the target process where the data will be written.</param>
-    /// <param name="data">The data to be written.</param>
-    private void WriteMemory(IntPtr address, byte[] data)
-    {
-        WriteProcessMemory(_handle, address, data, (uint)data.Length, out _);
-    }
-
-    /// <summary>
-    ///     Converts a byte array to a float array.
-    /// </summary>
-    /// <param name="bytes">The byte array to convert.</param>
-    /// <returns>The float array converted from the byte array.</returns>
-    public float[] BytesToFloatArray(byte[] bytes)
-    {
-        var floats = new float[bytes.Length / 4];
-        for (var i = 0; i < bytes.Length; i += 4)
-            floats[i / 4] = BitConverter.ToSingle(bytes, i);
-        return floats;
     }
 }
