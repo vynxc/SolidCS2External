@@ -29,14 +29,10 @@ public class EntityManager
                 var tempEntityAddress =
                     _cs2Manager.Memory.Read<IntPtr>(_cs2Manager.ClientDll + client_dll.dwEntityList);
                 
-                var i = 0;
                 if (tempEntityAddress is 0)
-                {
-                    Array.Fill(_entityListBackBuffer.Buffer, null);
-                    i = MaxEntityCount;
-                }
+                    return;
                 
-                for (; i < MaxEntityCount; i++)
+                for (var i = 0; i < MaxEntityCount; i++)
                 {
                     var listEntry =
                         _cs2Manager.Memory.Read<IntPtr>(tempEntityAddress + (((8 * (i & 0x7FFF)) >> 9) + 16));
