@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
 namespace SolidCS2External.MemoryManagement;
 
@@ -93,7 +93,7 @@ public class Memory : Kernel32Memory, IDisposable
         ReadProcessMemory(_handle, address, &t, sizeof(T), out _);
         return t;
     }
-
+    
     /// <summary>
     ///     Read memory from a specific address.
     /// </summary>

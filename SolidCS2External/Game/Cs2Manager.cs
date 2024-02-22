@@ -32,7 +32,8 @@ public class Cs2Manager
 
     public void Update()
     {
-        _viewMatrix = Memory.ReadArray<float>(ClientDll + client_dll.dwViewMatrix, 16);
+        _viewMatrix ??= new float[16];
+        Memory.Read(ClientDll + client_dll.dwViewMatrix, _viewMatrix.AsSpan());
 
         if (User32Methods.GetAsyncKeyState(VirtualKey.INSERT).IsPressed) SetViewAngles(new Vector3(0, 0, 0));
     }
@@ -66,10 +67,14 @@ public class Cs2Manager
 
         var v2Wnd = new Vector2(_windowWidth, _windowHeight);
         var v22 = new Vector2(2);
+
         var screen = v2Wnd / v22 * v2Ndc;
         screen *= new Vector2(1, -1);
         screen += v2Ndc + v2Wnd / v22;
 
         return screen;
+
+        // Inlining it all may be slightly faster and help the jitter out
+        // return v2Wnd / v22 * v2Ndc * new Vector2(1, -1) + (v2Ndc + v2Wnd / v22);
     }
 }
