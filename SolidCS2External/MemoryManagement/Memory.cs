@@ -116,10 +116,28 @@ public class Memory : Kernel32Memory, IDisposable
     /// <param name="data">The data to be written</param>
     /// <exception cref="InvalidOperationException">Thrown when the process module with the specified address is not found</exception>
     /// <exception cref="ArgumentNullException">Thrown when the data is null</exception>
-    public void Write<T>(IntPtr address, T data) where T : unmanaged
+    public unsafe void Write<T>(IntPtr address, T data) where T : unmanaged
     {
-        var span = MemoryMarshal.AsBytes(MemoryMarshal.CreateReadOnlySpan(ref data, 1));
-        WriteMemory(address, span.ToArray());
+        var span = MemoryMarshal.CreateReadOnlySpan(ref data, 1);
+        fixed (void* bufPtr = span)
+        {
+           // WriteProcessMemory(_handle, address, bufPtr, (uint)span.Length, out _);
+        }
+    }
+    /// <summary>
+    ///     Writes data of type <typeparamref name="T" /> to the specified memory address.
+    /// </summary>
+    /// <typeparam name="T">The type of data to write</typeparam>
+    /// <param name="address">The memory address to write the data to</param>
+    /// <param name="data">The data to be written</param>
+    /// <exception cref="InvalidOperationException">Thrown when the process module with the specified address is not found</exception>
+    /// <exception cref="ArgumentNullException">Thrown when the data is null</exception>
+    public unsafe void WriteWithMarshal<T>(IntPtr address, T data) where T : unmanaged
+    {
+        var size = sizeof(T);
+        var bytes = new byte[size];
+        MemoryMarshal.Write(bytes, data);
+        //WriteMemory(address, bytes);
     }
 
     /// <summary>
