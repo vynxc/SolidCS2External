@@ -3,6 +3,7 @@ using System.Numerics;
 using ImGuiNET;
 using SolidCS2External.Game;
 using SolidCS2External.Game.Features;
+using SolidCS2External.Game.Managers;
 using SolidCS2External.Interfaces;
 using SolidCS2External.Utils;
 
@@ -13,8 +14,6 @@ public class OverlayWindow(ApplicationRenderer renderer, Cs2Manager cs2Manager) 
     private readonly OnceFlag _onceFlag = new();
     private readonly Size _size = renderer.Size;
 
-    private Esp _esp = null!;
-
     public string Name => "Overlay";
 
     public bool AlwaysRender => true;
@@ -24,7 +23,6 @@ public class OverlayWindow(ApplicationRenderer renderer, Cs2Manager cs2Manager) 
         Call.Once(_onceFlag, () =>
         {
             Console.WriteLine($"Size: {_size}");
-            _esp = new Esp(cs2Manager);
         });
 
         ImGui.SetNextWindowSize(new Vector2(_size.Width, _size.Height), ImGuiCond.Once);
@@ -32,9 +30,12 @@ public class OverlayWindow(ApplicationRenderer renderer, Cs2Manager cs2Manager) 
         ImGui.Begin("overlay", ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove |
                                ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoInputs |
                                ImGuiWindowFlags.NoBackground);
-        {
-            _esp.Render();
-        }
+
+        // TODO: move FeaturesManager somewhere else
+        // And avoid 
+        var fm = new FeaturesManager([new Esp(cs2Manager)]);
+        fm.Render();
+        
         ImGui.End();
     }
 }

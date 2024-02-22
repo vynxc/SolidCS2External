@@ -12,21 +12,20 @@ public class Cs2Manager
     private readonly int _windowHeight;
     private readonly int _windowWidth;
     public readonly IntPtr ClientDll;
-    public readonly object EntityListLock = new();
     public readonly Memory Memory = new("cs2");
     private float[]? _viewMatrix;
-    public ConcurrentBag<EntityPawn> EntityList = new();
+    public EntityList EntityListFrontBuffer;
     public EntityManager EntityManager;
     public EntityPawn? LocalPlayer;
 
     public Cs2Manager(ApplicationRenderer renderer)
-
     {
         ClientDll = Memory.GetModuleAddress("client.dll");
         EntityManager = new EntityManager(this);
         _windowWidth = renderer.Size.Width;
         _windowHeight = renderer.Size.Height;
         GlobalManager = this;
+        EntityListFrontBuffer = EntityManager.CreateEntityListBuffer();
     }
 
     public static Cs2Manager GlobalManager { get; private set; } = null!;
@@ -48,6 +47,7 @@ public class Cs2Manager
     {
         if (_viewMatrix is null)
             return null;
+        
         var vx = new Vector4(pos.X);
         var v1 = new Vector4(_viewMatrix[0], _viewMatrix[4], _viewMatrix[8], _viewMatrix[12]);
         var vy = new Vector4(pos.Y);

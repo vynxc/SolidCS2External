@@ -9,13 +9,20 @@ public class FeaturesManager(List<IFeature> renderables)
     {
     }
 
+    private EntityList _entityListRenderBuffer = EntityManager.CreateEntityListBuffer();
     public void Render()
     {
-        foreach (var feature in renderables.Where(x => x.Enabled))
-            feature.Render();
+        lock (Cs2Manager.GlobalManager.EntityListFrontBuffer.Lock)
+        {
+            (_entityListRenderBuffer, Cs2Manager.GlobalManager.EntityListFrontBuffer) =
+                (Cs2Manager.GlobalManager.EntityListFrontBuffer, _entityListRenderBuffer);
+        }
         
-        foreach (var entityPawn in Cs2Manager.GlobalManager.EntityList)
-            entityPawn.GameSceneNode.ClearBonePositionCache();
+        foreach (var feature in renderables.Where(x => x.Enabled))
+            feature.Render(_entityListRenderBuffer);
+        
+        foreach (var entityPawn in _entityListRenderBuffer.Buffer)
+            entityPawn?.GameSceneNode.ClearBonePositionCache();
     }
 
     public void Add(IFeature feature)
