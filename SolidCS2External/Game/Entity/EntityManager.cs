@@ -34,33 +34,31 @@ public class EntityManager
                 
                 for (var i = 0; i < MaxEntityCount; i++)
                 {
+                    _entityListBackBuffer.Buffer[i] = null;
+                    
                     var listEntry =
                         _cs2Manager.Memory.Read<IntPtr>(tempEntityAddress + (((8 * (i & 0x7FFF)) >> 9) + 16));
-                    if (listEntry is 0) goto Failed;
+                    if (listEntry is 0) continue;
 
                     var player = _cs2Manager.Memory.Read<IntPtr>(listEntry + 120 * (i & 0x1FF));
-                    if (player is 0) goto Failed;
+                    if (player is 0) continue;
 
                     var playerPawn = _cs2Manager.Memory.Read<IntPtr>(player + CCSPlayerController.m_hPlayerPawn);
-                    if (playerPawn is 0) goto Failed;
+                    if (playerPawn is 0)  continue;
 
                     var listEntry2 =
                         _cs2Manager.Memory.Read<IntPtr>(tempEntityAddress + 0x8 * ((playerPawn & 0x7FFF) >> 9) + 16);
-                    if (listEntry2 is 0) goto Failed;
+                    if (listEntry2 is 0)  continue;
 
                     var pCsPlayerPawn = _cs2Manager.Memory.Read<IntPtr>(listEntry2 + 120 * (playerPawn & 0x1FF));
-                    if (pCsPlayerPawn is 0) goto Failed;
+                    if (pCsPlayerPawn is 0) continue;
 
-                    if (pCsPlayerPawn == _cs2Manager.LocalPlayer?.Location) goto Failed;
+                    if (pCsPlayerPawn == _cs2Manager.LocalPlayer?.Location) continue;
 
                     var entityPawn = new EntityPawn(_cs2Manager.Memory, pCsPlayerPawn);
-                    if (entityPawn.Health.Value.GetValueOrDefault() <= 0) goto Failed;
+                    if (entityPawn.Health.Value.GetValueOrDefault() <= 0) continue;
                     
-                    _entityListBackBuffer.Buffer[i]= entityPawn;
-                    continue;
-                    
-                    Failed:
-                    _entityListBackBuffer.Buffer[i] = null;
+                    _entityListBackBuffer.Buffer[i] = entityPawn;
                 }
 
                 SwapEntityListBuffers();
