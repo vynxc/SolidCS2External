@@ -94,6 +94,19 @@ public class Memory : Kernel32Memory, IDisposable
         ReadProcessMemory(_handle, address, &t, sizeof(T), out _);
         return t;
     }
+    
+    /// <summary>
+    ///     Read memory from a specific address.
+    /// </summary>
+    /// <param name="address">The address to read from.</param>
+    /// <param name="buffer">The buffer that memory is read into</param>
+    public unsafe void Read<T>(IntPtr address, Span<T> buffer) where T : unmanaged
+    {
+        fixed (void* pBuf = buffer)
+        {
+            ReadProcessMemory(_handle, address, pBuf, buffer.Length, out _);
+        }
+    }
 
     /// <summary>
     ///     Writes data of type <typeparamref name="T" /> to the specified memory address.
@@ -121,19 +134,6 @@ public class Memory : Kernel32Memory, IDisposable
         fixed (void* bufPtr = buffer)
         {
             WriteProcessMemory(_handle, address, bufPtr, buffer.Length, out _);
-        }
-    }
-
-    /// <summary>
-    ///     Read memory from a specific address.
-    /// </summary>
-    /// <param name="address">The address to read from.</param>
-    /// <param name="buffer">The buffer that memory is read into</param>
-    public unsafe void Read<T>(IntPtr address, Span<T> buffer) where T : unmanaged
-    {
-        fixed (void* pBuf = buffer)
-        {
-            ReadProcessMemory(_handle, address, pBuf, buffer.Length, out _);
         }
     }
 }
