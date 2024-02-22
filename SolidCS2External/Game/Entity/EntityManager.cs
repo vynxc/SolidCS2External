@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using WinApi.User32;
 
 namespace SolidCS2External.Game.Entity;
 
@@ -21,7 +20,7 @@ public class EntityManager
 
     private void Update()
     {
-        while (!User32Methods.GetAsyncKeyState(VirtualKey.INSERT).IsPressed)
+        while (true)
             try
             {
                 var localPlayer = _cs2Manager.Memory.Read<IntPtr>(_cs2Manager.ClientDll + client_dll.dwLocalPlayerPawn);

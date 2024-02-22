@@ -3,12 +3,28 @@ using System.Runtime.InteropServices;
 
 namespace SolidCS2External.MemoryManagement;
 
+/// <summary>
+///     Represents a class that manages memory operations for a specified process.
+/// </summary>
 public class Memory : Kernel32Memory, IDisposable
 {
+    /// <summary>
+    ///     Represents a memory manager for accessing process memory.
+    /// </summary>
+    /// <remarks>
+    ///     The <see cref="_handle" /> field stores the handle to the opened process.
+    /// </remarks>
     private readonly IntPtr _handle;
+
+    /// <summary>
+    ///     Represents a class for managing memory of a process.
+    /// </summary>
     private readonly Process _process;
 
 
+    /// <summary>
+    ///     Represents a class for interacting with the memory of a specified process.
+    /// </summary>
     public Memory(string processName)
     {
         _process = Process.GetProcessesByName(processName).FirstOrDefault() ??
@@ -22,14 +38,33 @@ public class Memory : Kernel32Memory, IDisposable
         _handle = OpenProcess((uint)access, 1, (uint)_process.Id);
     }
 
+    /// <summary>
+    ///     Gets the base address of the main module of the process.
+    /// </summary>
+    /// <remarks>
+    ///     The base address is the starting address of the main module in the process's virtual memory.
+    /// </remarks>
+    /// <value>
+    ///     The base address of the main module, or null if the process's main module is not available.
+    /// </value>
     public IntPtr? BaseAddress => _process.MainModule?.BaseAddress;
 
+    /// <summary>
+    ///     Disposes the Memory object, releasing any associated resources.
+    /// </summary>
     public void Dispose()
     {
         _process.Dispose();
     }
 
 
+    /// <summary>
+    ///     Retrieves the base address of the specified module in the target process.
+    /// </summary>
+    /// <param name="moduleName">The name of the module to retrieve the address of.</param>
+    /// <returns>
+    ///     The base address of the specified module in the target process.
+    /// </returns>
     public IntPtr GetModuleAddress(string moduleName)
     {
         foreach (ProcessModule module in _process.Modules)
@@ -38,62 +73,83 @@ public class Memory : Kernel32Memory, IDisposable
         throw new InvalidOperationException();
     }
 
+    /// <summary>
+    ///     Returns the <see cref="Process" /> instance associated with the given process name.
+    /// </summary>
+    /// <returns>The <see cref="Process" /> instance associated with the given process name.</returns>
     public Process GetProcess()
     {
         return _process;
     }
 
-    public T Read<T>(IntPtr address)
+    /// <summary>
+    ///     Reads a value of type T from the specified memory address.
+    /// </summary>
+    /// <typeparam name="T">The type of value to read.</typeparam>
+    /// <param name="address">The memory address to read from.</param>
+    /// <returns>The value read from the memory address.</returns>
+    public unsafe T Read<T>(IntPtr address) where T : unmanaged
     {
-        var size = Marshal.SizeOf(default(T));
-        var bytes = ReadMemory(address, (uint)size);
-        var ptr = Marshal.AllocHGlobal(size);
-        Marshal.Copy(bytes, 0, ptr, size);
-        var toReturn = (T)(Marshal.PtrToStructure(ptr, typeof(T)) ?? throw new InvalidOperationException());
-        Marshal.FreeHGlobal(ptr);
-        return toReturn;
+        var bytes = ReadMemory(address, (uint)sizeof(T));
+        return MemoryMarshal.Read<T>(bytes);
     }
 
-    public T[] ReadArray<T>(IntPtr address, int count)
+    /// <summary>
+    ///     Reads an array of elements from the specified memory address.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements in the array.</typeparam>
+    /// <param name="address">The memory address to read from.</param>
+    /// <param name="count">The number of elements to read.</param>
+    /// <returns>An array of elements read from the memory address.</returns>
+    public T[] ReadArray<T>(IntPtr address, int count) where T : struct
     {
         var size = Marshal.SizeOf(default(T));
         var bytes = ReadMemory(address, (uint)(count * size));
-        var toReturn = new T[count];
-        var ptr = Marshal.AllocHGlobal(size);
-
-        for (var i = 0; i < count; i++)
-        {
-            Marshal.Copy(bytes, i * size, ptr, size);
-            toReturn[i] = (T)(Marshal.PtrToStructure(ptr, typeof(T)) ?? throw new InvalidOperationException());
-        }
-
-        Marshal.FreeHGlobal(ptr);
-        return toReturn;
+        return MemoryMarshal.Cast<byte, T>(bytes).ToArray();
     }
 
-    public void Write<T>(IntPtr address, T data) where T : notnull
+    /// <summary>
+    ///     Writes data of type <typeparamref name="T" /> to the specified memory address.
+    /// </summary>
+    /// <typeparam name="T">The type of data to write</typeparam>
+    /// <param name="address">The memory address to write the data to</param>
+    /// <param name="data">The data to be written</param>
+    /// <exception cref="InvalidOperationException">Thrown when the process module with the specified address is not found</exception>
+    /// <exception cref="ArgumentNullException">Thrown when the data is null</exception>
+    public void Write<T>(IntPtr address, T data) where T : unmanaged
     {
-        var size = Marshal.SizeOf(data);
-        var bytes = new byte[size];
-        var ptr = Marshal.AllocHGlobal(size);
-        Marshal.StructureToPtr(data, ptr, false);
-        Marshal.Copy(ptr, bytes, 0, size);
-        Marshal.FreeHGlobal(ptr);
-        WriteMemory(address, bytes);
+        var span = MemoryMarshal.AsBytes(MemoryMarshal.CreateReadOnlySpan(ref data, 1));
+        WriteMemory(address, span.ToArray());
     }
 
-    public byte[] ReadMemory(IntPtr address, uint byteArrayLength)
+    /// <summary>
+    ///     Read memory from a specific address.
+    /// </summary>
+    /// <param name="address">The address to read from.</param>
+    /// <param name="byteArrayLength">The length to read.</param>
+    /// <returns>The data read from the given address.</returns>
+    private Span<byte> ReadMemory(IntPtr address, uint byteArrayLength)
     {
         var buffer = new byte[byteArrayLength];
         ReadProcessMemory(_handle, address, buffer, byteArrayLength, out _);
         return buffer;
     }
 
+    /// <summary>
+    ///     Writes data to the specified memory address in the target process.
+    /// </summary>
+    /// <param name="address">The address in the target process where the data will be written.</param>
+    /// <param name="data">The data to be written.</param>
     private void WriteMemory(IntPtr address, byte[] data)
     {
         WriteProcessMemory(_handle, address, data, (uint)data.Length, out _);
     }
 
+    /// <summary>
+    ///     Converts a byte array to a float array.
+    /// </summary>
+    /// <param name="bytes">The byte array to convert.</param>
+    /// <returns>The float array converted from the byte array.</returns>
     public float[] BytesToFloatArray(byte[] bytes)
     {
         var floats = new float[bytes.Length / 4];
