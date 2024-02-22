@@ -27,32 +27,16 @@ public class Esp(Cs2Manager manager) : IFeature
         { "feetL", 27 }
     }.ToFrozenDictionary();
 
-    private static class BoneOffsets
-    {
-        public static readonly BoneOffset Head = new("head", 6);
-        public static readonly BoneOffset Cou = new("cou", 5);
-        public static readonly BoneOffset ShoulderR = new("shoulderR", 8);
-        public static readonly BoneOffset ShoulderL = new("shoulderL", 13);
-        public static readonly BoneOffset BrasR = new("brasR", 9);
-        public static readonly BoneOffset BrasL = new("brasL", 14);
-        public static readonly BoneOffset HandR = new("handR", 11);
-        public static readonly BoneOffset HandL = new("handL", 16);
-        public static readonly BoneOffset Cock = new("cock", 0);
-        public static readonly BoneOffset KneesR = new("kneesR", 23);
-        public static readonly BoneOffset KneesL = new("kneesL", 26);
-        public static readonly BoneOffset FeetR = new("feetR", 24);
-        public static readonly BoneOffset FeetL = new("feetL", 27);
-    }
-
     // TODO: make a graph of a stick man instead
-    private static readonly FrozenDictionary<BoneOffset, BoneOffset[]> BoneConnections = new Dictionary<BoneOffset, BoneOffset[]>
-    {
-        { BoneOffsets.Cou, [BoneOffsets.Head, BoneOffsets.ShoulderR, BoneOffsets.ShoulderL, BoneOffsets.Cock] },
-        { BoneOffsets.BrasL, [BoneOffsets.ShoulderL, BoneOffsets.HandL] },
-        { BoneOffsets.BrasR, [BoneOffsets.ShoulderR, BoneOffsets.HandR] },
-        { BoneOffsets.KneesR, [BoneOffsets.FeetR, BoneOffsets.Cock] },
-        { BoneOffsets.KneesL, [BoneOffsets.FeetL, BoneOffsets.Cock] }
-    }.ToFrozenDictionary();
+    private static readonly FrozenDictionary<BoneOffset, BoneOffset[]> BoneConnections =
+        new Dictionary<BoneOffset, BoneOffset[]>
+        {
+            { BoneOffsets.Cou, [BoneOffsets.Head, BoneOffsets.ShoulderR, BoneOffsets.ShoulderL, BoneOffsets.Cock] },
+            { BoneOffsets.BrasL, [BoneOffsets.ShoulderL, BoneOffsets.HandL] },
+            { BoneOffsets.BrasR, [BoneOffsets.ShoulderR, BoneOffsets.HandR] },
+            { BoneOffsets.KneesR, [BoneOffsets.FeetR, BoneOffsets.Cock] },
+            { BoneOffsets.KneesL, [BoneOffsets.FeetL, BoneOffsets.Cock] }
+        }.ToFrozenDictionary();
 
     public Cs2Manager Manager { get; } = manager;
 
@@ -72,7 +56,7 @@ public class Esp(Cs2Manager manager) : IFeature
             tempPawns = [..Manager.EntityList];
         }
 
-        Console.WriteLine($"Rendering {tempPawns.Count} players @ {DateTime.Now:hh:mm:ss}");
+        //Console.WriteLine($"Rendering {tempPawns.Count} players @ {DateTime.Now:hh:mm:ss}");
         foreach (var player in tempPawns)
         {
             var head = player.GameSceneNode.GetBonePositionCached(BoneOffsets.Head.Offset);
@@ -111,5 +95,22 @@ public class Esp(Cs2Manager manager) : IFeature
                     ImGui.GetColorU32(ImGuiCol.ButtonActive), 2);
             }
         }
+    }
+
+    private static class BoneOffsets
+    {
+        public static readonly BoneOffset Head = new("head", 6);
+        public static readonly BoneOffset Cou = new("cou", 5);
+        public static readonly BoneOffset ShoulderR = new("shoulderR", 8);
+        public static readonly BoneOffset ShoulderL = new("shoulderL", 13);
+        public static readonly BoneOffset BrasR = new("brasR", 9);
+        public static readonly BoneOffset BrasL = new("brasL", 14);
+        public static readonly BoneOffset HandR = new("handR", 11);
+        public static readonly BoneOffset HandL = new("handL", 16);
+        public static readonly BoneOffset Cock = new("cock", 0);
+        public static readonly BoneOffset KneesR = new("kneesR", 23);
+        public static readonly BoneOffset KneesL = new("kneesL", 26);
+        public static readonly BoneOffset FeetR = new("feetR", 24);
+        public static readonly BoneOffset FeetL = new("feetL", 27);
     }
 }

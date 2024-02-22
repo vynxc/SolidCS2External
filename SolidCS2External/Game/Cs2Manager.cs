@@ -1,16 +1,14 @@
 ﻿using System.Collections.Concurrent;
 using System.Numerics;
 using SolidCS2External.Game.Entity;
+using SolidCS2External.ImGuiRendering;
 using SolidCS2External.MemoryManagement;
+using WinApi.User32;
 
 namespace SolidCS2External.Game;
 
 public class Cs2Manager
 {
-#pragma warning disable CS8618
-    public static Cs2Manager GlobalManager { get; private set; }
-#pragma warning restore CS8618
-    
     private readonly int _windowHeight;
     private readonly int _windowWidth;
     public readonly IntPtr ClientDll;
@@ -21,23 +19,29 @@ public class Cs2Manager
     public EntityManager EntityManager;
     public EntityPawn? LocalPlayer;
 
-    public Cs2Manager()
+    public Cs2Manager(ApplicationRenderer renderer)
 
     {
         ClientDll = Memory.GetModuleAddress("client.dll");
         EntityManager = new EntityManager(this);
-        //TODO: Get window size
-        _windowWidth = 3440;
-        _windowHeight = 1440;
+        _windowWidth = renderer.Size.Width;
+        _windowHeight = renderer.Size.Height;
         GlobalManager = this;
     }
+
+    public static Cs2Manager GlobalManager { get; private set; } = null!;
 
     public void Update()
     {
         _viewMatrix = Memory.ReadArray<float>(ClientDll + client_dll.dwViewMatrix, 16);
-        /*var viewMatrixPtr = new ReadOnlySpan<float>(floatPtr, 16);
-        ViewMatrixPtr = viewMatrixPtr.ToArray();
-        Console.WriteLine(ViewMatrixPtr[0] + " " + ViewMatrixPtr[1] + " " + ViewMatrixPtr[2] + " " + ViewMatrixPtr[3]);*/
+
+        if (User32Methods.GetAsyncKeyState(VirtualKey.INSERT).IsPressed) SetViewAngles(new Vector3(0, 0, 0));
+    }
+
+    // ReSharper disable once MemberCanBePrivate.Global
+    public void SetViewAngles(Vector3 angles)
+    {
+        Memory.Write(ClientDll + client_dll.dwViewAngles, angles);
     }
 
     public Vector2? WorldToScreen(Vector3 pos)
