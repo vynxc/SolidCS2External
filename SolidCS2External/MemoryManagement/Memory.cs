@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace SolidCS2External.MemoryManagement;
 
@@ -120,7 +119,7 @@ public class Memory : Kernel32Memory, IDisposable
     {
         WriteProcessMemory(_handle, address, &data, sizeof(T), out _);
     }
-    
+
     /// <summary>
     ///     Writes data of type <typeparamref name="T" /> to the specified memory address.
     /// </summary>

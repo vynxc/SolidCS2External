@@ -47,27 +47,24 @@ public class Esp(Cs2Manager manager) : IFeature
     public void Initialize()
     {
     }
-    
+
     public void Render(EntityList entityList)
     {
-        // Console.WriteLine($"Rendering {entityList.Buffer.Length} players @ {DateTime.Now:hh:mm:ss}");
-        foreach (var player in entityList.Buffer)
-        {
-            if (player == null)
-                continue;
-            
-            var head = player.GameSceneNode.GetBonePositionCached(BoneOffsets.Head.Offset);
-            var foot = player.GameSceneNode.Origin.Value.GetValueOrDefault();
-            var screenHead = Manager.WorldToScreen(head);
-            var screenFoot = Manager.WorldToScreen(foot);
+    }
 
-            if (!screenHead.HasValue || !screenFoot.HasValue)
-                continue;
+    public void EntityLoop(EntityPawn pawn)
+    {
+        var head = pawn.GameSceneNode.GetBonePositionCached(BoneOffsets.Head.Offset);
+        var foot = pawn.GameSceneNode.Origin.Value.GetValueOrDefault();
+        var screenHead = Manager.WorldToScreen(head);
+        var screenFoot = Manager.WorldToScreen(foot);
 
-            ImGuiDrawing.DrawGlowEsp(screenHead.Value, screenFoot.Value, ImGui.GetColorU32(ImGuiCol.Button),
-                ImGui.GetColorU32(ImGuiCol.ButtonActive));
-            DrawSkeleton(player);
-        }
+        if (!screenHead.HasValue || !screenFoot.HasValue)
+            return;
+
+        ImGuiDrawing.DrawGlowEsp(screenHead.Value, screenFoot.Value, ImGui.GetColorU32(ImGuiCol.Button),
+            ImGui.GetColorU32(ImGuiCol.ButtonActive));
+        DrawSkeleton(pawn);
     }
 
     private void DrawSkeleton(EntityPawn entityPawn)

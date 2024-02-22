@@ -1,27 +1,29 @@
-﻿using SolidCS2External.Game.Entity;
-using SolidCS2External.Interfaces;
+﻿using SolidCS2External.Interfaces;
 
 namespace SolidCS2External.Game.Managers;
 
 public class FeaturesManager(List<IFeature> renderables)
 {
+
     public FeaturesManager() : this(new List<IFeature>())
     {
     }
 
-    private EntityList _entityListRenderBuffer = EntityManager.CreateEntityListBuffer();
     public void Render()
     {
-        lock (Cs2Manager.GlobalManager.EntityListFrontBuffer.Lock)
-        {
-            (_entityListRenderBuffer, Cs2Manager.GlobalManager.EntityListFrontBuffer) =
-                (Cs2Manager.GlobalManager.EntityListFrontBuffer, _entityListRenderBuffer);
-        }
-        
         foreach (var feature in renderables.Where(x => x.Enabled))
-            feature.Render(_entityListRenderBuffer);
-        
-        foreach (var entityPawn in _entityListRenderBuffer.Buffer)
+        {
+            feature.Initialize();
+            foreach (var pawn in Cs2Manager.GlobalManager.EntityListFrontBuffer.Buffer)
+            {
+                if (pawn == null) continue;
+                feature.EntityLoop(pawn);
+            }
+
+            feature.Render(Cs2Manager.GlobalManager.EntityListFrontBuffer);
+        }
+
+        foreach (var entityPawn in Cs2Manager.GlobalManager.EntityListFrontBuffer.Buffer)
             entityPawn?.GameSceneNode.ClearBonePositionCache();
     }
 

@@ -10,4 +10,5 @@ public interface IFeature
     string Name { get; }
     void Initialize();
     void Render(EntityList entityList);
+    void EntityLoop(EntityPawn pawn);
 }
