@@ -5,11 +5,12 @@ namespace SolidCS2External.Game.Managers;
 
 public class FeaturesManager(List<IFeature> renderables)
 {
+    private EntityList _entityListRenderBuffer = EntityManager.CreateEntityListBuffer();
+
     public FeaturesManager() : this(new List<IFeature>())
     {
     }
 
-    private EntityList _entityListRenderBuffer = EntityManager.CreateEntityListBuffer();
     public void Render()
     {
         lock (Cs2Manager.GlobalManager.EntityListFrontBuffer.Lock)
@@ -17,10 +18,20 @@ public class FeaturesManager(List<IFeature> renderables)
             (_entityListRenderBuffer, Cs2Manager.GlobalManager.EntityListFrontBuffer) =
                 (Cs2Manager.GlobalManager.EntityListFrontBuffer, _entityListRenderBuffer);
         }
-        
+
         foreach (var feature in renderables.Where(x => x.Enabled))
+        {
+            feature.Initialize();
+
+            foreach (var pawn in _entityListRenderBuffer.Buffer)
+            {
+                if (pawn == null) continue;
+                feature.EntityLoop(pawn);
+            }
+
             feature.Render(_entityListRenderBuffer);
-        
+        }
+
         foreach (var entityPawn in _entityListRenderBuffer.Buffer)
             entityPawn?.GameSceneNode.ClearBonePositionCache();
     }

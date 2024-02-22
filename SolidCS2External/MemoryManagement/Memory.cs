@@ -121,7 +121,7 @@ public class Memory : Kernel32Memory, IDisposable
         var span = MemoryMarshal.CreateReadOnlySpan(ref data, 1);
         fixed (void* bufPtr = span)
         {
-           // WriteProcessMemory(_handle, address, bufPtr, (uint)span.Length, out _);
+            WriteProcessMemory(_handle, address, bufPtr, (uint)span.Length, out _);
         }
     }
     /// <summary>
@@ -152,27 +152,5 @@ public class Memory : Kernel32Memory, IDisposable
         ReadProcessMemory(_handle, address, buffer, byteArrayLength, out _);
         return buffer;
     }
-
-    /// <summary>
-    ///     Writes data to the specified memory address in the target process.
-    /// </summary>
-    /// <param name="address">The address in the target process where the data will be written.</param>
-    /// <param name="data">The data to be written.</param>
-    private void WriteMemory(IntPtr address, byte[] data)
-    {
-        WriteProcessMemory(_handle, address, data, (uint)data.Length, out _);
-    }
-
-    /// <summary>
-    ///     Converts a byte array to a float array.
-    /// </summary>
-    /// <param name="bytes">The byte array to convert.</param>
-    /// <returns>The float array converted from the byte array.</returns>
-    public float[] BytesToFloatArray(byte[] bytes)
-    {
-        var floats = new float[bytes.Length / 4];
-        for (var i = 0; i < bytes.Length; i += 4)
-            floats[i / 4] = BitConverter.ToSingle(bytes, i);
-        return floats;
-    }
+    
 }
