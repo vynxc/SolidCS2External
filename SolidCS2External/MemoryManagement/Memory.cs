@@ -93,7 +93,7 @@ public class Memory : Kernel32Memory, IDisposable
         ReadProcessMemory(_handle, address, &t, sizeof(T), out _);
         return t;
     }
-    
+
     /// <summary>
     ///     Read memory from a specific address.
     /// </summary>
@@ -103,7 +103,7 @@ public class Memory : Kernel32Memory, IDisposable
     {
         fixed (void* pBuf = buffer)
         {
-            ReadProcessMemory(_handle, address, pBuf, buffer.Length, out _);
+            ReadProcessMemory(_handle, address, pBuf, buffer.Length * sizeof(T), out _);
         }
     }
 
