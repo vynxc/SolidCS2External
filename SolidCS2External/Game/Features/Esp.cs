@@ -9,26 +9,7 @@ namespace SolidCS2External.Game.Features;
 
 public class Esp(Cs2Manager manager) : IFeature
 {
-    [Obsolete("Use BoneOffsets class. Kept for original offset values")]
-    private static readonly FrozenDictionary<string, int> BoneOffsetMap = new Dictionary<string, int>
-    {
-        { "head", 6 },
-        { "cou", 5 },
-        { "shoulderR", 8 },
-        { "shoulderL", 13 },
-        { "brasR", 9 },
-        { "brasL", 14 },
-        { "handR", 11 },
-        { "handL", 16 },
-        { "cock", 0 }, // nice
-        { "kneesR", 23 },
-        { "kneesL", 26 },
-        { "feetR", 24 },
-        { "feetL", 27 }
-    }.ToFrozenDictionary();
-
-    // TODO: make a graph of a stick man instead
-    private static readonly FrozenDictionary<BoneOffset, BoneOffset[]> BoneConnections =
+    public static readonly FrozenDictionary<BoneOffset, BoneOffset[]> BoneConnections =
         new Dictionary<BoneOffset, BoneOffset[]>
         {
             { BoneOffsets.Cou, [BoneOffsets.Head, BoneOffsets.ShoulderR, BoneOffsets.ShoulderL, BoneOffsets.Cock] },
@@ -48,7 +29,7 @@ public class Esp(Cs2Manager manager) : IFeature
     {
     }
 
-    public void Render(EntityList entityList)
+    public void Run(EntityList entityList)
     {
     }
 
@@ -91,7 +72,7 @@ public class Esp(Cs2Manager manager) : IFeature
         }
     }
 
-    private static class BoneOffsets
+    public static class BoneOffsets
     {
         public static readonly BoneOffset Head = new("head", 6);
         public static readonly BoneOffset Cou = new("cou", 5);

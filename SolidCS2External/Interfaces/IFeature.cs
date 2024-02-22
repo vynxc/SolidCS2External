@@ -9,6 +9,6 @@ public interface IFeature
     bool Enabled { get; set; }
     string Name { get; }
     void Initialize();
-    void Render(EntityList entityList);
+    void Run(EntityList entityList);
     void EntityLoop(EntityPawn pawn);
 }

@@ -4,7 +4,6 @@ namespace SolidCS2External.Game.Managers;
 
 public class FeaturesManager(List<IFeature> renderables)
 {
-
     public FeaturesManager() : this(new List<IFeature>())
     {
     }
@@ -20,7 +19,7 @@ public class FeaturesManager(List<IFeature> renderables)
                 feature.EntityLoop(pawn);
             }
 
-            feature.Render(Cs2Manager.GlobalManager.EntityListFrontBuffer);
+            feature.Run(Cs2Manager.GlobalManager.EntityListFrontBuffer);
         }
 
         foreach (var entityPawn in Cs2Manager.GlobalManager.EntityListFrontBuffer.Buffer)

@@ -20,10 +20,7 @@ public class OverlayWindow(ApplicationRenderer renderer, Cs2Manager cs2Manager) 
 
     public void Render()
     {
-        Call.Once(_onceFlag, () =>
-        {
-            Console.WriteLine($"Size: {_size}");
-        });
+        Call.Once(_onceFlag, () => { Console.WriteLine($"Size: {_size}"); });
 
         ImGui.SetNextWindowSize(new Vector2(_size.Width, _size.Height), ImGuiCond.Once);
         ImGui.SetNextWindowPos(new Vector2(0, 0), ImGuiCond.Once);
@@ -33,9 +30,9 @@ public class OverlayWindow(ApplicationRenderer renderer, Cs2Manager cs2Manager) 
 
         // TODO: move FeaturesManager somewhere else
         // And avoid 
-        var fm = new FeaturesManager([new Esp(cs2Manager)]);
+        var fm = new FeaturesManager([new Esp(cs2Manager), new Aimbot(cs2Manager)]);
         fm.Render();
-        
+
         ImGui.End();
     }
 }

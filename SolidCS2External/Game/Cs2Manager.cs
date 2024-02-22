@@ -1,5 +1,4 @@
-﻿using System.Collections.Concurrent;
-using System.Numerics;
+﻿using System.Numerics;
 using SolidCS2External.Game.Entity;
 using SolidCS2External.ImGuiRendering;
 using SolidCS2External.MemoryManagement;
@@ -17,6 +16,7 @@ public class Cs2Manager
     public EntityList EntityListFrontBuffer;
     public EntityManager EntityManager;
     public EntityPawn? LocalPlayer;
+    public ApplicationRenderer Renderer;
 
     public Cs2Manager(ApplicationRenderer renderer)
     {
@@ -25,6 +25,7 @@ public class Cs2Manager
         _windowWidth = renderer.Size.Width;
         _windowHeight = renderer.Size.Height;
         GlobalManager = this;
+        Renderer = renderer;
         EntityListFrontBuffer = EntityManager.CreateEntityListBuffer();
     }
 
@@ -44,11 +45,40 @@ public class Cs2Manager
         Memory.Write(ClientDll + client_dll.dwViewAngles, angles);
     }
 
+    public Vector3 GetViewAngles()
+    {
+        return Memory.Read<Vector3>(ClientDll + client_dll.dwViewAngles);
+    }
+
+    public void AimAt(Vector3 target)
+    {
+        var smoothingFactor = 1;
+        if (LocalPlayer is null) return;
+        var origin = LocalPlayer.GameSceneNode.Origin.Value.GetValueOrDefault();
+        if (origin == Vector3.Zero) return;
+        var viewOffset = LocalPlayer.ViewOffset.Value.GetValueOrDefault();
+        var myPos = origin + viewOffset;
+        var deltaVec = target - myPos;
+        var deltaVecLength = Math.Sqrt(deltaVec.X * deltaVec.X + deltaVec.Y * deltaVec.Y + deltaVec.Z * deltaVec.Z);
+        var pitch = (float)-Math.Asin(deltaVec.Z / deltaVecLength) * (180 / (float)Math.PI);
+        var yaw = (float)Math.Atan2(deltaVec.Y, deltaVec.X) * (180 / (float)Math.PI);
+        if (!(pitch >= -89) || !(pitch <= 89) || !(yaw >= -180) || !(yaw <= 180)) return;
+        var currentViewAngle = GetViewAngles();
+        var newPitch = currentViewAngle.X + smoothingFactor * (pitch - currentViewAngle.X);
+        var newYaw = currentViewAngle.Y + smoothingFactor * (yaw - currentViewAngle.Y);
+        var currentAngles = new Vector3(
+            newPitch,
+            newYaw,
+            0);
+
+        SetViewAngles(currentAngles);
+    }
+
     public Vector2? WorldToScreen(Vector3 pos)
     {
         if (_viewMatrix is null)
             return null;
-        
+
         var vx = new Vector4(pos.X);
         var v1 = new Vector4(_viewMatrix[0], _viewMatrix[4], _viewMatrix[8], _viewMatrix[12]);
         var vy = new Vector4(pos.Y);
