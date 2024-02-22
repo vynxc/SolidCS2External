@@ -90,22 +90,9 @@ public class Memory : Kernel32Memory, IDisposable
     /// <returns>The value read from the memory address.</returns>
     public unsafe T Read<T>(IntPtr address) where T : unmanaged
     {
-        var bytes = ReadMemory(address, (uint)sizeof(T));
-        return MemoryMarshal.Read<T>(bytes);
-    }
-
-    /// <summary>
-    ///     Reads an array of elements from the specified memory address.
-    /// </summary>
-    /// <typeparam name="T">The type of the elements in the array.</typeparam>
-    /// <param name="address">The memory address to read from.</param>
-    /// <param name="count">The number of elements to read.</param>
-    /// <returns>An array of elements read from the memory address.</returns>
-    public T[] ReadArray<T>(IntPtr address, int count) where T : struct
-    {
-        var size = Marshal.SizeOf(default(T));
-        var bytes = ReadMemory(address, (uint)(count * size));
-        return MemoryMarshal.Cast<byte, T>(bytes).ToArray();
+        T t = default;
+        ReadProcessMemory(_handle, address, &t, sizeof(T), out _);
+        return t;
     }
 
     /// <summary>
@@ -118,10 +105,22 @@ public class Memory : Kernel32Memory, IDisposable
     /// <exception cref="ArgumentNullException">Thrown when the data is null</exception>
     public unsafe void Write<T>(IntPtr address, T data) where T : unmanaged
     {
-        var span = MemoryMarshal.CreateReadOnlySpan(ref data, 1);
-        fixed (void* bufPtr = span)
+        WriteProcessMemory(_handle, address, &data, sizeof(T), out _);
+    }
+    
+    /// <summary>
+    ///     Writes data of type <typeparamref name="T" /> to the specified memory address.
+    /// </summary>
+    /// <typeparam name="T">The type of data to write</typeparam>
+    /// <param name="address">The memory address to write the data to</param>
+    /// <param name="buffer">The data to be written</param>
+    /// <exception cref="InvalidOperationException">Thrown when the process module with the specified address is not found</exception>
+    /// <exception cref="ArgumentNullException">Thrown when the data is null</exception>
+    public unsafe void Write<T>(IntPtr address, ReadOnlySpan<T> buffer) where T : unmanaged
+    {
+        fixed (void* bufPtr = buffer)
         {
-           // WriteProcessMemory(_handle, address, bufPtr, (uint)span.Length, out _);
+            WriteProcessMemory(_handle, address, bufPtr, buffer.Length, out _);
         }
     }
 
@@ -129,12 +128,12 @@ public class Memory : Kernel32Memory, IDisposable
     ///     Read memory from a specific address.
     /// </summary>
     /// <param name="address">The address to read from.</param>
-    /// <param name="byteArrayLength">The length to read.</param>
-    /// <returns>The data read from the given address.</returns>
-    private Span<byte> ReadMemory(IntPtr address, uint byteArrayLength)
+    /// <param name="buffer">The buffer that memory is read into</param>
+    public unsafe void Read<T>(IntPtr address, Span<T> buffer) where T : unmanaged
     {
-        var buffer = new byte[byteArrayLength];
-        ReadProcessMemory(_handle, address, buffer, byteArrayLength, out _);
-        return buffer;
+        fixed (void* pBuf = buffer)
+        {
+            ReadProcessMemory(_handle, address, pBuf, buffer.Length, out _);
+        }
     }
 }
