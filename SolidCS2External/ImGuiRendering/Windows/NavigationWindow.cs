@@ -3,6 +3,7 @@ using ImGuiNET;
 using SolidCS2External.ImGuiRendering.Components;
 using SolidCS2External.ImGuiRendering.Managers;
 using SolidCS2External.Interfaces;
+using SolidCS2External.Services;
 using SolidCS2External.Utils;
 
 namespace SolidCS2External.ImGuiRendering.Windows;
@@ -11,9 +12,9 @@ public class NavigationWindow : IWindow
 {
     private readonly RenderableManager<IPage> _renderableManager = new();
 
-    public NavigationWindow(RenderablesGetter renderablesGetter)
+    public NavigationWindow(RenderableResolverService renderableResolverService)
     {
-        var pages = renderablesGetter.GetFromInterface<IPage>();
+        var pages = renderableResolverService.GetFromInterface<IPage>();
         _renderableManager.AddRange(pages);
     }
 

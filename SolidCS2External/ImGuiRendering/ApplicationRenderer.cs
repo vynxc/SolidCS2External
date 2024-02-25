@@ -2,12 +2,13 @@
 using ClickableTransparentOverlay;
 using SolidCS2External.ImGuiRendering.Managers;
 using SolidCS2External.Interfaces;
+using SolidCS2External.Services;
 using SolidCS2External.Utils;
 using WinApi.User32;
 
 namespace SolidCS2External.ImGuiRendering;
 
-public class ApplicationRenderer(RenderablesGetter renderablesGetter) : Overlay
+public class ApplicationRenderer(RenderableResolverService renderableResolverService) : Overlay
 {
     private readonly OnceFlag _callFlag = new();
 
@@ -27,7 +28,7 @@ public class ApplicationRenderer(RenderablesGetter renderablesGetter) : Overlay
             var width = User32Methods.GetSystemMetrics(SystemMetrics.SM_CXSCREEN);
             var height = User32Methods.GetSystemMetrics(SystemMetrics.SM_CYSCREEN);
             Size = new Size(width, height);
-            var navigationWindow = renderablesGetter.GetFromInterface<IWindow>();
+            var navigationWindow = renderableResolverService.GetFromInterface<IWindow>();
             _renderableManager = new RenderableManager<IWindow>(navigationWindow);
             Console.WriteLine($"Size: {Size}");
         });
