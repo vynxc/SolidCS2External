@@ -6,17 +6,12 @@ using SolidCS2External.Utils;
 
 namespace SolidCS2External.Startup;
 
-public class Startup(ApplicationRenderer rendererRunner)
+public static class Startup
 {
-    public async Task ConfigureAsync()
-    {
-        await rendererRunner.Run();
-    }
-
     public static void ConfigureService(IServiceCollection services)
     {
         //use di for hack configuration  
-        services.AddSingleton<Startup>();
+        services.AddSingleton<CheetoService>();
         services.AddSingleton<ApplicationRenderer>();
         services.AddSingleton<RenderableResolverService>();
         services.AddSingleton<Cs2Manager>();
