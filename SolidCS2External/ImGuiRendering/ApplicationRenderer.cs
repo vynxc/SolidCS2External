@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using ClickableTransparentOverlay;
+using Serilog;
+using Serilog.Core;
 using SolidCS2External.ImGuiRendering.Managers;
 using SolidCS2External.Interfaces;
 using SolidCS2External.Services;
@@ -8,7 +10,7 @@ using WinApi.User32;
 
 namespace SolidCS2External.ImGuiRendering;
 
-public class ApplicationRenderer(RenderableResolverService renderableResolverService) : Overlay
+public class ApplicationRenderer(RenderableResolverService renderableResolverService, ILogger logger) : Overlay
 {
     private readonly OnceFlag _callFlag = new();
 
@@ -25,13 +27,16 @@ public class ApplicationRenderer(RenderableResolverService renderableResolverSer
     {
         Call.Once(_callFlag, () =>
         {
+            logger.Debug("Executing call.once render (resizing overlay)");
             var width = User32Methods.GetSystemMetrics(SystemMetrics.SM_CXSCREEN);
             var height = User32Methods.GetSystemMetrics(SystemMetrics.SM_CYSCREEN);
             Size = new Size(width, height);
             var navigationWindow = renderableResolverService.GetFromInterface<IWindow>();
             _renderableManager = new RenderableManager<IWindow>(navigationWindow);
-            Console.WriteLine($"Size: {Size}");
+            
+            logger.Information("Overlay size: {Size}", Size);
         });
+        
         _renderableManager.Render();
     }
 }
