@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Serilog;
 using SolidCS2External.Game.Entity;
 using SolidCS2External.ImGuiRendering;
 using SolidCS2External.MemoryManagement;
@@ -17,8 +18,13 @@ public class Cs2Manager
     public EntityManager EntityManager;
     public EntityPawn? LocalPlayer;
     public ApplicationRenderer Renderer;
+    // Although checking if the logger should log at a min level
+    // is a simple if statement that comes first before anything else,
+    // if there is a noticeable and unwanted slowdown then just
+    // remove the logger from the hot paths
+    private ILogger _logger;
 
-    public Cs2Manager(ApplicationRenderer renderer)
+    public Cs2Manager(ApplicationRenderer renderer, ILogger logger)
     {
         ClientDll = Memory.GetModuleAddress("client.dll");
         EntityManager = new EntityManager(this);
@@ -27,6 +33,7 @@ public class Cs2Manager
         GlobalManager = this;
         Renderer = renderer;
         EntityListFrontBuffer = EntityManager.CreateEntityListBuffer();
+        _logger = logger;
     }
 
     public static Cs2Manager GlobalManager { get; private set; } = null!;
@@ -35,6 +42,8 @@ public class Cs2Manager
     {
         _viewMatrix ??= new float[16];
         Memory.Read(ClientDll + client_dll.dwViewMatrix, _viewMatrix.AsSpan());
+        
+        _logger.Verbose("Updated view matrix");
 
         if (User32Methods.GetAsyncKeyState(VirtualKey.INSERT).IsPressed) SetViewAngles(new Vector3(0, 0, 0));
     }
@@ -43,16 +52,20 @@ public class Cs2Manager
     public void SetViewAngles(Vector3 angles)
     {
         Memory.Write(ClientDll + client_dll.dwViewAngles, angles);
+        _logger.Verbose("View angles set");
     }
 
     public Vector3 GetViewAngles()
     {
-        return Memory.Read<Vector3>(ClientDll + client_dll.dwViewAngles);
+        var viewAngles = Memory.Read<Vector3>(ClientDll + client_dll.dwViewAngles);
+        _logger.Verbose("View angles loaded");
+        
+        return viewAngles;
     }
 
     public void AimAt(Vector3 target)
     {
-        var smoothingFactor = 1;
+        const float smoothingFactor = 1;
         if (LocalPlayer is null) return;
         var origin = LocalPlayer.GameSceneNode.Origin.Value.GetValueOrDefault();
         if (origin == Vector3.Zero) return;
@@ -72,6 +85,8 @@ public class Cs2Manager
             0);
 
         SetViewAngles(currentAngles);
+        
+        _logger.Verbose("Aimed at target");
     }
 
     public Vector2? WorldToScreen(Vector3 pos)
