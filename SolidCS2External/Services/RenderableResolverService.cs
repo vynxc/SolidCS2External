@@ -2,9 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using SolidCS2External.Interfaces;
 
-namespace SolidCS2External.Utils;
+namespace SolidCS2External.Services;
 
-public class RenderablesGetter(IServiceProvider serviceProvider)
+public class RenderableResolverService(IServiceProvider serviceProvider)
 {
     public List<T> GetFromInterface<T>() where T : IRenderable
     {
