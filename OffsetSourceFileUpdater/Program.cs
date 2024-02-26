@@ -48,7 +48,9 @@ internal static class Program
         for (var i = 0; i < maxUpwardsDepth; i++)
         {
             var pathToCheck = Path.Combine(currentDirPath, slnName);
-            Logger.Debug("Checking directory for {SlnName}.sln: {DirPath}",
+            Logger.Debug("({Attempt}/{MaxAttempts}) Checking path for {SlnName}: {DirPath}",
+                i + 1,
+                maxUpwardsDepth,
                 slnName,
                 pathToCheck);
             
