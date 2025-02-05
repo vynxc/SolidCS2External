@@ -23,11 +23,11 @@ public class EntityManager
         while (true)
             try
             {
-                var localPlayer = _cs2Manager.Memory.Read<IntPtr>(_cs2Manager.ClientDll + client_dll.dwLocalPlayerPawn);
+                var localPlayer = _cs2Manager.Memory.Read<IntPtr>(_cs2Manager.ClientDll + CS2Dumper.Offsets.ClientDll.dwLocalPlayerPawn);
                 if (localPlayer is not 0) _cs2Manager.LocalPlayer = new EntityPawn(_cs2Manager.Memory, localPlayer);
 
                 var tempEntityAddress =
-                    _cs2Manager.Memory.Read<IntPtr>(_cs2Manager.ClientDll + client_dll.dwEntityList);
+                    _cs2Manager.Memory.Read<IntPtr>(_cs2Manager.ClientDll + CS2Dumper.Offsets.ClientDll.dwEntityList);
                 
                 if (tempEntityAddress is 0)
                     return;
@@ -43,7 +43,7 @@ public class EntityManager
                     var player = _cs2Manager.Memory.Read<IntPtr>(listEntry + 120 * (i & 0x1FF));
                     if (player is 0) continue;
 
-                    var playerPawn = _cs2Manager.Memory.Read<IntPtr>(player + CCSPlayerController.m_hPlayerPawn);
+                    var playerPawn = _cs2Manager.Memory.Read<IntPtr>(player + CS2Dumper.Schemas.ClientDll.CCSPlayerController.m_hPlayerPawn);
                     if (playerPawn is 0)  continue;
 
                     var listEntry2 =

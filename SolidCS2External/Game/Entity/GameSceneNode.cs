@@ -7,10 +7,10 @@ namespace SolidCS2External.Game.Entity;
 
 public class GameSceneNode(Memory memory, IntPtr location)
 {
-    public ModelState ModelState = new(memory, location + CSkeletonInstance.m_modelState);
+    public ModelState ModelState = new(memory, location + CS2Dumper.Schemas.ClientDll.CSkeletonInstance.m_modelState);
 
     public ExternalValue<Vector3> Origin = new(memory, location,
-        CGameSceneNode.m_vecAbsOrigin);
+        CS2Dumper.Schemas.ClientDll.CGameSceneNode.m_vecAbsOrigin);
     
     public Vector3 GetBonePosition(int bone)
     {

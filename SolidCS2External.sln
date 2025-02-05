@@ -1,8 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidCS2External", "SolidCS2External\SolidCS2External.csproj", "{22B1B4CB-4CC1-4B6C-A9D2-B4214ED5FC59}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffsetSourceFileUpdater", "OffsetSourceFileUpdater\OffsetSourceFileUpdater.csproj", "{57390FC3-4CE6-42C4-87DE-F09DED1555DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +15,8 @@ Global
 		{22B1B4CB-4CC1-4B6C-A9D2-B4214ED5FC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22B1B4CB-4CC1-4B6C-A9D2-B4214ED5FC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22B1B4CB-4CC1-4B6C-A9D2-B4214ED5FC59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57390FC3-4CE6-42C4-87DE-F09DED1555DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57390FC3-4CE6-42C4-87DE-F09DED1555DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57390FC3-4CE6-42C4-87DE-F09DED1555DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57390FC3-4CE6-42C4-87DE-F09DED1555DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
