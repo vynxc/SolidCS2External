@@ -41,7 +41,7 @@ public class Cs2Manager
     public void Update()
     {
         _viewMatrix ??= new float[16];
-        Memory.Read(ClientDll + client_dll.dwViewMatrix, _viewMatrix.AsSpan());
+        Memory.Read(ClientDll + CS2Dumper.Offsets.ClientDll.dwViewMatrix, _viewMatrix.AsSpan());
         
         _logger.Verbose("Updated view matrix");
 
@@ -51,13 +51,13 @@ public class Cs2Manager
     // ReSharper disable once MemberCanBePrivate.Global
     public void SetViewAngles(Vector3 angles)
     {
-        Memory.Write(ClientDll + client_dll.dwViewAngles, angles);
+        Memory.Write(ClientDll + CS2Dumper.Offsets.ClientDll.dwViewAngles, angles);
         _logger.Verbose("View angles set");
     }
 
     public Vector3 GetViewAngles()
     {
-        var viewAngles = Memory.Read<Vector3>(ClientDll + client_dll.dwViewAngles);
+        var viewAngles = Memory.Read<Vector3>(ClientDll + CS2Dumper.Offsets.ClientDll.dwViewAngles);
         _logger.Verbose("View angles loaded");
         
         return viewAngles;
